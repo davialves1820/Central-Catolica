@@ -86,6 +86,7 @@ Após desenvolvimento:
 ``` bash
 npm run format
 npm run lint
+npx prettier --write "caminho/do/arquivo"
 npm run typecheck
 npm run build
 ```

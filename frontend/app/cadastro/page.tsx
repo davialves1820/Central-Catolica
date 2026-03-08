@@ -4,51 +4,41 @@ import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/lib/api";
 import axios from "axios";
+import Link from "next/link";
 
-export default function LoginPage() {
+export default function CadastroPage() {
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [showSlowMessage, setShowSlowMessage] = useState(false);
   const router = useRouter();
 
-  const handleLogin = async (e: FormEvent) => {
+  const handleCadastro = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setShowSlowMessage(false);
-
-    const timer = setTimeout(() => {
-      setShowSlowMessage(true);
-    }, 3000);
+    setSuccess(false);
 
     try {
-      const response = await api.post("/auth/login", { email, password });
-      clearTimeout(timer);
-
-      // Check if user has permission to access the system
-      if (response.data.user?.role === "FIEL") {
-        setError(
-          "Acesso negado: seu usuário não tem permissão para acessar o painel.",
-        );
-        setLoading(false);
-        setShowSlowMessage(false);
-        return;
-      }
-
-      localStorage.setItem("token", response.data.token.token);
-      router.push("/catequese");
+      await api.post("/auth/register", { fullName, email, password });
+      setSuccess(true);
+      setTimeout(() => {
+        router.push("/login");
+      }, 3000); // Redirect to login after 3 seconds
     } catch (err: unknown) {
-      clearTimeout(timer);
       if (axios.isAxiosError(err)) {
-        setError(err.response?.data?.message ?? "Erro ao fazer login.");
+        setError(
+          err.response?.data?.message ??
+            err.response?.data?.errors?.[0]?.message ??
+            "Erro ao criar conta.",
+        );
       } else {
         setError("Erro inesperado.");
       }
     } finally {
       setLoading(false);
-      setShowSlowMessage(false);
     }
   };
 
@@ -57,19 +47,42 @@ export default function LoginPage() {
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white dark:bg-zinc-900 p-8 shadow-xl border border-zinc-200 dark:border-zinc-800">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
-            Paróquia Manager
+            Criar Conta
           </h2>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-            Acesso Restrito - Catequese
+            Paróquia Manager
           </p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
+        <form className="mt-8 space-y-6" onSubmit={handleCadastro}>
           {error && (
             <div className="rounded-lg bg-red-50 dark:bg-red-900/20 p-4 text-sm text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/30">
               {error}
             </div>
           )}
+          {success && (
+            <div className="rounded-lg bg-green-50 dark:bg-green-900/20 p-4 text-sm text-green-600 dark:text-green-400 border border-green-100 dark:border-green-900/30">
+              Conta criada com sucesso! Redirecionando para o login...
+            </div>
+          )}
           <div className="space-y-4 rounded-md shadow-sm">
+            <div>
+              <label
+                htmlFor="full-name"
+                className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1"
+              >
+                Nome Completo
+              </label>
+              <input
+                id="full-name"
+                name="fullName"
+                type="text"
+                required
+                className="relative block w-full rounded-lg border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-zinc-900 dark:text-white placeholder-zinc-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-zinc-800 sm:text-sm"
+                placeholder="Seu nome completo"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>
             <div>
               <label
                 htmlFor="email-address"
@@ -100,6 +113,7 @@ export default function LoginPage() {
                 name="password"
                 type="password"
                 required
+                minLength={6}
                 className="relative block w-full rounded-lg border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-zinc-900 dark:text-white placeholder-zinc-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-zinc-800 sm:text-sm"
                 placeholder="••••••••"
                 value={password}
@@ -111,29 +125,22 @@ export default function LoginPage() {
           <div>
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || success}
               className="group relative flex w-full justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/20"
             >
-              {loading ? "Entrando..." : "Entrar"}
+              {loading ? "Criando conta..." : "Criar Conta"}
             </button>
           </div>
 
-          {showSlowMessage && (
-            <div className="text-center animate-pulse">
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                Preparando o ambiente... O login será efetuado em breve.
-              </p>
-            </div>
-          )}
+          <div className="text-center mt-4">
+            <Link
+              href="/login"
+              className="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+            >
+              Já tem uma conta? Entrar
+            </Link>
+          </div>
         </form>
-        <div className="text-center mt-4">
-          <a
-            href="/cadastro"
-            className="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-          >
-            Não tem uma conta? Cadastre-se
-          </a>
-        </div>
       </div>
     </div>
   );
