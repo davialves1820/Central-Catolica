@@ -27,33 +27,53 @@ jobs:
       - run: npm run build
 
   backend:
-    name: Backend
-    runs-on: ubuntu-latest
+  name: Backend
+  runs-on: ubuntu-latest
 
-    env:
-      NODE_ENV: test
-      PORT: 3333
-      APP_KEY: 12345678901234567890123456789012
-      HOST: 0.0.0.0
-      LOG_LEVEL: info
-      DATABASE_URL: sqlite://./tmp/test.db
+  services:
+    postgres:
+      image: postgres:15
+      env:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: test_db
+      ports:
+        - 5432:5432
+      options: >-
+        --health-cmd="pg_isready -U postgres"
+        --health-interval=10s
+        --health-timeout=5s
+        --health-retries=5
 
-    defaults:
-      run:
-        working-directory: backend
+  env:
+    NODE_ENV: test
+    PORT: 3333
+    APP_KEY: 12345678901234567890123456789012
+    HOST: 0.0.0.0
+    LOG_LEVEL: info
+    DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
 
-    steps:
-      - uses: actions/checkout@v4
+  defaults:
+    run:
+      working-directory: backend
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.19.0"
-          cache: "npm"
-          cache-dependency-path: backend/package-lock.json
+  steps:
+    - uses: actions/checkout@v4
 
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm run build
-      - run: node ace migration:run
-      - run: npm run test
+    - uses: actions/setup-node@v4
+      with:
+        node-version: "20.19.0"
+        cache: "npm"
+        cache-dependency-path: backend/package-lock.json
+
+    - run: npm ci
+
+    - run: npm run lint
+    - run: npm run typecheck
+    - run: npm run build
+
+    - name: Run migrations
+      run: node ace migration:run
+
+    - name: Run tests
+      run: npm run test
