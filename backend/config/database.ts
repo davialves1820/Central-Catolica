@@ -10,10 +10,7 @@ const dbConfig = defineConfig({
 
       connection: {
         connectionString: env.get('DATABASE_URL'),
-
-        ssl: {
-          rejectUnauthorized: false,
-        },
+        ssl: env.get('NODE_ENV') === 'production' ? { rejectUnauthorized: false } : false,
       },
 
       migrations: {
