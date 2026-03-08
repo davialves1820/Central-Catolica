@@ -5,46 +5,45 @@ on:
     branches: [develop, main]
 
 jobs:
-  quality:
+  frontend:
+    name: Frontend
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20.19.0'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
 
-      # FRONTEND
-      - name: Install Frontend
-        run: |
-          cd frontend
-          npm ci
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
 
-      - name: Frontend Lint
-        run: |
-          cd frontend
-          npm run lint
+  backend:
+    name: Backend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
 
-      - name: Frontend Build
-        run: |
-          cd frontend
-          npm run build
+    steps:
+      - uses: actions/checkout@v4
 
-      # BACKEND
-      - name: Install Backend
-        run: |
-          cd backend
-          npm ci
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
 
-      - name: Backend Lint
-        run: |
-          cd backend
-          npm run lint
-
-      - name: Backend Build
-        run: |
-          cd backend
-          npm run build
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run test
