@@ -42,7 +42,7 @@ export default class Member extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  // 🔁 RELACIONAMENTOS
+  // RELACIONAMENTOS
 
   @hasMany(() => Donation)
   declare donations: HasMany<typeof Donation>

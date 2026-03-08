@@ -28,7 +28,7 @@ export default class Donation extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  // 🔁 RELACIONAMENTO
+  // RELACIONAMENTO
 
   @belongsTo(() => Member)
   declare member: BelongsTo<typeof Member>

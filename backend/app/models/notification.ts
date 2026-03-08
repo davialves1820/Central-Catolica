@@ -23,7 +23,7 @@ export default class Notification extends BaseModel {
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
-  // 🔁 RELACIONAMENTO
+  // RELACIONAMENTO
 
   @belongsTo(() => User)
   declare user: BelongsTo<typeof User>

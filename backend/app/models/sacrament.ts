@@ -32,7 +32,7 @@ export default class Sacrament extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  // 🔁 RELACIONAMENTOS
+  // RELACIONAMENTOS
 
   @belongsTo(() => Member)
   declare member: BelongsTo<typeof Member>

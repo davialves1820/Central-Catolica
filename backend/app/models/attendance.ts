@@ -32,7 +32,7 @@ export default class Attendance extends BaseModel {
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
-  // 🔁 RELACIONAMENTOS
+  // RELACIONAMENTOS
 
   @belongsTo(() => CatechismClass, {
     foreignKey: 'classId',

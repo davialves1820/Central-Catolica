@@ -29,7 +29,7 @@ export default class CatechismStudent extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  // 🔁 RELACIONAMENTOS
+  // RELACIONAMENTOS
 
   @belongsTo(() => CatechismClass, {
     foreignKey: 'classId',
