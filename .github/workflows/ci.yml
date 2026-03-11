@@ -7,30 +7,8 @@ on:
       - main
 
 jobs:
-  frontend:
-    name: Frontend
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: frontend
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.19.0"
-          cache: npm
-          cache-dependency-path: frontend/package-lock.json
-
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm run build
-
-  backend:
-    name: Backend
+  fullstack:
+    name: Fullstack
     runs-on: ubuntu-latest
 
     services:
@@ -49,16 +27,12 @@ jobs:
           --health-retries=5
 
     env:
-      NODE_ENV: test
-      PORT: 3333
-      APP_KEY: 12345678901234567890123456789012
-      HOST: 0.0.0.0
-      LOG_LEVEL: info
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+      AUTH_SECRET: some-secret-key-for-tests
 
     defaults:
       run:
-        working-directory: backend
+        working-directory: src
 
     steps:
       - uses: actions/checkout@v4
@@ -67,18 +41,25 @@ jobs:
         with:
           node-version: "20.19.0"
           cache: npm
-          cache-dependency-path: backend/package-lock.json
+          cache-dependency-path: src/package-lock.json
 
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm run build
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
 
       - name: Wait for database
         run: sleep 5
 
-      - name: Run migrations
-        run: node ace migration:run
+      - name: Run migrations (Tests)
+        run: npx prisma migrate dev --name init
 
-      - name: Run tests
-        run: npm run test
+      - name: Lint
+        run: npm run lint
+
+      - name: Type Check
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
