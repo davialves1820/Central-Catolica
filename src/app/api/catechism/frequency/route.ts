@@ -25,11 +25,11 @@ export async function GET(request: NextRequest) {
     })
 
     const total = attendances.length
-    const present = attendances.filter((a: typeof attendances[0]) => a.present === true).length
-    const frequency = total > 0 ? (present / total) * 100 : 0
+    const presentCount = attendances.filter(a => a.present === true).length
+    const frequency = total > 0 ? (presentCount / total) * 100 : 0
 
     return NextResponse.json({ frequency })
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

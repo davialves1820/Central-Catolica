@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ occurred })
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -96,7 +96,7 @@ export async function GET(request: NextRequest) {
       occurred: !!existing,
       meetingId: existing?.id || null,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

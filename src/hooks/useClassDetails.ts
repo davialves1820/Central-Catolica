@@ -70,7 +70,7 @@ export const useClassDetails = (id: string) => {
       const meetingOnSelected = allDates.find(d => d.date === normalizedSelectedDate)
       setHasMeeting(!!meetingOnSelected)
 
-    } catch (err) {
+    } catch {
     } finally {
       if (!silent) setLoading(false)
     }
@@ -79,7 +79,7 @@ export const useClassDetails = (id: string) => {
   useEffect(() => {
     fetchData(!!classData)
     setCurrentPage(1)
-  }, [fetchData])
+  }, [fetchData, classData])
 
   const handleToggleMeeting = async () => {
     const newValue = !hasMeeting

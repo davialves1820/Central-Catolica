@@ -71,7 +71,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<MetricsRes
     }
 
     return NextResponse.json(response)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

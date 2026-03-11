@@ -18,7 +18,7 @@ export async function GET() {
     })
 
     return NextResponse.json(classes)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     })
 
     return NextResponse.json(newClass, { status: 201 })
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -73,7 +73,7 @@ export async function PUT(request: NextRequest) {
     })
 
     return NextResponse.json(updatedClass)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

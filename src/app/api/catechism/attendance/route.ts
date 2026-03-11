@@ -45,7 +45,7 @@ export async function PUT(request: NextRequest) {
     });
 
     return NextResponse.json(attendance, { status: 200 });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

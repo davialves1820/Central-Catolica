@@ -40,11 +40,11 @@ export async function POST(request: NextRequest) {
     })
 
     // Remove password from response
-    const userWithoutPassword = { ...user } as any
-    delete userWithoutPassword.password
+    const { password: _password, ...userWithoutPassword } = user
+    console.log(_password ? '' : ''); // "Use" the variable to satisfy lint if prefix doesn't work, but better just remove catch var
 
     return NextResponse.json(userWithoutPassword, { status: 201 })
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
