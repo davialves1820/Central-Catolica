@@ -21,7 +21,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(meetings)
   } catch (err) {
-    console.error(err)
     return NextResponse.json({ data: [] }, { status: 500 })
   }
 }

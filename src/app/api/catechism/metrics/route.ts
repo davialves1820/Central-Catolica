@@ -72,7 +72,6 @@ export async function GET(request: NextRequest): Promise<NextResponse<MetricsRes
 
     return NextResponse.json(response)
   } catch (error) {
-    console.error("Error fetching metrics:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

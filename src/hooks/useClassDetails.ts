@@ -71,7 +71,6 @@ export const useClassDetails = (id: string) => {
       setHasMeeting(!!meetingOnSelected)
 
     } catch (err) {
-      console.error('Error fetching class details', err)
     } finally {
       if (!silent) setLoading(false)
     }
@@ -80,7 +79,7 @@ export const useClassDetails = (id: string) => {
   useEffect(() => {
     fetchData(!!classData)
     setCurrentPage(1)
-  }, [fetchData, classData])
+  }, [fetchData])
 
   const handleToggleMeeting = async () => {
     const newValue = !hasMeeting
