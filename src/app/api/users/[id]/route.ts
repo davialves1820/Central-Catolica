@@ -4,9 +4,9 @@ import { auth } from "@/lib/auth"
 import bcrypt from "bcryptjs"
 
 interface Params {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export async function GET(request: NextRequest, { params }: Params) {
@@ -16,8 +16,9 @@ export async function GET(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
+    const { id } = await params
     const user = await prisma.users.findUnique({
-      where: { id: parseInt(params.id) },
+      where: { id: parseInt(id) },
     })
 
     if (!user) {
@@ -41,8 +42,9 @@ export async function PUT(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
+    const { id } = await params
     // Simple authorization check - in real app, use proper RBAC
-    if (session.user.id !== params.id && !['ADMIN', 'PADRE'].includes(session.user.role)) {
+    if (session.user.id !== id && !['ADMIN', 'PADRE'].includes(session.user.role)) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 })
     }
 
@@ -64,7 +66,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
     }
 
     const updatedUser = await prisma.users.update({
-      where: { id: parseInt(params.id) },
+      where: { id: parseInt(id) },
       data: updateData,
     })
 
@@ -84,8 +86,9 @@ export async function DELETE(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 })
     }
 
+    const { id } = await params
     await prisma.users.delete({
-      where: { id: parseInt(params.id) },
+      where: { id: parseInt(id) },
     })
 
     return NextResponse.json({ message: "User deleted" })
