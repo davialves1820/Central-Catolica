@@ -1,63 +1,36 @@
-import { useState, useCallback, useEffect, useMemo } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import api from '@/lib/api';
-import { CatechismClass, Student, StudentMissingSacraments, CatechismMetrics } from '@/types';
+import { Student } from '@/types';
+import { useCatequeseData } from './dashboard/useCatequeseData';
+import { useCatequeseModals } from './dashboard/useCatequeseModals';
+import { usePagination } from './utils/usePagination';
 
 export const useCatequeseDashboard = () => {
     const { data: session } = useSession();
-    const [classes, setClasses] = useState<CatechismClass[]>([]);
-    const [metrics, setMetrics] = useState<CatechismMetrics | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [selectedYear, setSelectedYear] = useState<string>('all');
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 10;
+    
+    // Data Hook
+    const {
+        classes,
+        metrics,
+        loading,
+        selectedYear,
+        setSelectedYear,
+        fetchData,
+        uniqueYears,
+        filteredClasses
+    } = useCatequeseData();
 
-    // Modal States
-    const [showModal, setShowModal] = useState(false);
-    const [showPendingModal, setShowPendingModal] = useState(false);
-    const [editingClass, setEditingClass] = useState<CatechismClass | null>(null);
-    const [editingStudent, setEditingStudent] = useState<Student | null>(null);
+    // Modals Hook
+    const modals = useCatequeseModals();
 
-    // Form States
-    const [newClassName, setNewClassName] = useState('');
-    const [newClassYear, setNewClassYear] = useState(new Date().getFullYear());
-    const [editClassName, setEditClassName] = useState('');
-    const [editClassYear, setEditClassYear] = useState(new Date().getFullYear());
-
-    // Data States
-    const [pendingStudents, setPendingStudents] = useState<StudentMissingSacraments[]>([]);
-    const [loadingPending, setLoadingPending] = useState(false);
-
-    const fetchData = useCallback(async (silent = false) => {
-        if (!silent) {
-            setLoading(true);
-        }
-
-        try {
-            const metricsParams = selectedYear !== 'all' ? { params: { year: parseInt(selectedYear) } } : {};
-            const [classesRes, metricsRes] = await Promise.all([
-                api.get('/catechism'),
-                api.get('/catechism/metrics', metricsParams)
-            ]);
-            setClasses(classesRes.data || []);
-            setMetrics(metricsRes.data);
-            setCurrentPage(1);
-        } catch {
-        } finally {
-            if (!silent) {
-                setLoading(false);
-            }
-        }
-    }, [selectedYear]);
-
-    useEffect(() => {
-        fetchData();
-    }, [fetchData]);
+    // Pagination Hook
+    const pagination = usePagination(filteredClasses, 10);
 
     const handleLogout = async () => {
         try {
             await signOut({ redirect: true, callbackUrl: '/login' });
-        } catch {
+        } catch (error) {
+            console.error('Logout error:', error);
         }
     };
 
@@ -68,7 +41,7 @@ export const useCatequeseDashboard = () => {
                 year,
                 catechistId: session?.user?.id ? parseInt(session.user.id) : 1
             });
-            setShowModal(false);
+            modals.setShowModal(false);
             fetchData(true);
         } catch {
             alert('Erro ao criar turma');
@@ -80,9 +53,9 @@ export const useCatequeseDashboard = () => {
             await api.put(`/catechism/classes/${id}`, {
                 name,
                 year,
-                catechistId: editingClass?.catechistId || (session?.user?.id ? parseInt(session.user.id) : 1)
+                catechistId: modals.editingClass?.catechistId || (session?.user?.id ? parseInt(session.user.id) : 1)
             });
-            setEditingClass(null);
+            modals.setEditingClass(null);
             fetchData(true);
         } catch {
             alert('Erro ao atualizar turma');
@@ -97,9 +70,9 @@ export const useCatequeseDashboard = () => {
                 hasFirstEucharist: student.has_first_eucharist,
                 status: student.status,
             });
-            setEditingStudent(null);
-            if (showPendingModal) {
-                fetchPendingSacraments();
+            modals.setEditingStudent(null);
+            if (modals.showPendingModal) {
+                modals.fetchPendingSacraments();
             }
             fetchData(true);
         } catch {
@@ -107,77 +80,30 @@ export const useCatequeseDashboard = () => {
         }
     };
 
-    const fetchPendingSacraments = async () => {
-        setLoadingPending(true);
-        try {
-            const response = await api.get('/catechism/missing-sacraments');
-            setPendingStudents(response.data);
-            setShowPendingModal(true);
-        } catch {
-            alert('Erro ao buscar pendências');
-        } finally {
-            setLoadingPending(false);
-        }
-    };
-
-    // Update edit form when editingClass changes
-    useEffect(() => {
-        if (editingClass) {
-            setEditClassName(editingClass.name);
-            setEditClassYear(editingClass.year);
-        }
-    }, [editingClass]);
-
-    const uniqueYears = useMemo(() =>
-        Array.from(new Set(classes.map(c => c.year))).sort((a, b) => b - a),
-        [classes]);
-
-    const filteredClasses = useMemo(() =>
-        selectedYear === 'all'
-            ? classes
-            : classes.filter(c => c.year === parseInt(selectedYear)),
-        [classes, selectedYear]);
-
-    const totalPages = Math.ceil(filteredClasses.length / itemsPerPage);
-    const paginatedClasses = useMemo(() =>
-        filteredClasses.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage),
-        [filteredClasses, currentPage, itemsPerPage]);
-
     return {
+        // Data
         classes,
         metrics,
         loading,
         selectedYear,
         setSelectedYear,
-        currentPage,
-        setCurrentPage,
-        itemsPerPage,
-        showModal,
-        setShowModal,
-        showPendingModal,
-        setShowPendingModal,
-        editingClass,
-        setEditingClass,
-        editingStudent,
-        setEditingStudent,
-        newClassName,
-        setNewClassName,
-        newClassYear,
-        setNewClassYear,
-        editClassName,
-        setEditClassName,
-        editClassYear,
-        setEditClassYear,
-        pendingStudents,
-        loadingPending,
         uniqueYears,
-        paginatedClasses,
-        totalPages,
+        
+        // Pagination
+        currentPage: pagination.currentPage,
+        setCurrentPage: pagination.setCurrentPage,
+        itemsPerPage: pagination.itemsPerPage,
+        paginatedClasses: pagination.paginatedData,
+        totalPages: pagination.totalPages,
+
+        // Modals & Forms
+        ...modals,
+
+        // Actions
         handleLogout,
         handleCreateClass,
         handleUpdateClass,
         handleUpdateStudent,
-        fetchPendingSacraments,
         fetchData
     };
 };
