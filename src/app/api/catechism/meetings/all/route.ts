@@ -3,12 +3,6 @@ import { NextRequest, NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
 import { auth } from "@/lib/auth"
 
-function normalizeDate(date: string) {
-  const d = new Date(date)
-  if (isNaN(d.getTime())) return null
-  d.setHours(0, 0, 0, 0)
-  return d
-}
 
 export async function GET(request: NextRequest) {
   try {

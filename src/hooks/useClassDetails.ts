@@ -1,7 +1,7 @@
 // hooks/useClassDetails.ts
 import { useState, useCallback, useEffect, useMemo } from 'react'
 import api from '@/lib/api'
-import { ClassDetails, Student, CatechismClass, Attendance } from '@/types'
+import { ClassDetails, Student, CatechismClass } from '@/types'
 
 export const useClassDetails = (id: string) => {
   const [classData, setClassData] = useState<ClassDetails | null>(null)
@@ -32,7 +32,13 @@ export const useClassDetails = (id: string) => {
       const mappedClassData: ClassDetails = {
         ...classRes.data,
         students: [...(classRes.data.catechism_students || [])].sort((a, b) => a.name.localeCompare(b.name)),
-        attendances: classRes.data.attendances?.map((a: any) => ({
+        attendances: classRes.data.attendances?.map((a: {
+          id: number;
+          catechism_student_id: number;
+          date: string;
+          present: boolean;
+          catechism_meeting_id: number | null;
+        }) => ({
           id: a.id,
           studentId: a.catechism_student_id,
           date: a.date.slice(0, 10),
@@ -74,7 +80,7 @@ export const useClassDetails = (id: string) => {
   useEffect(() => {
     fetchData(!!classData)
     setCurrentPage(1)
-  }, [fetchData])
+  }, [fetchData, classData])
 
   const handleToggleMeeting = async () => {
     const newValue = !hasMeeting
@@ -101,7 +107,7 @@ export const useClassDetails = (id: string) => {
 
         const normalizedSelectedDate = normalizeDate(selectedDate)
         const existingIndex = prev.attendances.findIndex(a => a.studentId === studentId && a.date === normalizedSelectedDate)
-        let newAttendances = [...prev.attendances]
+        const newAttendances = [...prev.attendances]
 
         if (existingIndex >= 0) {
           newAttendances[existingIndex].isPresent = isPresent

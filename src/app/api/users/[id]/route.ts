@@ -25,7 +25,7 @@ export async function GET(request: NextRequest, { params }: Params) {
     }
 
     // Remove password
-    const { password, ...userWithoutPassword } = user
+    const { password: _password, ...userWithoutPassword } = user
 
     return NextResponse.json(userWithoutPassword)
   } catch (error) {
@@ -49,7 +49,13 @@ export async function PUT(request: NextRequest, { params }: Params) {
     const data = await request.json()
     const { fullName, email, role, password } = data
 
-    const updateData: any = { full_name: fullName, email, updated_at: new Date() }
+    const updateData: {
+      full_name: string
+      email: string
+      updated_at: Date
+      role?: string
+      password?: string
+    } = { full_name: fullName, email, updated_at: new Date() }
     if (role && ['ADMIN', 'PADRE', 'SECRETARIA', 'COORDENADOR', 'FIEL'].includes(role)) {
       updateData.role = role
     }
@@ -62,7 +68,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
       data: updateData,
     })
 
-    const { password: _, ...userWithoutPassword } = updatedUser
+    const { password: _password, ...userWithoutPassword } = updatedUser
 
     return NextResponse.json(userWithoutPassword)
   } catch (error) {

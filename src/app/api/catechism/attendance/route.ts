@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
-import { DateTime } from "luxon";
 
 export async function PUT(request: NextRequest) {
   try {

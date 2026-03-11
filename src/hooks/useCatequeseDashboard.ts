@@ -11,7 +11,6 @@ export const useCatequeseDashboard = () => {
     const [selectedYear, setSelectedYear] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
-    const router = useRouter();
 
     // Modal States
     const [showModal, setShowModal] = useState(false);
