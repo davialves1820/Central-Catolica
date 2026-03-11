@@ -45,7 +45,7 @@ async function verifyPassword(password: string, hash: string): Promise<boolean> 
       )) as Buffer
 
       return crypto.timingSafeEqual(storedHash, derivedKey)
-    } catch (err) {
+    } catch {
       return false
     }
   }

@@ -30,7 +30,7 @@ export async function GET(request: NextRequest, context: { params: Promise<{ id:
     })
 
     return NextResponse.json({ ...classDetails, catechism_students: studentsWithFrequency })
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -52,7 +52,7 @@ export async function PUT(request: NextRequest, context: { params: Promise<{ id:
     })
 
     return NextResponse.json(updatedClass)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

@@ -42,7 +42,7 @@ export const useCatequeseDashboard = () => {
             setClasses(classesRes.data || []);
             setMetrics(metricsRes.data);
             setCurrentPage(1);
-        } catch (err) {
+        } catch {
         } finally {
             if (!silent) {
                 setLoading(false);
@@ -57,7 +57,7 @@ export const useCatequeseDashboard = () => {
     const handleLogout = async () => {
         try {
             await signOut({ redirect: true, callbackUrl: '/login' });
-        } catch (err) {
+        } catch {
         }
     };
 

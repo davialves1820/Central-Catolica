@@ -18,7 +18,7 @@ export async function GET() {
       name: session.user.name,
       role: session.user.role,
     })
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

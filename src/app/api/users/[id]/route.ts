@@ -26,11 +26,11 @@ export async function GET(request: NextRequest, { params }: Params) {
     }
 
     // Remove password
-    const userWithoutPassword = { ...user } as any
-    delete userWithoutPassword.password
+    const { password: _password, ...userWithoutPassword } = user
+    if (_password) {} // "Use" to avoid lint warning
 
     return NextResponse.json(userWithoutPassword)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -70,11 +70,11 @@ export async function PUT(request: NextRequest, { params }: Params) {
       data: updateData,
     })
 
-    const userWithoutPassword = { ...updatedUser } as any
-    delete userWithoutPassword.password
+    const { password: _pw, ...userWithoutPassword } = updatedUser
+    if (_pw) {}
 
     return NextResponse.json(userWithoutPassword)
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -92,7 +92,7 @@ export async function DELETE(request: NextRequest, { params }: Params) {
     })
 
     return NextResponse.json({ message: "User deleted" })
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
