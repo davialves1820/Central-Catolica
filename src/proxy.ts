@@ -11,19 +11,19 @@ export default auth((req) => {
                          pathname.startsWith("/catequese")
 
   if (isProtectedRoute && !isLoggedIn) {
-    return Response.redirect(new URL("/auth/signin", nextUrl))
+    return Response.redirect(new URL("/login", nextUrl))
   }
 
   if (pathname.startsWith("/admin") && role !== "ADMIN") {
-    return Response.redirect(new URL("/auth/signin", nextUrl))
+    return Response.redirect(new URL("/login", nextUrl))
   }
 
   if (pathname.startsWith("/padre") && !["ADMIN", "PADRE"].includes(role || "")) {
-    return Response.redirect(new URL("/auth/signin", nextUrl))
+    return Response.redirect(new URL("/login", nextUrl))
   }
 
   if (pathname.startsWith("/catequese") && !["ADMIN", "CATEQUISTA"].includes(role || "")) {
-    return Response.redirect(new URL("/auth/signin", nextUrl))
+    return Response.redirect(new URL("/login", nextUrl))
   }
 })
 
