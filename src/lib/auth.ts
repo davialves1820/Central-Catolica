@@ -19,13 +19,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null
         }
 
+        console.log(`[AUTH] Tentativa de login para: ${credentials.email}`)
+
         const user = await prisma.users.findUnique({
           where: { email: credentials.email as string }
         })
 
         if (!user) {
+          console.warn(`[AUTH] Usuário não encontrado: ${credentials.email}`)
           return null
         }
+
+        console.log(`[AUTH] Usuário encontrado. Comparando senha...`)
 
         const valid = await bcrypt.compare(
           credentials.password as string,
@@ -33,8 +38,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         )
 
         if (!valid) {
+          console.warn(`[AUTH] Senha inválida para: ${credentials.email}`)
+          // Se soubermos o prefixo do hash, podemos logar para entender o tipo (SÓ PARA DEBUG)
+          console.log(`[DEBUG] Hash no banco: ${user.password.substring(0, 10)}...`)
           return null
         }
+
+        console.log(`[AUTH] Login bem sucedido: ${credentials.email}`)
 
         return {
           id: String(user.id),

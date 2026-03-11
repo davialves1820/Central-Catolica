@@ -6,27 +6,18 @@ export default auth((req) => {
   const role = req.auth?.user?.role
   const { pathname } = nextUrl
 
-  const isProtectedRoute = pathname.startsWith("/admin") || 
-                         pathname.startsWith("/padre") || 
-                         pathname.startsWith("/catequese")
+  const isProtectedRoute = pathname.startsWith("/catequese")
 
   if (isProtectedRoute && !isLoggedIn) {
     return Response.redirect(new URL("/login", nextUrl))
   }
 
-  if (pathname.startsWith("/admin") && role !== "ADMIN") {
-    return Response.redirect(new URL("/login", nextUrl))
-  }
-
-  if (pathname.startsWith("/padre") && !["ADMIN", "PADRE"].includes(role || "")) {
-    return Response.redirect(new URL("/login", nextUrl))
-  }
-
+  // Se estiver logado mas não for CATEQUISTA ou ADMIN, redireciona para home
   if (pathname.startsWith("/catequese") && !["ADMIN", "CATEQUISTA"].includes(role || "")) {
-    return Response.redirect(new URL("/login", nextUrl))
+    return Response.redirect(new URL("/", nextUrl))
   }
 })
 
 export const config = {
-  matcher: ["/admin/:path*", "/padre/:path*", "/catequese/:path*"],
+  matcher: ["/catequese/:path*"],
 }
