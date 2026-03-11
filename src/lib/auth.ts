@@ -46,7 +46,6 @@ async function verifyPassword(password: string, hash: string): Promise<boolean> 
 
       return crypto.timingSafeEqual(storedHash, derivedKey)
     } catch (err) {
-      console.error("[AUTH] Erro ao validar hash scrypt:", err)
       return false
     }
   }
@@ -69,18 +68,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null
         }
 
-        console.log(`[AUTH] Tentativa de login para: ${credentials.email}`)
 
         const user = await prisma.users.findUnique({
           where: { email: credentials.email as string }
         })
 
         if (!user) {
-          console.warn(`[AUTH] Usuário não encontrado: ${credentials.email}`)
           return null
         }
 
-        console.log(`[AUTH] Usuário encontrado. Comparando senha...`)
 
         const valid = await verifyPassword(
           credentials.password as string,
@@ -88,11 +84,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         )
 
         if (!valid) {
-          console.warn(`[AUTH] Senha inválida para: ${credentials.email}`)
           return null
         }
 
-        console.log(`[AUTH] Login bem sucedido: ${credentials.email}`)
 
         return {
           id: String(user.id),

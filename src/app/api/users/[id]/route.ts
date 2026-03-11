@@ -31,7 +31,6 @@ export async function GET(request: NextRequest, { params }: Params) {
 
     return NextResponse.json(userWithoutPassword)
   } catch (error) {
-    console.error("Error fetching user:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -76,7 +75,6 @@ export async function PUT(request: NextRequest, { params }: Params) {
 
     return NextResponse.json(userWithoutPassword)
   } catch (error) {
-    console.error("Error updating user:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -95,7 +93,6 @@ export async function DELETE(request: NextRequest, { params }: Params) {
 
     return NextResponse.json({ message: "User deleted" })
   } catch (error) {
-    console.error("Error deleting user:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

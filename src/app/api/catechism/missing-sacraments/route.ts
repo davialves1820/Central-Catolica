@@ -25,7 +25,6 @@ export async function GET() {
 
     return NextResponse.json(students)
   } catch (error) {
-    console.error("Error fetching missing sacraments:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

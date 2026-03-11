@@ -55,8 +55,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ occurred })
   } catch (error) {
-    console.error("Error toggling meeting:", error)
-
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -99,8 +97,6 @@ export async function GET(request: NextRequest) {
       meetingId: existing?.id || null,
     });
   } catch (error) {
-    console.error("Error getting meeting status:", error)
-
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

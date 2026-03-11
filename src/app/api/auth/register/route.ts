@@ -45,7 +45,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(userWithoutPassword, { status: 201 })
   } catch (error) {
-    console.error("Error registering user:", error)
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

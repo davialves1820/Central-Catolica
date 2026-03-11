@@ -19,7 +19,6 @@ export async function GET() {
       role: session.user.role,
     })
   } catch (error) {
-    console.error("Error fetching current user:", error)
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

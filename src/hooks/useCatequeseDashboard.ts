@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import api from '@/lib/api';
 import { CatechismClass, Student, StudentMissingSacraments, CatechismMetrics } from '@/types';
 
 export const useCatequeseDashboard = () => {
+    const { data: session } = useSession();
     const [classes, setClasses] = useState<CatechismClass[]>([]);
     const [metrics, setMetrics] = useState<CatechismMetrics | null>(null);
     const [loading, setLoading] = useState(true);
@@ -42,7 +43,6 @@ export const useCatequeseDashboard = () => {
             setMetrics(metricsRes.data);
             setCurrentPage(1);
         } catch (err) {
-            console.error('Error fetching data', err);
         } finally {
             if (!silent) {
                 setLoading(false);
@@ -56,9 +56,8 @@ export const useCatequeseDashboard = () => {
 
     const handleLogout = async () => {
         try {
-            await signOut({ redirect: true, callbackUrl: '/auth/signin' });
+            await signOut({ redirect: true, callbackUrl: '/login' });
         } catch (err) {
-            console.error('Erro ao fazer logout:', err);
         }
     };
 
@@ -67,7 +66,7 @@ export const useCatequeseDashboard = () => {
             await api.post('/catechism', {
                 name,
                 year,
-                catechistId: 1
+                catechistId: session?.user?.id ? parseInt(session.user.id) : 1
             });
             setShowModal(false);
             fetchData(true);
@@ -81,7 +80,7 @@ export const useCatequeseDashboard = () => {
             await api.put(`/catechism/classes/${id}`, {
                 name,
                 year,
-                catechistId: editingClass?.catechistId || 1
+                catechistId: editingClass?.catechistId || (session?.user?.id ? parseInt(session.user.id) : 1)
             });
             setEditingClass(null);
             fetchData(true);
