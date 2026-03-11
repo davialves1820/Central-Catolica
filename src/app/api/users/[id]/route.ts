@@ -26,7 +26,8 @@ export async function GET(request: NextRequest, { params }: Params) {
     }
 
     // Remove password
-    const { password: _password, ...userWithoutPassword } = user
+    const userWithoutPassword = { ...user } as any
+    delete userWithoutPassword.password
 
     return NextResponse.json(userWithoutPassword)
   } catch (error) {
@@ -70,7 +71,8 @@ export async function PUT(request: NextRequest, { params }: Params) {
       data: updateData,
     })
 
-    const { password: _password, ...userWithoutPassword } = updatedUser
+    const userWithoutPassword = { ...updatedUser } as any
+    delete userWithoutPassword.password
 
     return NextResponse.json(userWithoutPassword)
   } catch (error) {

@@ -1,5 +1,4 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import api from '@/lib/api';
 import { CatechismClass, Student, StudentMissingSacraments, CatechismMetrics } from '@/types';
