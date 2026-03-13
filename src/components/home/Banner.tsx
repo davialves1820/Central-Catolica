@@ -8,7 +8,7 @@ export const Banner = () => {
     return (
         <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
             <div
-                className="absolute inset-0"
+                className="relative inset-0"
             >
                 <Image
                     src="/images/church.jpg"

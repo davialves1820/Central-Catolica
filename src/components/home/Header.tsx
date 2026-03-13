@@ -22,7 +22,7 @@ const Header = () => {
 
     return (
         <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-            <div className="container mx-auto flex items-center justify-between py-3 px-4">
+            <div className="relative container mx-auto flex items-center justify-between py-3 px-4">
                 <Link href="/" className="flex items-center gap-3">
                     <Image src="/images/menino-jesus-logo.png" alt="Menino Jesus de Praga" className="h-14 w-14 object-contain" width={56} height={56} priority />
                     <div>
