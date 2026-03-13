@@ -1,3 +1,5 @@
+'use client';
+
 interface DatePickerProps {
     selectedDate: string;
     onDateChange: (date: string) => void;

@@ -16,8 +16,8 @@ export const EditStudentModal = ({ student, onClose, onSubmit, setStudent, loadi
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-            <div className="bg-white dark:bg-zinc-900 rounded-2xl w-full max-w-md p-8 shadow-2xl border border-zinc-200 dark:border-zinc-800">
-                <h2 className="text-2xl font-bold mb-6 text-zinc-900 dark:text-white">Editar Catequizando</h2>
+            <div className="bg-card dark:bg-zinc-900 rounded-2xl w-full max-w-md p-8 shadow-2xl border border-border">
+                <h2 className="text-2xl font-heading font-bold mb-6 text-primary dark:text-white">Editar Catequizando</h2>
                 <form onSubmit={onSubmit} className="space-y-6">
                     <div>
                         <label htmlFor="edit-student-name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">Nome Completo</label>
@@ -25,7 +25,7 @@ export const EditStudentModal = ({ student, onClose, onSubmit, setStudent, loadi
                             id="edit-student-name"
                             type="text"
                             required
-                            className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-zinc-900 dark:text-white dark:bg-zinc-800"
+                            className="w-full rounded-lg border border-border dark:border-zinc-700 px-3 py-2 text-foreground dark:text-white bg-pearl dark:bg-zinc-800 focus:ring-2 focus:ring-primary outline-none transition-all"
                             value={student.name ?? ""}
                             onChange={(e) => setStudent({ ...student, name: e.target.value })}
                         />
@@ -36,7 +36,7 @@ export const EditStudentModal = ({ student, onClose, onSubmit, setStudent, loadi
                             <input
                                 id="edit-student-baptism"
                                 type="checkbox"
-                                className="h-5 w-5 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-500"
+                                className="h-5 w-5 rounded border-border text-primary focus:ring-primary accent-primary"
                                 checked={student.has_baptism ?? false}
                                 onChange={(e) => setStudent({ ...student, has_baptism: e.target.checked })}
                             />
@@ -47,7 +47,7 @@ export const EditStudentModal = ({ student, onClose, onSubmit, setStudent, loadi
                             <input
                                 id="edit-student-eucharist"
                                 type="checkbox"
-                                className="h-5 w-5 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-500"
+                                className="h-5 w-5 rounded border-border text-primary focus:ring-primary accent-primary"
                                 checked={student.has_first_eucharist ?? false}
                                 onChange={(e) => setStudent({ ...student, has_first_eucharist: e.target.checked })}
                             />
@@ -80,7 +80,7 @@ export const EditStudentModal = ({ student, onClose, onSubmit, setStudent, loadi
                         <button
                             type="submit"
                             disabled={loading}
-                            className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-500 transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
+                            className="flex-1 px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-crimson-light transition-all flex items-center justify-center gap-2 disabled:opacity-70 shadow-lg shadow-primary/20"
                         >
                             {loading && <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />}
                             Salvar

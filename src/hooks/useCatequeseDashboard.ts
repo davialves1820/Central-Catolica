@@ -7,7 +7,7 @@ import { usePagination } from './utils/usePagination';
 
 export const useCatequeseDashboard = () => {
     const { data: session } = useSession();
-    
+
     // Data Hook
     const {
         classes,
@@ -28,7 +28,7 @@ export const useCatequeseDashboard = () => {
 
     const handleLogout = async () => {
         try {
-            await signOut({ redirect: true, callbackUrl: '/login' });
+            await signOut({ redirect: true, callbackUrl: '/' });
         } catch (error) {
             console.error('Logout error:', error);
         }
@@ -88,7 +88,7 @@ export const useCatequeseDashboard = () => {
         selectedYear,
         setSelectedYear,
         uniqueYears,
-        
+
         // Pagination
         currentPage: pagination.currentPage,
         setCurrentPage: pagination.setCurrentPage,

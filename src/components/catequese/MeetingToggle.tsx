@@ -1,3 +1,5 @@
+'use client';
+
 interface MeetingToggleProps {
     hasMeeting: boolean;
     onToggle: () => void;
