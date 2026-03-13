@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import Image from 'next/image';
-import heroImage from "../../assets/church.jpg";
 
 export const Banner = () => {
     return (
@@ -12,7 +11,7 @@ export const Banner = () => {
                 className="absolute inset-0"
             >
                 <Image
-                    src={heroImage}
+                    src="/images/church.jpg"
                     alt="Hero Church"
                     fill
                     className="object-cover object-center"

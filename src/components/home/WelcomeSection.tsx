@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import logo from "../../assets/menino-jesus-logo.png";
 
 const WelcomeSection = () => {
     return (
@@ -17,7 +16,7 @@ const WelcomeSection = () => {
                         className="shrink-0"
                     >
                         <Image
-                            src={logo}
+                            src="/images/menino-jesus-logo.png"
                             alt="Santo Menino Jesus de Praga"
                             width={224}
                             height={224}

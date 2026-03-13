@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../../assets/menino-jesus-logo.png";
 
 const navItems = [
     { label: "Início", path: "/" },
@@ -25,7 +24,7 @@ const Header = () => {
         <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
             <div className="container mx-auto flex items-center justify-between py-3 px-4">
                 <Link href="/" className="flex items-center gap-3">
-                    <Image src={logo} alt="Menino Jesus de Praga" className="h-14 w-14 object-contain" width={56} height={56} priority />
+                    <Image src="/images/menino-jesus-logo.png" alt="Menino Jesus de Praga" className="h-14 w-14 object-contain" width={56} height={56} priority />
                     <div>
                         <h1 className="text-lg font-heading font-bold text-primary leading-tight">
                             Menino Jesus de Praga
