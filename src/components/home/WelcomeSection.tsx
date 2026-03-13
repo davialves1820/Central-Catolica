@@ -6,8 +6,8 @@ import Image from "next/image";
 const WelcomeSection = () => {
     return (
         <section className="py-20 bg-background">
-            <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div className="relative container mx-auto px-4">
+                <div className="relative max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
