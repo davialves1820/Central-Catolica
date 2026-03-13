@@ -22,8 +22,8 @@ export const CreateClassModal = ({ isOpen, onClose, onSubmit }: CreateClassModal
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-            <div className="bg-white dark:bg-zinc-900 rounded-2xl w-full max-w-md p-8 shadow-2xl">
-                <h2 className="text-2xl font-bold mb-6 text-zinc-900 dark:text-white">Criar Nova Turma</h2>
+            <div className="bg-card dark:bg-zinc-900 rounded-2xl w-full max-w-md p-8 shadow-2xl border border-border">
+                <h2 className="text-2xl font-heading font-bold mb-6 text-primary dark:text-white">Criar Nova Turma</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label htmlFor="class-name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1">Nome da Turma</label>
@@ -31,7 +31,7 @@ export const CreateClassModal = ({ isOpen, onClose, onSubmit }: CreateClassModal
                             id="class-name"
                             type="text"
                             required
-                            className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-zinc-900 dark:text-white dark:bg-zinc-800"
+                            className="w-full rounded-lg border border-border dark:border-zinc-700 px-3 py-2 text-foreground dark:text-white bg-pearl dark:bg-zinc-800 focus:ring-2 focus:ring-primary outline-none transition-all"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Ex: São Thomás de Aquino"
@@ -43,7 +43,7 @@ export const CreateClassModal = ({ isOpen, onClose, onSubmit }: CreateClassModal
                             id="class-year"
                             type="number"
                             required
-                            className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-zinc-900 dark:text-white dark:bg-zinc-800"
+                            className="w-full rounded-lg border border-border dark:border-zinc-700 px-3 py-2 text-foreground dark:text-white bg-pearl dark:bg-zinc-800 focus:ring-2 focus:ring-primary outline-none transition-all"
                             value={year}
                             onChange={(e) => setYear(parseInt(e.target.value))}
                         />
@@ -58,7 +58,7 @@ export const CreateClassModal = ({ isOpen, onClose, onSubmit }: CreateClassModal
                         </button>
                         <button
                             type="submit"
-                            className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-500 transition-colors"
+                            className="flex-1 px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-crimson-light transition-all shadow-lg shadow-primary/20"
                         >
                             Criar
                         </button>

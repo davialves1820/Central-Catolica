@@ -1,3 +1,5 @@
+'use client';
+
 import { Student } from '@/types';
 
 interface StudentListItemProps {

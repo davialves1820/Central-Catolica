@@ -43,13 +43,13 @@ export default function CadastroPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 dark:bg-zinc-950 px-4">
-      <div className="w-full max-w-md space-y-8 rounded-2xl bg-white dark:bg-zinc-900 p-8 shadow-xl border border-zinc-200 dark:border-zinc-800">
+    <div className="flex min-h-screen items-center justify-center bg-pearl dark:bg-zinc-950 px-4">
+      <div className="w-full max-w-md space-y-8 rounded-2xl bg-card dark:bg-zinc-900 p-8 shadow-xl border border-border dark:border-zinc-800">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
+          <h2 className="text-3xl font-heading font-bold tracking-tight text-primary dark:text-white">
             Criar Conta
           </h2>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="mt-2 text-sm font-body text-muted-foreground">
             Paróquia Manager
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function CadastroPage() {
             <button
               type="submit"
               disabled={loading || success}
-              className="group relative flex w-full justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/20"
+              className="group relative flex w-full justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-crimson-light focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-primary/20"
             >
               {loading ? "Criando conta..." : "Criar Conta"}
             </button>
@@ -135,7 +135,7 @@ export default function CadastroPage() {
           <div className="text-center mt-4">
             <Link
               href="/login"
-              className="text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+              className="text-sm font-medium text-primary hover:text-accent dark:text-indigo-400 dark:hover:text-indigo-300"
             >
               Já tem uma conta? Entrar
             </Link>

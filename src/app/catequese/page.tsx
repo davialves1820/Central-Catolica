@@ -38,7 +38,7 @@ export default function CatequeseDashboard() {
     } = useCatequeseDashboard();
 
     return (
-        <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-6 lg:p-12">
+        <div className="min-h-screen bg-pearl dark:bg-zinc-950 p-6 lg:p-12">
             <div className="max-w-6xl mx-auto">
                 <DashboardHeader
                     selectedYear={selectedYear}
@@ -60,7 +60,7 @@ export default function CatequeseDashboard() {
 
                 {loading ? (
                     <div className="flex justify-center items-center h-64">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
                     </div>
                 ) : (
                     <>
@@ -74,8 +74,8 @@ export default function CatequeseDashboard() {
                                     />
                                 ))
                             ) : (
-                                <div className="col-span-full py-12 text-center bg-white dark:bg-zinc-900 rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-700">
-                                    <p className="text-zinc-500">Nenhuma turma encontrada. Crie a primeira!</p>
+                                <div className="col-span-full py-12 text-center bg-card dark:bg-zinc-900 rounded-2xl border border-dashed border-border dark:border-zinc-700">
+                                    <p className="text-muted-foreground">Nenhuma turma encontrada. Crie a primeira!</p>
                                 </div>
                             )}
                         </div>
@@ -86,7 +86,7 @@ export default function CatequeseDashboard() {
                                     type="button"
                                     onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                                     disabled={currentPage === 1}
-                                    className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 disabled:opacity-50 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                                    className="p-2 rounded-lg border border-border dark:border-zinc-800 disabled:opacity-50 text-muted-foreground hover:bg-white dark:hover:bg-zinc-800 transition-colors"
                                     aria-label="Página anterior"
                                 >
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,7 +100,7 @@ export default function CatequeseDashboard() {
                                     type="button"
                                     onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                                     disabled={currentPage === totalPages}
-                                    className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 disabled:opacity-50 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                                    className="p-2 rounded-lg border border-border dark:border-zinc-800 disabled:opacity-50 text-muted-foreground hover:bg-white dark:hover:bg-zinc-800 transition-colors"
                                     aria-label="Próxima página"
                                 >
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

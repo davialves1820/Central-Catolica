@@ -14,9 +14,9 @@ export const PendingSacramentsModal = ({ isOpen, onClose, students, onEditStuden
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-            <div className="bg-white dark:bg-zinc-900 rounded-2xl w-full max-w-2xl p-8 shadow-2xl max-h-[80vh] flex flex-col">
+            <div className="bg-card dark:bg-zinc-900 rounded-2xl w-full max-w-2xl p-8 shadow-2xl border border-border max-h-[80vh] flex flex-col">
                 <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-bold text-zinc-900 dark:text-white text-center">Catequizandos com Pendências Sacramentais</h2>
+                    <h2 className="text-2xl font-heading font-bold text-primary dark:text-white text-center">Catequizandos com Pendências Sacramentais</h2>
                     <button 
                         type="button"
                         onClick={onClose} 
@@ -32,7 +32,7 @@ export const PendingSacramentsModal = ({ isOpen, onClose, students, onEditStuden
                 <div className="overflow-y-auto flex-1 pr-2">
                     {students.length > 0 ? (
                         <table className="w-full text-left">
-                            <thead className="sticky top-0 bg-white dark:bg-zinc-900 text-zinc-500 text-xs font-bold uppercase tracking-wider">
+                            <thead className="sticky top-0 bg-pearl dark:bg-zinc-900 text-muted-foreground text-xs font-bold uppercase tracking-wider">
                                 <tr>
                                     <th className="py-3 px-4">Nome</th>
                                     <th className="py-3 px-4">Turma</th>
@@ -40,11 +40,11 @@ export const PendingSacramentsModal = ({ isOpen, onClose, students, onEditStuden
                                     <th className="py-3 px-4 text-right">Ação</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800">
+                            <tbody className="divide-y divide-border dark:divide-zinc-800">
                                 {students.map((student) => (
-                                    <tr key={student.id} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors">
-                                        <td className="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-200">{student.name}</td>
-                                        <td className="py-4 px-4 text-zinc-500 dark:text-zinc-400">{student.catechism_classes.name}</td>
+                                    <tr key={student.id} className="hover:bg-pearl dark:hover:bg-zinc-800/50 transition-colors">
+                                        <td className="py-4 px-4 font-medium text-foreground dark:text-zinc-200">{student.name}</td>
+                                        <td className="py-4 px-4 text-muted-foreground dark:text-zinc-400">{student.catechism_classes.name}</td>
                                         <td className="py-4 px-4">
                                             <div className="flex flex-wrap gap-2">
                                                 {!student.has_baptism && (
@@ -64,7 +64,7 @@ export const PendingSacramentsModal = ({ isOpen, onClose, students, onEditStuden
                                                     has_first_eucharist: student.has_first_eucharist,
                                                     status: student.status
                                                 })}
-                                                className="text-indigo-600 hover:text-indigo-500 font-bold text-xs uppercase"
+                                                className="text-primary hover:text-accent font-bold text-xs uppercase transition-colors"
                                             >
                                                 Editar
                                             </button>
@@ -82,7 +82,7 @@ export const PendingSacramentsModal = ({ isOpen, onClose, students, onEditStuden
                     <button
                         type="button"
                         onClick={onClose}
-                        className="w-full py-3 border border-zinc-300 dark:border-zinc-700 rounded-xl text-zinc-700 dark:text-zinc-300 font-semibold hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all"
+                        className="w-full py-3 border border-border dark:border-zinc-700 rounded-xl text-foreground font-semibold hover:bg-white dark:hover:bg-zinc-800 transition-all"
                     >
                         Fechar
                     </button>

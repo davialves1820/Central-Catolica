@@ -1,3 +1,5 @@
+"use client"
+
 interface DashboardHeaderProps {
     selectedYear: string;
     onYearChange: (year: string) => void;
@@ -20,10 +22,10 @@ export const DashboardHeader = ({
     return (
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-12">
             <div>
-                <h1 className="text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+                <h1 className="text-4xl font-heading font-extrabold text-primary dark:text-white tracking-tight">
                     Catequese
                 </h1>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-2">
+                <p className="text-muted-foreground font-body mt-2">
                     Gerencie suas turmas e presenças de forma simples.
                 </p>
             </div>
@@ -36,7 +38,7 @@ export const DashboardHeader = ({
                         id="year-select"
                         value={selectedYear}
                         onChange={(e) => onYearChange(e.target.value)}
-                        className="px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-semibold rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all outline-none"
+                        className="px-4 py-3 bg-card dark:bg-zinc-900 border border-border dark:border-zinc-700 text-foreground font-semibold rounded-xl focus:ring-2 focus:ring-primary transition-all outline-none"
                     >
                         <option value="all">Todos os anos</option>
                         {uniqueYears.map(year => (
@@ -48,10 +50,10 @@ export const DashboardHeader = ({
                     type="button"
                     onClick={onFetchPending}
                     disabled={loadingPending}
-                    className={`px-6 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-semibold rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all flex items-center gap-2 ${loadingPending ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`px-6 py-3 border border-border dark:border-zinc-700 text-foreground font-semibold rounded-xl hover:bg-white dark:hover:bg-zinc-800 transition-all flex items-center gap-2 ${loadingPending ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                     {loadingPending ? (
-                        <div className="w-5 h-5 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
                     ) : (
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -72,7 +74,7 @@ export const DashboardHeader = ({
                 <button
                     type="button"
                     onClick={onNewClass}
-                    className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-indigo-500/20"
+                    className="px-6 py-3 bg-primary hover:bg-crimson-light text-white font-semibold rounded-xl transition-all shadow-lg shadow-primary/20"
                 >
                     Nova Turma
                 </button>
