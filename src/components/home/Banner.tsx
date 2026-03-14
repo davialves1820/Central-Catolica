@@ -7,17 +7,13 @@ import Image from 'next/image';
 export const Banner = () => {
     return (
         <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
-            <div
-                className="relative inset-0"
-            >
-                <Image
-                    src="/images/church.jpg"
-                    alt="Hero Church"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                />
-            </div>
+            <Image
+                src="/images/church.jpg"
+                alt="Hero Church"
+                fill
+                className="object-cover object-center"
+                priority
+            />
             <div className="absolute inset-0 bg-linear-to-b from-foreground/60 via-foreground/40 to-foreground/70" />
 
             <div className="relative h-full container mx-auto flex flex-col items-center justify-center text-center px-4">
