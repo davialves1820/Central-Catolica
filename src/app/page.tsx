@@ -5,6 +5,7 @@ import Banner from "@/components/home/Banner";
 import WelcomeSection from "@/components/home/WelcomeSection";
 import InfoCards from "@/components/home/InfoCards";
 import Footer from "@/components/home/Footer";
+import MapSection from "@/components/home/MapSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Banner />
       <WelcomeSection />
       <InfoCards />
+      <MapSection />
       <Footer />
     </div>
   );
