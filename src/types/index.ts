@@ -1,3 +1,21 @@
+import { LucideIcon } from "lucide-react";
+
+export interface Pastoral {
+    id: string;
+    name: string;
+    tag: string;
+    description: string;
+    icon: LucideIcon;
+    logoUrl?: string;
+    location?: string;
+    email?: string;
+    instagram?: string;
+    coordinators?: {
+        name: string;
+        phone?: string;
+    }[];
+}
+
 export interface CatechismClass {
     id: number;
     name: string;
