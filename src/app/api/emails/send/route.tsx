@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { VerificationEmail } from "@/components/emails/VerificationEmail";
 import { auth } from "@/lib/server/auth";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: NextRequest) {
   const session = await auth();
@@ -43,6 +43,9 @@ export async function POST(request: NextRequest) {
     );
 
   try {
+    if (!resend) {
+      return Response.json({ error: "Email provider not initialized" }, { status: 500 });
+    }
     const { data: resendData, error } = await resend.emails.send({
       from: "Paróquia Manager <onboarding@resend.dev>",
       to: [to],
