@@ -10,13 +10,16 @@ export class VercelBlobStorage implements IBlobStorage {
   private readonly pathPrefix: string;
 
   constructor(token: string, pathPrefix: string = "") {
-    if (!token) {
-      throw new Error(
-        "BLOB_READ_WRITE_TOKEN is required for Vercel Blob storage",
-      );
-    }
     this.token = token;
     this.pathPrefix = pathPrefix;
+  }
+
+  private ensureToken() {
+    if (!this.token) {
+      throw new Error(
+        "BLOB_READ_WRITE_TOKEN is required for Vercel Blob storage operations",
+      );
+    }
   }
 
   async upload(
@@ -24,6 +27,7 @@ export class VercelBlobStorage implements IBlobStorage {
     path: string,
     contentType: string,
   ): Promise<string> {
+    this.ensureToken();
     const buffer =
       file instanceof File ? Buffer.from(await file.arrayBuffer()) : file;
 
@@ -38,6 +42,7 @@ export class VercelBlobStorage implements IBlobStorage {
 
   async delete(urlOrPath: string): Promise<boolean> {
     try {
+      this.ensureToken();
       if (!urlOrPath.includes(".blob.vercel-storage.com")) {
         return false;
       }
@@ -56,6 +61,7 @@ export class VercelBlobStorage implements IBlobStorage {
 
   async exists(urlOrPath: string): Promise<boolean> {
     try {
+      this.ensureToken();
       const result = await head(urlOrPath, { token: this.token });
       return !!result;
     } catch {
@@ -68,6 +74,7 @@ const isProd =
   process.env.NODE_ENV === "production" ||
   process.env.VERCEL_ENV === "production";
 
-export const blobStorage: IBlobStorage = isProd
-  ? new VercelBlobStorage(process.env.BLOB_READ_WRITE_TOKEN || "")
-  : new LocalBlobStorage();
+export const blobStorage: IBlobStorage =
+  isProd && process.env.BLOB_READ_WRITE_TOKEN
+    ? new VercelBlobStorage(process.env.BLOB_READ_WRITE_TOKEN)
+    : new LocalBlobStorage();
