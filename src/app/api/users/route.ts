@@ -1,17 +1,14 @@
-import { NextRequest, NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
-import { auth } from "@/lib/auth"
-import bcrypt from "bcryptjs"
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/server/db";
+import { auth } from "@/lib/server/auth";
+import bcrypt from "bcryptjs";
 
 export async function GET() {
   try {
-    const session = await auth()
+    const session = await auth();
 
     if (!session || !["ADMIN", "PADRE"].includes(session.user.role)) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 403 }
-      )
+      return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
     }
 
     const users = await prisma.users.findMany({
@@ -20,45 +17,42 @@ export async function GET() {
         full_name: true,
         email: true,
         role: true,
-        created_at: true
-      }
-    })
+        created_at: true,
+      },
+    });
 
-    return NextResponse.json(users)
+    return NextResponse.json(users);
   } catch (error) {
-    console.error("Error fetching users:", error)
+    console.error("Error fetching users:", error);
 
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
-    )
+      { status: 500 },
+    );
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json()
-    const { fullName, email, password } = data
+    const data = await request.json();
+    const { fullName, email, password } = data;
 
     if (!fullName || !email || !password) {
-      return NextResponse.json(
-        { error: "Missing fields" },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
     const existingUser = await prisma.users.findUnique({
-      where: { email }
-    })
+      where: { email },
+    });
 
     if (existingUser) {
       return NextResponse.json(
         { error: "User already exists" },
-        { status: 409 }
-      )
+        { status: 409 },
+      );
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await prisma.users.create({
       data: {
@@ -66,24 +60,24 @@ export async function POST(request: NextRequest) {
         email,
         password: hashedPassword,
         role: "FIEL",
-        created_at: new Date()
+        created_at: new Date(),
       },
       select: {
         id: true,
         full_name: true,
         email: true,
         role: true,
-        created_at: true
-      }
-    })
+        created_at: true,
+      },
+    });
 
-    return NextResponse.json(user, { status: 201 })
+    return NextResponse.json(user, { status: 201 });
   } catch (error) {
-    console.error("Error creating user:", error)
+    console.error("Error creating user:", error);
 
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
-    )
+      { status: 500 },
+    );
   }
 }

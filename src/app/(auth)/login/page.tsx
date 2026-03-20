@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react"
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -13,37 +13,37 @@ export default function LoginPage() {
   const router = useRouter();
 
   const handleLogin = async (e: FormEvent) => {
-  e.preventDefault()
-  setLoading(true)
-  setError("")
-  setShowSlowMessage(false)
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setShowSlowMessage(false);
 
-  const timer = setTimeout(() => {
-    setShowSlowMessage(true)
-  }, 3000)
+    const timer = setTimeout(() => {
+      setShowSlowMessage(true);
+    }, 3000);
 
-  try {
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    })
+    try {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
 
-    clearTimeout(timer)
+      clearTimeout(timer);
 
-    if (result?.error) {
-      setError("Email ou senha inválidos")
-      return
+      if (result?.error) {
+        setError("Email ou senha inválidos");
+        return;
+      }
+
+      router.push("/");
+    } catch {
+      setError("Erro inesperado");
+    } finally {
+      setLoading(false);
+      setShowSlowMessage(false);
     }
-
-    router.push("/catequese")
-  } catch {
-    setError("Erro inesperado")
-  } finally {
-    setLoading(false)
-    setShowSlowMessage(false)
-  }
-}
+  };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-pearl dark:bg-zinc-950 px-4">
@@ -98,6 +98,17 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-end">
+            <div className="text-sm">
+              <a
+                href="/auth/forgot-password"
+                className="font-medium text-primary hover:text-accent transition-colors"
+              >
+                Esqueceu sua senha?
+              </a>
             </div>
           </div>
 

@@ -1,38 +1,56 @@
-'use client';
+import { CalendarCheck, CalendarX, Check } from "lucide-react";
 
 interface MeetingToggleProps {
-    hasMeeting: boolean;
-    onToggle: () => void;
-    loading: boolean;
+  hasMeeting: boolean;
+  onToggle: () => void;
+  loading: boolean;
 }
 
-export const MeetingToggle = ({ hasMeeting, onToggle, loading }: MeetingToggleProps) => {
-
-    return (
-        <div className="bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/50 rounded-xl p-4 mb-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-full ${hasMeeting ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'}`}>
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                </div>
-                <div>
-                    <p className="font-bold text-zinc-900 dark:text-white">Houve encontro nesta data?</p>
-                    <p className="text-xs text-zinc-500">{hasMeeting ? 'A frequência será contabilizada.' : 'Este sábado não contará para a frequência.'}</p>
-                </div>
-            </div>
-            <button
-                type="button"
-                onClick={onToggle}
-                disabled={loading}
-                className={`px-6 py-2 rounded-lg font-bold transition-all shadow-sm flex items-center gap-2 ${hasMeeting
-                    ? 'bg-emerald-600 text-white hover:bg-emerald-500'
-                    : 'bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-300 dark:hover:bg-zinc-600'
-                    } ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
-            >
-                {loading && <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />}
-                {hasMeeting ? 'Sim, teve encontro' : 'Não teve encontro'}
-            </button>
+export const MeetingToggle = ({
+  hasMeeting,
+  onToggle,
+  loading,
+}: MeetingToggleProps) => {
+  return (
+    <div className="bg-white border border-border rounded-2xl p-5 mb-10 flex flex-col sm:flex-row justify-between items-center gap-6 shadow-sm">
+      <div className="flex items-center gap-5">
+        <div
+          className={`shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
+            hasMeeting 
+              ? "bg-emerald-50 text-emerald-600 border border-emerald-100 shadow-sm" 
+              : "bg-red-50 text-red-600 border border-red-100 shadow-sm"
+          }`}
+        >
+          {hasMeeting ? <CalendarCheck size={28} /> : <CalendarX size={28} />}
         </div>
-    );
+        <div>
+          <p className="text-lg font-heading font-bold text-zinc-900">
+            Houve encontro nesta data?
+          </p>
+          <p className="text-sm font-body text-muted-foreground mt-1">
+            {hasMeeting
+              ? "A frequência dos catequizandos será registrada."
+              : "As presenças não serão contabilizadas para este dia."}
+          </p>
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={onToggle}
+        disabled={loading}
+        className={`min-w-[180px] px-6 py-3 rounded-xl font-bold transition-all shadow-md flex items-center justify-center gap-2 border-2 ${
+          hasMeeting
+            ? "bg-emerald-600 border-emerald-600 text-white hover:bg-emerald-500 hover:border-emerald-500 shadow-emerald-200/50"
+            : "bg-white border-border text-muted-foreground hover:border-primary hover:text-primary hover:bg-primary/5"
+        } ${loading ? "opacity-50 cursor-not-allowed" : "hover:-translate-y-0.5"}`}
+      >
+        {loading ? (
+          <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
+        ) : hasMeeting ? (
+          <Check size={18} />
+        ) : null}
+        {hasMeeting ? "Sim, teve encontro" : "Não teve encontro"}
+      </button>
+    </div>
+  );
 };
