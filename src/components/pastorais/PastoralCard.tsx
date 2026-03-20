@@ -1,14 +1,10 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Church } from "lucide-react";
 import { Pastoral } from "../../types/index";
-
-interface PastoralCardProps {
-  pastoral: Pastoral;
-  index: number;
-}
+import NextImage from "next/image";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -19,21 +15,38 @@ const cardVariants = {
   }),
 };
 
+interface PastoralCardProps {
+  pastoral: Pastoral;
+  index: number;
+}
+
 export const PastoralCard = ({ pastoral, index }: PastoralCardProps) => {
-  const Icon = pastoral.icon;
+  const Icon = pastoral.icon || Church;
 
   return (
-    <Link href={`/pastorais/${pastoral.id}`} className="block">
+    <Link href={`/pastorais/${pastoral.slug || pastoral.id}`} className="block">
       <motion.div
         custom={index}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={cardVariants}
-        className="pastoral-card group flex items-start gap-4 p-4 rounded-xl border border-border/50 hover:border-accent/40 hover:bg-accent/5 cursor-pointer transition-all duration-300"
+        className="pastoral-card group flex items-start gap-4 p-4 rounded-xl border border-primary/10 hover:border-primary/30 bg-white hover:bg-primary/5 cursor-pointer transition-all duration-300 shadow-sm hover:shadow-primary/5"
       >
-        <div className="shrink-0 w-12 h-12 bg-pearl rounded-lg flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-          <Icon size={24} className="text-primary group-hover:text-accent transition-colors" />
+        <div className="shrink-0 w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors overflow-hidden border border-primary/5 relative">
+          {pastoral.image_url ? (
+            <NextImage
+              src={pastoral.image_url}
+              alt={pastoral.name}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+          ) : (
+            <Icon
+              size={24}
+              className="text-primary group-hover:text-accent transition-colors"
+            />
+          )}
         </div>
 
         <div className="flex-1 min-w-0">
@@ -41,7 +54,7 @@ export const PastoralCard = ({ pastoral, index }: PastoralCardProps) => {
             <h3 className="font-heading text-lg font-bold text-foreground">
               {pastoral.name}
             </h3>
-            <span className="text-[10px] uppercase tracking-wider font-body font-bold text-muted-foreground border border-border rounded-full px-2 py-0.5 shrink-0 ml-2">
+            <span className="text-[10px] uppercase tracking-wider font-body font-bold text-primary border border-primary/20 rounded-full px-2 py-0.5 shrink-0 ml-2">
               {pastoral.tag}
             </span>
           </div>

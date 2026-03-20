@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -145,7 +145,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading);
     text-wrap: balance;
   }
@@ -162,7 +167,7 @@
   }
 
   .gold-underline::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -197,4 +202,3 @@
     box-shadow: 0 12px 24px -8px hsl(var(--crimson) / 0.15); /* from hover-lift */
   }
 }
-

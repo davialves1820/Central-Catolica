@@ -1,15 +1,12 @@
-import { NextResponse } from "next/server"
-import { auth } from "@/lib/auth"
+import { NextResponse } from "next/server";
+import { auth } from "@/lib/server/auth";
 
 export async function GET() {
   try {
-    const session = await auth()
+    const session = await auth();
 
     if (!session) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      )
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     return NextResponse.json({
@@ -17,11 +14,11 @@ export async function GET() {
       email: session.user.email,
       name: session.user.name,
       role: session.user.role,
-    })
+    });
   } catch {
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
-    )
+      { status: 500 },
+    );
   }
 }

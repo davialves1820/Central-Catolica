@@ -10,17 +10,31 @@ Este é o sistema fullstack, construído com **Next.js**, **React 19**, **TypeSc
 ## ⚙️ Configuração Local
 
 1.  **Instale as dependências:**
+
     ```bash
     npm install
     ```
 
 2.  **Variáveis de Ambiente:**
-    Crie um arquivo `.env` na raiz da pasta `src` e configure a URL base:
+    Crie um arquivo `.env` na raiz da pasta `src` e configure:
+
     ```env
-    NEXT_PUBLIC_API_URL=http://localhost:3000
+    DATABASE_URL="postgres://..."
+    NEXTAUTH_SECRET="..."
+    NEXTAUTH_URL="http://localhost:3000"
     ```
 
-3.  **Execução:**
+3.  **Banco de Dados (Prisma):**
+    Sincronize o esquema e gere o cliente:
+
+    ```bash
+    npx prisma generate
+    npx prisma db push # Para prototipação rápida
+    # ou
+    npx prisma migrate dev --name migracao_nova
+    ```
+
+4.  **Execução:**
     Inicie o servidor de desenvolvimento:
     ```bash
     npm run dev
@@ -35,15 +49,19 @@ Este é o sistema fullstack, construído com **Next.js**, **React 19**, **TypeSc
 
 ## 🏗️ Arquitetura
 
-- **app/catequese**: Páginas principais do módulo de catequese.
-- **lib/api**: Configuração do Axios para comunicação com o backend.
-- **components**: Componentes reutilizáveis (UI e layouts).
+- **app/catequese**: Módulo de gestão de alunos e turmas.
+- **app/pastorais**: Módulo de gestão de unidades pastorais.
+- **app/events**: Módulo de criação e visualização de eventos.
+- **api/**: Endpoints Hono/Next.js para lógica de negócio.
+- **lib/api**: Configuração do Axios para comunicação frontend-backend.
+- **components**: Componentes reutilizáveis (UI e layouts premium).
+- **prisma**: Esquema do banco de dados e migrações SQL.
 
 ## 🎨 Estilização
 
 Utilizamos o **Tailwind CSS 4** para estilização. O design é focado em acessibilidade e responsividade, garantindo uma boa experiência em dispositivos móveis.
 
-------------------------------------------------------------------------
+---
 
 ## 🧪 Qualidade de Código
 
@@ -51,31 +69,33 @@ O projeto possui **Quality Gate automático**.
 
 Antes de qualquer merge, o GitHub executa:
 
--   ✅ Lint
--   ✅ Formatação
--   ✅ Type Check
--   ✅ Build
+- ✅ Lint
+- ✅ Formatação
+- ✅ Type Check
+- ✅ Build
 
 Caso alguma etapa falhe, o merge é bloqueado.
 
-------------------------------------------------------------------------
+---
 
 ## 🔄 Workflow de Desenvolvimento
 
 ### Estratégia de Branches
 
-  Branch       Descrição
-  ------------ -----------------------
-  main         Produção
-  develop      Integração
-  feature/\*   Novas funcionalidades
-  fix/\*       Correções
+Branch Descrição
 
-------------------------------------------------------------------------
+---
+
+main Produção
+develop Integração
+feature/\* Novas funcionalidades
+fix/\* Correções
+
+---
 
 ### Fluxo recomendado
 
-``` bash
+```bash
 git checkout develop
 git pull
 git checkout -b feature/nova-feature
@@ -83,7 +103,7 @@ git checkout -b feature/nova-feature
 
 Após desenvolvimento:
 
-``` bash
+```bash
 npm run format
 npm run lint
 npx prettier --write "caminho/do/arquivo"
@@ -93,37 +113,39 @@ npm run build
 
 Abra um Pull Request para `develop`.
 
-------------------------------------------------------------------------
+---
 
 ## 📜 Scripts Disponíveis
 
-  Script              Descrição
-  ------------------- -----------------------------
-  npm run dev         Ambiente de desenvolvimento
-  npm run build       Build produção
-  npm run start       Executa build
-  npm run lint        Verifica código
-  npm run format      Formata código
-  npm run typecheck   Verifica tipos
+Script Descrição
 
-------------------------------------------------------------------------
+---
+
+npm run dev Ambiente de desenvolvimento
+npm run build Build produção
+npm run start Executa build
+npm run lint Verifica código
+npm run format Formata código
+npm run typecheck Verifica tipos
+
+---
 
 ## ✅ Padrões de Código
 
 Este projeto utiliza:
 
--   ESLint (configuração oficial AdonisJS)
--   Prettier
--   TypeScript Strict Mode
+- ESLint (configuração oficial AdonisJS)
+- Prettier
+- TypeScript Strict Mode
 
 Correção automática:
 
-``` bash
+```bash
 npm run format
 npm run lint -- --fix
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 🤝 Contribuição
 

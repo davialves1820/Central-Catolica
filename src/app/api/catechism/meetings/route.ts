@@ -1,49 +1,47 @@
-import { NextRequest, NextResponse } from "next/server"
-import { prisma } from "@/lib/prisma"
-import { auth } from "@/lib/auth"
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/server/db";
+import { auth } from "@/lib/server/auth";
 
 function normalizeDate(date: string) {
-  const d = new Date(date)
+  const d = new Date(date);
 
-  if (isNaN(d.getTime())) return null
+  if (isNaN(d.getTime())) return null;
 
-  d.setHours(0, 0, 0, 0)
-  return d
+  d.setHours(0, 0, 0, 0);
+  return d;
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await auth()
+    const session = await auth();
 
     if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const body = await request.json()
-    const { classId, date, occurred } = body
+    const body = await request.json();
+    const { classId, date, occurred } = body;
 
-    const parsedClassId = Number(classId)
-
-    if (!parsedClassId || !date) {
-      return NextResponse.json({ error: "Missing fields" }, { status: 400 })
+    if (!classId || !date) {
+      return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    const meetingDate = normalizeDate(date)
+    const meetingDate = normalizeDate(date);
 
     if (!meetingDate) {
-      return NextResponse.json({ error: "Invalid date" }, { status: 400 })
+      return NextResponse.json({ error: "Invalid date" }, { status: 400 });
     }
 
     const existing = await prisma.catechism_meetings.findFirst({
       where: {
-        class_id: parsedClassId,
+        class_id: classId,
         date: meetingDate,
       },
-    })
+    });
 
     if (occurred && !existing) {
       const createdMeeting = await prisma.catechism_meetings.create({
-        data: { class_id: parsedClassId, date: meetingDate },
+        data: { class_id: classId, date: meetingDate },
       });
       return NextResponse.json({ occurred: true, meeting: createdMeeting });
     }
@@ -53,42 +51,40 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ occurred: false });
     }
 
-    return NextResponse.json({ occurred })
+    return NextResponse.json({ occurred });
   } catch {
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
-    )
+      { status: 500 },
+    );
   }
 }
 
 export async function GET(request: NextRequest) {
   try {
-    const session = await auth()
+    const session = await auth();
 
     if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { searchParams } = new URL(request.url)
+    const { searchParams } = new URL(request.url);
 
-    const classId = searchParams.get("classId")
-    const date = searchParams.get("date")
+    const classId = searchParams.get("classId");
+    const date = searchParams.get("date");
 
-    const parsedClassId = Number(classId)
-
-    if (!parsedClassId || !date) {
-      return NextResponse.json({ occurred: false })
+    if (!classId || !date) {
+      return NextResponse.json({ occurred: false });
     }
 
-    const meetingDate = normalizeDate(date)
+    const meetingDate = normalizeDate(date);
 
     if (!meetingDate) {
-      return NextResponse.json({ occurred: false })
+      return NextResponse.json({ occurred: false });
     }
 
     const existing = await prisma.catechism_meetings.findFirst({
-      where: { class_id: parsedClassId, date: meetingDate },
+      where: { class_id: classId, date: meetingDate },
       select: { id: true, date: true },
     });
 
@@ -99,7 +95,7 @@ export async function GET(request: NextRequest) {
   } catch {
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
-    )
+      { status: 500 },
+    );
   }
 }
