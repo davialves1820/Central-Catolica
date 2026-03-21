@@ -111,6 +111,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null;
         }
 
+        /* 
+        // Temporariamente desativado (sem domínio para envio de e-mails)
+        if (!user.email_verified) {
+          throw new Error("EmailNotVerified");
+        }
+        */
+
         return {
           id: String(user.id),
           email: user.email,

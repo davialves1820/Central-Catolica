@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 interface DashboardHeaderProps {
   selectedYear: string;
   onYearChange: (year: string) => void;
@@ -22,6 +24,25 @@ export const DashboardHeader = ({
   return (
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-12">
       <div>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-4 group"
+        >
+          <svg
+            className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          Voltar para o Início
+        </Link>
         <h1 className="text-4xl font-heading font-extrabold text-primary tracking-tight">
           Catequese
         </h1>
