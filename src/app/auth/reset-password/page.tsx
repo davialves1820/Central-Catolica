@@ -30,32 +30,34 @@ function ResetPasswordForm() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4 font-body">
+    <div className="min-h-screen bg-pearl flex items-center justify-center p-4 font-body py-12">
       <div className="max-w-md w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-primary/5 text-center"
+          className="bg-white rounded-3xl p-10 shadow-2xl border border-border/50 hover-lift relative overflow-hidden text-center"
         >
-          <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-8">
+          <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-gold to-primary" />
+          
+          <div className="w-16 h-16 bg-primary/5 text-primary rounded-2xl flex items-center justify-center mx-auto mb-8 border border-primary/10">
             <Lock size={32} />
           </div>
 
           <h1 className="font-heading text-3xl font-bold text-primary mb-4 text-balance">
             Nova Senha
           </h1>
-          <p className="text-muted-foreground mb-8 text-balance">
+          <p className="text-muted-foreground mb-8 text-balance text-sm">
             Crie uma nova senha segura para sua conta.
           </p>
 
           {!success ? (
             <form action={onSubmit} className="space-y-6">
               <div className="relative group text-left">
-                <label className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-2 block ml-1 italic">
+                <label className="block text-sm font-semibold text-zinc-700 mb-1.5 ml-1">
                   Nova Senha
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40 group-focus-within:text-accent transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-400 group-focus-within:text-gold transition-colors">
                     <Lock size={18} />
                   </div>
                   <input
@@ -63,28 +65,28 @@ function ResetPasswordForm() {
                     type="password"
                     required
                     disabled={isPending}
-                    className="block w-full pl-11 pr-4 py-4 bg-pearl/30 border-2 border-primary/5 rounded-2xl focus:ring-accent focus:border-accent transition-all font-body text-primary placeholder:text-primary/20 outline-none"
+                    className="block w-full pl-11 pr-4 py-3 bg-white border border-border rounded-xl focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all font-body text-zinc-900 placeholder:text-zinc-400 outline-none sm:text-sm"
                     placeholder="••••••••"
                   />
                 </div>
               </div>
 
               {error && (
-                <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm font-bold flex items-center gap-2 animate-pulse">
+                <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm font-semibold border border-red-100 flex items-center gap-2">
                   <span>⚠️ {error}</span>
                 </div>
               )}
 
               {!token && (
-                <div className="bg-yellow-50 text-yellow-700 p-4 rounded-xl text-sm font-bold">
-                  Token ausente na URL. Use o link do e-mail.
+                <div className="bg-yellow-50 text-yellow-700 p-4 rounded-xl text-sm font-semibold border border-yellow-100 flex items-center gap-2">
+                  <span>⚠️ Token ausente na URL. Use o link do e-mail.</span>
                 </div>
               )}
 
               <button
                 type="submit"
                 disabled={isPending || !token}
-                className="w-full bg-primary hover:bg-accent text-white font-heading font-bold py-4 rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group disabled:opacity-50"
+                className="w-full bg-primary hover:bg-crimson-light text-white font-semibold py-3 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2 group disabled:opacity-50"
               >
                 {isPending ? (
                   <Loader2 className="animate-spin" size={20} />
@@ -102,13 +104,13 @@ function ResetPasswordForm() {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center"
             >
-              <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 mb-8">
-                <CheckCircle2 size={40} className="text-primary mx-auto mb-4" />
-                <p className="text-primary font-bold italic">{success}</p>
+              <div className="bg-green-50 border border-green-100 rounded-2xl p-6 mb-8">
+                <CheckCircle2 size={40} className="text-green-600 mx-auto mb-4" />
+                <p className="text-green-800 font-semibold">{success}</p>
               </div>
               <Link
                 href="/login"
-                className="w-full bg-primary hover:bg-accent text-white font-heading font-bold py-4 px-8 rounded-2xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-2"
+                className="w-full bg-primary hover:bg-crimson-light text-white font-semibold py-3 px-8 rounded-xl shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2"
               >
                 Ir para o Login
               </Link>
@@ -116,10 +118,10 @@ function ResetPasswordForm() {
           )}
 
           {!success && (
-            <div className="mt-10">
+            <div className="mt-10 pt-6 border-t border-border/50">
               <Link
                 href="/login"
-                className="inline-flex items-center gap-2 text-sm font-bold text-primary/60 hover:text-accent transition-colors group"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-gold transition-colors group"
               >
                 <ArrowLeft
                   size={16}
@@ -131,7 +133,7 @@ function ResetPasswordForm() {
           )}
         </motion.div>
 
-        <p className="text-center text-primary/30 text-xs mt-8 font-heading tracking-widest uppercase">
+        <p className="text-center text-primary/30 text-xs mt-8 font-heading tracking-widest uppercase font-medium">
           Paróquia Manager &copy; 2024
         </p>
       </div>
@@ -143,7 +145,7 @@ export default function ResetPasswordPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-white flex items-center justify-center p-4">
+        <div className="min-h-screen bg-pearl flex items-center justify-center p-4">
           <Loader2 className="animate-spin text-primary" size={40} />
         </div>
       }

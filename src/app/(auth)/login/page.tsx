@@ -50,19 +50,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-pearl dark:bg-zinc-950 px-4">
-      <div className="w-full max-w-md space-y-8 rounded-2xl bg-card dark:bg-zinc-900 p-8 shadow-xl border border-border dark:border-zinc-800">
+    <div className="flex min-h-screen items-center justify-center bg-pearl px-4 py-12">
+      <div className="w-full max-w-md space-y-8 rounded-3xl bg-white p-10 shadow-2xl border border-border/50 hover-lift relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary via-gold to-primary" />
         <div className="text-center">
-          <h2 className="text-3xl font-heading font-bold tracking-tight text-primary dark:text-white">
+          <h2 className="text-4xl font-heading font-bold tracking-tight text-primary">
             Paróquia Manager
           </h2>
-          <p className="mt-2 text-sm font-body text-muted-foreground">
-            Acesso Restrito - Catequese
+          <div className="mx-auto mt-2 h-1 w-12 bg-gold rounded-full" />
+          <p className="mt-4 text-sm font-body text-muted-foreground font-medium uppercase tracking-wider">
+            Acesso Restrito
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           {error && (
-            <div className="rounded-lg bg-red-50 dark:bg-red-900/20 p-4 text-sm text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/30">
+            <div className="rounded-lg bg-red-50 p-4 text-sm text-red-600 border border-red-100">
               {error}
             </div>
           )}
@@ -70,7 +72,7 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="email-address"
-                className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1"
+                className="block text-sm font-semibold text-zinc-700 mb-1.5"
               >
                 E-mail
               </label>
@@ -79,7 +81,7 @@ export default function LoginPage() {
                 name="email"
                 type="email"
                 required
-                className="relative block w-full rounded-lg border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-zinc-900 dark:text-white placeholder-zinc-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-zinc-800 sm:text-sm"
+                className="relative block w-full rounded-xl border border-border bg-white/50 px-4 py-2.5 text-zinc-900 placeholder-zinc-400 transition-all focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 sm:text-sm"
                 placeholder="seu@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -88,7 +90,7 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1"
+                className="block text-sm font-semibold text-zinc-700 mb-1.5"
               >
                 Senha
               </label>
@@ -97,7 +99,7 @@ export default function LoginPage() {
                 name="password"
                 type="password"
                 required
-                className="relative block w-full rounded-lg border border-zinc-300 dark:border-zinc-700 px-3 py-2 text-zinc-900 dark:text-white placeholder-zinc-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:bg-zinc-800 sm:text-sm"
+                className="relative block w-full rounded-xl border border-border bg-white/50 px-4 py-2.5 text-zinc-900 placeholder-zinc-400 transition-all focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20 sm:text-sm"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -109,7 +111,7 @@ export default function LoginPage() {
             <div className="text-sm">
               <a
                 href="/auth/forgot-password"
-                className="font-medium text-primary hover:text-accent transition-colors"
+                className="font-medium text-primary hover:text-gold transition-colors"
               >
                 Esqueceu sua senha?
               </a>
@@ -128,18 +130,18 @@ export default function LoginPage() {
 
           {showSlowMessage && (
             <div className="text-center animate-pulse">
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">
+              <p className="text-xs text-zinc-500">
                 Preparando o ambiente... O login será efetuado em breve.
               </p>
             </div>
           )}
         </form>
-        <div className="text-center mt-4">
+        <div className="text-center mt-6 pt-6 border-t border-border/50">
           <a
             href="/cadastro"
-            className="text-sm font-medium text-primary hover:text-accent dark:text-indigo-400 dark:hover:text-indigo-300"
+            className="text-sm font-semibold text-primary hover:text-gold transition-colors"
           >
-            Não tem uma conta? Cadastre-se
+            Não tem uma conta? <span className="underline decoration-gold/50 decoration-2 underline-offset-4">Cadastre-se</span>
           </a>
         </div>
       </div>
