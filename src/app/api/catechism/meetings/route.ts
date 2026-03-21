@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
-import { auth } from "@/lib/server/auth";
+import { checkCatequeseAccess } from "@/lib/server/utils/auth-checks";
 
 function normalizeDate(date: string) {
   const d = new Date(date);
@@ -13,10 +13,9 @@ function normalizeDate(date: string) {
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await auth();
-
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const { authorized, response } = await checkCatequeseAccess();
+    if (!authorized) {
+      return response!;
     }
 
     const body = await request.json();
@@ -62,10 +61,9 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const session = await auth();
-
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const { authorized, response } = await checkCatequeseAccess();
+    if (!authorized) {
+      return response!;
     }
 
     const { searchParams } = new URL(request.url);

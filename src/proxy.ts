@@ -1,9 +1,13 @@
-import { auth } from "@/lib/server/auth";
+import NextAuth from "next-auth";
+import { authConfig } from "@/lib/server/auth.config";
+
+const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
   const role = req.auth?.user?.role;
+  const pastorals = req.auth?.user?.pastorals || [];
   const { pathname } = nextUrl;
 
   const isProtectedRoute = pathname.startsWith("/catequese");
@@ -12,11 +16,13 @@ export default auth((req) => {
     return Response.redirect(new URL("/login", nextUrl));
   }
 
-  // Se estiver logado mas não for CATEQUISTA ou ADMIN, redireciona para home
-  if (
-    pathname.startsWith("/catequese") &&
-    !["ADMIN", "CATEQUISTA"].includes(role || "")
-  ) {
+  const isCrismaCoordinator = pastorals.some(
+    (p: { slug: string; role: string }) => p.slug === "crisma" && p.role === "COORDENADOR"
+  );
+  const isAuthorizedRole = ["ADMIN", "PADRE"].includes(role || "");
+
+  // Se estiver acessando catequese e não for admin ou coordenador da crisma
+  if (isProtectedRoute && !isAuthorizedRole && !isCrismaCoordinator) {
     return Response.redirect(new URL("/", nextUrl));
   }
 });

@@ -3,8 +3,15 @@
 import Link from "next/link";
 import { GraduationCap, Plus, Settings } from "lucide-react";
 import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
 
 export const AdminActionBar = () => {
+  const { data: session } = useSession();
+
+  const isAdmin = session?.user?.role === "ADMIN";
+  const isCrismaCoordinator = session?.user?.pastorals?.some(
+    (p) => p.slug === "crisma" && p.role === "COORDENADOR"
+  );
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -27,21 +34,31 @@ export const AdminActionBar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="/catequese"
-            className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all border border-white/10 text-sm font-bold group"
-          >
-            <GraduationCap size={18} className="text-accent group-hover:scale-110 transition-transform" />
-            Painel de Catequese
-          </Link>
-          
-          <Link
-            href="/events/new"
-            className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-gold-dark text-white rounded-lg transition-all shadow-lg shadow-black/10 text-sm font-bold group"
-          >
-            <Plus size={18} className="group-hover:rotate-90 transition-transform" />
-            Novo Evento
-          </Link>
+          {(isAdmin || isCrismaCoordinator) && (
+            <Link
+              href="/catequese"
+              className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all border border-white/10 text-sm font-bold group"
+            >
+              <GraduationCap
+                size={18}
+                className="text-accent group-hover:scale-110 transition-transform"
+              />
+              Painel de Catequese
+            </Link>
+          )}
+
+          {isAdmin && (
+            <Link
+              href="/events/new"
+              className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-gold-dark text-white rounded-lg transition-all shadow-lg shadow-black/10 text-sm font-bold group"
+            >
+              <Plus
+                size={18}
+                className="group-hover:rotate-90 transition-transform"
+              />
+              Novo Evento
+            </Link>
+          )}
         </div>
       </div>
     </motion.div>

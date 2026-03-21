@@ -47,17 +47,16 @@ const Header = () => {
             <Link
               key={item.path}
               href={item.path}
-              className={`font-body text-sm font-medium transition-colors duration-200 hover:text-accent ${
-                pathname === item.path
-                  ? "text-primary font-bold"
-                  : "text-foreground"
-              }`}
+              className={`font-body text-sm font-medium transition-colors duration-200 hover:text-accent ${pathname === item.path
+                ? "text-primary font-bold"
+                : "text-foreground"
+                }`}
             >
               {item.label}
             </Link>
           ))}
 
-          {session?.user?.role === "ADMIN" && (
+          {(session?.user?.role === "ADMIN") && (
             <Link
               href="/events/new"
               className="font-body text-sm font-bold text-accent hover:text-primary transition-colors flex items-center gap-1"
@@ -124,7 +123,7 @@ const Header = () => {
 
               {status === "authenticated" ? (
                 <div className="flex flex-col gap-4">
-                  {session?.user?.role === "ADMIN" && (
+                  {(session?.user?.role === "ADMIN") && (
                     <Link
                       href="/events/new"
                       onClick={() => setMenuOpen(false)}

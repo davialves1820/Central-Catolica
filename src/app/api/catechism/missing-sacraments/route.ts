@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
-import { auth } from "@/lib/server/auth";
+import { checkCatequeseAccess } from "@/lib/server/utils/auth-checks";
 
 export async function GET() {
   try {
-    const session = await auth();
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const { authorized, response } = await checkCatequeseAccess();
+    if (!authorized) {
+      return response!;
     }
 
     // Get students missing sacraments (not DROPPED status and missing baptism or first eucharist)
