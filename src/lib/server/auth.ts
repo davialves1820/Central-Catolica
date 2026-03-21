@@ -1,44 +1,8 @@
-import NextAuth, { type DefaultSession } from "next-auth";
-
-declare module "next-auth" {
-  interface Session {
-    user: {
-      id: string;
-      role: string;
-      emailVerified: Date | null;
-      pastorals: { id: string; role: string }[];
-    } & DefaultSession["user"];
-  }
-
-  interface User {
-    id?: string;
-    role: string;
-    emailVerified: Date | null;
-    pastorals: { id: string; role: string }[];
-  }
-}
-
-declare module "next-auth/jwt" {
-  interface JWT {
-    role: string;
-    emailVerified: Date | null;
-    pastorals: { id: string; role: string }[];
-  }
-}
-
+import NextAuth from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "./db";
 import Credentials from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
-import crypto from "crypto";
-import { promisify } from "util";
-
-const scryptAsync = promisify(crypto.scrypt) as (
-  password: crypto.BinaryLike,
-  salt: crypto.BinaryLike,
-  keylen: number,
-  options: crypto.ScryptOptions,
-) => Promise<Buffer>;
+import { authConfig } from "./auth.config";
 
 async function verifyPassword(
   password: string,
@@ -46,12 +10,22 @@ async function verifyPassword(
 ): Promise<boolean> {
   // Se for hash do bcrypt (padrão NextAuth atual)
   if (hash.startsWith("$2a$") || hash.startsWith("$2b$")) {
+    const bcrypt = await import("bcryptjs");
     return bcrypt.compare(password, hash);
   }
 
   // Se for hash do scrypt (AdonisJS/Lucid antigo)
   if (hash.startsWith("$scrypt$")) {
     try {
+      const crypto = await import("crypto");
+      const { promisify } = await import("util");
+      const scryptAsync = promisify(crypto.scrypt) as (
+        password: string | Buffer,
+        salt: string | Buffer,
+        keylen: number,
+        options: { N: number; r: number; p: number }
+      ) => Promise<Buffer>;
+
       const parts = hash.split("$");
       const params: Record<string, number> = {};
       parts[3].split(",").forEach((p) => {
@@ -81,6 +55,8 @@ async function verifyPassword(
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.AUTH_SECRET,
+  session: { strategy: "jwt" },
+  ...authConfig,
   providers: [
     Credentials({
       credentials: {
@@ -95,7 +71,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         const user = await prisma.users.findUnique({
           where: { email: credentials.email as string },
-          include: { pastoral_members: true },
+          include: { 
+            pastoral_members: {
+              include: { pastoral: true }
+            } 
+          },
         });
 
         if (!user) {
@@ -111,13 +91,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null;
         }
 
-        /* 
-        // Temporariamente desativado (sem domínio para envio de e-mails)
-        if (!user.email_verified) {
-          throw new Error("EmailNotVerified");
-        }
-        */
-
         return {
           id: String(user.id),
           email: user.email,
@@ -127,39 +100,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           pastorals: user.pastoral_members.map((pm) => ({
             id: pm.pastoral_id,
             role: pm.role,
+            slug: pm.pastoral.slug,
           })),
         };
       },
     }),
   ],
-
-  session: {
-    strategy: "jwt",
-  },
-
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role;
-        token.emailVerified = user.emailVerified;
-        token.pastorals = user.pastorals;
-      }
-      return token;
-    },
-
-    async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.sub!;
-        session.user.role = token.role as string;
-        session.user.emailVerified = token.emailVerified as Date | null;
-        session.user.pastorals =
-          (token.pastorals as { id: string; role: string }[]) || [];
-      }
-      return session;
-    },
-  },
-
-  pages: {
-    signIn: "/login",
-  },
 });

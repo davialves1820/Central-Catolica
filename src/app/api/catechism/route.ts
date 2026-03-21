@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
-import { auth } from "@/lib/server/auth";
+import { checkCatequeseAccess } from "@/lib/server/utils/auth-checks";
 
 export async function GET() {
   try {
-    const session = await auth();
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const { authorized, response } = await checkCatequeseAccess();
+    if (!authorized) {
+      return response!;
     }
 
     const classes = await prisma.catechism_classes.findMany({
@@ -28,9 +28,9 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await auth();
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const { authorized, response } = await checkCatequeseAccess();
+    if (!authorized) {
+      return response!;
     }
 
     const data = await request.json();
@@ -55,9 +55,9 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const session = await auth();
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    const { authorized, response } = await checkCatequeseAccess();
+    if (!authorized) {
+      return response!;
     }
 
     const data = await request.json();
