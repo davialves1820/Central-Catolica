@@ -32,7 +32,11 @@ export default function LoginPage() {
       clearTimeout(timer);
 
       if (result?.error) {
-        setError("Email ou senha inválidos");
+        if (result.error === "EmailNotVerified") {
+          setError("Seu e-mail ainda não foi verificado. Por favor, verifique sua caixa de entrada.");
+        } else {
+          setError("Email ou senha inválidos");
+        }
         return;
       }
 

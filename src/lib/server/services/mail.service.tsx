@@ -17,7 +17,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
   }
 
   const { error } = await resend.emails.send({
-    from: "Paróquia Manager <onboarding@resend.dev>",
+    from: process.env.RESEND_FROM_EMAIL || "Paróquia Manager <onboarding@resend.dev>",
     to: email,
     subject: "Confirme seu e-mail",
     react: <VerificationEmail confirmLink={confirmLink} />,
@@ -38,7 +38,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
   }
 
   const { error } = await resend.emails.send({
-    from: "Paróquia Manager <onboarding@resend.dev>",
+    from: process.env.RESEND_FROM_EMAIL || "Paróquia Manager <onboarding@resend.dev>",
     to: email,
     subject: "Redefinição de Senha",
     react: <PasswordResetEmail resetLink={resetLink} />,

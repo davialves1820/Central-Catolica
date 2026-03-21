@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: "Email provider not initialized" }, { status: 500 });
     }
     const { data: resendData, error } = await resend.emails.send({
-      from: "Paróquia Manager <onboarding@resend.dev>",
+      from: process.env.RESEND_FROM_EMAIL || "Paróquia Manager <onboarding@resend.dev>",
       to: [to],
       subject,
       react: reactElement,
