@@ -47,45 +47,64 @@ export default function EditPastoralPage({
   const [uploading, setUploading] = useState(false);
   const [users, setUsers] = useState<{ id: string; full_name: string | null; email: string; role: string }[]>([]);
   const [success, setSuccess] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setFetching(true);
       try {
-        const [pastoralRes, usersRes] = await Promise.all([
-          api.get(`/pastorals/${params.slug}`),
-          api.get("/users"),
-        ]);
+        const isAdminUser = session?.user?.role === "ADMIN";
 
+        // Fetch pastoral data first
+        const pastoralRes = await api.get(`/pastorals/${params.slug}`);
         const p = pastoralRes.data;
-        const isAdmin = session?.user?.role === "ADMIN";
-        const isCoordinator = p.coordinatorIds?.includes(session?.user?.id);
 
-        if (!isAdmin && !isCoordinator) {
+        const isCoordinatorUser = p.coordinatorIds?.includes(session?.user?.id);
+
+        if (!isAdminUser && !isCoordinatorUser) {
           router.push(`/pastorais/${params.slug}`);
           return;
         }
 
-        setFormData({
-          name: p.name,
-          slug: p.slug,
-          description: p.description || "",
-          image_url: p.image_url || "",
-          instagram: p.instagram || "",
-          meeting_location: p.meeting_location || "",
-          coordinatorIds: p.coordinatorIds || [],
-        });
-        setUsers(usersRes.data);
+        // Only fetch all users if ADMIN
+        if (isAdminUser) {
+          const usersRes = await api.get("/users");
+          setUsers(usersRes.data);
+        } else {
+          // If not admin, we can only see current coordinators
+          setUsers(
+            p.coordinators.map((c: { id: string; name: string; email: string }) => ({
+              id: c.id,
+              full_name: c.name,
+              email: c.email,
+              role: "COORDENADOR",
+            })),
+          );
+        }
+
+        // Only set form data if it's the first time loading
+        if (!hasLoaded) {
+          setFormData({
+            name: p.name,
+            slug: p.slug,
+            description: p.description || "",
+            image_url: p.image_url || "",
+            instagram: p.instagram || "",
+            meeting_location: p.meeting_location || "",
+            coordinatorIds: p.coordinatorIds || [],
+          });
+          setHasLoaded(true);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
         setFetching(false);
       }
     };
-    if (status === "authenticated") {
+    if (status === "authenticated" && !hasLoaded) {
       fetchData();
     }
-  }, [params.slug, status, session, router]);
+  }, [params.slug, status, session, router, hasLoaded]);
 
   // Auth guard
   if (status === "loading") {
@@ -234,11 +253,6 @@ export default function EditPastoralPage({
                   <p className="text-muted-foreground text-lg font-body leading-relaxed max-w-xl">
                     Atualize os dados e a identidade visual da{" "}
                     <span className="text-foreground font-bold underline decoration-accent/30 decoration-4">
-                      {formData.name}
-                    </span>{" "}
-                    para manter os fiéis informados. Atualize os dados e a
-                    identidade visual da{" "}
-                    <span className="text-foreground font-bold underline decoration-primary/30 decoration-4">
                       {formData.name}
                     </span>{" "}
                     para manter os fiéis informados.
@@ -416,7 +430,7 @@ export default function EditPastoralPage({
                             Link Externo da Imagem
                           </label>
                           <input
-                            type="url"
+                            type="text"
                             value={formData.image_url}
                             onChange={(e) =>
                               setFormData({
@@ -506,18 +520,16 @@ export default function EditPastoralPage({
                     {users.map((user) => (
                       <label
                         key={user.id}
-                        className={`flex items-center gap-3 p-3 rounded-2xl transition-all border ${
-                          formData.coordinatorIds.includes(user.id)
-                            ? "bg-primary/5 border-primary/30 ring-1 ring-primary/20"
-                            : "bg-white border-border/50"
-                        } ${isAdmin ? "cursor-pointer hover:border-primary/30" : "cursor-default"}`}
+                        className={`flex items-center gap-3 p-3 rounded-2xl transition-all border ${formData.coordinatorIds.includes(user.id)
+                          ? "bg-primary/5 border-primary/30 ring-1 ring-primary/20"
+                          : "bg-white border-border/50"
+                          } ${isAdmin ? "cursor-pointer hover:border-primary/30" : "cursor-default"}`}
                       >
                         <div
-                          className={`w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 transition-all ${
-                            formData.coordinatorIds.includes(user.id)
-                              ? "bg-primary text-white shadow-lg shadow-primary/20"
-                              : "bg-pearl text-primary/60"
-                          }`}
+                          className={`w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 transition-all ${formData.coordinatorIds.includes(user.id)
+                            ? "bg-primary text-white shadow-lg shadow-primary/20"
+                            : "bg-pearl text-primary/60"
+                            }`}
                         >
                           {user.full_name?.charAt(0) || user.email.charAt(0)}
                         </div>

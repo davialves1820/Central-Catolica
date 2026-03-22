@@ -74,7 +74,23 @@ const isProd =
   process.env.NODE_ENV === "production" ||
   process.env.VERCEL_ENV === "production";
 
-export const blobStorage: IBlobStorage =
-  isProd && process.env.BLOB_READ_WRITE_TOKEN
-    ? new VercelBlobStorage(process.env.BLOB_READ_WRITE_TOKEN)
-    : new LocalBlobStorage();
+// In production, we MUST have a BLOB_READ_WRITE_TOKEN.
+// If missing, we should probably still allow the app to boot but the services will fail with a clear message.
+export const blobStorage: IBlobStorage = (() => {
+  if (isProd) {
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      log.info("Using Vercel Blob Storage");
+      return new VercelBlobStorage(process.env.BLOB_READ_WRITE_TOKEN);
+    } else {
+      log.warn(
+        "BLOB_READ_WRITE_TOKEN is missing in production. Uploads will fail.",
+      );
+      // We still return LocalBlobStorage as a fallback to prevent the app from crashing on start,
+      // but LocalBlobStorage will fail during actual upload on Vercel's read-only filesystem.
+      return new LocalBlobStorage();
+    }
+  }
+
+  log.info("Using Local Blob Storage");
+  return new LocalBlobStorage();
+})();
