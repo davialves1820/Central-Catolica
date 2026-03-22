@@ -45,7 +45,7 @@ export default async function PastoralPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      <main className="grow py-12 md:py-20">
+      <main className="grow py-8 md:py-20">
         <div className="container mx-auto px-4">
           <PastoralDetails slug={slug} />
         </div>

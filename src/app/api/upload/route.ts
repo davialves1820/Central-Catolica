@@ -33,12 +33,17 @@ export async function POST(request: NextRequest) {
     const uniqueFilename = `${path}/${timestamp}-${Math.random().toString(36).substring(2, 8)}.${extension}`;
 
     const url = await blobStorage.upload(file, uniqueFilename, file.type);
+    log.info(`File uploaded successfully: ${uniqueFilename}`);
 
     return NextResponse.json({ url });
-  } catch (error) {
-    log.error("Upload error:", error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    log.error("Upload error detail:", {
+      message: err.message,
+      stack: err.stack,
+    });
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: `Internal server error: ${err.message}` },
       { status: 500 },
     );
   }
