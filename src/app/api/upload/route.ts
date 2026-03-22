@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
     const extension = file.name.split(".").pop();
     const uniqueFilename = `${path}/${timestamp}-${Math.random().toString(36).substring(2, 8)}.${extension}`;
 
+    log.info(`Attempting upload to storage: ${blobStorage.constructor.name}`);
     const url = await blobStorage.upload(file, uniqueFilename, file.type);
     log.info(`File uploaded successfully: ${uniqueFilename}`);
 
