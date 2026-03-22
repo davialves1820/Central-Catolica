@@ -77,23 +77,18 @@ const isProd =
 // In production, we MUST have a BLOB_READ_WRITE_TOKEN.
 // If missing, we should probably still allow the app to boot but the services will fail with a clear message.
 export const blobStorage: IBlobStorage = (() => {
-  // Try standard name first, then look for any key that contains BLOB_READ_WRITE_TOKEN,
-  // then look for any key that starts with vercel_blob_rw_
-  const envKeys = Object.keys(process.env);
-  const standardToken = process.env.BLOB_READ_WRITE_TOKEN;
-  const legacyToken = process.env.VERCEL_BLOB_READ_WRITE_TOKEN;
-  const dynamicKey = envKeys.find(
-    (k) => k.includes("BLOB_READ_WRITE_TOKEN") || k.startsWith("vercel_blob_rw_"),
-  );
-  const token = standardToken || legacyToken || (dynamicKey ? process.env[dynamicKey] : undefined);
+  const token = process.env.BLOB_READ_WRITE_TOKEN;
 
   if (isProd) {
     if (token) {
-      log.info(`Using Vercel Blob Storage (found in variable: ${dynamicKey || "BLOB_READ_WRITE_TOKEN"})`);
+      log.info("Using Vercel Blob Storage");
       return new VercelBlobStorage(token);
     } else {
+      // In production, we log a critical warning.
+      // We still return LocalBlobStorage to avoid breaking the application initialization,
+      // but we'll add a check in the actions to provide a better error to the user.
       log.error(
-        "CRITICAL: Vercel Blob token is missing in production. Checked: BLOB_READ_WRITE_TOKEN and pattern matching keys.",
+        "CRITICAL: BLOB_READ_WRITE_TOKEN is missing in production. Image uploads will fail.",
       );
       return new LocalBlobStorage();
     }
