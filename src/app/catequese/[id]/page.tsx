@@ -49,9 +49,8 @@ export default function ClassDetailsPage({
     );
   }
 
-  // Normaliza a data selecionada usando componentes locais (evita shift de UTC em produção)
-  const _d = new Date(selectedDate);
-  const selectedDateStr = `${_d.getFullYear()}-${String(_d.getMonth() + 1).padStart(2, "0")}-${String(_d.getDate()).padStart(2, "0")}`;
+  // selectedDate já é 'YYYY-MM-DD' do <input type="date"> — sem conversão necessária
+  const selectedDateStr = selectedDate;
 
   return (
     <div className="min-h-screen bg-white p-6 lg:p-12">

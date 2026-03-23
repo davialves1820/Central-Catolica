@@ -2,19 +2,30 @@ import { useState, useCallback, useEffect } from "react";
 import api from "@/lib/client/api";
 import { ClassDetails } from "@/types";
 
-// Normaliza data: sempre 'YYYY-MM-DD' usando componentes locais
-// Evita shift de UTC em produção (servidor roda em UTC, cliente em UTC-3)
+// Normaliza data para 'YYYY-MM-DD' SEM passar por objeto Date quando já é YYYY-MM-DD.
+// CRÍTICO: new Date('2026-03-23') é UTC midnight — em UTC-3 getDate() retorna 22 (bug!).
 export const normalizeDate = (date?: string): string => {
-  const d = date ? new Date(date) : new Date();
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
+  if (!date) {
+    // Hoje em hora local
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+  // Já está em formato correto — retorna direto sem conversão
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
+  // ISO string com hora (ex: '2026-03-23T00:00:00.000Z') — fatia os primeiros 10 chars
+  return date.slice(0, 10);
 };
 
-// Retorna a data local atual no formato 'YYYY-MM-DD' (sem shift de UTC)
+// Retorna a data local atual no formato 'YYYY-MM-DD'
 export const getLocalDateStr = (): string => {
-  return normalizeDate();
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 };
 
 export const useClassData = (id: string, selectedDate: string) => {
