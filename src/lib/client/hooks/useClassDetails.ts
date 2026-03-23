@@ -20,6 +20,8 @@ export const useClassDetails = (id: string) => {
     loading,
     hasMeeting,
     setHasMeeting,
+    allMeetingDates,
+    setAllMeetingDates,
     fetchData,
   } = useClassData(id, selectedDate);
 
@@ -34,6 +36,8 @@ export const useClassDetails = (id: string) => {
     selectedDate,
     hasMeeting,
     setHasMeeting,
+    allMeetingDates,
+    setAllMeetingDates,
     setClassData,
     fetchData,
   );
