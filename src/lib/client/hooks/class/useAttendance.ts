@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import api from "@/lib/client/api";
 import { ClassDetails } from "@/types";
 import { normalizeDate } from "./useClassData";
@@ -16,19 +16,24 @@ export const useAttendance = (
   fetchData: (silent?: boolean) => Promise<void>,
 ) => {
   const [loadingMeeting, setLoadingMeeting] = useState(false);
+  // useRef para guard síncrono: evita double-tap no mobile (closure do state é stale)
+  const meetingInFlight = useRef(false);
   const [loadingAttendance, setLoadingAttendance] = useState<
     Record<string, boolean>
   >({});
 
   const handleToggleMeeting = async () => {
-    if (loadingMeeting) return;
-    
+    // Guard síncrono — não depende do ciclo de re-render do React
+    if (meetingInFlight.current) return;
+    meetingInFlight.current = true;
+
     const newValue = !hasMeeting;
     const normalizedSelectedDate = normalizeDate(selectedDate);
-    
+
+    // Atualização otimista imediata
     setHasMeeting(newValue);
     setLoadingMeeting(true);
-    
+
     try {
       await api.post("/catechism/meetings", {
         classId: id,
@@ -36,21 +41,25 @@ export const useAttendance = (
         occurred: newValue,
       });
 
-      // Atualiza lista de datas localmente para evitar race condition
+      // Atualiza lista de datas localmente
       if (newValue) {
         if (!allMeetingDates.includes(normalizedSelectedDate)) {
           setAllMeetingDates([...allMeetingDates, normalizedSelectedDate]);
         }
       } else {
-        setAllMeetingDates(allMeetingDates.filter(d => d !== normalizedSelectedDate));
+        setAllMeetingDates(allMeetingDates.filter((d) => d !== normalizedSelectedDate));
       }
 
-      fetchData(true);
+      // NÃO chama fetchData aqui — evita que o servidor retorne dado desatualizado
+      // e sobrescreva o setHasMeeting otimista. O próximo fetchData natural
+      // (troca de data ou navegação) irá sincronizar.
     } catch {
+      // Reverte em caso de erro
       setHasMeeting(!newValue);
       alert("Erro ao alterar status do encontro");
     } finally {
       setLoadingMeeting(false);
+      meetingInFlight.current = false;
     }
   };
 
@@ -98,7 +107,7 @@ export const useAttendance = (
             const a = studentAttendances.find((sa) => sa.date === d);
             return count + (a?.isPresent ? 1 : 0);
           }, 0);
-          
+
           const frequency = total > 0 ? Math.round((presentCount / total) * 100) : 0;
           return { ...student, frequency };
         });
