@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
 import { checkCatequeseAccess } from "@/lib/server/utils/auth-checks";
 
-function normalizeDate(date: string) {
-  const d = new Date(date);
-
+function normalizeDate(date: string): Date | null {
+  // Interpreta "YYYY-MM-DD" como UTC midnight — consistente entre ambientes
+  const match = date.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!match) return null;
+  const d = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
   if (isNaN(d.getTime())) return null;
-
-  d.setHours(0, 0, 0, 0);
   return d;
 }
 

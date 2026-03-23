@@ -2,11 +2,19 @@ import { useState, useCallback, useEffect } from "react";
 import api from "@/lib/client/api";
 import { ClassDetails } from "@/types";
 
-// Normaliza data: sempre 'YYYY-MM-DD'
-export const normalizeDate = (date?: string) => {
+// Normaliza data: sempre 'YYYY-MM-DD' usando componentes locais
+// Evita shift de UTC em produção (servidor roda em UTC, cliente em UTC-3)
+export const normalizeDate = (date?: string): string => {
   const d = date ? new Date(date) : new Date();
-  d.setHours(0, 0, 0, 0);
-  return d.toISOString().slice(0, 10);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
+// Retorna a data local atual no formato 'YYYY-MM-DD' (sem shift de UTC)
+export const getLocalDateStr = (): string => {
+  return normalizeDate();
 };
 
 export const useClassData = (id: string, selectedDate: string) => {

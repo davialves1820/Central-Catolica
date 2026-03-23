@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import api from "@/lib/client/api";
 import { Student, CatechismClass } from "@/types";
-import { useClassData } from "./class/useClassData";
+import { useClassData, getLocalDateStr } from "./class/useClassData";
 import { useAttendance } from "./class/useAttendance";
 import { usePagination } from "./utils/usePagination";
 
 export const useClassDetails = (id: string) => {
-  const [selectedDate, setSelectedDate] = useState(
-    new Date().toISOString().slice(0, 10),
-  );
+  // getLocalDateStr usa componentes locais (evita shift de UTC em produção)
+  const [selectedDate, setSelectedDate] = useState(getLocalDateStr);
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
   const [editingClass, setEditingClass] = useState<CatechismClass | null>(null);
   const [loadingAction, setLoadingAction] = useState(false);

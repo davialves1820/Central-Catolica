@@ -2,6 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
 import { checkCatequeseAccess } from "@/lib/server/utils/auth-checks";
 
+function parseDateUTC(dateStr: string): Date | null {
+  // Interpreta "YYYY-MM-DD" como UTC midnight para consistência entre cliente e servidor
+  const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!match) return null;
+  return new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+}
+
 export async function PUT(request: NextRequest) {
   try {
     const { authorized, response } = await checkCatequeseAccess();
@@ -17,21 +24,25 @@ export async function PUT(request: NextRequest) {
         { status: 400 },
       );
 
-    const attendanceDate = new Date(date);
-    attendanceDate.setHours(0, 0, 0, 0);
+    const attendanceDate = parseDateUTC(date);
+    if (!attendanceDate) {
+      return NextResponse.json({ error: "Invalid date format" }, { status: 400 });
+    }
 
-    // 1. Busca ou cria o encontro da classe para essa data
-    let meeting = await prisma.catechism_meetings.findFirst({
+    // Verifica se existe reunião para essa data — NÃO cria automaticamente
+    // (criação de reunião é responsabilidade do toggle "teve encontro")
+    const meeting = await prisma.catechism_meetings.findFirst({
       where: { class_id: classId, date: attendanceDate },
     });
 
     if (!meeting) {
-      meeting = await prisma.catechism_meetings.create({
-        data: { class_id: classId, date: attendanceDate },
-      });
+      return NextResponse.json(
+        { error: "Nenhum encontro registrado para essa data" },
+        { status: 400 },
+      );
     }
 
-    // 2. Atualiza ou cria a presença do aluno para esse encontro
+    // Atualiza ou cria a presença do aluno para esse encontro
     const attendance = await prisma.attendances.upsert({
       where: {
         class_id_catechism_student_id_date: {
