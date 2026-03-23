@@ -13,6 +13,7 @@ export const useClassData = (id: string, selectedDate: string) => {
   const [classData, setClassData] = useState<ClassDetails | null>(null);
   const [loading, setLoading] = useState(true);
   const [hasMeeting, setHasMeeting] = useState(false);
+  const [allMeetingDates, setAllMeetingDates] = useState<string[]>([]);
 
   const fetchData = useCallback(
     async (silent = false) => {
@@ -48,10 +49,8 @@ export const useClassData = (id: string, selectedDate: string) => {
         const meetingsRes = await api.get<{ date: string; id: string }[]>(
           `/catechism/meetings/all?classId=${id}`,
         );
-        const allDates = meetingsRes.data.map((m) => ({
-          date: m.date.slice(0, 10),
-          id: m.id,
-        }));
+        const allDates = meetingsRes.data.map((m) => m.date.slice(0, 10));
+        setAllMeetingDates(allDates);
 
         // Calcula frequência para todos os alunos
         const studentsWithFrequency = mappedClassData.students.map(
@@ -61,7 +60,7 @@ export const useClassData = (id: string, selectedDate: string) => {
             );
             const total = allDates.length;
             const present = allDates.reduce((count, d) => {
-              const a = studentAttendances.find((sa) => sa.date === d.date);
+              const a = studentAttendances.find((sa) => sa.date === d);
               return count + (a?.isPresent ? 1 : 0);
             }, 0);
             const frequency =
@@ -75,7 +74,7 @@ export const useClassData = (id: string, selectedDate: string) => {
         // Verifica se a data selecionada tem reunião
         const normalizedSelectedDate = normalizeDate(selectedDate);
         const meetingOnSelected = allDates.find(
-          (d) => d.date === normalizedSelectedDate,
+          (d) => d === normalizedSelectedDate,
         );
         setHasMeeting(!!meetingOnSelected);
       } catch (error) {
@@ -97,6 +96,8 @@ export const useClassData = (id: string, selectedDate: string) => {
     loading,
     hasMeeting,
     setHasMeeting,
+    allMeetingDates,
+    setAllMeetingDates,
     fetchData,
   };
 };

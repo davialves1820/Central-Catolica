@@ -8,6 +8,8 @@ export const useAttendance = (
   selectedDate: string,
   hasMeeting: boolean,
   setHasMeeting: (val: boolean) => void,
+  allMeetingDates: string[],
+  setAllMeetingDates: (dates: string[]) => void,
   setClassData: (
     update: (prev: ClassDetails | null) => ClassDetails | null,
   ) => void,
@@ -19,15 +21,30 @@ export const useAttendance = (
   >({});
 
   const handleToggleMeeting = async () => {
+    if (loadingMeeting) return;
+    
     const newValue = !hasMeeting;
+    const normalizedSelectedDate = normalizeDate(selectedDate);
+    
     setHasMeeting(newValue);
     setLoadingMeeting(true);
+    
     try {
       await api.post("/catechism/meetings", {
         classId: id,
         date: selectedDate,
         occurred: newValue,
       });
+
+      // Atualiza lista de datas localmente para evitar race condition
+      if (newValue) {
+        if (!allMeetingDates.includes(normalizedSelectedDate)) {
+          setAllMeetingDates([...allMeetingDates, normalizedSelectedDate]);
+        }
+      } else {
+        setAllMeetingDates(allMeetingDates.filter(d => d !== normalizedSelectedDate));
+      }
+
       fetchData(true);
     } catch {
       setHasMeeting(!newValue);
@@ -71,15 +88,18 @@ export const useAttendance = (
           });
         }
 
-        // Recalcula frequência considerando todas as datas de reunião
+        // Recalcula frequência considerando todas as datas de reunião oficiais
         const studentsWithFrequency = prev.students.map((student) => {
           const studentAttendances = newAttendances.filter(
             (a) => a.studentId === student.id,
           );
-          const total = [...new Set(studentAttendances.map((a) => a.date))]
-            .length;
-          const present = studentAttendances.filter((a) => a.isPresent).length;
-          const frequency = total > 0 ? Math.round((present / total) * 100) : 0;
+          const total = allMeetingDates.length;
+          const presentCount = allMeetingDates.reduce((count, d) => {
+            const a = studentAttendances.find((sa) => sa.date === d);
+            return count + (a?.isPresent ? 1 : 0);
+          }, 0);
+          
+          const frequency = total > 0 ? Math.round((presentCount / total) * 100) : 0;
           return { ...student, frequency };
         });
 
