@@ -13,7 +13,6 @@ export const useAttendance = (
   setClassData: (
     update: (prev: ClassDetails | null) => ClassDetails | null,
   ) => void,
-  fetchData: (silent?: boolean) => Promise<void>,
 ) => {
   const [loadingMeeting, setLoadingMeeting] = useState(false);
   // useRef para guard síncrono: evita double-tap no mobile (closure do state é stale)

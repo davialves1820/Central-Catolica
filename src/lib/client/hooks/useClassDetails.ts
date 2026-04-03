@@ -38,7 +38,6 @@ export const useClassDetails = (id: string) => {
     allMeetingDates,
     setAllMeetingDates,
     setClassData,
-    fetchData,
   );
 
   // Pagination Hook
