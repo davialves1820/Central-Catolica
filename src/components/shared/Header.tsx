@@ -16,6 +16,7 @@ const Header = () => {
   const navItems = [
     { label: "Início", path: "/" },
     { label: "Pastorais", path: "/pastorais" },
+    { label: "Bíblia", path: "/biblia" },
     { label: "Horários", path: "/#horarios" },
     { label: "Confissões", path: "/#confissoes" },
     { label: "Contato", path: "/#contato" },
@@ -66,7 +67,7 @@ const Header = () => {
             </Link>
           )}
 
-          <div className="h-4 w-[1px] bg-primary/20" />
+          <div className="h-4 w-px bg-primary/20" />
 
           {status === "authenticated" ? (
             <button
@@ -119,7 +120,7 @@ const Header = () => {
                 </Link>
               ))}
 
-              <div className="h-[1px] w-full bg-primary/10 my-1" />
+              <div className="h-px w-full bg-primary/10 my-1" />
 
               {status === "authenticated" ? (
                 <div className="flex flex-col gap-4">
