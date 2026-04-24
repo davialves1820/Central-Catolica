@@ -49,32 +49,62 @@ export async function getChapter(bookName: string, chapterNumber: number): Promi
   return book?.capitulos.find(c => c.capitulo === chapterNumber);
 }
 
-export async function searchBible(query: string) {
-  const data = await getBibleData();
-  const results: { book: string; chapter: number; verse: number; text: string }[] = [];
-  const normalizedQuery = query.toLowerCase();
+interface FlatVerse {
+  book: string;
+  chapter: number;
+  verse: number;
+  text: string;
+  normalizedText: string;
+}
 
-  const processBooks = (books: Book[]) => {
+let flatIndex: FlatVerse[] | null = null;
+
+async function getFlatIndex() {
+  if (flatIndex) return flatIndex;
+
+  const data = await getBibleData();
+  const index: FlatVerse[] = [];
+
+  const addBooksToIndex = (books: Book[]) => {
     for (const book of books) {
       for (const chapter of book.capitulos) {
         for (const verse of chapter.versiculos) {
-          if (verse.texto.toLowerCase().includes(normalizedQuery)) {
-            results.push({
-              book: book.nome,
-              chapter: chapter.capitulo,
-              verse: verse.versiculo,
-              text: verse.texto
-            });
-            if (results.length >= 50) return; // Limit results
-          }
+          index.push({
+            book: book.nome,
+            chapter: chapter.capitulo,
+            verse: verse.versiculo,
+            text: verse.texto,
+            normalizedText: verse.texto.toLowerCase(),
+          });
         }
       }
     }
   };
 
-  processBooks(data.antigoTestamento);
-  if (results.length < 50) {
-    processBooks(data.novoTestamento);
+  addBooksToIndex(data.antigoTestamento);
+  addBooksToIndex(data.novoTestamento);
+
+  flatIndex = index;
+  return flatIndex;
+}
+
+export async function searchBible(query: string) {
+  const index = await getFlatIndex();
+  const results: { book: string; chapter: number; verse: number; text: string }[] = [];
+  const normalizedQuery = query.toLowerCase();
+
+  for (const verse of index) {
+    if (verse.normalizedText.includes(normalizedQuery)) {
+      results.push({
+        book: verse.book,
+        chapter: verse.chapter,
+        verse: verse.verse,
+        text: verse.text
+      });
+      if (results.length >= 50) {
+        break;
+      }
+    }
   }
 
   return results;

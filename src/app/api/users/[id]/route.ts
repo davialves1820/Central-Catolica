@@ -31,9 +31,8 @@ export async function GET(request: NextRequest, { params }: Params) {
     }
 
     // Remove password
-    const { password: _password, ...userWithoutPassword } = user;
-    if (_password) {
-    } // "Use" to avoid lint warning
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password, ...userWithoutPassword } = user;
 
     return NextResponse.json(userWithoutPassword);
   } catch {
@@ -85,9 +84,8 @@ export async function PUT(request: NextRequest, { params }: Params) {
       data: updateData,
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _pw, ...userWithoutPassword } = updatedUser;
-    if (_pw) {
-    }
 
     return NextResponse.json(userWithoutPassword);
   } catch {

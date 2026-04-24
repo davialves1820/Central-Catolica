@@ -37,7 +37,7 @@ async function verifyPassword(
       const storedHash = Buffer.from(parts[5], "base64");
 
       // No AdonisJS o keyLength padrão costuma ser 64
-      const derivedKey = (await scryptAsync(password, salt, storedHash.length, {
+      const derivedKey = (await scryptAsync(password, salt, 64, {
         N: params.n,
         r: params.r,
         p: params.p,

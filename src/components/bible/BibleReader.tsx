@@ -42,13 +42,12 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
   useEffect(() => {
     const savedFontSize = localStorage.getItem("bible-font-size");
     if (savedFontSize) {
-      const size = parseInt(savedFontSize, 10);
-      setTimeout(() => setFontSize(size), 0);
+      setFontSize(parseInt(savedFontSize, 10));
     }
 
     const savedTheme = localStorage.getItem("bible-theme") as Theme;
     if (savedTheme) {
-      setTimeout(() => setTheme(savedTheme), 0);
+      setTheme(savedTheme);
     }
   }, []);
 
@@ -112,9 +111,17 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
               <div className="space-y-3">
                 <label className="text-xs font-bold uppercase tracking-wider opacity-60">Tamanho da Fonte</label>
                 <div className="flex items-center gap-4">
-                  <button onClick={() => setFontSize(Math.max(14, fontSize - 2))} className="px-3 py-1 border rounded hover:bg-background">A-</button>
+                  <button onClick={() => {
+                    const newSize = Math.max(14, fontSize - 2);
+                    setFontSize(newSize);
+                    localStorage.setItem("bible-font-size", newSize.toString());
+                  }} className="px-3 py-1 border rounded hover:bg-background">A-</button>
                   <span className="font-mono">{fontSize}px</span>
-                  <button onClick={() => setFontSize(Math.min(32, fontSize + 2))} className="px-3 py-1 border rounded hover:bg-background">A+</button>
+                  <button onClick={() => {
+                    const newSize = Math.min(32, fontSize + 2);
+                    setFontSize(newSize);
+                    localStorage.setItem("bible-font-size", newSize.toString());
+                  }} className="px-3 py-1 border rounded hover:bg-background">A+</button>
                 </div>
               </div>
               <div className="space-y-3">

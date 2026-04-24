@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/shared/Header";
 import Banner from "@/components/shared/Banner";
 import FeaturedEvents from "@/components/events/FeaturedEvents";
@@ -8,10 +6,10 @@ import InfoCards from "@/components/shared/InfoCards";
 import Footer from "@/components/shared/Footer";
 import MapSection from "@/components/shared/MapSection";
 import { AdminActionBar } from "@/components/shared/AdminActionBar";
-import { useSession } from "next-auth/react";
+import { auth } from "@/lib/server/auth";
 
-export default function Home() {
-  const { data: session } = useSession();
+export default async function Home() {
+  const session = await auth();
   const isCrismaCoordinator = session?.user?.pastorals?.some(
     (p: { slug: string; role: string }) => p.slug === "crisma" && p.role === "COORDENADOR"
   );
