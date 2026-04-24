@@ -2,25 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { cache } from 'react';
 
-export interface Verse {
-  versiculo: number;
-  texto: string;
-}
-
-export interface Chapter {
-  capitulo: number;
-  versiculos: Verse[];
-}
-
-export interface Book {
-  nome: string;
-  capitulos: Chapter[];
-}
-
-export interface BibleData {
-  antigoTestamento: Book[];
-  novoTestamento: Book[];
-}
+import { BibleData, Book, Chapter } from "@/types";
 
 const BIBLE_FILENAME = 'bibliaAveMaria.json';
 const BIBLE_PATH = process.cwd().endsWith('src') ? path.join(process.cwd(), 'data', BIBLE_FILENAME) : path.join(process.cwd(), 'src', 'data', BIBLE_FILENAME);
