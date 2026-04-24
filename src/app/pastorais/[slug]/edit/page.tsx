@@ -11,6 +11,7 @@ import Footer from "@/components/shared/Footer";
 import api from "@/lib/client/api";
 import PastoralEditForm from "@/components/pastorais/PastoralEditForm";
 import CoordinationSidebar from "@/components/pastorais/CoordinationSidebar";
+import { User } from "@/types";
 
 export default function EditPastoralPage({
   params: paramsPromise,
@@ -32,7 +33,7 @@ export default function EditPastoralPage({
     coordinatorIds: [] as string[],
   });
 
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [success, setSuccess] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
 
@@ -55,11 +56,11 @@ export default function EditPastoralPage({
           const usersRes = await api.get("/users");
           setUsers(usersRes.data);
         } else {
-          setUsers(p.coordinators.map((c: any) => ({
+          setUsers(p.coordinators.map((c: { id: string; name: string; email: string }) => ({
             id: c.id,
             full_name: c.name,
             email: c.email,
-            role: "COORDENADOR",
+            role: "COORDENADOR" as const,
           })));
         }
 
@@ -108,11 +109,8 @@ export default function EditPastoralPage({
     }));
   };
 
-  const handleUpdateForm = (data: any) => {
-    setFormData(prev => ({ ...prev, ...data }));
-  };
 
-  const handleSubmit = async (submitData: any) => {
+  const handleSubmit = async (submitData: Record<string, any>) => {
     setLoading(true);
     try {
       // Merge with current coordinatorIds from state

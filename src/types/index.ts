@@ -1,5 +1,12 @@
 import { LucideIcon } from "lucide-react";
 
+export interface User {
+  id: string;
+  full_name: string | null;
+  email: string;
+  role: "USER" | "COORDENADOR" | "PADRE" | "ADMIN";
+}
+
 export interface Pastoral {
   id: string;
   slug: string;

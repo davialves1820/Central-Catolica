@@ -15,8 +15,10 @@ type Theme = "light" | "dark" | "sepia";
 
 export default function BibleReader({ book, initialChapterIndex }: BibleReaderProps) {
   const [chapterIndex, setChapterIndex] = useState(initialChapterIndex);
-  const [fontSize, setFontSize] = useState(18);
-  const [theme, setTheme] = useState<Theme>("light");
+  const [preferences, setPreferences] = useState<{ fontSize: number; theme: Theme }>({
+    fontSize: 18,
+    theme: "light"
+  });
   const [showSettings, setShowSettings] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -41,13 +43,13 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
   // Load preferences
   useEffect(() => {
     const savedFontSize = localStorage.getItem("bible-font-size");
-    if (savedFontSize) {
-      setFontSize(parseInt(savedFontSize, 10));
-    }
-
     const savedTheme = localStorage.getItem("bible-theme") as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
+    
+    if (savedFontSize || savedTheme) {
+      setPreferences({
+        fontSize: savedFontSize ? parseInt(savedFontSize, 10) : 18,
+        theme: savedTheme || "light"
+      });
     }
   }, []);
 
@@ -72,7 +74,7 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
   };
 
   return (
-    <div className={`rounded-xl shadow-xl overflow-hidden border transition-colors duration-300 ${themeClasses[theme]}`}>
+    <div className={`rounded-xl shadow-xl overflow-hidden border transition-colors duration-300 ${themeClasses[preferences.theme]}`}>
       {/* Tool Bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b bg-opacity-50 backdrop-blur-sm sticky top-0 z-10">
         <div className="flex items-center gap-2">
@@ -112,14 +114,14 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
                 <label className="text-xs font-bold uppercase tracking-wider opacity-60">Tamanho da Fonte</label>
                 <div className="flex items-center gap-4">
                   <button onClick={() => {
-                    const newSize = Math.max(14, fontSize - 2);
-                    setFontSize(newSize);
+                    const newSize = Math.max(14, preferences.fontSize - 2);
+                    setPreferences(prev => ({ ...prev, fontSize: newSize }));
                     localStorage.setItem("bible-font-size", newSize.toString());
                   }} className="px-3 py-1 border rounded hover:bg-background">A-</button>
-                  <span className="font-mono">{fontSize}px</span>
+                  <span className="font-mono">{preferences.fontSize}px</span>
                   <button onClick={() => {
-                    const newSize = Math.min(32, fontSize + 2);
-                    setFontSize(newSize);
+                    const newSize = Math.min(32, preferences.fontSize + 2);
+                    setPreferences(prev => ({ ...prev, fontSize: newSize }));
                     localStorage.setItem("bible-font-size", newSize.toString());
                   }} className="px-3 py-1 border rounded hover:bg-background">A+</button>
                 </div>
@@ -131,10 +133,10 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
                     <button
                       key={t}
                       onClick={() => {
-                        setTheme(t);
+                        setPreferences(prev => ({ ...prev, theme: t }));
                         localStorage.setItem("bible-theme", t);
                       }}
-                      className={`flex-1 py-2 rounded border capitalize text-sm transition-all ${theme === t ? 'ring-2 ring-primary ring-offset-2' : ''} ${themeClasses[t]}`}
+                      className={`flex-1 py-2 rounded border capitalize text-sm transition-all ${preferences.theme === t ? 'ring-2 ring-primary ring-offset-2' : ''} ${themeClasses[t]}`}
                     >
                       {t === 'light' ? 'Claro' : t === 'sepia' ? 'Sépia' : 'Escuro'}
                     </button>
@@ -155,7 +157,7 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            style={{ fontSize: `${fontSize}px`, lineHeight: 1.7 }}
+            style={{ fontSize: `${preferences.fontSize}px`, lineHeight: 1.7 }}
             className="font-body max-w-2xl mx-auto"
           >
             <div className="space-y-6">

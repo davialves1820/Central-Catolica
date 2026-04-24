@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Calendar, ChevronRight } from "lucide-react";
 
-interface Event {
+export interface FeaturedEvent {
   id: string;
   title: string;
   description: string;
@@ -19,7 +19,7 @@ interface Event {
   };
 }
 
-export default function FeaturedEventsList({ events }: { events: Event[] }) {
+export default function FeaturedEventsList({ events }: { events: FeaturedEvent[] }) {
   if (events.length === 0) {
     return null;
   }

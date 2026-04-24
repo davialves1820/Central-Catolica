@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/server/db";
-import FeaturedEventsList from "./FeaturedEventsList";
+import FeaturedEventsList, { FeaturedEvent } from "./FeaturedEventsList";
 
 const FeaturedEvents = async () => {
   const now = new Date();
@@ -49,7 +49,7 @@ const FeaturedEvents = async () => {
           </div>
         </div>
 
-        <FeaturedEventsList events={events as any} />
+        <FeaturedEventsList events={events as FeaturedEvent[]} />
       </div>
     </section>
   );

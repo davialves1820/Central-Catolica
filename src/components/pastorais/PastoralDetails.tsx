@@ -13,6 +13,24 @@ interface PastoralDetailsProps {
   slug: string;
 }
 
+interface SerializablePastoral {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  image_url: string | null;
+  instagram: string | null;
+  meeting_location: string | null;
+  coordinators: Array<{ id: string; name: string; email: string }>;
+  events: Array<{
+    id: string;
+    title: string;
+    image_url: string | null;
+    start_date: string | null;
+    meeting_location: string | null;
+  }>;
+}
+
 const PastoralDetails = async ({ slug }: PastoralDetailsProps) => {
   const session = await auth();
   
@@ -52,9 +70,9 @@ const PastoralDetails = async ({ slug }: PastoralDetailsProps) => {
 
   const allPastorals = await prisma.pastorals.findMany({
     where: { NOT: { slug } },
-    take: 10,
+    take: 3,
   });
-  const suggestedPastorals = allPastorals.sort(() => 0.5 - Math.random()).slice(0, 3);
+  const suggestedPastorals = allPastorals;
 
   const coordinators = pastoral.members.map(m => ({
     id: m.user.id,
@@ -79,11 +97,11 @@ const PastoralDetails = async ({ slug }: PastoralDetailsProps) => {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-12 md:mb-20 px-4 pt-4 md:pt-12 items-center">
-        <PastoralHero pastoral={serializablePastoral as any} />
+        <PastoralHero pastoral={serializablePastoral as SerializablePastoral} />
         
         <div className="col-span-12 md:col-span-7 flex flex-col gap-8">
-          <PastoralHeaderInfo pastoral={serializablePastoral as any} />
-          <PastoralMetadata pastoral={serializablePastoral as any} canEdit={canEdit} />
+          <PastoralHeaderInfo pastoral={serializablePastoral as SerializablePastoral} />
+          <PastoralMetadata pastoral={serializablePastoral as SerializablePastoral} canEdit={canEdit} />
         </div>
       </div>
 
@@ -107,11 +125,11 @@ const PastoralDetails = async ({ slug }: PastoralDetailsProps) => {
 
       <hr className="border-border/40 mb-12 md:mb-20 px-4" />
 
-      <PastoralEventsList events={serializablePastoral.events as any} />
+      <PastoralEventsList events={serializablePastoral.events} />
 
       <hr className="border-border/40 mb-20 px-4" />
 
-      <SuggestedPastoralsList pastorals={suggestedPastorals as any} />
+      <SuggestedPastoralsList pastorals={suggestedPastorals} />
     </div>
   );
 };

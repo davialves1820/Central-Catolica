@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Cross, Heart } from "lucide-react";
+import { Clock, Cross } from "lucide-react";
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 30 },
