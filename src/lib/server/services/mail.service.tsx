@@ -1,6 +1,9 @@
 import { Resend } from "resend";
 import { VerificationEmail } from "@/components/emails/VerificationEmail";
 import { PasswordResetEmail } from "@/components/emails/PasswordResetEmail";
+import { createLogger } from "@/lib/server/utils/logger";
+
+const logger = createLogger("MailService");
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -12,7 +15,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
   const confirmLink = `${domain}/auth/verify-email?token=${token}`;
 
   if (!resend) {
-    console.error("RESEND_API_KEY is missing. Verification email not sent.");
+    logger.error("RESEND_API_KEY is missing. Verification email not sent.");
     return;
   }
 
@@ -24,7 +27,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
   });
 
   if (error) {
-    console.error("Resend error (verification):", error);
+    logger.error("Resend error (verification)", error);
     return;
   }
 };
@@ -33,7 +36,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
   const resetLink = `${domain}/auth/reset-password?token=${token}`;
 
   if (!resend) {
-    console.error("RESEND_API_KEY is missing. Password reset email not sent.");
+    logger.error("RESEND_API_KEY is missing. Password reset email not sent.");
     return;
   }
 
@@ -45,7 +48,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
   });
 
   if (error) {
-    console.error("Resend error (password reset):", error);
+    logger.error("Resend error (password reset)", error);
     return;
   }
 };

@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
 import { auth } from "@/lib/server/auth";
+import { createLogger } from "@/lib/server/utils/logger";
+
+const logger = createLogger("EventsAPI");
 
 export async function GET(request: NextRequest) {
   try {
@@ -36,7 +39,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(events);
   } catch (error) {
-    console.error("Error fetching events:", error);
+    logger.error("Error fetching events", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },
@@ -131,7 +134,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(event, { status: 201 });
   } catch (error) {
-    console.error("Error creating event:", error);
+    logger.error("Error creating event", error);
     const message =
       error instanceof Error ? error.message : "Internal server error";
     return NextResponse.json({ error: message }, { status: 500 });

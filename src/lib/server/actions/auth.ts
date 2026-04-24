@@ -33,14 +33,6 @@ export const resetPasswordRequest = async (
   const passwordResetToken = await generatePasswordResetToken(email);
 
   if (passwordResetToken) {
-    await sendPasswordResetEmail(
-      passwordResetToken.user_id, // We'll use email here for simplicity if needed, or get it from user
-      passwordResetToken.token,
-    );
-  }
-
-  // To send email, we need the email address
-  if (passwordResetToken) {
     await sendPasswordResetEmail(email, passwordResetToken.token);
   }
 

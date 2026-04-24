@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
 import { auth } from "@/lib/server/auth";
+import { createLogger } from "@/lib/server/utils/logger";
+
+const logger = createLogger("PastoralAPI");
 
 export async function GET(
   request: NextRequest,
@@ -63,7 +66,7 @@ export async function GET(
 
     return NextResponse.json(formattedPastoral);
   } catch (error) {
-    console.error("Error fetching pastoral:", error);
+    logger.error("Error fetching pastoral", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },
@@ -168,7 +171,7 @@ export async function PATCH(
 
     return NextResponse.json(pastoral);
   } catch (error) {
-    console.error("Error updating pastoral:", error);
+    logger.error("Error updating pastoral", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

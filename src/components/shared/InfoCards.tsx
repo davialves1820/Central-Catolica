@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Cross, Heart } from "lucide-react";
+import { Clock, Cross } from "lucide-react";
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -112,34 +112,6 @@ const InfoCards = () => {
                 <p className="text-muted-foreground">13h às 16h30</p>
               </div>
             </div>
-          </motion.div>
-
-          {/* Intentions */}
-          <motion.div
-            custom={2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUpVariant}
-            className="bg-background rounded-xl p-8 shadow-sm border border-border text-center"
-          >
-            <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Heart className="text-primary" size={28} />
-            </div>
-            <h3 className="font-heading text-xl font-bold text-primary mb-4">
-              Intenções de Missa
-            </h3>
-            <p className="font-body text-sm text-muted-foreground mb-4">
-              Envie sua intenção de missa para que possamos rezar por você e sua
-              família.
-            </p>
-            <textarea
-              placeholder="Deixe sua intenção aqui..."
-              className="w-full p-3 border border-border rounded-lg text-sm font-body resize-none h-20 focus:outline-none focus:ring-2 focus:ring-accent bg-background"
-            />
-            <button className="mt-3 w-full px-4 py-2 bg-primary text-primary-foreground font-body font-bold text-sm rounded-lg hover:bg-crimson-light transition-colors duration-300">
-              Enviar Intenção
-            </button>
           </motion.div>
         </div>
       </div>
