@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/server/db";
 import { auth } from "@/lib/server/auth";
 import bcrypt from "bcryptjs";
+import { createLogger } from "@/lib/server/utils/logger";
+
+const logger = createLogger("users-api");
 
 interface Params {
   params: Promise<{
@@ -30,12 +33,10 @@ export async function GET(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    // Remove password
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...userWithoutPassword } = user;
-
+    const { password: _, ...userWithoutPassword } = user as any;
     return NextResponse.json(userWithoutPassword);
-  } catch {
+  } catch (error) {
+    logger.error("Error fetching user", { error });
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },
@@ -84,11 +85,10 @@ export async function PUT(request: NextRequest, { params }: Params) {
       data: updateData,
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password: _pw, ...userWithoutPassword } = updatedUser;
-
+    const { password: _, ...userWithoutPassword } = updatedUser as any;
     return NextResponse.json(userWithoutPassword);
-  } catch {
+  } catch (error) {
+    logger.error("Error updating user", { error });
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },
@@ -109,7 +109,8 @@ export async function DELETE(request: NextRequest, { params }: Params) {
     });
 
     return NextResponse.json({ message: "User deleted" });
-  } catch {
+  } catch (error) {
+    logger.error("Error deleting user", { error });
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

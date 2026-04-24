@@ -117,8 +117,11 @@ export default function EditPastoralPage({
       const finalData = { ...submitData, coordinatorIds: formData.coordinatorIds };
       await api.patch(`/pastorals/${params.slug}`, finalData);
       setSuccess(true);
+      
+      const nextSlug = submitData["slug"] as string || params.slug;
+
       setTimeout(() => {
-        router.push(`/pastorais/${finalData.slug}`);
+        router.push(`/pastorais/${nextSlug}`);
         router.refresh();
       }, 2000);
     } catch (error) {
