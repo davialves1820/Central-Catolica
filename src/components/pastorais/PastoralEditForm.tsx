@@ -19,7 +19,7 @@ interface PastoralEditFormProps {
     coordinatorIds: string[];
   };
   isAdmin: boolean;
-  onSubmit: (data: Record<string, any>) => Promise<void>;
+  onSubmit: (data: Record<string, string | string[]>) => Promise<void>;
   loading: boolean;
 }
 

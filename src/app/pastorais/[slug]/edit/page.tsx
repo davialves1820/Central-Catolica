@@ -110,7 +110,7 @@ export default function EditPastoralPage({
   };
 
 
-  const handleSubmit = async (submitData: Record<string, any>) => {
+  const handleSubmit = async (submitData: Record<string, string | string[]>) => {
     setLoading(true);
     try {
       // Merge with current coordinatorIds from state

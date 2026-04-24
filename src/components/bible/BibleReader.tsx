@@ -46,9 +46,12 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
     const savedTheme = localStorage.getItem("bible-theme") as Theme;
     
     if (savedFontSize || savedTheme) {
-      setPreferences({
-        fontSize: savedFontSize ? parseInt(savedFontSize, 10) : 18,
-        theme: savedTheme || "light"
+      // Use microtask to avoid sync render warning
+      Promise.resolve().then(() => {
+        setPreferences({
+          fontSize: savedFontSize ? parseInt(savedFontSize, 10) : 18,
+          theme: savedTheme || "light"
+        });
       });
     }
   }, []);
