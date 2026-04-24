@@ -33,7 +33,8 @@ export async function GET(request: NextRequest, { params }: Params) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    const { password: _, ...userWithoutPassword } = user as any;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...userWithoutPassword } = user as Record<string, unknown>;
     return NextResponse.json(userWithoutPassword);
   } catch (error) {
     logger.error("Error fetching user", { error });
@@ -85,7 +86,8 @@ export async function PUT(request: NextRequest, { params }: Params) {
       data: updateData,
     });
 
-    const { password: _, ...userWithoutPassword } = updatedUser as any;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _, ...userWithoutPassword } = updatedUser as Record<string, unknown>;
     return NextResponse.json(userWithoutPassword);
   } catch (error) {
     logger.error("Error updating user", { error });
