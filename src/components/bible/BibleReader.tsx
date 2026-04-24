@@ -1,6 +1,6 @@
 "use client";
 
-import { Book } from "@/lib/bible";
+import { Book } from "@/types";
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Bookmark, Settings, List } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
