@@ -56,8 +56,16 @@ const THEME_LABELS: Record<Theme, string> = {
 
 export default function BibleReader({ book, initialChapterIndex }: BibleReaderProps) {
   const [chapterIndex, setChapterIndex] = useState(initialChapterIndex);
-  const [fontSize, setFontSize] = useState<FontSize>(18);
-  const [theme, setTheme] = useState<Theme>("light");
+  const [fontSize, setFontSize] = useState<FontSize>(() => {
+    if (typeof window === "undefined") return 18;
+    const saved = localStorage.getItem("bible-font-size");
+    return saved ? (parseInt(saved) as FontSize) : 18;
+  });
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "light";
+    const saved = localStorage.getItem("bible-theme") as Theme;
+    return saved && THEME_STYLES[saved] ? saved : "light";
+  });
   const [showSettings, setShowSettings] = useState(false);
   const [showTOC, setShowTOC] = useState(false);
   const [direction, setDirection] = useState<1 | -1>(1);
@@ -67,20 +75,6 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
   const hasNext = chapterIndex < book.capitulos.length - 1;
   const hasPrev = chapterIndex > 0;
   const t = THEME_STYLES[theme];
-
-  // Persist preferences
-  useEffect(() => {
-    const savedSize = localStorage.getItem("bible-font-size");
-    const savedTheme = localStorage.getItem("bible-theme") as Theme;
-    
-    // Defer state updates to avoid synchronous setState in effect warning
-    if (savedSize || savedTheme) {
-      window.requestAnimationFrame(() => {
-        if (savedSize) setFontSize(parseInt(savedSize) as FontSize);
-        if (savedTheme && THEME_STYLES[savedTheme]) setTheme(savedTheme);
-      });
-    }
-  }, []);
 
   // Save progress & sync URL
   useEffect(() => {
@@ -203,10 +197,11 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
                     setShowTOC(false);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className={`aspect-square rounded-xl text-sm font-bold font-body transition-all ${idx === chapterIndex
+                  className={`aspect-square rounded-xl text-sm font-bold font-body transition-all ${
+                    idx === chapterIndex
                       ? "bg-primary text-white shadow-md shadow-primary/30"
                       : `${t.verse} ${t.muted} hover:${t.text}`
-                    }`}
+                  }`}
                 >
                   {ch.capitulo}
                 </button>
@@ -261,11 +256,13 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
                     <button
                       key={th}
                       onClick={() => setAndPersistTheme(th)}
-                      className={`flex-1 py-2 rounded-xl text-xs font-bold font-body border transition-all ${THEME_STYLES[th].container
-                        } ${THEME_STYLES[th].border} ${theme === th
+                      className={`flex-1 py-2 rounded-xl text-xs font-bold font-body border transition-all ${
+                        THEME_STYLES[th].container
+                      } ${THEME_STYLES[th].border} ${
+                        theme === th
                           ? "ring-2 ring-primary ring-offset-2"
                           : "opacity-70"
-                        }`}
+                      }`}
                     >
                       {THEME_LABELS[th]}
                     </button>
@@ -349,10 +346,11 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
         <button
           onClick={() => navigate(-1)}
           disabled={!hasPrev}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-body font-semibold text-sm transition-all ${hasPrev
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-body font-semibold text-sm transition-all ${
+            hasPrev
               ? `${t.verse} ${t.text} hover:text-primary border ${t.border}`
               : "opacity-25 cursor-not-allowed"
-            }`}
+          }`}
         >
           <ChevronLeft size={18} />
           <span className="hidden sm:inline">Anterior</span>
@@ -369,8 +367,9 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
               return (
                 <div
                   key={i}
-                  className={`w-1 h-1 rounded-full transition-colors ${idx <= chapterIndex ? "bg-accent" : theme === "dark" ? "bg-slate-700" : "bg-slate-200"
-                    }`}
+                  className={`w-1 h-1 rounded-full transition-colors ${
+                    idx <= chapterIndex ? "bg-accent" : theme === "dark" ? "bg-slate-700" : "bg-slate-200"
+                  }`}
                 />
               );
             })}
@@ -380,10 +379,11 @@ export default function BibleReader({ book, initialChapterIndex }: BibleReaderPr
         <button
           onClick={() => navigate(1)}
           disabled={!hasNext}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-body font-semibold text-sm transition-all ${hasNext
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-body font-semibold text-sm transition-all ${
+            hasNext
               ? `${t.verse} ${t.text} hover:text-primary border ${t.border}`
               : "opacity-25 cursor-not-allowed"
-            }`}
+          }`}
         >
           <span className="hidden sm:inline">Próximo</span>
           <ChevronRight size={18} />
