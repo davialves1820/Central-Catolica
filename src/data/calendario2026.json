@@ -1,0 +1,2922 @@
+{
+  "2026-01-01": [
+    {
+      "nome": "Maria, Mãe de Deus",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-02": [
+    {
+      "nome": "Santos Basilio Magno e Gregório de Nazianzo, bispos e doutores da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-03": [
+    {
+      "nome": "Santíssimo Nome de Jesus",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-04": [
+    {
+      "nome": "2º Domingo do Natal",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-05": [
+    {
+      "nome": "Segunda-Feira do Tempo do Natal",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-06": [
+    {
+      "nome": "Epifania Do Senhor",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-07": [
+    {
+      "nome": "Raymond of Penyafort, Presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-08": [
+    {
+      "nome": "Quinta-feira depois da Epifania",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-09": [
+    {
+      "nome": "Sexta-feira depois da Epifania",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-10": [
+    {
+      "nome": "Sábado depois da Epiphany",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-11": [
+    {
+      "nome": "Batismo do Senhor",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-01-12": [
+    {
+      "nome": "Segunda-feira da 1º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-13": [
+    {
+      "nome": "Hilary, Bispoispo e Doutor",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-14": [
+    {
+      "nome": "Quarta-feira da 1º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-15": [
+    {
+      "nome": "Quinta-feira da 1º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-16": [
+    {
+      "nome": "Sexta-feira da 1º Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-17": [
+    {
+      "nome": "Anthony, Abade",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-18": [
+    {
+      "nome": "2º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-19": [
+    {
+      "nome": "Segunda-feira da 2º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-20": [
+    {
+      "nome": "Fabian, Presbíteroapa e Mártir; Sebastian, Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-21": [
+    {
+      "nome": "Agnes, Virgemirgem e Mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-22": [
+    {
+      "nome": "Vincent, Diácono e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-23": [
+    {
+      "nome": "Marianne Cope, Virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-24": [
+    {
+      "nome": "Francis de Sales, Bispoispo e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-25": [
+    {
+      "nome": "3º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-26": [
+    {
+      "nome": "Timothy e Titus, Bispob",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-27": [
+    {
+      "nome": "Angela Merici, Virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-28": [
+    {
+      "nome": "Thomas Aquinas, Presbíteroresbítero e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-29": [
+    {
+      "nome": "Quinta-feira da 3º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-30": [
+    {
+      "nome": "Sexta-feira da 3º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-01-31": [
+    {
+      "nome": "John Bosco, Presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-01": [
+    {
+      "nome": "4º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-02": [
+    {
+      "nome": "Apresentação do Senhor",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-03": [
+    {
+      "nome": "Blase, Bispoispo e Mártir; Ansgar, Bispo",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-04": [
+    {
+      "nome": "Quarta-feira da 4º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-05": [
+    {
+      "nome": "Agatha, Virgemirgem e Mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-06": [
+    {
+      "nome": "Paul Miki e Companheiros, Mártirártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-07": [
+    {
+      "nome": "Sábado da 4º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-08": [
+    {
+      "nome": "5º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-09": [
+    {
+      "nome": "Segunda-feira da 5º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-10": [
+    {
+      "nome": "Scholastica, Virgem",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-11": [
+    {
+      "nome": "Nossa Senhora de Lourdes",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-12": [
+    {
+      "nome": "Quinta-feira da 5º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-13": [
+    {
+      "nome": "Sexta-feira da 5º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-14": [
+    {
+      "nome": "Cyril, Mártironge, e Methodius, Bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-15": [
+    {
+      "nome": "6º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-16": [
+    {
+      "nome": "Segunda-feira da 6º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-17": [
+    {
+      "nome": "Sete Fundadores da Ordem dos Servos de Maria",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-02-18": [
+    {
+      "nome": "Quarta-feira de Cinzas",
+      "cor": "ROXO",
+      "rank": "SOLENIDADE",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-19": [
+    {
+      "nome": "Quinta-feira depois da Ash Quarta-feira",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-20": [
+    {
+      "nome": "Sexta-feira depois da Ash Quarta-feira",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-21": [
+    {
+      "nome": "Peter Damian, Bispoispo e Doutor",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-22": [
+    {
+      "nome": "1º Domingo of Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-23": [
+    {
+      "nome": "Polycarp, Bispoispo e Mártir",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-24": [
+    {
+      "nome": "Terça-feira da 1º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-25": [
+    {
+      "nome": "Quarta-feira da 1º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-26": [
+    {
+      "nome": "Quinta-feira da 1º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-27": [
+    {
+      "nome": "Sexta-feira da 1º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-02-28": [
+    {
+      "nome": "Sábado da 1º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-01": [
+    {
+      "nome": "2º Domingo of Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-02": [
+    {
+      "nome": "Segunda-feira da 2º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-03": [
+    {
+      "nome": "Katharine Drexel, Virgem",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-04": [
+    {
+      "nome": "São Casimiro",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-05": [
+    {
+      "nome": "Quinta-feira da 2º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-06": [
+    {
+      "nome": "Sexta-feira da 2º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-07": [
+    {
+      "nome": "Perpetua e Felicity, Mártirártires",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-08": [
+    {
+      "nome": "3º Domingo of Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-09": [
+    {
+      "nome": "Frances of Rome, Religioso(a)",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-10": [
+    {
+      "nome": "Terça-feira da 3º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-11": [
+    {
+      "nome": "Quarta-feira da 3º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-12": [
+    {
+      "nome": "Quinta-feira da 3º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-13": [
+    {
+      "nome": "Sexta-feira da 3º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-14": [
+    {
+      "nome": "Sábado da 3º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-15": [
+    {
+      "nome": "4º Domingo of Quaresma",
+      "cor": "ROSA",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-16": [
+    {
+      "nome": "Segunda-feira da 4º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-17": [
+    {
+      "nome": "Patrick, Bispo",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-18": [
+    {
+      "nome": "Cyril of Jerusalem, Bispoispo e Doutor",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-19": [
+    {
+      "nome": "São José, Esposo de Maria",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-03-20": [
+    {
+      "nome": "Sexta-feira da 4º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-21": [
+    {
+      "nome": "Sábado da 4º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-22": [
+    {
+      "nome": "5º Domingo of Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-23": [
+    {
+      "nome": "Turibius de Mogrovejo, Bispo",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-24": [
+    {
+      "nome": "Terça-feira da 5º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-25": [
+    {
+      "nome": "Anunciação do Senhor",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-03-26": [
+    {
+      "nome": "Quinta-feira da 5º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-27": [
+    {
+      "nome": "Sexta-feira da 5º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-28": [
+    {
+      "nome": "Sábado da 5º Semana of Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-29": [
+    {
+      "nome": "Domingo de Ramos",
+      "cor": "VERMELHO",
+      "rank": "DOMINGO",
+      "temporada": "Semana Santa"
+    }
+  ],
+  "2026-03-30": [
+    {
+      "nome": "Segunda-feira of Semana Santa",
+      "cor": "ROXO",
+      "rank": "SEMANA SANTA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-03-31": [
+    {
+      "nome": "Terça-feira of Semana Santa",
+      "cor": "ROXO",
+      "rank": "SEMANA SANTA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-04-01": [
+    {
+      "nome": "Quarta-feira of Semana Santa",
+      "cor": "ROXO",
+      "rank": "SEMANA SANTA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-04-02": [
+    {
+      "nome": "Quinta-feira Santa",
+      "cor": "BRANCO",
+      "rank": "TRÍDUO",
+      "temporada": "Semana Santa"
+    }
+  ],
+  "2026-04-03": [
+    {
+      "nome": "Sexta-feira Santa",
+      "cor": "VERMELHO",
+      "rank": "TRÍDUO",
+      "temporada": "Semana Santa"
+    }
+  ],
+  "2026-04-04": [
+    {
+      "nome": "Vigília Pascal",
+      "cor": "BRANCO",
+      "rank": "TRÍDUO",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-05": [
+    {
+      "nome": "Domingo de Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-06": [
+    {
+      "nome": "Segunda-feira na Octave of Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-07": [
+    {
+      "nome": "Terça-feira na Octave of Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-08": [
+    {
+      "nome": "Quarta-feira na Octave of Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-09": [
+    {
+      "nome": "Quinta-feira na Octave of Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-10": [
+    {
+      "nome": "Sexta-feira na Octave of Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-11": [
+    {
+      "nome": "Sábado na Octave of Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-12": [
+    {
+      "nome": "2º Domingo of Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-13": [
+    {
+      "nome": "Martin I, Presbíteroapa e Mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-04-14": [
+    {
+      "nome": "Terça-feira da 2º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-15": [
+    {
+      "nome": "Quarta-feira da 2º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-16": [
+    {
+      "nome": "Quinta-feira da 2º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-17": [
+    {
+      "nome": "Sexta-feira da 2º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-18": [
+    {
+      "nome": "Sábado da 2º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-19": [
+    {
+      "nome": "3º Domingo of Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-20": [
+    {
+      "nome": "Segunda-feira da 3º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-21": [
+    {
+      "nome": "Anselm, Bispoispo e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-04-22": [
+    {
+      "nome": "Quarta-feira da 3º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-23": [
+    {
+      "nome": "São Jorge, mártir; Santo Adalberto, bispo e mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-04-24": [
+    {
+      "nome": " São Fiel de Sigmaringa, presbítero e mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-04-25": [
+    {
+      "nome": " São Marcos, evangelista",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-04-26": [
+    {
+      "nome": "4º Domingo of Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-27": [
+    {
+      "nome": "Segunda-feira da 4º Semana of Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-04-28": [
+    {
+      "nome": "São Luís Maria Grignion de Montfort, presbítero; São Pedro Chanel, presbítero e mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-04-29": [
+    {
+      "nome": "Santa Catarina de Siena, virgem e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-04-30": [
+    {
+      "nome": "São Pio V, papa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-01": [
+    {
+      "nome": "São José Operário",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-02": [
+    {
+      "nome": "Santo Atanasio, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-03": [
+    {
+      "nome": "5º Domingo da Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-04": [
+    {
+      "nome": "Segunda-feira da 5º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-05": [
+    {
+      "nome": "Terça-feira da 5º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-06": [
+    {
+      "nome": "Quarta-feira da 5º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-07": [
+    {
+      "nome": "Quinta-feira da 5º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-08": [
+    {
+      "nome": "Sexta-feira da 5º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-09": [
+    {
+      "nome": "Sábado da 5º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-10": [
+    {
+      "nome": "6º Domingo da Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-11": [
+    {
+      "nome": "Segunda-feira da 6º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-12": [
+    {
+      "nome": "Santos Nereu e Aquileu, mártires; São Pancrácio, mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-13": [
+    {
+      "nome": "Nossa Senhora de Fátima",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-14": [
+    {
+      "nome": "São Matias, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-15": [
+    {
+      "nome": "Sexta-Feira da Semana VI da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-16": [
+    {
+      "nome": "Sábado da 6º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-17": [
+    {
+      "nome": "Ascensão do Senhor",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-18": [
+    {
+      "nome": "São João I, papa e mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-19": [
+    {
+      "nome": "Terça-feira da 7º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-20": [
+    {
+      "nome": "São Bernardino de Siena, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-21": [
+    {
+      "nome": "Santos Cristóvão de Magalhães, presbítero, e Companheiros, mártires",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-22": [
+    {
+      "nome": "Santa Rita de Cássia, religiosa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-23": [
+    {
+      "nome": "Sábado da 7º Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-24": [
+    {
+      "nome": "Domingo de Pentecostes",
+      "cor": "VERMELHO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-05-25": [
+    {
+      "nome": "Bem-aventurada Virgem Maria, Mãe da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-26": [
+    {
+      "nome": "São Filipe Néri, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-27": [
+    {
+      "nome": "Santo Agostinho de Cantuária, bispo",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-28": [
+    {
+      "nome": "Quinta-feira da 8º Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-29": [
+    {
+      "nome": "Sexta-feira da 8º Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-30": [
+    {
+      "nome": "Sábado da 8º Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-05-31": [
+    {
+      "nome": "Santíssima Trindade",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-01": [
+    {
+      "nome": "São Justino, mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-02": [
+    {
+      "nome": "Santos Marcelino e Pedro, mártires",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-03": [
+    {
+      "nome": "Santos Carlos Lwanga e Companheiros, mártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-04": [
+    {
+      "nome": "Quinta-Feira da Semana IX do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-05": [
+    {
+      "nome": "São Bonifácio, bispo e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-06": [
+    {
+      "nome": " São Norberto, bispo; Santa Maria no Sábado",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-07": [
+    {
+      "nome": "Santíssimo Corpo e Sangue de Cristo",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-08": [
+    {
+      "nome": "Segunda-feira da 10º Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-09": [
+    {
+      "nome": "Ephrem, Diácono & D",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-10": [
+    {
+      "nome": "Quarta-feira da 10º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-11": [
+    {
+      "nome": "Barnabas, Apóstolo",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-12": [
+    {
+      "nome": "Sagrado Coração de Jesus",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-13": [
+    {
+      "nome": "Imaculado Coração da Virgem Santa Maria",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-14": [
+    {
+      "nome": "11º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-15": [
+    {
+      "nome": "Segunda-feira da 11º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-16": [
+    {
+      "nome": "Terça-feira da 11º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-17": [
+    {
+      "nome": "Quarta-feira da 11º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-18": [
+    {
+      "nome": "Quinta-feira da 11º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-19": [
+    {
+      "nome": "Romuald, Abade",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-20": [
+    {
+      "nome": "Sábado da 11º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-21": [
+    {
+      "nome": "12º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-22": [
+    {
+      "nome": "Paulinus of Nola, Bispo; John Fisher, Bispoispo e Mártir e Thomas More, Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-23": [
+    {
+      "nome": "Terça-feira da 12º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-24": [
+    {
+      "nome": "Nascimento de São João Batista",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-25": [
+    {
+      "nome": "Quinta-feira da 12º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-26": [
+    {
+      "nome": "Sexta-feira da 12º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-27": [
+    {
+      "nome": "Cyril of Alexandria, Bispoispo e Doutor",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-28": [
+    {
+      "nome": "13º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-29": [
+    {
+      "nome": "Santos Pedro e Paulo, Apóstolos",
+      "cor": "VERMELHO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-06-30": [
+    {
+      "nome": "Primeiros Santos Mártires da Igreja de Roma",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-01": [
+    {
+      "nome": "Junipero Serra, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-02": [
+    {
+      "nome": "Quinta-feira da 13º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-03": [
+    {
+      "nome": "São Tomé, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-04": [
+    {
+      "nome": "Elizabeth of Portugal",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-05": [
+    {
+      "nome": "14º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-06": [
+    {
+      "nome": "Maria Goretti, Virgemirgem e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-07": [
+    {
+      "nome": "Terça-feira da 14º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-08": [
+    {
+      "nome": "Quarta-feira da 14º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-09": [
+    {
+      "nome": "Augustine Zhao Rong, Presbíteroresbítero e Mártir, e Companheiros, Mártirártires",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-10": [
+    {
+      "nome": "Sexta-feira da 14º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-11": [
+    {
+      "nome": "Benedict, Abade",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-12": [
+    {
+      "nome": "15º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-13": [
+    {
+      "nome": "Henry",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-14": [
+    {
+      "nome": "Kateri Tekakwitha, Virgem",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-15": [
+    {
+      "nome": "Bonaventure, Bispoispo e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-16": [
+    {
+      "nome": "Nossa Senhora do Monte Carmelo",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-17": [
+    {
+      "nome": "Sexta-feira da 15º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-18": [
+    {
+      "nome": "Camillus de Lellis, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-19": [
+    {
+      "nome": "16º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-20": [
+    {
+      "nome": "Apollinarus, Bispoispo e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-21": [
+    {
+      "nome": "Lawrence of Brindisi, Presbíteroresbítero e Doutor",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-22": [
+    {
+      "nome": "Santa Maria Madalena",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-23": [
+    {
+      "nome": "Bridget, Religioso(a)",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-24": [
+    {
+      "nome": "Sharbel Makhluf, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-25": [
+    {
+      "nome": "São Tiago, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-26": [
+    {
+      "nome": "17º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-27": [
+    {
+      "nome": "Segunda-feira da 17º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-28": [
+    {
+      "nome": "Terça-feira da 17º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-29": [
+    {
+      "nome": "Martha",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-30": [
+    {
+      "nome": "Peter Chrysologus, Bispoispo e Doutor",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-07-31": [
+    {
+      "nome": "Ignatius of Loyola, Presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-01": [
+    {
+      "nome": "Alphonsus Liguori, Bispoispo e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-02": [
+    {
+      "nome": "18º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-03": [
+    {
+      "nome": "Segunda-feira da 18º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-04": [
+    {
+      "nome": "John Vianney, Presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-05": [
+    {
+      "nome": "Dedicação da Basílica de Santa Maria Maior",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-06": [
+    {
+      "nome": "Transfiguração do Senhor",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-07": [
+    {
+      "nome": "Sixtus II, Presbíteroapa e Mártir, e Companheiros, Mártirártires; Cajetan, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-08": [
+    {
+      "nome": "Dominic, Presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-09": [
+    {
+      "nome": "19º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-10": [
+    {
+      "nome": "São Lourenço, diácono e mártir",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-11": [
+    {
+      "nome": "Clare, Virgem",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-12": [
+    {
+      "nome": "Jane Frances de Chantal, Religioso(a)",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-13": [
+    {
+      "nome": "Pontian, Presbíteroapa e Mártir e Hippolytus, Presbíteroresbítero e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-14": [
+    {
+      "nome": "Maximilian Kolbe, Presbíteroresbítero e Mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-15": [
+    {
+      "nome": "Assunção da Virgem Santa Maria",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-16": [
+    {
+      "nome": "20º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-17": [
+    {
+      "nome": "Segunda-feira da 20º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-18": [
+    {
+      "nome": "Terça-feira da 20º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-19": [
+    {
+      "nome": "John Eudes, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-20": [
+    {
+      "nome": "Bernard, Abade & D",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-21": [
+    {
+      "nome": "Pius X, Presbíteroapa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-22": [
+    {
+      "nome": "Maria Rainha",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-23": [
+    {
+      "nome": "21º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-24": [
+    {
+      "nome": "São Bartolomeu, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-25": [
+    {
+      "nome": "Louis of France; Joseph Calasanz, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-26": [
+    {
+      "nome": "Quarta-feira da 21º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-27": [
+    {
+      "nome": "Monica",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-28": [
+    {
+      "nome": "Santo Agostinho, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-29": [
+    {
+      "nome": "Martírio de São João Batista",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-30": [
+    {
+      "nome": "22º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-08-31": [
+    {
+      "nome": "Segunda-feira da 22º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-01": [
+    {
+      "nome": "Terça-feira da 22º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-02": [
+    {
+      "nome": "Quarta-feira da 22º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-03": [
+    {
+      "nome": "Gregory the Great, Presbíteroapa & D",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-04": [
+    {
+      "nome": "Sexta-feira da 22º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-05": [
+    {
+      "nome": "Sábado da 22º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-06": [
+    {
+      "nome": "23º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-07": [
+    {
+      "nome": "Segunda-feira da 23º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-08": [
+    {
+      "nome": "Natividade de Nossa Senhora",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-09": [
+    {
+      "nome": "Peter Claver, Presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-10": [
+    {
+      "nome": "Quinta-feira da 23º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-11": [
+    {
+      "nome": "Sexta-feira da 23º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-12": [
+    {
+      "nome": "The Most Name da Blessed Virgin Mary",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-13": [
+    {
+      "nome": "24º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-14": [
+    {
+      "nome": "Exaltação da Santa Cruz",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-15": [
+    {
+      "nome": "Nossa Senhora das Dores",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-16": [
+    {
+      "nome": "Cornelius, Presbíteroapa e Mártir e Cyprian, Bispoispo e Mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-17": [
+    {
+      "nome": "Robert Bellarmine, Bispoispo e Doutor",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-18": [
+    {
+      "nome": "Sexta-feira da 24º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-19": [
+    {
+      "nome": "Janurius, Bispoispo e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-20": [
+    {
+      "nome": "25º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-21": [
+    {
+      "nome": "São Mateus, apóstolo e evangelista",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-22": [
+    {
+      "nome": "Terça-feira da 25º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-23": [
+    {
+      "nome": "Pio of Pietreclina, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-24": [
+    {
+      "nome": "Quinta-feira da 25º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-25": [
+    {
+      "nome": "Sexta-feira da 25º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-26": [
+    {
+      "nome": "Cosmas e Damian, Mártirártires",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-27": [
+    {
+      "nome": "26º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-28": [
+    {
+      "nome": "Wenceslaus, Mártir; Lawrence Ruiz e Companheiros, Mártirártires",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-29": [
+    {
+      "nome": "Santos Arcanjos Miguel, Gabriel e Rafael",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-09-30": [
+    {
+      "nome": "Jerome, Presbíteroresbítero e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-01": [
+    {
+      "nome": "Therese da Child Jesus, Virgemirgem e Doutora",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-02": [
+    {
+      "nome": "Santos Anjos da Guarda",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-03": [
+    {
+      "nome": "Sábado da 26º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-04": [
+    {
+      "nome": "27º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-05": [
+    {
+      "nome": "Bl. Francis Xavier Seelos, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-06": [
+    {
+      "nome": "Bruno, Presbítero; Bl. Marie Rose Durocher, Virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-07": [
+    {
+      "nome": "Nossa Senhora do Rosário",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-08": [
+    {
+      "nome": "Quinta-feira da 27º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-09": [
+    {
+      "nome": "Denis, Bispoispo e Mártir, e Companheiros, Mártirártires; John Leonardi, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-10": [
+    {
+      "nome": "Sábado da 27º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-11": [
+    {
+      "nome": "28º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-12": [
+    {
+      "nome": "Segunda-feira da 28º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-13": [
+    {
+      "nome": "Terça-feira da 28º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-14": [
+    {
+      "nome": "Callistus I, Presbíteroapa e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-15": [
+    {
+      "nome": "Teresa of Avila, Virgemirgem e Doutora",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-16": [
+    {
+      "nome": "Hedwig, Religioso(a); Margaret Mary Alacoque, Virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-17": [
+    {
+      "nome": "Ignatius of Antioch, Bispoispo e Mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-18": [
+    {
+      "nome": "29º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-19": [
+    {
+      "nome": "John de Brebeuf e Isaac Jogues, Presbíteroresbítero e Mártirm, e Companheiros, Mártirártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-20": [
+    {
+      "nome": "Paul da Cross, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-21": [
+    {
+      "nome": "Quarta-feira da 29º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-22": [
+    {
+      "nome": "John Paul II, Presbíteroapa",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-23": [
+    {
+      "nome": "John of Capistrano, Presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-24": [
+    {
+      "nome": "Anthony Claret, Bispo",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-25": [
+    {
+      "nome": "30º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-26": [
+    {
+      "nome": "Segunda-feira da 30º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-27": [
+    {
+      "nome": "Terça-feira da 30º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-28": [
+    {
+      "nome": "Santos Simão e Judas, apóstolos",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-29": [
+    {
+      "nome": "Quinta-feira da 30º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-30": [
+    {
+      "nome": "Sexta-feira da 30º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-10-31": [
+    {
+      "nome": "Sábado da 30º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-01": [
+    {
+      "nome": "Todos os Santos",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-02": [
+    {
+      "nome": "Fiéis Defuntos",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-03": [
+    {
+      "nome": "Martin de Porres, Religioso(a)",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-04": [
+    {
+      "nome": "Charles Borromeo, Bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-05": [
+    {
+      "nome": "Quinta-feira da 31º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-06": [
+    {
+      "nome": "Sexta-feira da 31º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-07": [
+    {
+      "nome": "Sábado da 31º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-08": [
+    {
+      "nome": "32º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-09": [
+    {
+      "nome": "Dedicação da Basílica de São João de Latrão",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-10": [
+    {
+      "nome": "Leo the Great, Presbíteroapa & D",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-11": [
+    {
+      "nome": "Martin of Tours, Bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-12": [
+    {
+      "nome": "Josaphat, Bispoispo e Mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-13": [
+    {
+      "nome": "Frances Xavier Cabrini, Virgem",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-14": [
+    {
+      "nome": "Sábado da 32º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-15": [
+    {
+      "nome": "33º Domingo of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-16": [
+    {
+      "nome": "Margaret of Scotland; Gertrude, Virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-17": [
+    {
+      "nome": "Elizabeth of Hungary, Religioso(a)",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-18": [
+    {
+      "nome": "Dedication of Churches of Peter & Paul; Rose Philippine Duchesne, Virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-19": [
+    {
+      "nome": "Quinta-feira da 33º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-20": [
+    {
+      "nome": "Sexta-feira da 33º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-21": [
+    {
+      "nome": "Presentation of Mary",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-22": [
+    {
+      "nome": "Cristo Rei",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-23": [
+    {
+      "nome": "Clement I, Presbíteroapa e Mártir; Columban, Abade; Bl. Miguel Pro, Presbíteroresbítero e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-24": [
+    {
+      "nome": "Andrew Dung-Lac, Presbíteroresbítero e Mártir, e Companheiros, Mártirártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-25": [
+    {
+      "nome": "Catherine of Alexandria, Virgemirgem e Mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-26": [
+    {
+      "nome": "Quinta-feira da 34º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-27": [
+    {
+      "nome": "Sexta-feira da 34º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-28": [
+    {
+      "nome": "Sábado da 34º Semana of Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-11-29": [
+    {
+      "nome": "1º Domingo do Advento",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-11-30": [
+    {
+      "nome": "Santo André, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-01": [
+    {
+      "nome": "Terça-feira da 1º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-02": [
+    {
+      "nome": "Quarta-feira da 1º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-03": [
+    {
+      "nome": "Frances Xavier, Presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-04": [
+    {
+      "nome": "John Damascene, Presbíteroresbítero e Doutor",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-12-05": [
+    {
+      "nome": "Sábado da 1º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-06": [
+    {
+      "nome": "2º Domingo of Advento",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-07": [
+    {
+      "nome": "Ambrose, Bispoispo e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-08": [
+    {
+      "nome": "Imaculada Conceição",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-09": [
+    {
+      "nome": "Juan Diego",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-12-10": [
+    {
+      "nome": "Quinta-feira da 2º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-11": [
+    {
+      "nome": "Damasus I, Presbíteroapa",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-12-12": [
+    {
+      "nome": "Nossa Senhora de Guadalupe",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-13": [
+    {
+      "nome": "3º Domingo of Advento",
+      "cor": "ROSA",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-14": [
+    {
+      "nome": "John da Cross, Presbíteroresbítero e Doutor",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-15": [
+    {
+      "nome": "Terça-feira da 3º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-16": [
+    {
+      "nome": "Quarta-feira da 3º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-17": [
+    {
+      "nome": "Quinta-feira da 3º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-18": [
+    {
+      "nome": "Sexta-feira da 3º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-19": [
+    {
+      "nome": "Sábado da 3º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-20": [
+    {
+      "nome": "4º Domingo of Advento",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-21": [
+    {
+      "nome": "Peter Canisius, Presbíteroresbítero e Doutor",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-12-22": [
+    {
+      "nome": "Terça-feira da 4º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-23": [
+    {
+      "nome": "John of Kanty, Presbítero",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2026-12-24": [
+    {
+      "nome": "Quinta-feira da 4º Semana of Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2026-12-25": [
+    {
+      "nome": "Natal",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-12-26": [
+    {
+      "nome": "Santo Estêvão, primeiro mártir",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-27": [
+    {
+      "nome": "Sagrada Família",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Natal"
+    }
+  ],
+  "2026-12-28": [
+    {
+      "nome": "Santos Inocentes, mártires",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-29": [
+    {
+      "nome": "Thomas Becket, Bispoispo e Mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2026-12-30": [
+    {
+      "nome": "6º dia na Oitava do Natal",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Pascal"
+    }
+  ],
+  "2026-12-31": [
+    {
+      "nome": "Sylvester I, Presbíteroapa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA OPCIONAL",
+      "temporada": "Tempo Comum"
+    }
+  ]
+}
