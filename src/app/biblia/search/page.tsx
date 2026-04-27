@@ -266,7 +266,7 @@ export default function BibleSearchPage() {
                         />
                       </div>
                       <p className="text-sm font-body text-foreground/75 leading-relaxed line-clamp-3 italic">
-                        &quot;{highlight(result.text, query)}&quot;
+                        &ldquo;{highlight(result.text, query)}&rdquo;
                       </p>
                     </div>
                   </Link>
