@@ -15,6 +15,7 @@ const Header = () => {
 
   const navItems = [
     { label: "Início", path: "/" },
+    { label: "Liturgia", path: "/liturgia" },
     { label: "Pastorais", path: "/pastorais" },
     { label: "Bíblia", path: "/biblia" },
     { label: "Horários", path: "/#horarios" },
