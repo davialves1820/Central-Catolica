@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Paróquia Menino Jesus de Praga",
-    template: "%s | Menino Jesus de Praga",
+    default: "Central Católica",
+    template: "%s | Central Católica",
   },
   description:
     "Bíblia Sagrada, Liturgia Diária, Calendário Litúrgico e Pastorais da Paróquia Santo Menino Jesus de Praga — João Pessoa, PB.",
