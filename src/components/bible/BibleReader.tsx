@@ -24,35 +24,37 @@ const THEMES: Record<Theme, {
   border: string; toolbar: string; verse: string; highlight: string;
 }> = {
   parchment: {
-    bg: "hsl(40,35%,88%)",
-    container: "text-[#2c1f0e]",
-    text: "text-[#2c1f0e]",
-    muted: "text-[#7a6545]",
-    border: "border-[#c9a86055]",
-    toolbar: "bg-[#ece5d0]/95 border-[#c9a86050]",
-    verse: "hover:bg-[#c9a86015]",
-    highlight: "bg-[#c8960c22] border-l-4 border-[#c8960c]",
-  },
-  dark: {
-    bg: "hsl(30,14%,9%)",
-    container: "text-[#f0ebe0]",
-    text: "text-[#f0ebe0]",
-    muted: "text-[#9a9080]",
-    border: "border-[#3d362840]",
-    toolbar: "bg-[#1a1612]/95 border-[#3d3628]",
-    verse: "hover:bg-[#2c272060]",
-    highlight: "bg-[#c8960c20] border-l-4 border-[#c8960c]",
-  },
-  white: {
-    bg: "#ffffff",
-    container: "text-slate-900",
-    text: "text-slate-900",
-    muted: "text-slate-400",
-    border: "border-slate-200",
-    toolbar: "bg-white/95 border-slate-200",
-    verse: "hover:bg-slate-50",
-    highlight: "bg-amber-100 border-l-4 border-amber-500",
-  },
+  bg: "hsl(40,35%,88%)",
+  container: "text-[#2a1d0b]",
+  text: "text-[#2a1d0b]",
+  muted: "text-[#5f5038]",
+  border: "border-[#b8954a66]",
+  toolbar: "bg-[#e6dcc2] border-[#b8954a88]",
+  verse: "hover:bg-[#b8954a22]",
+  highlight: "bg-[#c8960c33] border-l-4 border-[#a87400]",
+},
+
+dark: {
+  bg: "hsl(30,14%,9%)",
+  container: "text-[#f5efe4]",
+  text: "text-[#f5efe4]",
+  muted: "text-[#b0a48f]",
+  border: "border-[#4a423280]",
+  toolbar: "bg-[#1f1a15] border-[#4a4232]",
+  verse: "hover:bg-[#3a332a80]",
+  highlight: "bg-[#c8960c33] border-l-4 border-[#d4a017]",
+},
+
+white: {
+  bg: "#ffffff",
+  container: "text-slate-900",
+  text: "text-slate-900",
+  muted: "text-slate-500",
+  border: "border-slate-300",
+  toolbar: "bg-white border-slate-300",
+  verse: "hover:bg-slate-100",
+  highlight: "bg-amber-200 border-l-4 border-amber-600",
+},
 };
 
 const THEME_LABELS: Record<Theme, string> = {
