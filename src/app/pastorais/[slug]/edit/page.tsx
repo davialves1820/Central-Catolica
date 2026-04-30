@@ -7,7 +7,6 @@ import { ArrowLeft, CheckCircle2, Edit3 } from "lucide-react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import api from "@/lib/client/api";
 import PastoralEditForm from "@/components/pastorais/PastoralEditForm";
 import CoordinationSidebar from "@/components/pastorais/CoordinationSidebar";
@@ -117,7 +116,7 @@ export default function EditPastoralPage({
       const finalData = { ...submitData, coordinatorIds: formData.coordinatorIds };
       await api.patch(`/pastorals/${params.slug}`, finalData);
       setSuccess(true);
-      
+
       const nextSlug = submitData["slug"] as string || params.slug;
 
       setTimeout(() => {
@@ -164,20 +163,20 @@ export default function EditPastoralPage({
                   </p>
                 </div>
 
-                <PastoralEditForm 
-                  slug={params.slug} 
-                  initialData={formData} 
-                  isAdmin={isAdmin} 
-                  onSubmit={handleSubmit} 
+                <PastoralEditForm
+                  slug={params.slug}
+                  initialData={formData}
+                  isAdmin={isAdmin}
+                  onSubmit={handleSubmit}
                   loading={loading}
                 />
               </div>
 
-              <CoordinationSidebar 
-                users={users} 
-                coordinatorIds={formData.coordinatorIds} 
-                isAdmin={isAdmin} 
-                onToggle={handleToggleCoordinator} 
+              <CoordinationSidebar
+                users={users}
+                coordinatorIds={formData.coordinatorIds}
+                isAdmin={isAdmin}
+                onToggle={handleToggleCoordinator}
               />
             </div>
           </motion.div>
@@ -202,7 +201,6 @@ export default function EditPastoralPage({
           </motion.div>
         )}
       </AnimatePresence>
-      <Footer />
     </div>
   );
 }

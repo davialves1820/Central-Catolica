@@ -1,6 +1,5 @@
 import PastoralDetails from "@/components/pastorais/PastoralDetails";
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { prisma } from "@/lib/server/db";
@@ -50,7 +49,6 @@ export default async function PastoralPage({ params }: PageProps) {
           <PastoralDetails slug={slug} />
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

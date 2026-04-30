@@ -20,7 +20,6 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import NextImage from "next/image";
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import api from "@/lib/client/api";
 
 export default function NewPastoralPage() {
@@ -110,7 +109,7 @@ export default function NewPastoralPage() {
           "Content-Type": "multipart/form-data",
         },
       });
-      
+
       if (response.data?.url) {
         // Use functional storage to avoid stale formData
         setFormData(prev => ({ ...prev, image_url: response.data.url }));
@@ -429,14 +428,14 @@ export default function NewPastoralPage() {
                       <label
                         key={user.id}
                         className={`flex items-center gap-3 p-3 rounded-2xl cursor-pointer transition-all border ${formData.coordinatorIds.includes(user.id)
-                            ? "bg-primary/5 border-primary/30 ring-1 ring-primary/20"
-                            : "bg-white border-border/50 hover:border-primary/30"
+                          ? "bg-primary/5 border-primary/30 ring-1 ring-primary/20"
+                          : "bg-white border-border/50 hover:border-primary/30"
                           }`}
                       >
                         <div
                           className={`w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 transition-all ${formData.coordinatorIds.includes(user.id)
-                              ? "bg-primary text-white shadow-lg shadow-primary/20"
-                              : "bg-pearl text-primary/60"
+                            ? "bg-primary text-white shadow-lg shadow-primary/20"
+                            : "bg-pearl text-primary/60"
                             }`}
                         >
                           {user.full_name?.charAt(0) || user.email.charAt(0)}
@@ -548,7 +547,6 @@ export default function NewPastoralPage() {
         )}
       </AnimatePresence>
 
-      <Footer />
     </div>
   );
 }
