@@ -178,7 +178,7 @@ export default async function Home() {
             </h1>
 
             <p className="font-body text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-4 leading-relaxed">
-              Escrituras, Liturgia e Calendário — a Palavra de Deus ao alcance de cada dia.
+              Escrituras, Liturgia e Calendário, a Palavra de Deus ao alcance de cada dia.
             </p>
 
             {/* Versículo */}
@@ -341,7 +341,7 @@ export default async function Home() {
               fazendo o intelecto assentir ao que não aparece.&rdquo;
             </p>
             <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              São Tomás de Aquino — Suma Teológica II-II, q. 4, a. 1
+              São Tomás de Aquino, Suma Teológica II-II, q. 4, a. 1
             </p>
           </div>
         </section>
