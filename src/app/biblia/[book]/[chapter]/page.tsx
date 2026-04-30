@@ -1,7 +1,9 @@
 import { getBook } from "@/lib/bible";
 import BibleReader from "@/components/bible/BibleReader";
+import { BibleChapterSkeleton } from "@/components/ui/skeletons";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export async function generateMetadata({ params }: ChapterPageProps): Promise<Metadata> {
   const { book: bookSlug, chapter: chapterStr } = await params;
@@ -13,35 +15,45 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
 }
 
 interface ChapterPageProps {
-  params: Promise<{
-    book: string;
-    chapter: string;
-  }>;
+  params: Promise<{ book: string; chapter: string }>;
+  searchParams: Promise<{ v?: string }>;
 }
 
-export default async function ChapterPage({ params }: ChapterPageProps) {
-  const { book: bookSlug, chapter: chapterStr } = await params;
+async function ChapterContent({
+  bookSlug, chapterStr, highlightVerse,
+}: { bookSlug: string; chapterStr: string; highlightVerse?: number }) {
   const bookName = decodeURIComponent(bookSlug);
   const chapterNumber = parseInt(chapterStr, 10);
-
   const bookData = await getBook(bookName);
-  
-  if (!bookData) {
-    notFound();
-  }
 
-  const chapterIndex = bookData.capitulos.findIndex(c => c.capitulo === chapterNumber);
-  
-  if (chapterIndex === -1) {
-    notFound();
-  }
+  if (!bookData) notFound();
+
+  const chapterIndex = bookData.capitulos.findIndex((c) => c.capitulo === chapterNumber);
+  if (chapterIndex === -1) notFound();
+
+  return (
+    <BibleReader
+      book={bookData}
+      initialChapterIndex={chapterIndex}
+      highlightVerse={highlightVerse}
+    />
+  );
+}
+
+export default async function ChapterPage({ params, searchParams }: ChapterPageProps) {
+  const { book: bookSlug, chapter: chapterStr } = await params;
+  const { v } = await searchParams;
+  const highlightVerse = v ? parseInt(v, 10) : undefined;
 
   return (
     <div className="space-y-6">
-      <BibleReader 
-        book={bookData} 
-        initialChapterIndex={chapterIndex} 
-      />
+      <Suspense fallback={<BibleChapterSkeleton />}>
+        <ChapterContent
+          bookSlug={bookSlug}
+          chapterStr={chapterStr}
+          highlightVerse={highlightVerse}
+        />
+      </Suspense>
     </div>
   );
 }

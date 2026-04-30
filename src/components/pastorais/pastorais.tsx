@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import api from "@/lib/client/api";
 import { Pastoral } from "@/types";
 import { PastoralCard } from "./PastoralCard";
@@ -92,8 +91,6 @@ const Pastorais = () => {
           </motion.div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

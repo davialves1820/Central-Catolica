@@ -9,21 +9,56 @@ interface PsalmSectionProps {
 
 const PsalmSection = ({ salmo }: PsalmSectionProps) => {
   return (
-    <section className="space-y-6 bg-pearl p-8 rounded-2xl border border-primary/5">
-      <div className="flex items-center gap-3 border-b border-primary/10 pb-2">
-        <Music className="text-accent" size={24} />
-        <h2 className="text-2xl font-heading font-bold text-foreground">
+    <section
+      className="space-y-6 rounded-2xl border p-7"
+      style={{
+        background: "hsl(var(--secondary))",
+        borderColor: "hsl(var(--gold)/0.15)",
+      }}
+      aria-labelledby="psalm-heading"
+    >
+      <div className="flex items-center gap-3 border-b border-border pb-3">
+        <Music size={20} aria-hidden="true" style={{ color: "hsl(var(--gold))" }} />
+        <h2
+          id="psalm-heading"
+          className="font-heading text-2xl font-semibold text-foreground"
+        >
           Salmo Responsorial
         </h2>
       </div>
+
       <div className="space-y-6 text-center">
-        <p className="text-sm font-bold text-accent italic">
+        {/* Reference */}
+        <p
+          className="text-xs font-bold font-body uppercase tracking-widest"
+          style={{ color: "hsl(var(--gold))" }}
+        >
           {salmo.referencia}
         </p>
-        <div className="text-xl font-heading font-bold text-primary italic bg-white p-6 rounded-xl border border-accent/20 shadow-sm">
-          R. {salmo.refrao}
+
+        {/* Refrain */}
+        <div
+          className="rounded-xl border p-5"
+          style={{
+            background: "hsl(var(--card))",
+            borderColor: "hsl(var(--gold)/0.2)",
+          }}
+        >
+          <p
+            className="text-xl font-heading font-semibold text-foreground italic"
+          >
+            R. {salmo.refrao}
+          </p>
         </div>
-        <div className="text-lg leading-relaxed font-body text-slate-700 whitespace-pre-line italic">
+
+        {/* Psalm text */}
+        <div
+          className="text-foreground/80 leading-[1.95] whitespace-pre-line text-left"
+          style={{
+            fontFamily: "var(--font-reading)",
+            fontSize: "1.05rem",
+          }}
+        >
           {salmo.texto}
         </div>
       </div>

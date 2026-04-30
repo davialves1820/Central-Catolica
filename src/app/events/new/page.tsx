@@ -7,7 +7,6 @@ import { ArrowLeft, CheckCircle2, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import Header from "@/components/shared/Header";
-import Footer from "@/components/shared/Footer";
 import EventForm from "@/components/events/EventForm";
 
 export default function GeneralNewEventPage() {
@@ -134,7 +133,6 @@ export default function GeneralNewEventPage() {
         )}
       </AnimatePresence>
 
-      <Footer />
     </div>
   );
 }

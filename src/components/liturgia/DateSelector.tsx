@@ -42,93 +42,71 @@ export default function DateSelector({ currentParams }: DateSelectorProps) {
     setInputDate(dateValue);
   }
 
-  const isToday = (() => {
-    const today = new Date();
-    return (
-      currentDate.getDate() === today.getDate() &&
-      currentDate.getMonth() === today.getMonth() &&
-      currentDate.getFullYear() === today.getFullYear()
-    );
-  })();
-
-  const handlePrev = () => {
-    const prev = new Date(currentDate);
-    prev.setDate(prev.getDate() - 1);
-    pushDate(router, prev);
-  };
-
-  const handleNext = () => {
-    const next = new Date(currentDate);
-    next.setDate(next.getDate() + 1);
-    pushDate(router, next);
-  };
-
-  const handleToday = () => pushDate(router, new Date());
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    setInputDate(val);
-    if (val) {
-      const [y, m, d] = val.split("-");
-      router.push(`/liturgia?dia=${parseInt(d)}&mes=${parseInt(m)}&ano=${y}`);
-    }
-  };
+  const today = new Date();
+  const isToday =
+    currentDate.getDate() === today.getDate() &&
+    currentDate.getMonth() === today.getMonth() &&
+    currentDate.getFullYear() === today.getFullYear();
 
   const formattedDate = currentDate.toLocaleDateString("pt-BR", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
+    weekday: "long", day: "numeric", month: "long", year: "numeric",
   });
 
   return (
-    <div className="bg-white border-b border-primary/8 py-4 shadow-sm">
+    <div
+      className="border-b border-border py-4"
+      style={{ background: "hsl(var(--secondary))" }}
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
 
           {/* Nav group */}
           <div className="flex items-center gap-2">
-            {/* Prev day */}
-            <motion.button
-              whileTap={{ scale: 0.92 }}
-              onClick={handlePrev}
+            <motion.button whileTap={{ scale: 0.92 }}
+              onClick={() => { const p = new Date(currentDate); p.setDate(p.getDate() - 1); pushDate(router, p); }}
               aria-label="Dia anterior"
-              className="w-9 h-9 rounded-xl border border-border bg-white hover:bg-primary/5 hover:border-primary/20 flex items-center justify-center text-primary/60 hover:text-primary transition-all duration-200 shadow-sm"
+              className="w-9 h-9 rounded-lg border border-border flex items-center justify-center transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              style={{ background: "hsl(var(--card))" }}
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={17} className="text-muted-foreground" aria-hidden="true" />
             </motion.button>
 
-            {/* Date display + picker */}
+            {/* Date picker trigger */}
             <label htmlFor="liturgia-date" className="relative group cursor-pointer">
-              <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl border-2 border-primary/15 hover:border-accent/40 bg-white shadow-sm transition-all duration-200 group-focus-within:border-accent/60">
-                <Calendar size={16} className="text-accent shrink-0" />
+              <div
+                className="flex items-center gap-2.5 px-4 py-2 rounded-lg border border-border transition-all duration-200 group-focus-within:border-primary/50"
+                style={{ background: "hsl(var(--card))" }}
+              >
+                <Calendar size={15} aria-hidden="true" style={{ color: "hsl(var(--gold))" }} />
                 <div className="flex flex-col">
                   <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-body leading-none mb-0.5">
                     Liturgia do dia
                   </span>
-                  <span className="text-sm font-bold text-primary font-heading capitalize">
+                  <span className="text-sm font-heading font-semibold text-foreground capitalize">
                     {formattedDate}
                   </span>
                 </div>
               </div>
-              <input
-                type="date"
-                id="liturgia-date"
-                value={inputDate}
-                onChange={handleInputChange}
+              <input type="date" id="liturgia-date" value={inputDate}
+                onChange={(e) => {
+                  setInputDate(e.target.value);
+                  if (e.target.value) {
+                    const [y, m, d] = e.target.value.split("-");
+                    router.push(`/liturgia?dia=${parseInt(d)}&mes=${parseInt(m)}&ano=${y}`);
+                  }
+                }}
                 className="absolute inset-0 opacity-0 cursor-pointer w-full"
                 aria-label="Selecionar data da liturgia"
               />
             </label>
 
-            {/* Next day */}
-            <motion.button
-              whileTap={{ scale: 0.92 }}
-              onClick={handleNext}
+            <motion.button whileTap={{ scale: 0.92 }}
+              onClick={() => { const n = new Date(currentDate); n.setDate(n.getDate() + 1); pushDate(router, n); }}
               aria-label="Próximo dia"
-              className="w-9 h-9 rounded-xl border border-border bg-white hover:bg-primary/5 hover:border-primary/20 flex items-center justify-center text-primary/60 hover:text-primary transition-all duration-200 shadow-sm"
+              className="w-9 h-9 rounded-lg border border-border flex items-center justify-center transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              style={{ background: "hsl(var(--card))" }}
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={17} className="text-muted-foreground" aria-hidden="true" />
             </motion.button>
           </div>
 
@@ -137,10 +115,14 @@ export default function DateSelector({ currentParams }: DateSelectorProps) {
             <motion.button
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
               whileTap={{ scale: 0.95 }}
-              onClick={handleToday}
-              className="text-xs font-bold text-accent hover:text-primary transition-colors border border-accent/25 hover:border-primary/25 px-4 py-2 rounded-full bg-accent/5 hover:bg-primary/5 shadow-sm"
+              onClick={() => pushDate(router, new Date())}
+              className="text-xs font-bold font-body px-4 py-2 rounded-full border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              style={{
+                color: "hsl(var(--gold))",
+                borderColor: "hsl(var(--gold)/0.3)",
+                background: "hsl(var(--gold)/0.06)",
+              }}
             >
               Ir para hoje
             </motion.button>
