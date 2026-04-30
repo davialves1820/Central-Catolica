@@ -1,0 +1,76 @@
+{
+    "name": "Paróquia Menino Jesus de Praga",
+    "short_name": "MJP Paróquia",
+    "description": "Bíblia, Liturgia Diária, Calendário Litúrgico e Pastorais da Paróquia Santo Menino Jesus de Praga",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0d1117",
+    "theme_color": "#c9a84c",
+    "orientation": "portrait-primary",
+    "categories": [
+        "religion",
+        "lifestyle"
+    ],
+    "lang": "pt-BR",
+    "icons": [
+        {
+            "src": "/images/menino-jesus-logo.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/menino-jesus-logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/church.jpg",
+            "sizes": "1280x720",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Página inicial da Paróquia"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Liturgia de Hoje",
+            "short_name": "Liturgia",
+            "description": "Ver a liturgia diária",
+            "url": "/liturgia",
+            "icons": [
+                {
+                    "src": "/images/menino-jesus-logo.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Bíblia Sagrada",
+            "short_name": "Bíblia",
+            "description": "Ler a Bíblia",
+            "url": "/biblia",
+            "icons": [
+                {
+                    "src": "/images/menino-jesus-logo.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Calendário Litúrgico",
+            "short_name": "Calendário",
+            "description": "Ver o calendário litúrgico",
+            "url": "/calendario",
+            "icons": [
+                {
+                    "src": "/images/menino-jesus-logo.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+}

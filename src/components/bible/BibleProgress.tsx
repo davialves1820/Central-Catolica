@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Bookmark, ChevronRight, Clock, BookOpen } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Bookmark, ChevronRight, Clock } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -12,76 +12,84 @@ interface Progress {
 }
 
 export default function BibleProgress() {
-  const [progress] = useState<Progress | null>(() => {
-    if (typeof window === "undefined") return null;
-    try {
-      const saved = localStorage.getItem("bible-progress");
-      return saved ? (JSON.parse(saved) as Progress) : null;
-    } catch {
-      return null;
+  const [progress, setProgress] = useState<Progress | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("bible-progress");
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        setTimeout(() => setProgress(parsed), 0);
+      } catch {
+        console.error("Failed to parse bible progress");
+      }
     }
-  });
+  }, []);
 
   if (!progress) return null;
 
-  const date = new Date(progress.timestamp);
-  const isToday =
-    new Date().toDateString() === date.toDateString();
-
-  const timeAgo = isToday
-    ? `Hoje às ${date.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`
-    : date.toLocaleDateString("pt-BR", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      });
+  const timeAgo = new Date(progress.timestamp).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   return (
     <motion.div
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-white shadow-sm hover:shadow-md hover:border-primary/25 transition-all duration-300"
+      className="rounded-xl border p-5 flex flex-col sm:flex-row items-center justify-between gap-4"
+      style={{
+        background: "hsl(var(--card))",
+        borderColor: "hsl(var(--gold)/0.25)",
+        boxShadow: "0 0 20px hsl(var(--gold)/0.06)",
+      }}
+      role="region"
+      aria-label="Continuar leitura"
     >
-      {/* Left accent bar */}
-      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-accent to-primary rounded-l-2xl" />
-
-      <div className="pl-6 pr-5 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        {/* Info */}
-        <div className="flex items-center gap-4">
-          <div className="w-11 h-11 bg-primary text-white rounded-xl flex items-center justify-center shadow-md shadow-primary/20 shrink-0">
-            <Bookmark size={20} />
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground font-body mb-0.5">
-              Continuar leitura
-            </p>
-            <p className="font-heading font-bold text-primary text-lg leading-tight">
-              {progress.bookName}
-              <span className="text-muted-foreground font-body font-normal text-sm ml-2">
-                cap. {progress.chapter}
-              </span>
-            </p>
-            <div className="flex items-center gap-1.5 mt-1 text-muted-foreground text-xs font-body">
-              <Clock size={11} />
-              {timeAgo}
-            </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <Link
-          href={`/biblia/${encodeURIComponent(progress.bookName)}/${progress.chapter}`}
-          className="shrink-0 flex items-center gap-2 bg-primary hover:bg-crimson-light text-white text-sm font-bold font-body px-5 py-2.5 rounded-xl shadow-md shadow-primary/20 hover:shadow-primary/30 transition-all duration-200 hover:-translate-y-0.5 group/btn"
+      <div className="flex items-center gap-4">
+        <div
+          className="p-3 rounded-lg"
+          style={{
+            background: "hsl(var(--gold)/0.12)",
+            border: "1px solid hsl(var(--gold)/0.25)",
+          }}
+          aria-hidden="true"
         >
-          <BookOpen size={15} />
-          Continuar
-          <ChevronRight
-            size={14}
-            className="group-hover/btn:translate-x-0.5 transition-transform"
+          <Bookmark
+            className="w-5 h-5"
+            style={{ color: "hsl(var(--gold))" }}
           />
-        </Link>
+        </div>
+        <div>
+          <h3 className="font-heading text-base font-semibold text-foreground">
+            Continuar de onde parou
+          </h3>
+          <p className="text-muted-foreground flex items-center gap-1.5 text-xs font-body mt-0.5">
+            <Clock className="w-3 h-3" aria-hidden="true" />
+            Lido em {timeAgo}
+          </p>
+        </div>
       </div>
+
+      <Link
+        href={`/biblia/${encodeURIComponent(progress.bookName)}/${progress.chapter}`}
+        aria-label={`Continuar lendo ${progress.bookName}, capítulo ${progress.chapter}`}
+        className="flex items-center gap-2 px-5 py-2.5 rounded-lg font-body font-bold text-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        style={{
+          background: "hsl(var(--primary))",
+          color: "hsl(var(--primary-foreground))",
+        }}
+      >
+        <span>
+          {progress.bookName}, Cap. {progress.chapter}
+        </span>
+        <ChevronRight
+          className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+          aria-hidden="true"
+        />
+      </Link>
     </motion.div>
   );
 }
