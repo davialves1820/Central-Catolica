@@ -19,17 +19,19 @@ interface ChapterPageProps {
   searchParams: Promise<{ v?: string }>;
 }
 
-async function ChapterContent({
-  bookSlug, chapterStr, highlightVerse,
-}: { bookSlug: string; chapterStr: string; highlightVerse?: number }) {
+async function ChapterContent({ bookSlug, chapterStr, highlightVerse, }: { bookSlug: string; chapterStr: string; highlightVerse?: number }) {
   const bookName = decodeURIComponent(bookSlug);
   const chapterNumber = parseInt(chapterStr, 10);
   const bookData = await getBook(bookName);
 
-  if (!bookData) notFound();
+  if (!bookData) {
+    notFound();
+  }
 
   const chapterIndex = bookData.capitulos.findIndex((c) => c.capitulo === chapterNumber);
-  if (chapterIndex === -1) notFound();
+  if (chapterIndex === -1) {
+    notFound();
+  }
 
   return (
     <BibleReader

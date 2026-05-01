@@ -4,7 +4,7 @@ import Header from "@/components/shared/Header";
 import { getLiturgiaDiaria } from "@/lib/server/services/liturgia";
 import { Suspense } from "react";
 
-/* ── Dados da liturgia de hoje para o teaser ─────────────────── */
+/* Dados da liturgia de hoje para o teaser */
 async function TodayLiturgyTeaser() {
   const today = new Date();
   const liturgia = await getLiturgiaDiaria(
@@ -13,17 +13,16 @@ async function TodayLiturgyTeaser() {
     String(today.getFullYear()),
   ).catch(() => null);
 
-  if (!liturgia) return null;
+  if (!liturgia) {
+    return null;
+  }
 
   const corMap: Record<string, string> = {
     verde: "Verde", roxo: "Roxo", vermelho: "Vermelho",
     branco: "Branco", rosa: "Rosa", preto: "Preto",
     dourado: "Dourado",
   };
-  const normalized = liturgia.cor
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+  const normalized = liturgia.cor.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   const corLabel = Object.entries(corMap).find(([k]) => normalized.includes(k))?.[1] ?? liturgia.cor;
 
   return (
@@ -58,13 +57,13 @@ async function TodayLiturgyTeaser() {
   );
 }
 
-/* ── Versículo do dia (fixo — poderia ser dinâmico) ──────────── */
-const DAILY_VERSE = {
+/* Versículo da página */
+const PAGE_VERSE = {
   text: "A verdade vos libertará.",
   ref: "João 8,32",
 };
 
-/* ── Feature cards ───────────────────────────────────────────── */
+/* Feature cards */
 const FEATURES = [
   {
     href: "/biblia",
@@ -97,10 +96,7 @@ const FEATURES = [
 
 type Accent = "gold" | "cobalt" | "crimson";
 
-const ACCENT_STYLES: Record<
-  Accent,
-  { icon: string; badge: string; cta: string; border: string }
-> = {
+const ACCENT_STYLES: Record<Accent,{ icon: string; badge: string; cta: string; border: string }> = {
   gold: {
     icon: "bg-primary/10 text-primary border border-primary/20",
     badge: "text-primary",
@@ -128,7 +124,7 @@ export default async function Home() {
 
       <main className="flex-1">
 
-        {/* ── Hero ─────────────────────────────────────────────── */}
+        {/* Hero */}
         <section
           className="relative overflow-hidden border-b border-border"
           aria-labelledby="hero-heading"
@@ -187,10 +183,10 @@ export default async function Home() {
                 className="font-reading text-xl md:text-2xl italic text-foreground/80"
                 style={{ fontStyle: "italic" }}
               >
-                &ldquo;{DAILY_VERSE.text}&rdquo;
+                &ldquo;{PAGE_VERSE.text}&rdquo;
               </p>
               <p className="font-body text-xs uppercase tracking-widest text-primary mt-2">
-                {DAILY_VERSE.ref}
+                {PAGE_VERSE.ref}
               </p>
             </div>
 
@@ -216,7 +212,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── Feature cards ─────────────────────────────────────── */}
+        {/* Feature cards */}
         <section
           className="container mx-auto px-4 py-20 max-w-5xl"
           aria-labelledby="features-heading"
@@ -277,12 +273,12 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── Divisor ornamental ────────────────────────────────── */}
+        {/* Divisor ornamental */}
         <div className="container mx-auto px-4 max-w-5xl" aria-hidden="true">
           <div className="gold-divider" />
         </div>
 
-        {/* ── Liturgia de Hoje teaser ───────────────────────────── */}
+        {/* Liturgia de Hoje teaser */}
         <section
           className="container mx-auto px-4 py-16 max-w-3xl"
           aria-labelledby="liturgy-teaser-heading"
@@ -327,7 +323,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── Santo do dia / Quote ──────────────────────────────── */}
+        {/* Frase de São Thomas de Aquino */}
         <section
           className="border-t border-border bg-secondary/40"
           aria-label="Citação de São Tomás de Aquino"

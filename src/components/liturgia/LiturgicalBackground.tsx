@@ -20,7 +20,7 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
 
   const c = normalize(cor);
 
-  // ─── Canvas particle engine ───────────────────────────────────────────────
+  // Canvas particle engine with different effects based on liturgical color
   useEffect(() => {
     if (!mounted) {
       return;
@@ -335,12 +335,16 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
     draw();
 
     return () => {
-      if (animRef.current) cancelAnimationFrame(animRef.current);
+      if (animRef.current) {
+        cancelAnimationFrame(animRef.current);
+      }
       window.removeEventListener("resize", resize);
     };
   }, [mounted, c]);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <canvas

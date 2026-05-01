@@ -45,8 +45,7 @@ export default async function LiturgiaPage({ searchParams }: PageProps) {
   const { dia, mes, ano } = await searchParams;
 
   const dateForSelector =
-    dia && mes && ano
-      ? `${ano}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`
+    dia && mes && ano ? `${ano}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`
       : new Date().toISOString().split("T")[0];
 
   return (

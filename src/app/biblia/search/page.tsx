@@ -7,18 +7,20 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface SearchResult { book: string; chapter: number; verse: number; text: string; }
 
-const QUICK_TERMS = ["Amor", "Paz", "Justiça", "Fé", "Oração", "Salvação", "Luz", "Graça"];
+const QUICK_TERMS = ["Amor", "Paz", "Justiça", "Oração", "Salvação", "Luz", "Graça"];
 
 function highlight(text: string, query: string) {
-  if (!query.trim()) return <>{text}</>;
+  if (!query.trim()) {
+    return <>{text}</>;
+  }
+
   const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
   const parts = text.split(regex);
   return (
     <>
       {parts.map((part, i) =>
         regex.test(part)
-          ? <mark key={i} className="rounded px-0.5 not-italic font-bold"
-            style={{ background: "hsl(var(--gold)/0.25)", color: "hsl(var(--foreground))" }}>{part}</mark>
+          ? <mark key={i} className="rounded px-0.5 not-italic font-bold" style={{ background: "hsl(var(--gold)/0.25)", color: "hsl(var(--foreground))" }}>{part}</mark>
           : <span key={i}>{part}</span>
       )}
     </>
@@ -32,10 +34,17 @@ export default function BibleSearchPage() {
   const [searched, setSearched] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => { inputRef.current?.focus(); }, []);
+  useEffect(() => { 
+    inputRef.current?.focus(); 
+  }, []);
 
   useEffect(() => {
-    if (query.length < 3) { setResults([]); setSearched(false); return; }
+    if (query.length < 3) { 
+      setResults([]); 
+      setSearched(false); 
+      return; 
+    }
+
     const timer = setTimeout(async () => {
       setLoading(true);
       try {
@@ -43,17 +52,26 @@ export default function BibleSearchPage() {
         const data = await res.json();
         setResults(data.results || []);
         setSearched(true);
-      } catch { console.error("Search failed"); }
-      finally { setLoading(false); }
+      } catch { 
+        console.error("Search failed"); 
+      }
+      finally { 
+        setLoading(false); 
+      }
     }, 420);
     return () => clearTimeout(timer);
   }, [query]);
 
-  const clearQuery = () => { setQuery(""); setResults([]); setSearched(false); inputRef.current?.focus(); };
+  const clearQuery = () => { 
+    setQuery(""); 
+    setResults([]); 
+    setSearched(false); 
+    inputRef.current?.focus(); 
+  };
 
   return (
     <div className="min-h-screen">
-      {/* ── Header strip ── */}
+      {/* Header strip */}
       <div className="border-b border-border" style={{ background: "hsl(var(--secondary))" }}>
         <div className="container mx-auto px-4 py-10">
           <Link href="/biblia" aria-label="Voltar para a Bíblia"

@@ -86,9 +86,15 @@ export default function BibleReader({ book, initialChapterIndex, highlightVerse 
     const th = localStorage.getItem("bible-theme") as Theme;
     const md = localStorage.getItem("bible-reading-mode") as ReadingMode;
     window.requestAnimationFrame(() => {
-      if (sz) setFontSize(parseInt(sz) as FontSize);
-      if (th && THEMES[th]) setTheme(th);
-      if (md) setReadingMode(md);
+      if (sz) {
+        setFontSize(parseInt(sz) as FontSize);
+      }
+      if (th && THEMES[th]) {
+        setTheme(th);
+      }
+      if (md) {
+        setReadingMode(md);
+      }
     });
   }, []);
 
@@ -101,7 +107,9 @@ export default function BibleReader({ book, initialChapterIndex, highlightVerse 
   }, [chapterIndex, book.nome, currentChapter.capitulo, flashVerse]);
 
   useEffect(() => {
-    if (!flashVerse) return;
+    if (!flashVerse) {
+      return;
+    }
     const el = verseRefs.current.get(flashVerse);
     if (el) {
       setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 400);
@@ -110,11 +118,15 @@ export default function BibleReader({ book, initialChapterIndex, highlightVerse 
     }
   }, [flashVerse, chapterIndex]);
 
-  useEffect(() => { setFlashVerse(highlightVerse); }, [highlightVerse]);
+  useEffect(() => { 
+    setFlashVerse(highlightVerse); 
+  }, [highlightVerse]);
 
   const navigate = useCallback((delta: 1 | -1) => {
     const next = chapterIndex + delta;
-    if (next < 0 || next >= book.capitulos.length) return;
+    if (next < 0 || next >= book.capitulos.length) { 
+      return;
+    }
     setDirection(delta);
     setFlashVerse(undefined);
     setChapterIndex(next);
@@ -126,19 +138,29 @@ export default function BibleReader({ book, initialChapterIndex, highlightVerse 
     touchStartY.current = e.touches[0].clientY;
   };
   const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null || touchStartY.current === null) return;
+    if (touchStartX.current === null || touchStartY.current === null) {
+      return;
+    }
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     const dy = e.changedTouches[0].clientY - touchStartY.current;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) navigate(dx < 0 ? 1 : -1);
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      navigate(dx < 0 ? 1 : -1);
+    }
     touchStartX.current = null;
     touchStartY.current = null;
   };
 
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement) return;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") navigate(1);
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") navigate(-1);
+      if (e.target instanceof HTMLInputElement) {
+        return;
+      }
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        navigate(1);
+      }
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        navigate(-1);
+      }
     };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);

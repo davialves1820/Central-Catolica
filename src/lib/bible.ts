@@ -42,7 +42,9 @@ interface FlatVerse {
 let flatIndex: FlatVerse[] | null = null;
 
 async function getFlatIndex() {
-  if (flatIndex) return flatIndex;
+  if (flatIndex) {
+    return flatIndex;
+  }
 
   const data = await getBibleData();
   const index: FlatVerse[] = [];

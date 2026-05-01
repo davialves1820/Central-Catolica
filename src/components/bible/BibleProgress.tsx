@@ -26,7 +26,9 @@ export default function BibleProgress() {
     }
   }, []);
 
-  if (!progress) return null;
+  if (!progress) {
+    return null;
+  }
 
   const timeAgo = new Date(progress.timestamp).toLocaleDateString("pt-BR", {
     day: "numeric",

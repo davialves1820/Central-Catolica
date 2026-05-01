@@ -4,10 +4,7 @@ import { useEffect } from "react";
 import { AlertCircle, RotateCcw } from "lucide-react";
 import Link from "next/link";
 
-export default function Error({
-  error,
-  reset,
-}: {
+export default function Error({ error, reset, }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {

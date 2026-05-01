@@ -7,46 +7,51 @@ import LiturgicalBackground from "./LiturgicalBackground";
 import ReadingSection from "./ReadingSection";
 import PsalmSection from "./PsalmSection";
 
-/* ── Liturgical color → São Tomás palette tokens ── */
+/* Liturgical color  */
 const getCorTheme = (cor: string) => {
   const c = cor.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  if (c.includes("verde"))
+  if (c.includes("verde")) {
     return {
       badge: "border-emerald-700/40 text-emerald-400",
       dot: "bg-emerald-500",
       dot2: "#10b981",
       sidebarAccent: "text-emerald-400",
     };
-  if (c.includes("roxo") || c.includes("violeta"))
+  }
+  if (c.includes("roxo") || c.includes("violeta")) {
     return {
       badge: "border-purple-700/40 text-purple-400",
       dot: "bg-purple-500",
       dot2: "#a855f7",
       sidebarAccent: "text-purple-400",
     };
-  if (c.includes("vermelho"))
+  }
+  if (c.includes("vermelho")) {
     return {
       badge: "border-red-700/40 text-red-400",
       dot: "bg-red-500",
       dot2: "#ef4444",
       sidebarAccent: "text-red-400",
     };
-  if (c.includes("rosa"))
+  }
+  if (c.includes("rosa")) {
     return {
       badge: "border-pink-600/40 text-pink-400",
       dot: "bg-pink-400",
       dot2: "#f472b6",
       sidebarAccent: "text-pink-400",
     };
-  if (c.includes("preto"))
+  }
+  if (c.includes("preto")) {
     return {
       badge: "border-slate-600/40 text-slate-400",
       dot: "bg-slate-500",
       dot2: "#64748b",
       sidebarAccent: "text-slate-400",
     };
-  /* Branco / Dourado — padrão */
+  }
+  /* Branco / Dourado */
   return {
     badge: "border-primary/40 text-primary",
     dot: "bg-primary",
@@ -79,7 +84,7 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="relative z-10 max-w-4xl mx-auto px-4 py-12 space-y-12"
         >
-          {/* ── Header ── */}
+          {/* Header */}
           <motion.div custom={0} variants={sectionVariants} initial="hidden" animate="visible"
             className="text-center space-y-3"
           >
@@ -97,7 +102,7 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
             <p className="font-body text-sm text-muted-foreground capitalize">{liturgia.data}</p>
           </motion.div>
 
-          {/* ── Main grid ── */}
+          {/* Main grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
             {/* Readings */}

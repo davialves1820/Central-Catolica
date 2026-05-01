@@ -13,10 +13,8 @@ export const metadata: Metadata = {
 
 export const revalidate = 86400;
 
-
 async function BibleContent() {
   const data = await getBibleData();
-
 
   return (
     <div>

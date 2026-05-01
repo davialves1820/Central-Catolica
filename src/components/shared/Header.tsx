@@ -7,7 +7,7 @@ import { BookOpen, Sun, CalendarDays, Menu, X, Search } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useSession } from "next-auth/react";
 
-/* ── Nav items — apenas as 3 features ── */
+/* Nav items */
 const NAV = [
   { label: "Bíblia", href: "/biblia", icon: BookOpen },
   { label: "Liturgia", href: "/liturgia", icon: Sun },
@@ -55,7 +55,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
 
-        {/* ── Logo ── */}
+        {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
@@ -103,7 +103,7 @@ const Header = () => {
           </div>
         </Link>
 
-        {/* ── Desktop nav ── */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1" aria-label="Navegação principal">
           {NAV.map(({ label, href, icon: Icon }) => {
             const active = isActive(href);
@@ -146,7 +146,7 @@ const Header = () => {
 
         </nav>
 
-        {/* ── Mobile toggle ── */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen((v) => !v)}
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
@@ -180,7 +180,7 @@ const Header = () => {
         </button>
       </div>
 
-      {/* ── Mobile menu ── */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
