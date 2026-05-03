@@ -96,7 +96,7 @@ const FEATURES = [
 
 type Accent = "gold" | "cobalt" | "crimson";
 
-const ACCENT_STYLES: Record<Accent,{ icon: string; badge: string; cta: string; border: string }> = {
+const ACCENT_STYLES: Record<Accent, { icon: string; badge: string; cta: string; border: string }> = {
   gold: {
     icon: "bg-primary/10 text-primary border border-primary/20",
     badge: "text-primary",
@@ -156,12 +156,12 @@ export default async function Home() {
               id="hero-heading"
               className="font-heading text-5xl md:text-7xl font-bold text-foreground leading-[1.05] mb-6"
             >
-              Portal{" "}
+
               <span
                 className="relative inline-block"
                 style={{ color: "hsl(var(--gold))" }}
               >
-                Espiritual
+                Central Católica
                 <span
                   className="absolute -bottom-1 left-0 right-0 h-px"
                   aria-hidden="true"
@@ -174,7 +174,7 @@ export default async function Home() {
             </h1>
 
             <p className="font-body text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-4 leading-relaxed">
-              Escrituras, Liturgia e Calendário, a Palavra de Deus ao alcance de cada dia.
+              Ensinamentos e Tradição Católica Apostólica Romana ao alcance de cada dia.
             </p>
 
             {/* Versículo */}

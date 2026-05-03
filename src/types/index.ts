@@ -3,3 +3,4 @@ export * from "./pastoral";
 export * from "./catechism";
 export * from "./event";
 export * from "./bible";
+export * from "./oracao";
