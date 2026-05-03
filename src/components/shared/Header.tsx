@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Sun, CalendarDays, Menu, X, Search } from "lucide-react";
+import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useSession } from "next-auth/react";
 
@@ -12,6 +12,7 @@ const NAV = [
   { label: "Bíblia", href: "/biblia", icon: BookOpen },
   { label: "Liturgia", href: "/liturgia", icon: Sun },
   { label: "Calendário", href: "/calendario", icon: CalendarDays },
+  { label: "Oração", href: "/oracoes", icon: Heart }
 ] as const;
 
 const Header = () => {
