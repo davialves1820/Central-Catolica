@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { useSession } from "next-auth/react";
 
 /* Nav items */
 const NAV = [
@@ -15,11 +14,13 @@ const NAV = [
   { label: "Oração", href: "/oracoes", icon: Heart }
 ] as const;
 
+const subscribe = () => () => {};
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
   const pathname = usePathname();
-  useSession();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 16);
@@ -34,8 +35,8 @@ const Header = () => {
   }, []);
 
   const isActive = useCallback(
-    (href: string) => pathname === href || pathname.startsWith(href + "/"),
-    [pathname],
+    (href: string) => mounted && (pathname === href || pathname.startsWith(href + "/")),
+    [pathname, mounted],
   );
 
   const mobileVariants: Variants = {

@@ -1,6 +1,4 @@
 import { Resend } from "resend";
-import { VerificationEmail } from "@/components/emails/VerificationEmail";
-import { PasswordResetEmail } from "@/components/emails/PasswordResetEmail";
 import { createLogger } from "@/lib/server/utils/logger";
 
 const logger = createLogger("MailService");
@@ -23,7 +21,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
     from: process.env.RESEND_FROM_EMAIL || "Paróquia Manager <onboarding@resend.dev>",
     to: email,
     subject: "Confirme seu e-mail",
-    react: <VerificationEmail confirmLink={confirmLink} />,
+    html: `<p>Clique no link para confirmar seu e-mail: <a href="${confirmLink}">${confirmLink}</a></p>`,
   });
 
   if (error) {
@@ -44,7 +42,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
     from: process.env.RESEND_FROM_EMAIL || "Paróquia Manager <onboarding@resend.dev>",
     to: email,
     subject: "Redefinição de Senha",
-    react: <PasswordResetEmail resetLink={resetLink} />,
+    html: `<p>Clique no link para redefinir sua senha: <a href="${resetLink}">${resetLink}</a></p>`,
   });
 
   if (error) {
