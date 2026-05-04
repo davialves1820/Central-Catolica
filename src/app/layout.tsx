@@ -21,12 +21,12 @@ export const metadata: Metadata = {
     template: "%s | Central Católica",
   },
   description:
-    "Bíblia Sagrada, Liturgia Diária, Calendário Litúrgico e Pastorais da Paróquia Santo Menino Jesus de Praga — João Pessoa, PB.",
+    "Bíblia Sagrada, Liturgia Diária, Calendário Litúrgico e muito mais.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "MJP Paróquia",
+    title: "Central Católica",
   },
   icons: {
     icon: "/images/menino-jesus-logo.png",
