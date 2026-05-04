@@ -49,6 +49,11 @@
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --violet: 262 83% 58%;
+  --violet-light: 262 83% 70%;
+
+  --emerald: 160 84% 39%;
+  --emerald-light: 160 84% 55%;
 }
 
 @layer base {
@@ -278,4 +283,38 @@
       background-position: -200% center;
     }
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  @keyframes carousel {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-carousel {
+    animation: carousel 15s linear infinite;
+  }
+
+  @media (max-width: 768px) {
+    .animate-carousel {
+      animation: carousel 30s linear infinite;
+    }
+  }
+
+  .dark {
+    --violet: 262 83% 65%;
+    --emerald: 160 84% 45%;
+  }
+
 }

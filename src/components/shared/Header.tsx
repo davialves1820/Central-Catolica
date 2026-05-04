@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart } from "lucide-react";
+import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart, Newspaper } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 /* Nav items */
@@ -11,10 +11,11 @@ const NAV = [
   { label: "Bíblia", href: "/biblia", icon: BookOpen },
   { label: "Liturgia", href: "/liturgia", icon: Sun },
   { label: "Calendário", href: "/calendario", icon: CalendarDays },
-  { label: "Oração", href: "/oracoes", icon: Heart }
+  { label: "Oração", href: "/oracoes", icon: Heart },
+  { label: "Notícias", href: "/noticias", icon: Newspaper }
 ] as const;
 
-const subscribe = () => () => {};
+const subscribe = () => () => { };
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -100,7 +101,7 @@ const Header = () => {
 
           <div>
             <p className="font-heading text-base font-semibold text-foreground leading-tight group-hover:text-primary transition-colors duration-200">
-              Portal Espiritual
+              Central Católica
             </p>
           </div>
         </Link>

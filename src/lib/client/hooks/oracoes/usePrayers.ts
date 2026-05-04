@@ -9,7 +9,9 @@ const allPrayers = (oracoesData as { oracoes: Oracao[] }).oracoes;
 
 export function usePrayers(catName: string | undefined) {
     const prayers = useMemo(() => {
-        if (!catName) return [];
+        if (!catName) {
+            return [];
+        }
 
         return allPrayers
             .filter((o) => o.categoria === catName)

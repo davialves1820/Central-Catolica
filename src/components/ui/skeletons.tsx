@@ -131,3 +131,34 @@ export function CalendarioSkeleton() {
         </div>
     );
 }
+
+/* Skeleton */
+export function NoticiasSkeleton() {
+    return (
+        <div className="space-y-12 animate-in fade-in duration-300">
+            {/* Destaque */}
+            <div
+                className="rounded-2xl border border-border h-96 animate-pulse"
+                style={{ background: "hsl(var(--secondary))" }}
+            />
+            {/* Grid */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {Array.from({ length: 6 }).map((_, i) => (
+                    <div
+                        key={i}
+                        className="rounded-xl border border-border overflow-hidden animate-pulse"
+                        style={{ background: "hsl(var(--card))" }}
+                    >
+                        <div className="h-44" style={{ background: "hsl(var(--secondary))" }} />
+                        <div className="p-5 space-y-3">
+                            <div className="h-3 rounded w-24" style={{ background: "hsl(var(--border))" }} />
+                            <div className="h-5 rounded w-full" style={{ background: "hsl(var(--border))" }} />
+                            <div className="h-4 rounded w-4/5" style={{ background: "hsl(var(--border))" }} />
+                            <div className="h-3 rounded w-1/2" style={{ background: "hsl(var(--border))" }} />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}

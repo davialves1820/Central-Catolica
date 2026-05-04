@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { BookOpen, Sun, CalendarDays, ChevronRight, Search } from "lucide-react";
+import { BookOpen, Sun, CalendarDays, ChevronRight, Search, Newspaper, Heart } from "lucide-react";
 import Header from "@/components/shared/Header";
 import { getLiturgiaDiaria } from "@/lib/server/services/liturgia";
 import { Suspense } from "react";
+import NewsPreview from "@/components/noticias/NewsPreview";
+import "./globals.css";
 
 /* Dados da liturgia de hoje para o teaser */
 async function TodayLiturgyTeaser() {
@@ -72,7 +74,7 @@ const FEATURES = [
     description:
       "Leia as Escrituras na tradução Ave Maria. Pesquise versículos, acompanhe seu progresso e mergulhe na Palavra de Deus.",
     cta: "Abrir a Bíblia",
-    accent: "gold",   /* ouro */
+    accent: "gold",
   },
   {
     href: "/liturgia",
@@ -81,7 +83,7 @@ const FEATURES = [
     description:
       "Leituras, salmo responsorial, evangelho e orações de cada dia. Acompanhe o ritmo da Igreja ao longo do ano litúrgico.",
     cta: "Ver a Liturgia",
-    accent: "cobalt", /* azul cobalto */
+    accent: "cobalt",
   },
   {
     href: "/calendario",
@@ -90,11 +92,29 @@ const FEATURES = [
     description:
       "Solenidades, festas, memórias e tempos do ano litúrgico organizados em um calendário interativo.",
     cta: "Abrir o Calendário",
-    accent: "crimson", /* rubrica */
+    accent: "emerald",
+  },
+  {
+    href: "/oracoes",
+    icon: Heart,
+    label: "Orações",
+    description:
+      "Orações tradicionais da Igreja: Pai-Nosso, Ave-Maria, Credo e muitas outras para sua vida espiritual diária.",
+    cta: "Ver Orações",
+    accent: "violet",
+  },
+  {
+    href: "/noticias",
+    icon: Newspaper,
+    label: "Notícias do Vaticano",
+    description:
+      "Acompanhe as últimas notícias retiradas diretamente do VaticanoNews.",
+    cta: "Ver Notícias",
+    accent: "crimson",
   },
 ] as const;
 
-type Accent = "gold" | "cobalt" | "crimson";
+type Accent = "gold" | "cobalt" | "crimson" | "violet" | "emerald";
 
 const ACCENT_STYLES: Record<Accent, { icon: string; badge: string; cta: string; border: string }> = {
   gold: {
@@ -114,6 +134,18 @@ const ACCENT_STYLES: Record<Accent, { icon: string; badge: string; cta: string; 
     badge: "text-crimson-light",
     cta: "bg-crimson text-foreground hover:bg-crimson-light",
     border: "hover:border-crimson/30",
+  },
+  violet: {
+    icon: "bg-[hsl(var(--violet))]/10 text-[hsl(var(--violet-light))] border border-[hsl(var(--violet))]/20",
+    badge: "text-[hsl(var(--violet-light))]",
+    cta: "bg-[hsl(var(--violet))] text-accent-foreground hover:bg-[hsl(var(--violet-light))]",
+    border: "hover:border-[hsl(var(--violet))]/40",
+  },
+  emerald: {
+    icon: "bg-[hsl(var(--emerald))]/10 text-[hsl(var(--emerald-light))] border border-[hsl(var(--emerald))]/20",
+    badge: "text-[hsl(var(--emerald-light))]",
+    cta: "bg-[hsl(var(--emerald))] text-accent-foreground hover:bg-[hsl(var(--emerald-light))]",
+    border: "hover:border-[hsl(var(--emerald))]/40",
   },
 };
 
@@ -321,6 +353,37 @@ export default async function Home() {
               Ver calendário litúrgico completo
             </Link>
           </div>
+        </section>
+
+        {/* Notícias Católicas */}
+        <section
+          className="container mx-auto px-4 py-16 max-w-5xl"
+          aria-labelledby="news-heading"
+        >
+          <div className="text-center mb-10">
+            <h2
+              id="news-heading"
+              className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2"
+            >
+              Vaticano News
+            </h2>
+          </div>
+
+          <Suspense
+            fallback={
+              <div className="grid md:grid-cols-3 gap-6">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="border border-border rounded-xl p-5 animate-pulse space-y-3">
+                    <div className="h-4 bg-secondary rounded w-24" />
+                    <div className="h-5 bg-secondary rounded w-full" />
+                    <div className="h-4 bg-secondary rounded w-3/4" />
+                  </div>
+                ))}
+              </div>
+            }
+          >
+            <NewsPreview />
+          </Suspense>
         </section>
 
         {/* Frase de São Thomas de Aquino */}

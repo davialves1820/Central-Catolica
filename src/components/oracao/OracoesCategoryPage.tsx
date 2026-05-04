@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Header from "@/components/shared/Header";
 import { SLUG_TO_CAT, CAT_CONFIG } from "@/app/oracoes/constants";
 
-import { usePrayers } from "@/lib/client/hooks/usePrayers";
+import { usePrayers } from "@/lib/client/hooks/oracoes/usePrayers";
 import { firstLetter } from "@/lib/client/hooks/utils/firstLetter";
 
 import CategoryHero from "./CategoryHero";

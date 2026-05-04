@@ -1,5 +1,5 @@
 import { getBook } from "@/lib/bible";
-import BibleReader from "@/components/bible/BibleReader";
+import BibleReader from "@/components/bible/bible-reader/BibleReader";
 import { BibleChapterSkeleton } from "@/components/ui/skeletons";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
