@@ -1,46 +1,49 @@
-# Paróquia Manager
+# Central Católica
 
-Bem-vindo ao repositório do **Paróquia Manager**, um sistema moderno e completo para gestão administrativa e pastoral da sua paróquia. Desenvolvido com foco em usabilidade, performance e estética premium.
+O **Central Católica** é uma plataforma integrada para a vida de fé e a centralização de informações católicas. Ela oferece acesso à Bíblia Sagrada, Liturgia Diária, Calendário Litúrgico, Santos, Orações e notícias atualizadas do Vaticano.
 
 ## 📂 Estrutura do Projeto
 
-O projeto é uma aplicação unificada (monorepo simplificado) baseada em **Next.js**:
+O projeto é uma aplicação unificada baseada em **Next.js**:
 
-- **[src](./src)**: Contém todo o código-fonte da aplicação (Frontend e APIs internas).
-  - **Módulo de Catequese**: Gestão de alunos, turmas, frequências e sacramentos.
-  - **Módulo de Pastorais**: Gerenciamento de unidades pastorais, coordenadores e identidade visual.
-  - **Módulo de Eventos**: Portal de notícias e eventos paroquiais com suporte a categorias e imagens.
+- **[src](./src)**: Contém o código-fonte da aplicação.
 
 ## 🛠️ Tecnologias Principais
 
 - **Framework**: [Next.js](https://nextjs.org/) (React 19)
 - **Estilização**: [Tailwind CSS 4](https://tailwindcss.com/) (Design Premium)
-- **Banco de Dados**: [PostgreSQL](https://www.postgresql.org/) (Prisma ORM)
-- **Autenticação**: [NextAuth.js](https://next-auth.js.org/) (RBAC: Admin, Coordenador, Fiel)
 - **Animações**: [Framer Motion](https://www.framer.com/motion/)
 - **Ícones**: [Lucide React](https://lucide.dev/)
+
+## 🌍 Fontes de Dados
+
+Para garantir a fidelidade e riqueza das informações, utilizei as seguintes fontes:
+
+- **Santos**: Dados obtidos via Web Scraping da Wikipedia.
+- **Notícias**: Sincronizadas via RSS do [Vatican News](https://www.vaticannews.va/pt.rss.xml).
+- **Calendário Litúrgico**: Dados provenientes do [Romcal](https://www.romcal.net/).
+- **Orações**: Coletadas do site [Padre Paulo Ricardo](https://padrepauloricardo.org/oracoes/) via Web Scraping.
+- **Liturgia Diária**: API de [Dancrf/liturgia-diaria](https://github.com/Dancrf/liturgia-diaria).
+- **Bíblia Sagrada**: Repositório JSON [fidalgobr/bibliaAveMariaJSON](https://github.com/fidalgobr/bibliaAveMariaJSON).
 
 ## 🚀 Como começar
 
 1.  **Clone o repositório**:
     ```bash
     git clone [url-do-repositorio]
-    cd Paroquia-Manager
+    cd Central-Catolica
     ```
 
 2.  **Instale as dependências** (na raiz ou em `src`):
     ```bash
     npm install
     ```
-
-3.  **Configure o Banco de Dados**:
-    Crie um arquivo `.env` dentro da pasta `src` com a sua `DATABASE_URL`.
-
-4.  **Inicie o servidor**:
+    
+3.  **Inicie o servidor**:
     ```bash
     npm run dev
     ```
-    Acesse `http://localhost:3000` e comece a gerenciar!
+    Acesse `http://localhost:3000!`
 
 ---
 

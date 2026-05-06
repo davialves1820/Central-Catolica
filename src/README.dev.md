@@ -1,4 +1,4 @@
-# Paróquia Manager - Guia do Desenvolvedor
+# Central Católica - Guia do Desenvolvedor
 
 Este é o sistema fullstack, construído com **Next.js**, **React 19**, **TypeScript** e **Tailwind CSS 4**.
 
@@ -15,26 +15,7 @@ Este é o sistema fullstack, construído com **Next.js**, **React 19**, **TypeSc
     npm install
     ```
 
-2.  **Variáveis de Ambiente:**
-    Crie um arquivo `.env` na raiz da pasta `src` e configure:
-
-    ```env
-    DATABASE_URL="postgres://..."
-    NEXTAUTH_SECRET="..."
-    NEXTAUTH_URL="http://localhost:3000"
-    ```
-
-3.  **Banco de Dados (Prisma):**
-    Sincronize o esquema e gere o cliente:
-
-    ```bash
-    npx prisma generate
-    npx prisma db push # Para prototipação rápida
-    # ou
-    npx prisma migrate dev --name migracao_nova
-    ```
-
-4.  **Execução:**
+2.  **Execução:**
     Inicie o servidor de desenvolvimento:
     ```bash
     npm run dev
@@ -47,17 +28,7 @@ Este é o sistema fullstack, construído com **Next.js**, **React 19**, **TypeSc
 - `npm run start`: Inicia o servidor com a build de produção.
 - `npm run lint`: Executa a verificação do linter (ESLint).
 
-## 🏗️ Arquitetura
-
-- **app/catequese**: Módulo de gestão de alunos e turmas.
-- **app/pastorais**: Módulo de gestão de unidades pastorais.
-- **app/events**: Módulo de criação e visualização de eventos.
-- **api/**: Endpoints Hono/Next.js para lógica de negócio.
-- **lib/api**: Configuração do Axios para comunicação frontend-backend.
-- **components**: Componentes reutilizáveis (UI e layouts premium).
-- **prisma**: Esquema do banco de dados e migrações SQL.
-
-## 🎨 Estilização
+##  Estilização
 
 Utilizamos o **Tailwind CSS 4** para estilização. O design é focado em acessibilidade e responsividade, garantindo uma boa experiência em dispositivos móveis.
 
