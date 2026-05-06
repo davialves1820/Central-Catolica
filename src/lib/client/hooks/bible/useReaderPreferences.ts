@@ -22,9 +22,15 @@ export function useReaderPreferences(): ReaderPreferences {
       const sz = localStorage.getItem("bible-font-size");
       const th = localStorage.getItem("bible-theme") as Theme;
       const md = localStorage.getItem("bible-reading-mode") as ReadingMode;
-      if (sz) setFontSizeState(parseInt(sz) as FontSize);
-      if (th && THEMES[th]) setThemeState(th);
-      if (md) setReadingModeState(md);
+      if (sz) {
+        setFontSizeState(parseInt(sz) as FontSize);
+      }
+      if (th && THEMES[th]) {
+        setThemeState(th);
+      }
+      if (md) {
+        setReadingModeState(md);
+      }
     });
   }, []);
 

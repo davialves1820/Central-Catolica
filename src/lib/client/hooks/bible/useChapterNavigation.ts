@@ -21,11 +21,7 @@ interface UseChapterNavigationReturn {
   };
 }
 
-export function useChapterNavigation({
-  initialIndex,
-  total,
-  onNavigate,
-}: UseChapterNavigationOptions): UseChapterNavigationReturn {
+export function useChapterNavigation({ initialIndex, total, onNavigate }: UseChapterNavigationOptions): UseChapterNavigationReturn {
   const [chapterIndex, setChapterIndex] = useState(initialIndex);
   const [direction, setDirection] = useState<1 | -1>(1);
   const touchStartX = useRef<number | null>(null);
@@ -37,7 +33,9 @@ export function useChapterNavigation({
   const navigate = useCallback(
     (delta: 1 | -1) => {
       const next = chapterIndex + delta;
-      if (next < 0 || next >= total) return;
+      if (next < 0 || next >= total) {
+        return;
+      }
       setDirection(delta);
       setChapterIndex(next);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -57,12 +55,18 @@ export function useChapterNavigation({
     [chapterIndex, total, onNavigate]
   );
 
-  // Keyboard navigation
+  // Navegação por teclado
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement) return;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") navigate(1);
-      if (e.key === "ArrowLeft" || e.key === "ArrowUp") navigate(-1);
+      if (e.target instanceof HTMLInputElement) {
+        return;
+      }
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        navigate(1);
+      }
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        navigate(-1);
+      }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
@@ -74,7 +78,9 @@ export function useChapterNavigation({
   };
 
   const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null || touchStartY.current === null) return;
+    if (touchStartX.current === null || touchStartY.current === null) {
+      return;
+    }
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     const dy = e.changedTouches[0].clientY - touchStartY.current;
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {

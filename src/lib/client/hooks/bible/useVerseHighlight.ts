@@ -8,19 +8,16 @@ interface UseVerseHighlightReturn {
   verseRefs: React.MutableRefObject<Map<number, HTMLElement>>;
 }
 
-export function useVerseHighlight(
-  highlightVerse: number | undefined,
-  chapterIndex: number
-): UseVerseHighlightReturn {
+export function useVerseHighlight(highlightVerse: number | undefined, chapterIndex: number): UseVerseHighlightReturn {
   const [flashVerse, setFlashVerse] = useState<number | undefined>(highlightVerse);
   const verseRefs = useRef<Map<number, HTMLElement>>(new Map());
 
-  // Sync when highlightVerse prop changes
+  // Sincronizar quando a propriedade highlightVerse for alterada
   useEffect(() => {
     setFlashVerse(highlightVerse);
   }, [highlightVerse]);
 
-  // Scroll to and auto-clear the highlighted verse
+  // Rola até o versículo destacado e limpa automaticamente
   useEffect(() => {
     if (!flashVerse) return;
     const el = verseRefs.current.get(flashVerse);

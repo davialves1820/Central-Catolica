@@ -54,10 +54,7 @@ export async function getTipos(): Promise<string[]> {
 
 export async function getSantoDoDia(): Promise<Santo | null> {
   const hoje = new Date();
-  const diaDessaAno = Math.floor(
-    (hoje.getTime() - new Date(hoje.getFullYear(), 0, 0).getTime()) /
-    86400000
-  );
+  const diaDessaAno = Math.floor((hoje.getTime() - new Date(hoje.getFullYear(), 0, 0).getTime()) / 86400000);
   const idx = diaDessaAno % TODOS.length;
   return TODOS[idx] ?? null;
 }

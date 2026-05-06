@@ -8,11 +8,7 @@ interface UseReadingProgressOptions {
   flashVerse?: number;
 }
 
-export function useReadingProgress({
-  bookName,
-  chapter,
-  flashVerse,
-}: UseReadingProgressOptions) {
+export function useReadingProgress({ bookName, chapter, flashVerse }: UseReadingProgressOptions) {
   useEffect(() => {
     localStorage.setItem(
       "bible-progress",

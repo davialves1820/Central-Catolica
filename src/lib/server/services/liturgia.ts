@@ -1,6 +1,6 @@
 import { LiturgiaDiaria } from "@/types/liturgia";
 
-export async function getLiturgiaDiaria(day?:  string, month?: string, year?: string ): Promise<LiturgiaDiaria | null> {
+export async function getLiturgiaDiaria(day?: string, month?: string, year?: string): Promise<LiturgiaDiaria | null> {
   try {
     const url = new URL("https://liturgia.up.railway.app/");
     if (day) {
@@ -14,7 +14,7 @@ export async function getLiturgiaDiaria(day?:  string, month?: string, year?: st
     }
 
     const response = await fetch(url.toString(), {
-      next: { revalidate: 3600 }, // Revalidate every hour
+      next: { revalidate: 3600 },
     });
 
     if (!response.ok) {
