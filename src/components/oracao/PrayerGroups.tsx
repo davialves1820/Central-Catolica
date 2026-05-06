@@ -3,14 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { firstLetter } from "@/lib/client/hooks/utils/firstLetter";
-import { Oracao } from "@/types";
-import { CategoryConfig } from "./CategoryHero";
-
-interface PrayerGroupsProps {
-    visible: Oracao[];
-    setSelectedIdx: (idx: number) => void;
-    cfg: CategoryConfig;
-}
+import { PrayerGroupsProps, Oracao } from "@/types/oracao";
 
 export default function PrayerGroups({ visible, setSelectedIdx, cfg }: PrayerGroupsProps) {
     const groups: { letter: string; items: { prayer: Oracao; idx: number }[] }[] = [];

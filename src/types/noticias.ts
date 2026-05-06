@@ -10,6 +10,18 @@ export interface Noticia {
     fonteLabel: string
 }
 
+export interface NoticiaCardProps {
+    noticia: Noticia;
+}
+
+export interface NoticiaDestaqueProps {
+    noticia: Noticia;
+}
+
+export interface CarouselNoticiasProps {
+    noticias: Noticia[];
+}
+
 export const FONTE_STYLE = {
     vaticannews: {
         color: "hsl(var(--gold))",

@@ -1,15 +1,6 @@
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { type Chapter, type ThemeTokens } from "@/types";
-
-interface TableOfContentsProps {
-  t: ThemeTokens;
-  chapters: Chapter[];
-  currentIndex: number;
-  isOpen: boolean;
-  onClose: () => void;
-  onSelect: (index: number) => void;
-}
+import { TableOfContentsProps } from "@/types/bible";
 
 export function TableOfContents({
   t,

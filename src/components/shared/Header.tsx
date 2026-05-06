@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart, Newspaper } from "lucide-react";
+import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart, Newspaper, Leaf } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 /* Nav items */
@@ -12,7 +12,8 @@ const NAV = [
   { label: "Liturgia", href: "/liturgia", icon: Sun },
   { label: "Calendário", href: "/calendario", icon: CalendarDays },
   { label: "Oração", href: "/oracoes", icon: Heart },
-  { label: "Notícias", href: "/noticias", icon: Newspaper }
+  { label: "Notícias", href: "/noticias", icon: Newspaper },
+  { label: "Santos", href: "/santos", icon: Leaf }
 ] as const;
 
 const subscribe = () => () => { };

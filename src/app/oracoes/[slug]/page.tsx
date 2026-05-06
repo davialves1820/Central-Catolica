@@ -1,12 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { SLUG_TO_CAT, CAT_CONFIG } from "@/app/oracoes/constants";
-
+import { SLUG_TO_CAT, CAT_CONFIG, type OracaoPageProps } from "@/types/oracao";
 import OracoesCategoryPage from "@/components/oracao/OracoesCategoryPage";
-
-interface Props {
-    params: Promise<{ slug: string }>;
-}
 
 export async function generateStaticParams() {
     return Object.values(CAT_CONFIG).map((c) => ({
@@ -14,7 +9,7 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: OracaoPageProps): Promise<Metadata> {
     const { slug } = await params;
 
     const catName = SLUG_TO_CAT[slug];
@@ -29,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: OracaoPageProps) {
     const { slug } = await params;
 
     if (!SLUG_TO_CAT[slug]) {

@@ -1,10 +1,6 @@
+import { ContinueReadingLinkProps } from "@/types/bible";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-
-interface ContinueReadingLinkProps {
-    bookName: string;
-    chapter: number;
-}
 
 export function ContinueReadingLink({ bookName, chapter }: ContinueReadingLinkProps) {
     return (

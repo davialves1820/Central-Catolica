@@ -2,9 +2,9 @@
 
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Noticia } from "@/types"
+import { type CarouselNoticiasProps } from "@/types/noticias";
 
-export default function CarouselNoticias({ noticias }: { noticias: Noticia[] }) {
+export default function CarouselNoticias({ noticias }: CarouselNoticiasProps) {
     const carouselRef = useRef<HTMLDivElement>(null);
 
     const scroll = (dir: number) => {

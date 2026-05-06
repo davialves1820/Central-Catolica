@@ -1,11 +1,7 @@
 "use client";
 
-import { Salmo } from "../../types/liturgia";
+import { PsalmSectionProps } from "../../types/liturgia";
 import { Music } from "lucide-react";
-
-interface PsalmSectionProps {
-  salmo: Salmo;
-}
 
 const PsalmSection = ({ salmo }: PsalmSectionProps) => {
   return (

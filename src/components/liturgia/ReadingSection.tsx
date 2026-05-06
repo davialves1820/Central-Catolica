@@ -1,14 +1,6 @@
 "use client";
 
-import { Leitura } from "../../types/liturgia";
-import { LucideIcon } from "lucide-react";
-
-interface ReadingSectionProps {
-  title: string;
-  leitura: Leitura;
-  Icon: LucideIcon;
-  isGospel?: boolean;
-}
+import { ReadingSectionProps } from "../../types/liturgia";
 
 const ReadingSection = ({ title, leitura, Icon, isGospel }: ReadingSectionProps) => {
   return (

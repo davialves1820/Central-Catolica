@@ -1,36 +1,11 @@
 import CalendarioView from "@/components/calendario/CalendarioView";
 import Header from "@/components/shared/Header";
 import { CalendarioSkeleton } from "@/components/ui/skeletons";
-import { Metadata } from "next";
 import { Suspense } from "react";
 import path from "path";
 import fs from "fs";
 
-export const metadata: Metadata = {
-  title: "Calendário Litúrgico",
-  description:
-    "Consulte as datas, festas e memórias do calendário litúrgico católico.",
-};
-
-export const revalidate = 3600;
-
-export interface LiturgicalDayData {
-  key: string;
-  name: string;
-  rank: string;
-  rankName: string;
-  colors: string[];
-  colorNames: string[];
-  seasons: string[];
-  seasonNames: string[];
-}
-
-interface JsonDayEntry {
-  nome: string;
-  cor: string;
-  rank: string;
-  temporada: string;
-}
+import { type LiturgicalDayData, type JsonDayEntry } from "@/types/calendar";
 
 async function CalendarioContent() {
   const initialCalendar: Record<string, LiturgicalDayData[]> = {};

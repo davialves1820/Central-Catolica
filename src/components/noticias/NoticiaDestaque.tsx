@@ -80,9 +80,6 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
           {noticia.categoria && (
             <span className="text-xs text-white/50 font-body">{noticia.categoria}</span>
           )}
-          <span className="ml-auto text-xs text-white/35 font-body">
-            {formatarData(noticia.publicadoEm)}
-          </span>
         </div>
 
         {/* Title */}
@@ -100,18 +97,24 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
           </p>
         )}
 
-        {/* CTA */}
-        <p
-          className="mt-5 flex items-center gap-1.5 text-sm font-body font-bold transition-all"
-          style={{ color: fonteStyle.color }}
-        >
-          Ler na íntegra
-          <ExternalLink
-            size={14}
-            className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-            aria-hidden="true"
-          />
-        </p>
+        {/* CTA & Date */}
+        <div className="mt-6 flex items-center gap-3">
+          <p
+            className="flex items-center gap-1.5 text-sm font-body font-bold transition-all"
+            style={{ color: fonteStyle.color }}
+          >
+            Ler na íntegra
+            <ExternalLink
+              size={14}
+              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              aria-hidden="true"
+            />
+          </p>
+          <span className="text-white/20" aria-hidden="true">•</span>
+          <span className="text-xs text-white/50 font-body">
+            {formatarData(noticia.publicadoEm)}
+          </span>
+        </div>
       </div>
     </a>
   );

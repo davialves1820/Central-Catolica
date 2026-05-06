@@ -1,63 +1,9 @@
 import Link from "next/link";
-import { BookOpen, Sun, CalendarDays, ChevronRight, Search, Newspaper, Heart } from "lucide-react";
+import { BookOpen, Sun, CalendarDays, ChevronRight, Search, Newspaper, Heart, Leaf } from "lucide-react";
 import Header from "@/components/shared/Header";
-import { getLiturgiaDiaria } from "@/lib/server/services/liturgia";
 import { Suspense } from "react";
 import NewsPreview from "@/components/noticias/NewsPreview";
 import "./globals.css";
-
-/* Dados da liturgia de hoje para o teaser */
-async function TodayLiturgyTeaser() {
-  const today = new Date();
-  const liturgia = await getLiturgiaDiaria(
-    String(today.getDate()),
-    String(today.getMonth() + 1),
-    String(today.getFullYear()),
-  ).catch(() => null);
-
-  if (!liturgia) {
-    return null;
-  }
-
-  const corMap: Record<string, string> = {
-    verde: "Verde", roxo: "Roxo", vermelho: "Vermelho",
-    branco: "Branco", rosa: "Rosa", preto: "Preto",
-    dourado: "Dourado",
-  };
-  const normalized = liturgia.cor.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const corLabel = Object.entries(corMap).find(([k]) => normalized.includes(k))?.[1] ?? liturgia.cor;
-
-  return (
-    <Link
-      href="/liturgia"
-      className="group block border border-border hover:border-primary/40 rounded-xl p-5 transition-all duration-300 hover:bg-secondary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-    >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex-1 min-w-0">
-          <p className="text-xs font-body font-bold uppercase tracking-widest text-primary mb-1">
-            Liturgia de Hoje
-          </p>
-          <p className="font-heading text-lg font-semibold text-foreground truncate">
-            {liturgia.liturgia}
-          </p>
-          <p className="text-sm text-muted-foreground font-body mt-1 line-clamp-2 italic">
-            {liturgia.evangelho?.titulo}
-          </p>
-        </div>
-        <div className="shrink-0 flex flex-col items-end gap-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground border border-border rounded-full px-2.5 py-0.5">
-            {corLabel}
-          </span>
-          <ChevronRight
-            size={16}
-            className="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all"
-            aria-hidden="true"
-          />
-        </div>
-      </div>
-    </Link>
-  );
-}
 
 /* Versículo da página */
 const PAGE_VERSE = {
@@ -112,15 +58,24 @@ const FEATURES = [
     cta: "Ver Notícias",
     accent: "crimson",
   },
+  {
+    href: "/santos",
+    icon: Leaf,
+    label: "Santos",
+    description:
+      "Conheça os santos e mártires da Igreja Católica.",
+    cta: "Ver Santos",
+    accent: "saint",
+  },
 ] as const;
 
-type Accent = "gold" | "cobalt" | "crimson" | "violet" | "emerald";
+type Accent = "gold" | "cobalt" | "crimson" | "violet" | "emerald" | "saint";
 
 const ACCENT_STYLES: Record<Accent, { icon: string; badge: string; cta: string; border: string }> = {
   gold: {
     icon: "bg-primary/10 text-primary border border-primary/20",
     badge: "text-primary",
-    cta: "bg-primary text-primary-foreground hover:bg-gold-light",
+    cta: "bg-primary text-white hover:bg-gold-light",
     border: "hover:border-primary/40",
   },
   cobalt: {
@@ -136,16 +91,22 @@ const ACCENT_STYLES: Record<Accent, { icon: string; badge: string; cta: string; 
     border: "hover:border-crimson/30",
   },
   violet: {
-    icon: "bg-[hsl(var(--violet))]/10 text-[hsl(var(--violet-light))] border border-[hsl(var(--violet))]/20",
-    badge: "text-[hsl(var(--violet-light))]",
-    cta: "bg-[hsl(var(--violet))] text-accent-foreground hover:bg-[hsl(var(--violet-light))]",
-    border: "hover:border-[hsl(var(--violet))]/40",
+    icon: "bg-violet/10 text-violet-light border border-violet/20",
+    badge: "text-violet-light",
+    cta: "bg-violet text-accent-foreground hover:bg-violet-light",
+    border: "hover:border-violet/40",
   },
   emerald: {
-    icon: "bg-[hsl(var(--emerald))]/10 text-[hsl(var(--emerald-light))] border border-[hsl(var(--emerald))]/20",
-    badge: "text-[hsl(var(--emerald-light))]",
-    cta: "bg-[hsl(var(--emerald))] text-accent-foreground hover:bg-[hsl(var(--emerald-light))]",
-    border: "hover:border-[hsl(var(--emerald))]/40",
+    icon: "bg-emerald/10 text-emerald-light border border-emerald/20",
+    badge: "text-emerald-light",
+    cta: "bg-emerald text-accent-foreground hover:bg-emerald-light",
+    border: "hover:border-emerald/40",
+  },
+  saint: {
+    icon: "bg-saint/15 text-saint-light border border-saint/30",
+    badge: "text-saint-light",
+    cta: "bg-saint text-white hover:bg-saint-light",
+    border: "hover:border-saint/40",
   },
 };
 
@@ -241,6 +202,15 @@ export default async function Home() {
                 Liturgia de hoje
               </Link>
             </div>
+            <div className="mt-4 text-center">
+              <Link
+                href="/calendario"
+                className="inline-flex items-center gap-2 text-sm font-body font-bold text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+              >
+                <CalendarDays size={14} aria-hidden="true" />
+                Ver calendário litúrgico completo
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -302,56 +272,6 @@ export default async function Home() {
                 </article>
               );
             })}
-          </div>
-        </section>
-
-        {/* Divisor ornamental */}
-        <div className="container mx-auto px-4 max-w-5xl" aria-hidden="true">
-          <div className="gold-divider" />
-        </div>
-
-        {/* Liturgia de Hoje teaser */}
-        <section
-          className="container mx-auto px-4 py-16 max-w-3xl"
-          aria-labelledby="liturgy-teaser-heading"
-        >
-          <div className="text-center mb-8">
-            <h2
-              id="liturgy-teaser-heading"
-              className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2"
-            >
-              Liturgia de Hoje
-            </h2>
-            <p className="font-body text-sm text-muted-foreground">
-              {new Date().toLocaleDateString("pt-BR", {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </p>
-          </div>
-
-          <Suspense
-            fallback={
-              <div className="border border-border rounded-xl p-5 animate-pulse space-y-3">
-                <div className="h-4 bg-secondary rounded w-32" />
-                <div className="h-5 bg-secondary rounded w-64" />
-                <div className="h-4 bg-secondary rounded w-48" />
-              </div>
-            }
-          >
-            <TodayLiturgyTeaser />
-          </Suspense>
-
-          <div className="mt-4 text-center">
-            <Link
-              href="/calendario"
-              className="inline-flex items-center gap-2 text-sm font-body font-bold text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
-            >
-              <CalendarDays size={14} aria-hidden="true" />
-              Ver calendário litúrgico completo
-            </Link>
           </div>
         </section>
 

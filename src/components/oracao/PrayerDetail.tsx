@@ -3,18 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { Oracao } from "@/types";
-import { CategoryConfig } from "./CategoryHero";
-
-interface PrayerDetailProps {
-    prayer: Oracao;
-    cfg: CategoryConfig;
-    onClose: () => void;
-    onPrev: () => void;
-    onNext: () => void;
-    hasPrev: boolean;
-    hasNext: boolean;
-}
+import { PrayerDetailProps } from "@/types/oracao";
 
 /* Format prayer text */
 function PrayerText({ text }: { text: string }) {

@@ -1,19 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  type Theme, type FontSize, type ThemeTokens,
+  type Theme, type FontSize,
   THEMES, THEME_LABELS,
   FONT_SIZE_MIN, FONT_SIZE_MAX, FONT_SIZE_STEP,
-} from "@/types";
-
-interface SettingsPanelProps {
-  t: ThemeTokens;
-  isOpen: boolean;
-  fontSize: FontSize;
-  theme: Theme;
-  bg: string;
-  onFontSizeChange: (s: FontSize) => void;
-  onThemeChange: (th: Theme) => void;
-}
+  SettingsPanelProps,
+} from "@/types/bible";
 
 export function SettingsPanel({
   t,

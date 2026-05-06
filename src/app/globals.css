@@ -49,11 +49,14 @@
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
-  --violet: 262 83% 58%;
-  --violet-light: 262 83% 70%;
+  --color-violet: hsl(var(--violet));
+  --color-violet-light: hsl(var(--violet-light));
 
-  --emerald: 160 84% 39%;
-  --emerald-light: 160 84% 55%;
+  --color-emerald: hsl(var(--emerald));
+  --color-emerald-light: hsl(var(--emerald-light));
+
+  --color-saint: hsl(var(--saint));
+  --color-saint-light: hsl(var(--saint-light));
 }
 
 @layer base {
@@ -115,6 +118,13 @@
     --sidebar-accent-foreground: 40 29% 91%;
     --sidebar-border: 35 21% 20%;
     --sidebar-ring: 42 89% 42%;
+
+    --violet: 262 83% 58%;
+    --violet-light: 262 83% 70%;
+    --emerald: 160 84% 39%;
+    --emerald-light: 160 84% 55%;
+    --saint: 28 100% 51%;
+    --saint-light: 28 100% 62%;
   }
 
   .dark {
@@ -147,6 +157,12 @@
     --crimson: 0 68% 32%;
     --crimson-light: 0 60% 44%;
     --ink: 30 20% 6%;
+    --violet: 262 83% 65%;
+    --violet-light: 262 83% 75%;
+    --emerald: 160 84% 45%;
+    --emerald-light: 160 84% 60%;
+    --saint: 28 100% 55%;
+    --saint-light: 28 100% 65%;
   }
 }
 
@@ -313,8 +329,7 @@
   }
 
   .dark {
-    --violet: 262 83% 65%;
-    --emerald: 160 84% 45%;
+    /* Cores já definidas no bloco :root/.dark principal */
   }
 
 }

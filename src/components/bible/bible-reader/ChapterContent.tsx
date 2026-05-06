@@ -1,18 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { type Book, type ThemeTokens, type FontSize } from "@/types";
+import { ChapterContentProps } from "@/types/bible";
 import { ChapterHeading } from "./ChapterHeading";
 import { VerseItem } from "./VerseItem";
-
-interface ChapterContentProps {
-  book: Book;
-  chapterIndex: number;
-  direction: 1 | -1;
-  fontSize: FontSize;
-  t: ThemeTokens;
-  readingMode: "paginated" | "continuous";
-  flashVerse: number | undefined;
-  verseRefs: React.MutableRefObject<Map<number, HTMLElement>>;
-}
 
 export function ChapterContent({
   book,

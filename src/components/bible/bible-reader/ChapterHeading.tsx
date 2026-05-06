@@ -1,10 +1,4 @@
-import { type ThemeTokens } from "@/types";
-
-interface ChapterHeadingProps {
-  t: ThemeTokens;
-  bookName: string;
-  chapterNumber: number;
-}
+import { ChapterHeadingProps } from "@/types/bible";
 
 export function ChapterHeading({ t, bookName, chapterNumber }: ChapterHeadingProps) {
   return (

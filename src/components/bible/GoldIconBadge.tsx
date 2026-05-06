@@ -1,9 +1,4 @@
-import { type LucideIcon } from "lucide-react";
-
-interface GoldIconBadgeProps {
-    icon: LucideIcon;
-    "aria-hidden"?: boolean;
-}
+import { GoldIconBadgeProps } from "@/types/bible";
 
 export function GoldIconBadge({ icon: Icon, "aria-hidden": ariaHidden = true }: GoldIconBadgeProps) {
     return (

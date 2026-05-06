@@ -1,9 +1,5 @@
+import { ReaderProgressBarProps } from "@/types/bible";
 import { motion } from "framer-motion";
-
-interface ReaderProgressBarProps {
-  current: number;
-  total: number;
-}
 
 export function ReaderProgressBar({ current, total }: ReaderProgressBarProps) {
   const percent = ((current + 1) / total) * 100;

@@ -3,10 +3,10 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Header from "@/components/shared/Header";
 import oracoesData from "@/data/oracoes.json";
+import { CAT_CONFIG } from "@/types/oracao";
 
 const data = oracoesData as { total: number; oracoes: { categoria: string }[] };
 
-import { CAT_CONFIG } from "./constants";
 
 export default function OracoesPage() {
     const catCount: Record<string, number> = {};
