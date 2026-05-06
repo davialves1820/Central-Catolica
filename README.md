@@ -2,12 +2,6 @@
 
 O **Central Católica** é uma plataforma integrada para a vida de fé e a centralização de informações católicas. Ela oferece acesso à Bíblia Sagrada, Liturgia Diária, Calendário Litúrgico, Santos, Orações e notícias atualizadas do Vaticano.
 
-## 📂 Estrutura do Projeto
-
-O projeto é uma aplicação unificada baseada em **Next.js**:
-
-- **[src](./src)**: Contém o código-fonte da aplicação.
-
 ## 🛠️ Tecnologias Principais
 
 - **Framework**: [Next.js](https://nextjs.org/) (React 19)
