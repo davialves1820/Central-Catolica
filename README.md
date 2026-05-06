@@ -37,8 +37,8 @@ Para garantir a fidelidade e riqueza das informações, utilizei as seguintes fo
     ```bash
     npm run dev
     ```
-    Acesse `http://localhost:3000!`
-
----
-
-Para detalhes técnicos de desenvolvimento, consulte o [README.dev.md](./src/README.dev.md).
+    Acesse o projeto em https://central-catolica.vercel.app/
+    
+    ---
+    
+    Para detalhes técnicos de desenvolvimento, consulte o [README.dev.md](./src/README.dev.md).
