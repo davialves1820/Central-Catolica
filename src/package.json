@@ -7,11 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
-    "postinstall": "prisma generate --schema ./prisma/schema.prisma"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@prisma/client": "^6.19.2",
     "@react-email/components": "^1.0.10",
     "@react-email/render": "^2.0.4",
     "@romcal/calendar.brazil": "^3.0.0-alpha.1",
@@ -35,7 +33,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "prisma": "^6.19.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
