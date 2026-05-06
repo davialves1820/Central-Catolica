@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getSantoDoDia } from "@/lib/santos";
+import { getSantoDoDia } from "@/lib/server/services/santos";
 import { ChevronRight } from "lucide-react";
 
 export default async function SantoDoDia() {
@@ -15,11 +15,11 @@ export default async function SantoDoDia() {
       style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--border))" }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLAnchorElement).style.borderColor = "hsl(var(--gold)/0.35)";
-        (e.currentTarget as HTMLAnchorElement).style.background   = "hsl(var(--secondary))";
+        (e.currentTarget as HTMLAnchorElement).style.background = "hsl(var(--secondary))";
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLAnchorElement).style.borderColor = "hsl(var(--border))";
-        (e.currentTarget as HTMLAnchorElement).style.background   = "hsl(var(--card))";
+        (e.currentTarget as HTMLAnchorElement).style.background = "hsl(var(--card))";
       }}
     >
       {/* Thumbnail */}

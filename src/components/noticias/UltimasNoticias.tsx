@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { buscarNoticias, formatarData } from "@/lib/noticias";
+import { buscarNoticias, formatarData } from "@/lib/server/services/noticias";
 import { ExternalLink, ChevronRight } from "lucide-react";
 
 export default async function UltimasNoticias() {
@@ -37,8 +37,8 @@ export default async function UltimasNoticias() {
             aria-label={n.titulo}
             className="group flex items-start gap-3 rounded-xl border p-4 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             style={{
-              background:   "hsl(var(--card))",
-              borderColor:  "hsl(var(--border))",
+              background: "hsl(var(--card))",
+              borderColor: "hsl(var(--border))",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.borderColor =

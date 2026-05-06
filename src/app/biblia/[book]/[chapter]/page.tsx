@@ -1,4 +1,4 @@
-import { getBook } from "@/lib/bible";
+import { getBook } from "@/lib/server/services/bible";
 import BibleReader from "@/components/bible/bible-reader/BibleReader";
 import { BibleChapterSkeleton } from "@/components/ui/skeletons";
 import { notFound } from "next/navigation";

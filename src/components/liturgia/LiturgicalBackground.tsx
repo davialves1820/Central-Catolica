@@ -7,6 +7,7 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
   const [mounted, setMounted] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number | null>(null);
+  const pausedRef = useRef(false);
 
   useEffect(() => {
     setMounted(true);
@@ -17,19 +18,12 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
 
   const c = normalize(cor);
 
-  // Canvas particle engine with different effects based on liturgical color
   useEffect(() => {
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) return;
     const canvas = canvasRef.current;
-    if (!canvas) {
-      return;
-    }
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    if (!ctx) {
-      return;
-    }
+    if (!ctx) return;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -38,32 +32,31 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
     resize();
     window.addEventListener("resize", resize);
 
+    // Pause when tab is hidden, resume when visible
+    const handleVisibility = () => {
+      pausedRef.current = document.hidden;
+      if (!document.hidden && animRef.current === null) {
+        animRef.current = requestAnimationFrame(draw);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
     interface Particle {
       x: number; y: number; vx: number; vy: number;
       size: number; opacity: number; life: number; maxLife: number;
-      hue?: number; symbol?: string; angle: number; va: number;
+      angle: number; va: number;
     }
 
     const particles: Particle[] = [];
     const count = 60;
 
     const getColor = () => {
-      if (c.includes("verde")) {
-        return { r: 16, g: 185, b: 129 };
-      }
-      if (c.includes("roxo") || c.includes("violeta")) {
-        return { r: 139, g: 92, b: 246 };
-      }
-      if (c.includes("vermelho")) {
-        return { r: 220, g: 38, b: 38 };
-      }
-      if (c.includes("rosa")) {
-        return { r: 244, g: 114, b: 182 };
-      }
-      if (c.includes("preto")) {
-        return { r: 148, g: 163, b: 184 };
-      }
-      return { r: 234, g: 179, b: 8 }; // dourado/branco
+      if (c.includes("verde")) return { r: 16, g: 185, b: 129 };
+      if (c.includes("roxo") || c.includes("violeta")) return { r: 139, g: 92, b: 246 };
+      if (c.includes("vermelho")) return { r: 220, g: 38, b: 38 };
+      if (c.includes("rosa")) return { r: 244, g: 114, b: 182 };
+      if (c.includes("preto")) return { r: 148, g: 163, b: 184 };
+      return { r: 234, g: 179, b: 8 };
     };
 
     const col = getColor();
@@ -86,12 +79,16 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
     let tick = 0;
 
     const draw = () => {
+      if (pausedRef.current) {
+        animRef.current = null;
+        return;
+      }
+
       tick++;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Fundo: ondas suaves baseadas na cor
+      // Backgrounds per liturgical color
       if (c.includes("verde")) {
-        // Ondas bioluminescentes
         for (let i = 0; i < 4; i++) {
           const wave = Math.sin(tick * 0.008 + i * 1.2) * 60;
           const grad = ctx.createRadialGradient(
@@ -104,7 +101,6 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
       } else if (c.includes("roxo") || c.includes("violeta")) {
-        // Pulso místico
         const pulse = Math.sin(tick * 0.015) * 0.5 + 0.5;
         const grad = ctx.createRadialGradient(
           canvas.width / 2, canvas.height / 2, 0,
@@ -116,7 +112,6 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       } else if (c.includes("vermelho")) {
-        // Chamas na base
         for (let i = 0; i < 3; i++) {
           const flicker = Math.sin(tick * 0.05 + i * 2) * 30;
           const grad = ctx.createRadialGradient(
@@ -129,7 +124,6 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
       } else if (c.includes("rosa")) {
-        // Aura pulsante
         const pulse = Math.sin(tick * 0.012) * 0.5 + 0.5;
         const grad = ctx.createRadialGradient(
           canvas.width / 2, canvas.height / 2, 50,
@@ -139,10 +133,8 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
         grad.addColorStop(1, "rgba(0,0,0,0)");
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-      } else if (c.includes("preto")) {
-        // Nada, escuro absoluto
-      } else {
-        // Dourado: luz divina varredura
+      } else if (!c.includes("preto")) {
+        // Dourado
         const sweep = ((tick * 0.005) % 1) * canvas.width * 1.5 - canvas.width * 0.25;
         const grad = ctx.createLinearGradient(sweep - 200, 0, sweep + 200, canvas.height);
         grad.addColorStop(0, "rgba(0,0,0,0)");
@@ -152,7 +144,7 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
 
-      // Partículas
+      // Particles
       for (const p of particles) {
         p.life++;
         if (p.life > p.maxLife) {
@@ -175,7 +167,6 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
         p.y += p.vy;
         p.angle += p.va;
 
-        // Verde: partículas hexagonais (folhas)
         if (c.includes("verde")) {
           ctx.save();
           ctx.translate(p.x, p.y);
@@ -184,19 +175,14 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           ctx.beginPath();
           for (let k = 0; k < 6; k++) {
             const a = (k / 6) * Math.PI * 2;
-            if (k === 0) {
-              ctx.moveTo(Math.cos(a) * p.size, Math.sin(a) * p.size);
-            } else {
-              ctx.lineTo(Math.cos(a) * p.size, Math.sin(a) * p.size);
-            }
+            if (k === 0) ctx.moveTo(Math.cos(a) * p.size, Math.sin(a) * p.size);
+            else ctx.lineTo(Math.cos(a) * p.size, Math.sin(a) * p.size);
           }
           ctx.closePath();
           ctx.fillStyle = `rgba(${col.r}, ${col.g}, ${col.b}, 0.4)`;
           ctx.fill();
           ctx.restore();
-        }
-        // Roxo: estrelas de 4 pontas
-        else if (c.includes("roxo") || c.includes("violeta")) {
+        } else if (c.includes("roxo") || c.includes("violeta")) {
           ctx.save();
           ctx.translate(p.x, p.y);
           ctx.rotate(p.angle + tick * 0.01);
@@ -205,19 +191,14 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           for (let k = 0; k < 8; k++) {
             const a = (k / 8) * Math.PI * 2;
             const r = k % 2 === 0 ? p.size * 1.4 : p.size * 0.5;
-            if (k === 0) {
-              ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
-            } else {
-              ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
-            }
+            if (k === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+            else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
           }
           ctx.closePath();
           ctx.fillStyle = `rgba(${col.r}, ${col.g}, ${col.b}, 0.5)`;
           ctx.fill();
           ctx.restore();
-        }
-        // Vermelho: gotas de chama
-        else if (c.includes("vermelho")) {
+        } else if (c.includes("vermelho")) {
           ctx.save();
           ctx.translate(p.x, p.y);
           ctx.rotate(p.angle);
@@ -229,9 +210,7 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           ctx.fillStyle = `rgba(${col.r}, ${col.g}, ${col.b}, 0.6)`;
           ctx.fill();
           ctx.restore();
-        }
-        // Rosa: corações (círculos duplos)
-        else if (c.includes("rosa")) {
+        } else if (c.includes("rosa")) {
           ctx.save();
           ctx.translate(p.x, p.y);
           ctx.globalAlpha = p.opacity * 0.5;
@@ -241,9 +220,7 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           ctx.fillStyle = `rgba(${col.r}, ${col.g}, ${col.b}, 0.5)`;
           ctx.fill();
           ctx.restore();
-        }
-        // Preto: cruzes feitas de retângulos
-        else if (c.includes("preto")) {
+        } else if (c.includes("preto")) {
           ctx.save();
           ctx.translate(p.x, p.y);
           ctx.rotate(p.angle);
@@ -252,9 +229,7 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           ctx.fillRect(-p.size * 0.3, -p.size * 1.2, p.size * 0.6, p.size * 2.4);
           ctx.fillRect(-p.size * 1.0, -p.size * 0.3, p.size * 2.0, p.size * 0.6);
           ctx.restore();
-        }
-        // Dourado: sparkles (estrelas de 4 pontas)
-        else {
+        } else {
           ctx.save();
           ctx.translate(p.x, p.y);
           ctx.rotate(p.angle + tick * 0.02);
@@ -263,11 +238,8 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
           for (let k = 0; k < 8; k++) {
             const a = (k / 8) * Math.PI * 2;
             const r = k % 2 === 0 ? p.size * 1.6 : p.size * 0.4;
-            if (k === 0) {
-              ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
-            } else {
-              ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
-            }
+            if (k === 0) ctx.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+            else ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
           }
           ctx.closePath();
           ctx.fillStyle = `rgba(${col.r}, ${col.g}, ${col.b}, 0.7)`;
@@ -276,9 +248,7 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
         }
       }
 
-      // Efeitos especiais extras
-
-      // Roxo: círculos de onda expandindo (tipo sonar místico)
+      // Extra effects
       if (c.includes("roxo") || c.includes("violeta")) {
         for (let w = 0; w < 3; w++) {
           const phase = ((tick * 0.008 + w * 0.33) % 1);
@@ -291,16 +261,12 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
         }
       }
 
-      // Preto: scanlines lentas
       if (c.includes("preto")) {
         const lineY = (tick * 0.5) % canvas.height;
         ctx.fillStyle = "rgba(255,255,255,0.015)";
         ctx.fillRect(0, lineY, canvas.width, 2);
-        ctx.fillStyle = "rgba(255,255,255,0.01)";
-        ctx.fillRect(0, lineY + 60, canvas.width, 1);
       }
 
-      // Dourado: raios de luz de baixo para cima
       if (!c.includes("verde") && !c.includes("roxo") && !c.includes("violeta") &&
         !c.includes("vermelho") && !c.includes("rosa") && !c.includes("preto")) {
         for (let r = 0; r < 5; r++) {
@@ -329,19 +295,17 @@ const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
       animRef.current = requestAnimationFrame(draw);
     };
 
-    draw();
+    animRef.current = requestAnimationFrame(draw);
 
     return () => {
-      if (animRef.current) {
-        cancelAnimationFrame(animRef.current);
-      }
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+      animRef.current = null;
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, [mounted, c]);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
     <canvas

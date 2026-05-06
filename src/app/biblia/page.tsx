@@ -1,4 +1,4 @@
-import { getBibleData } from "@/lib/bible";
+import { getBibleData } from "@/lib/server/services/bible";
 import { BookOpen, Search, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import BibleProgress from "@/components/bible/BibleProgress";

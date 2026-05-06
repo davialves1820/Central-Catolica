@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/server/utils/utils";
 
 function Shimmer({ className }: { className?: string }) {
     return (

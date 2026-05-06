@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Noticia, FONTE_STYLE } from "@/types";
-import { formatarData } from "@/lib/noticias";
+import { formatarData } from "@/lib/server/services/noticias";
 import { ExternalLink } from "lucide-react";
 
 export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {

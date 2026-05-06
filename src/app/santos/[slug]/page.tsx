@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getSantoBySlug, getSantos } from "@/lib/santos";
+import { getSantoBySlug, getSantos } from "@/lib/server/services/santos";
 import Header from "@/components/shared/Header";
 import { Metadata } from "next";
 import { ChevronLeft, Calendar, Crown, Star, Cross } from "lucide-react";

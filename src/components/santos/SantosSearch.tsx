@@ -2,7 +2,7 @@
 
 import { SantosSearchProps } from "@/types/santos";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useTransition } from "react";
+import { useCallback, useTransition, useEffect, useState } from "react";
 import { Search, Loader2 } from "lucide-react";
 
 export default function SantosSearch({ valorInicial }: SantosSearchProps) {
@@ -10,11 +10,20 @@ export default function SantosSearch({ valorInicial }: SantosSearchProps) {
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
 
+  // Controlled — stays in sync when user navigates back/forward
+  const [value, setValue] = useState(valorInicial);
+
+  useEffect(() => {
+    setValue(valorInicial);
+  }, [valorInicial]);
+
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const valor = e.target.value;
+      const val = e.target.value;
+      setValue(val);
       const q = new URLSearchParams(searchParams.toString());
-      if (valor) q.set("busca", valor); else q.delete("busca");
+      if (val) q.set("busca", val);
+      else q.delete("busca");
       q.delete("pagina");
       startTransition(() => router.push(`/santos?${q.toString()}`));
     },
@@ -31,21 +40,15 @@ export default function SantosSearch({ valorInicial }: SantosSearchProps) {
       </div>
       <input
         type="search"
-        defaultValue={valorInicial}
+        value={value}
         onChange={handleChange}
         placeholder="Buscar por nome"
         aria-label="Buscar santos"
-        className="w-full rounded-xl border py-3 pl-10 pr-4 text-sm font-body outline-none transition-all focus-visible:ring-2 focus-visible:ring-primary"
+        className="w-full rounded-xl border py-3 pl-10 pr-4 text-sm font-body outline-none transition-all focus-visible:ring-2 focus-visible:ring-primary focus:border-[hsl(var(--gold)/0.5)]"
         style={{
           background: "hsl(var(--card))",
           borderColor: "hsl(var(--border))",
           color: "hsl(var(--foreground))",
-        }}
-        onFocus={(e) => {
-          e.currentTarget.style.borderColor = "hsl(var(--gold)/0.5)";
-        }}
-        onBlur={(e) => {
-          e.currentTarget.style.borderColor = "hsl(var(--border))";
         }}
       />
     </div>

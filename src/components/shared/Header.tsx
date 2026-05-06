@@ -6,14 +6,13 @@ import { usePathname } from "next/navigation";
 import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart, Newspaper, Leaf } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-/* Nav items */
 const NAV = [
   { label: "Bíblia", href: "/biblia", icon: BookOpen },
   { label: "Liturgia", href: "/liturgia", icon: Sun },
   { label: "Calendário", href: "/calendario", icon: CalendarDays },
   { label: "Oração", href: "/oracoes", icon: Heart },
   { label: "Notícias", href: "/noticias", icon: Newspaper },
-  { label: "Santos", href: "/santos", icon: Leaf }
+  { label: "Santos", href: "/santos", icon: Leaf },
 ] as const;
 
 const subscribe = () => () => { };
@@ -53,8 +52,8 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-background/98 backdrop-blur-md shadow-sm border-b border-border"
-        : "bg-background/95 backdrop-blur-sm border-b border-border/60"
+          ? "bg-background/98 backdrop-blur-md shadow-sm border-b border-border"
+          : "bg-background/95 backdrop-blur-sm border-b border-border/60"
         }`}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
@@ -63,48 +62,25 @@ const Header = () => {
         <Link
           href="/"
           className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
-          aria-label="Portal Espiritual — Página Inicial"
+          aria-label="Central Católica — Página Inicial"
         >
-          {/* Símbolo da cruz estilizada */}
           <div
             className="relative w-9 h-9 flex items-center justify-center rounded-sm border transition-colors duration-300"
-            style={{
-              borderColor: "hsl(var(--gold)/0.4)",
-              background: "hsl(var(--gold)/0.06)",
-            }}
+            style={{ borderColor: "hsl(var(--gold)/0.4)", background: "hsl(var(--gold)/0.06)" }}
             aria-hidden="true"
           >
-            {/* Cruz vertical */}
             <div
               className="absolute"
-              style={{
-                width: "1.5px",
-                height: "22px",
-                background: "hsl(var(--gold))",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%,-50%)",
-              }}
+              style={{ width: "1.5px", height: "22px", background: "hsl(var(--gold))", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}
             />
-            {/* Cruz horizontal */}
             <div
               className="absolute"
-              style={{
-                width: "14px",
-                height: "1.5px",
-                background: "hsl(var(--gold))",
-                top: "38%",
-                left: "50%",
-                transform: "translate(-50%,-50%)",
-              }}
+              style={{ width: "14px", height: "1.5px", background: "hsl(var(--gold))", top: "38%", left: "50%", transform: "translate(-50%,-50%)" }}
             />
           </div>
-
-          <div>
-            <p className="font-heading text-base font-semibold text-foreground leading-tight group-hover:text-primary transition-colors duration-200">
-              Central Católica
-            </p>
-          </div>
+          <p className="font-heading text-base font-semibold text-foreground leading-tight group-hover:text-primary transition-colors duration-200">
+            Central Católica
+          </p>
         </Link>
 
         {/* Desktop nav */}
@@ -117,8 +93,8 @@ const Header = () => {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 className={`relative flex items-center gap-1.5 px-4 py-2 rounded-lg font-body text-sm font-bold transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${active
-                  ? "text-primary bg-primary/8"
-                  : "text-foreground/70 hover:text-foreground hover:bg-secondary/60"
+                    ? "text-primary bg-primary/8"
+                    : "text-foreground/70 hover:text-foreground hover:bg-secondary/60"
                   }`}
               >
                 <Icon
@@ -127,7 +103,6 @@ const Header = () => {
                   className={active ? "text-primary" : "text-muted-foreground group-hover:text-foreground transition-colors"}
                 />
                 {label}
-                {/* Active indicator */}
                 {active && (
                   <span
                     className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
@@ -139,7 +114,6 @@ const Header = () => {
             );
           })}
 
-          {/* Search shortcut */}
           <Link
             href="/biblia/search"
             aria-label="Pesquisar na Bíblia"
@@ -147,7 +121,6 @@ const Header = () => {
           >
             <Search size={17} aria-hidden="true" />
           </Link>
-
         </nav>
 
         {/* Mobile toggle */}
@@ -160,23 +133,11 @@ const Header = () => {
         >
           <AnimatePresence mode="wait" initial={false}>
             {menuOpen ? (
-              <motion.div
-                key="close"
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.15 }}
-              >
+              <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
                 <X size={22} aria-hidden="true" />
               </motion.div>
             ) : (
-              <motion.div
-                key="open"
-                initial={{ rotate: 90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
-                transition={{ duration: 0.15 }}
-              >
+              <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
                 <Menu size={22} aria-hidden="true" />
               </motion.div>
             )}
@@ -202,47 +163,25 @@ const Header = () => {
               {NAV.map(({ label, href, icon: Icon }, i) => {
                 const active = isActive(href);
                 return (
-                  <motion.div
-                    key={href}
-                    custom={i}
-                    variants={itemVariants}
-                    initial="closed"
-                    animate="open"
-                  >
+                  <motion.div key={href} custom={i} variants={itemVariants} initial="closed" animate="open">
                     <Link
                       href={href}
                       onClick={() => setMenuOpen(false)}
                       aria-current={active ? "page" : undefined}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl font-body text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${active
-                        ? "bg-primary/10 text-primary"
-                        : "text-foreground hover:bg-secondary/60"
+                      className={`flex items-center gap-3 px-4 py-3 rounded-xl font-body text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${active ? "bg-primary/10 text-primary" : "text-foreground hover:bg-secondary/60"
                         }`}
                     >
-                      <Icon
-                        size={18}
-                        aria-hidden="true"
-                        className={active ? "text-primary" : "text-muted-foreground"}
-                      />
+                      <Icon size={18} aria-hidden="true" className={active ? "text-primary" : "text-muted-foreground"} />
                       {label}
                       {active && (
-                        <span
-                          className="ml-auto w-1.5 h-1.5 rounded-full"
-                          aria-hidden="true"
-                          style={{ background: "hsl(var(--gold))" }}
-                        />
+                        <span className="ml-auto w-1.5 h-1.5 rounded-full" aria-hidden="true" style={{ background: "hsl(var(--gold))" }} />
                       )}
                     </Link>
                   </motion.div>
                 );
               })}
 
-              {/* Search */}
-              <motion.div
-                custom={NAV.length}
-                variants={itemVariants}
-                initial="closed"
-                animate="open"
-              >
+              <motion.div custom={NAV.length} variants={itemVariants} initial="closed" animate="open">
                 <Link
                   href="/biblia/search"
                   onClick={() => setMenuOpen(false)}
@@ -252,7 +191,6 @@ const Header = () => {
                   Pesquisar na Bíblia
                 </Link>
               </motion.div>
-
             </div>
           </motion.nav>
         )}

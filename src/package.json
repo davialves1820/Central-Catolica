@@ -11,23 +11,18 @@
     "postinstall": "prisma generate --schema ./prisma/schema.prisma"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.11.1",
     "@prisma/client": "^6.19.2",
     "@react-email/components": "^1.0.10",
     "@react-email/render": "^2.0.4",
     "@romcal/calendar.brazil": "^3.0.0-alpha.1",
-    "@vercel/blob": "^2.3.1",
     "axios": "^1.13.6",
-    "bcryptjs": "^2.4.3",
     "framer-motion": "^12.36.0",
     "hono": "^4.12.7",
     "lucide-react": "^0.577.0",
     "luxon": "^3.7.2",
     "next": "16.1.6",
-    "next-auth": "^5.0.0-beta.30",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.9.4",
     "romcal": "^3.0.0-alpha.1",
     "zod": "^4.3.6"
   },

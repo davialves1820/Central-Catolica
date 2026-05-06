@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { buscarNoticias } from "@/lib/noticias";
+import { buscarNoticias } from "@/lib/server/services/noticias";
 import NoticiaCard from "@/components/noticias/NoticiaCard";
 import NoticiaDestaque from "@/components/noticias/NoticiaDestaque";
 import Header from "@/components/shared/Header";

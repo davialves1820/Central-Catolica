@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { getSantos, getTipos } from "@/lib/santos";
+import { getSantos, getTipos } from "@/lib/server/services/santos";
 import SantosGrid from "@/components/santos/SantosGrid";
 import SantosFiltros from "@/components/santos/SantosFiltros";
 import SantosSearch from "@/components/santos/SantosSearch";

@@ -1,4 +1,4 @@
-import { searchBible } from "@/lib/bible";
+import { searchBible } from "@/lib/server/services/bible";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
