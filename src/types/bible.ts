@@ -1,3 +1,5 @@
+import { type LucideIcon } from "lucide-react";
+
 export type Theme = "parchment" | "dark" | "white";
 export type FontSize = 14 | 16 | 18 | 20 | 22 | 24;
 export type ReadingMode = "paginated" | "continuous";
@@ -74,4 +76,109 @@ export const FONT_SIZE_STEP = 2;
 export interface BibleData {
   antigoTestamento: Book[];
   novoTestamento: Book[];
+}
+
+export interface ProgressInfoProps {
+    timestamp: number;
+}
+
+export interface GoldIconBadgeProps {
+    icon: LucideIcon;
+    "aria-hidden"?: boolean;
+}
+
+export interface ContinueReadingLinkProps {
+    bookName: string;
+    chapter: number;
+}
+
+export interface VerseItemProps {
+  verse: Verse;
+  t: ThemeTokens;
+  fontSize: number;
+  isFirst: boolean;
+  isHighlighted: boolean;
+  verseRef: (el: HTMLElement | null) => void;
+}
+
+export interface ToolbarButtonProps {
+    onClick: () => void;
+    active?: boolean;
+    label: string;
+    children: React.ReactNode;
+}
+
+export interface TableOfContentsProps {
+  t: ThemeTokens;
+  chapters: Chapter[];
+  currentIndex: number;
+  isOpen: boolean;
+  onClose: () => void;
+  onSelect: (index: number) => void;
+}
+
+export interface SettingsPanelProps {
+  t: ThemeTokens;
+  isOpen: boolean;
+  fontSize: FontSize;
+  theme: Theme;
+  bg: string;
+  onFontSizeChange: (s: FontSize) => void;
+  onThemeChange: (th: Theme) => void;
+}
+
+export interface ReaderToolbarProps {
+  t: ThemeTokens;
+  bookName: string;
+  chapterNumber: number;
+  verseCount: number;
+  readingMode: ReadingMode;
+  showTOC: boolean;
+  showSettings: boolean;
+  onToggleTOC: () => void;
+  onToggleSettings: () => void;
+  onToggleReadingMode: () => void;
+}
+
+export interface ReaderProgressBarProps {
+  current: number;
+  total: number;
+}
+
+export interface NavFooterProps {
+  t: ThemeTokens;
+  chapterIndex: number;
+  total: number;
+  hasNext: boolean;
+  hasPrev: boolean;
+  onPrev: () => void;
+  onNext: () => void;
+}
+
+export interface ChapterHeadingProps {
+  t: ThemeTokens;
+  bookName: string;
+  chapterNumber: number;
+}
+
+export interface ChapterContentProps {
+  book: Book;
+  chapterIndex: number;
+  direction: 1 | -1;
+  fontSize: FontSize;
+  t: ThemeTokens;
+  readingMode: ReadingMode;
+  flashVerse: number | undefined;
+  verseRefs: React.MutableRefObject<Map<number, HTMLElement>>;
+}
+
+export interface BibleReaderProps {
+  book: Book;
+  initialChapterIndex: number;
+  highlightVerse?: number;
+}
+
+export interface ChapterPageProps {
+  params: Promise<{ book: string; chapter: string }>;
+  searchParams: Promise<{ v?: string }>;
 }

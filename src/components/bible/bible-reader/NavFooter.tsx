@@ -1,15 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { type ThemeTokens } from "@/types";
-
-interface NavFooterProps {
-  t: ThemeTokens;
-  chapterIndex: number;
-  total: number;
-  hasNext: boolean;
-  hasPrev: boolean;
-  onPrev: () => void;
-  onNext: () => void;
-}
+import { NavFooterProps } from "@/types/bible";
 
 export function NavFooter({
   t,

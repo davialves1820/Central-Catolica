@@ -1,20 +1,7 @@
 import { Settings, List, BookOpen, ScrollText, BookMarked } from "lucide-react";
 import Link from "next/link";
-import { type ThemeTokens, type ReadingMode } from "@/types";
+import { type ReaderToolbarProps } from "@/types/bible";
 import { ToolbarButton } from "@/components/bible/bible-reader/ToolbarButton";
-
-interface ReaderToolbarProps {
-  t: ThemeTokens;
-  bookName: string;
-  chapterNumber: number;
-  verseCount: number;
-  readingMode: ReadingMode;
-  showTOC: boolean;
-  showSettings: boolean;
-  onToggleTOC: () => void;
-  onToggleSettings: () => void;
-  onToggleReadingMode: () => void;
-}
 
 export function ReaderToolbar({
   t,

@@ -1,20 +1,7 @@
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
-export interface CategoryConfig {
-    slug: string;
-    emoji: string;
-    desc: string;
-    color: string;
-    border: string;
-    glow: string;
-}
-
-interface CategoryHeroProps {
-    catName: string;
-    cfg: CategoryConfig;
-    prayersLength: number;
-}
+import { CategoryHeroProps } from "@/types/oracao";
 
 export default function CategoryHero({ catName, cfg, prayersLength }: CategoryHeroProps) {
     return (

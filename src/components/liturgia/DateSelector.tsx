@@ -1,14 +1,10 @@
 "use client";
 
+import { DateSelectorProps } from "../../types/liturgia";
 import { useRouter } from "next/navigation";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-interface DateSelectorProps {
-  initialDate?: string;
-  currentParams: { dia?: string; mes?: string; ano?: string };
-}
 
 const pushDate = (router: ReturnType<typeof useRouter>, date: Date) => {
   const d = date.getDate();

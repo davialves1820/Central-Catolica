@@ -42,9 +42,6 @@ async function BibleContent() {
             style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--gold)/0.3)", color: "hsl(var(--foreground))" }}>
             <Search size={15} aria-hidden="true" style={{ color: "hsl(var(--gold))" }} />
             Pesquisar versículos…
-            <kbd className="hidden md:inline-block text-[10px] px-2 py-0.5 rounded border font-mono"
-              style={{ background: "hsl(var(--background))", borderColor: "hsl(var(--border))", color: "hsl(var(--muted-foreground))" }}
-              aria-label="Atalho Command K">⌘K</kbd>
           </Link>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Header from "@/components/shared/Header";
-import { SLUG_TO_CAT, CAT_CONFIG } from "@/app/oracoes/constants";
+import { SLUG_TO_CAT, CAT_CONFIG, OracoesCategoryPageProps } from "@/types/oracao";
 
 import { usePrayers } from "@/lib/client/hooks/oracoes/usePrayers";
 import { firstLetter } from "@/lib/client/hooks/utils/firstLetter";
@@ -12,7 +12,7 @@ import LetterFilter from "./LetterFilter";
 import PrayerGroups from "./PrayerGroups";
 import PrayerDetail from "./PrayerDetail";
 
-export default function OracoesCategoryPage({ slug }: { slug: string }) {
+export default function OracoesCategoryPage({ slug }: OracoesCategoryPageProps) {
     const catName = SLUG_TO_CAT[slug];
     const cfg = catName ? CAT_CONFIG[catName] : null;
 

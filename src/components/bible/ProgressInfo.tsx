@@ -1,8 +1,5 @@
+import { ProgressInfoProps } from "@/types/bible";
 import { Clock } from "lucide-react";
-
-interface ProgressInfoProps {
-    timestamp: number;
-}
 
 export function ProgressInfo({ timestamp }: ProgressInfoProps) {
     const timeAgo = new Date(timestamp).toLocaleDateString("pt-BR", {

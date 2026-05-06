@@ -12,19 +12,7 @@ const fadeUpVariant: Variants = {
   }),
 };
 
-interface ScheduleRow {
-  day: string;
-  times: string[];
-}
-
-interface InfoCardProps {
-  index: number;
-  icon: React.ReactNode;
-  accentColor: string;
-  title: string;
-  children: React.ReactNode;
-  note?: string;
-}
+import { InfoCardProps, ScheduleRowProps } from "@/types/shared";
 
 const InfoCard = ({ index, icon, accentColor, title, children, note }: InfoCardProps) => (
   <motion.div
@@ -66,7 +54,7 @@ const InfoCard = ({ index, icon, accentColor, title, children, note }: InfoCardP
   </motion.div>
 );
 
-const ScheduleRow = ({ day, times }: ScheduleRow) => (
+const ScheduleRow = ({ day, times }: ScheduleRowProps) => (
   <div className="flex items-start justify-between py-3 border-b border-border/40 last:border-0 group-last:border-0">
     <span className="font-bold text-foreground/80 text-sm">{day}</span>
     <div className="flex flex-col items-end gap-0.5">

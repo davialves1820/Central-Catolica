@@ -1,9 +1,4 @@
-interface ToolbarButtonProps {
-    onClick: () => void;
-    active?: boolean;
-    label: string;
-    children: React.ReactNode;
-}
+import { ToolbarButtonProps } from "@/types/bible";
 
 export function ToolbarButton({ onClick, active, label, children }: ToolbarButtonProps) {
     return (

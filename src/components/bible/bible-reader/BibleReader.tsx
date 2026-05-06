@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { type Book, THEMES } from "@/types";
+import { type BibleReaderProps, THEMES } from "@/types/bible";
 import { useReaderPreferences } from "@/lib/client/hooks/bible/useReaderPreferences";
 import { useChapterNavigation } from "@/lib/client/hooks/bible/useChapterNavigation";
 import { useVerseHighlight } from "@/lib/client/hooks/bible/useVerseHighlight";
@@ -12,12 +12,6 @@ import { TableOfContents } from "@/components/bible/bible-reader/TableOfContents
 import { SettingsPanel } from "@/components/bible/bible-reader/SettingsPanel";
 import { ChapterContent } from "@/components/bible/bible-reader/ChapterContent";
 import { NavFooter } from "@/components/bible/bible-reader/NavFooter";
-
-interface BibleReaderProps {
-  book: Book;
-  initialChapterIndex: number;
-  highlightVerse?: number;
-}
 
 export default function BibleReader({
   book,

@@ -1,10 +1,7 @@
 "use client";
 
+import { LiturgicalBackgroundProps } from "../../types/liturgia";
 import { useState, useEffect, useRef } from "react";
-
-interface LiturgicalBackgroundProps {
-  cor: string;
-}
 
 const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
   const [mounted, setMounted] = useState(false);

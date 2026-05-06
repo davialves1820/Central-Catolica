@@ -1,13 +1,4 @@
-import { type ThemeTokens, type Verse } from "@/types";
-
-interface VerseItemProps {
-  verse: Verse;
-  t: ThemeTokens;
-  fontSize: number;
-  isFirst: boolean;
-  isHighlighted: boolean;
-  verseRef: (el: HTMLElement | null) => void;
-}
+import { VerseItemProps } from "@/types/bible";
 
 export function VerseItem({
   verse,

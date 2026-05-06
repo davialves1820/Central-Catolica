@@ -2,16 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { Oracao } from "@/types";
-import { CategoryConfig } from "./CategoryHero";
-
-interface LetterFilterProps {
-    letters: string[];
-    activeLetter: string | null;
-    setActiveLetter: (letter: string | null) => void;
-    cfg: CategoryConfig;
-    visible: Oracao[];
-}
+import { LetterFilterProps } from "@/types/oracao";
 
 export default function LetterFilter({ letters, activeLetter, setActiveLetter, cfg, visible, }: LetterFilterProps) {
     return (

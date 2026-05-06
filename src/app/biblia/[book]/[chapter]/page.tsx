@@ -4,6 +4,7 @@ import { BibleChapterSkeleton } from "@/components/ui/skeletons";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { Suspense } from "react";
+import { type ChapterPageProps } from "@/types/bible";
 
 export async function generateMetadata({ params }: ChapterPageProps): Promise<Metadata> {
   const { book: bookSlug, chapter: chapterStr } = await params;
@@ -12,11 +13,6 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
     title: `${bookName}, Capítulo ${chapterStr} | Bíblia Sagrada`,
     description: `Leia o capítulo ${chapterStr} do livro de ${bookName} na tradução Ave Maria.`,
   };
-}
-
-interface ChapterPageProps {
-  params: Promise<{ book: string; chapter: string }>;
-  searchParams: Promise<{ v?: string }>;
 }
 
 async function ChapterContent({ bookSlug, chapterStr, highlightVerse, }: { bookSlug: string; chapterStr: string; highlightVerse?: number }) {

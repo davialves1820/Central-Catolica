@@ -1,11 +1,7 @@
 "use client";
 
-import { LiturgiaDiaria } from "../../types/liturgia";
+import { LiturgiaSidebarProps } from "../../types/liturgia";
 import { Quote } from "lucide-react";
-
-interface LiturgiaSidebarProps {
-  liturgia: LiturgiaDiaria;
-}
 
 const LiturgiaSidebar = ({ liturgia }: LiturgiaSidebarProps) => {
   return (
