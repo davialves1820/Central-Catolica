@@ -13,25 +13,19 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
       href={noticia.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="noticia-card group flex flex-col overflow-hidden rounded-xl border border-border transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       style={{
         background: "hsl(var(--card))",
-        borderColor: "hsl(var(--border))",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.borderColor = fonteStyle.border;
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow =
-          `0 8px 28px ${fonteStyle.bg}`;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.borderColor =
-          "hsl(var(--border))";
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
-      }}
+        "--hover-border": fonteStyle.border,
+        "--hover-shadow": fonteStyle.bg,
+      } as React.CSSProperties}
     >
       {/* Image */}
       {noticia.imagem && (
-        <div className="relative h-44 overflow-hidden" style={{ background: "hsl(var(--secondary))" }}>
+        <div
+          className="relative h-44 overflow-hidden"
+          style={{ background: "hsl(var(--secondary))" }}
+        >
           <Image
             src={noticia.imagem}
             alt={noticia.titulo}
@@ -40,8 +34,10 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
             unoptimized
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" aria-hidden="true" />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+            aria-hidden="true"
+          />
         </div>
       )}
 
@@ -50,7 +46,11 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
         <div className="flex items-center gap-2 flex-wrap">
           <span
             className="rounded-full px-2.5 py-0.5 text-[10px] font-bold font-body uppercase tracking-wider border"
-            style={{ color: fonteStyle.color, borderColor: fonteStyle.border, background: fonteStyle.bg }}
+            style={{
+              color: fonteStyle.color,
+              borderColor: fonteStyle.border,
+              background: fonteStyle.bg,
+            }}
           >
             {noticia.fonteLabel}
           </span>
@@ -62,9 +62,7 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
         </div>
 
         {/* Title */}
-        <h3
-          className="font-heading text-base font-semibold leading-snug text-foreground/90 group-hover:text-foreground transition-colors"
-        >
+        <h3 className="font-heading text-base font-semibold leading-snug text-foreground/90 group-hover:text-foreground transition-colors">
           {noticia.titulo}
         </h3>
 

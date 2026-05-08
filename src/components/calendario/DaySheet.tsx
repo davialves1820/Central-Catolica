@@ -5,6 +5,7 @@ import { DateTime } from "luxon";
 import { Info, Sparkles, X } from "lucide-react";
 import { type DaySheetProps, type LiturgicalDayData, BADGE_BG, RANKS } from "@/types/calendar";
 import ColorDot from "./ColorDot";
+import Link from "next/link";
 
 function Backdrop({ onClick }: { onClick: () => void }) {
   return (
@@ -133,7 +134,7 @@ function Sheet({
         )}
 
         {/* CTA */}
-        <a
+        <Link
           href={`/liturgia?dia=${date.day}&mes=${date.month}&ano=${date.year}`}
           className="flex items-center justify-center w-full py-4 rounded-2xl font-body font-bold text-sm transition-all active:scale-[0.98] shadow-lg shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           style={{
@@ -142,7 +143,7 @@ function Sheet({
           }}
         >
           Ver Leituras do Dia
-        </a>
+        </Link>
       </div>
     </motion.div>
   );

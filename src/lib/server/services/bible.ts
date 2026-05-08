@@ -16,14 +16,14 @@ export async function getBooks() {
   const data = await getBibleData();
   return [
     ...data.antigoTestamento.map(b => ({ nome: b.nome, testament: 'AT' })),
-    ...data.novoTestamento.map(b => ({ nome: b.nome, testament: 'NT' }))
+    ...data.novoTestamento.map(b => ({ nome: b.nome, testament: 'NT' })),
   ];
 }
 
 export async function getBook(bookName: string): Promise<Book | undefined> {
   const data = await getBibleData();
   const allBooks = [...data.antigoTestamento, ...data.novoTestamento];
-  return allBooks.find(b => b.nome.toLowerCase() === decodeURIComponent(bookName).toLowerCase());
+  return allBooks.find(b => b.nome.toLowerCase() === decodeURIComponent(bookName).toLowerCase(),);
 }
 
 export async function getChapter(bookName: string, chapterNumber: number): Promise<Chapter | undefined> {
@@ -31,25 +31,36 @@ export async function getChapter(bookName: string, chapterNumber: number): Promi
   return book?.capitulos.find(c => c.capitulo === chapterNumber);
 }
 
+function normalize(text: string): string {
+  return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 interface FlatVerse {
   book: string;
   chapter: number;
   verse: number;
   text: string;
+  /** Pre-computed accent-normalized + lowercased text for fast matching. */
   normalizedText: string;
 }
 
-let flatIndex: FlatVerse[] | null = null;
+const globalForBible = globalThis as unknown as {
+  bibleIndexCache?: FlatVerse[];
+};
 
-async function getFlatIndex() {
-  if (flatIndex) {
-    return flatIndex;
+/**
+ * Builds the flat verse index once and caches it in memory.
+ * We use globalThis so it survives hot-reloads during development.
+ */
+async function getFlatIndex(): Promise<FlatVerse[]> {
+  if (globalForBible.bibleIndexCache) {
+    return globalForBible.bibleIndexCache;
   }
 
   const data = await getBibleData();
   const index: FlatVerse[] = [];
 
-  const addBooksToIndex = (books: Book[]) => {
+  const addBooks = (books: Book[]) => {
     for (const book of books) {
       for (const chapter of book.capitulos) {
         for (const verse of chapter.versiculos) {
@@ -58,24 +69,24 @@ async function getFlatIndex() {
             chapter: chapter.capitulo,
             verse: verse.versiculo,
             text: verse.texto,
-            normalizedText: verse.texto.toLowerCase(),
+            normalizedText: normalize(verse.texto),
           });
         }
       }
     }
   };
 
-  addBooksToIndex(data.antigoTestamento);
-  addBooksToIndex(data.novoTestamento);
+  addBooks(data.antigoTestamento);
+  addBooks(data.novoTestamento);
 
-  flatIndex = index;
-  return flatIndex;
+  globalForBible.bibleIndexCache = index;
+  return index;
 }
 
-export async function searchBible(query: string) {
+export async function searchBible(query: string): Promise<{ book: string; chapter: number; verse: number; text: string }[]> {
   const index = await getFlatIndex();
+  const normalizedQuery = normalize(query);
   const results: { book: string; chapter: number; verse: number; text: string }[] = [];
-  const normalizedQuery = query.toLowerCase();
 
   for (const verse of index) {
     if (verse.normalizedText.includes(normalizedQuery)) {
@@ -83,7 +94,7 @@ export async function searchBible(query: string) {
         book: verse.book,
         chapter: verse.chapter,
         verse: verse.verse,
-        text: verse.text
+        text: verse.text,
       });
       if (results.length >= 50) {
         break;

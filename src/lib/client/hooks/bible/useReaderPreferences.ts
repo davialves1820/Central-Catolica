@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { type Theme, type FontSize, type ReadingMode, THEMES } from "@/types";
 
 interface ReaderPreferences {
+  isMounted: boolean;
   fontSize: FontSize;
   theme: Theme;
   readingMode: ReadingMode;
@@ -13,25 +14,27 @@ interface ReaderPreferences {
 }
 
 export function useReaderPreferences(): ReaderPreferences {
+  const [isMounted, setIsMounted] = useState(false);
   const [fontSize, setFontSizeState] = useState<FontSize>(18);
   const [theme, setThemeState] = useState<Theme>("parchment");
   const [readingMode, setReadingModeState] = useState<ReadingMode>("paginated");
 
   useEffect(() => {
-    window.requestAnimationFrame(() => {
-      const sz = localStorage.getItem("bible-font-size");
-      const th = localStorage.getItem("bible-theme") as Theme;
-      const md = localStorage.getItem("bible-reading-mode") as ReadingMode;
-      if (sz) {
-        setFontSizeState(parseInt(sz) as FontSize);
-      }
-      if (th && THEMES[th]) {
-        setThemeState(th);
-      }
-      if (md) {
-        setReadingModeState(md);
-      }
-    });
+    /* eslint-disable react-hooks/set-state-in-effect */
+    setIsMounted(true);
+    const sz = localStorage.getItem("bible-font-size");
+    const th = localStorage.getItem("bible-theme") as Theme;
+    const md = localStorage.getItem("bible-reading-mode") as ReadingMode;
+    if (sz) {
+      setFontSizeState(parseInt(sz) as FontSize);
+    }
+    if (th && THEMES[th]) {
+      setThemeState(th);
+    }
+    if (md) {
+      setReadingModeState(md);
+    }
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   const setFontSize = (s: FontSize) => {
@@ -49,5 +52,5 @@ export function useReaderPreferences(): ReaderPreferences {
     localStorage.setItem("bible-reading-mode", m);
   };
 
-  return { fontSize, theme, readingMode, setFontSize, setTheme, setReadingMode };
+  return { isMounted, fontSize, theme, readingMode, setFontSize, setTheme, setReadingMode };
 }

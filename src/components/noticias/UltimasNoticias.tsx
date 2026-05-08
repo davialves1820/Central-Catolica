@@ -35,22 +35,10 @@ export default async function UltimasNoticias() {
             rel="noopener noreferrer"
             role="listitem"
             aria-label={n.titulo}
-            className="group flex items-start gap-3 rounded-xl border p-4 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="ultimas-noticias-item group flex items-start gap-3 rounded-xl border p-4 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             style={{
               background: "hsl(var(--card))",
               borderColor: "hsl(var(--border))",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                "hsl(var(--gold)/0.3)";
-              (e.currentTarget as HTMLAnchorElement).style.background =
-                "hsl(var(--secondary))";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                "hsl(var(--border))";
-              (e.currentTarget as HTMLAnchorElement).style.background =
-                "hsl(var(--card))";
             }}
           >
             {/* Gold accent bar */}

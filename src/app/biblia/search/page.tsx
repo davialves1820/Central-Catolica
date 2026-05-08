@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Search, ChevronRight, Loader2, ArrowLeft, BookOpen, X } from "lucide-react";
+import { Search, ChevronRight, Loader2, ArrowLeft, BookOpen, X, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -10,10 +10,7 @@ interface SearchResult { book: string; chapter: number; verse: number; text: str
 const QUICK_TERMS = ["Amor", "Paz", "Justiça", "Oração", "Salvação", "Luz", "Graça"];
 
 function highlight(text: string, query: string) {
-  if (!query.trim()) {
-    return <>{text}</>;
-  }
-
+  if (!query.trim()) return <>{text}</>;
   const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
   const parts = text.split(regex);
   return (
@@ -32,41 +29,46 @@ export default function BibleSearchPage() {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
+  const [error, setError] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => { 
-    inputRef.current?.focus(); 
-  }, []);
+  useEffect(() => { inputRef.current?.focus(); }, []);
 
   useEffect(() => {
-    if (query.length < 3) { 
-      setResults([]); 
-      setSearched(false); 
-      return; 
+    if (query.length < 3) {
+      setResults([]);
+      setSearched(false);
+      setError(false);
+      return;
     }
 
     const timer = setTimeout(async () => {
       setLoading(true);
+      setError(false);
       try {
         const res = await fetch(`/api/biblia/search?q=${encodeURIComponent(query)}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         setResults(data.results || []);
         setSearched(true);
-      } catch { 
-        console.error("Search failed"); 
-      }
-      finally { 
-        setLoading(false); 
+      } catch {
+        setError(true);
+        setResults([]);
+        setSearched(false);
+      } finally {
+        setLoading(false);
       }
     }, 420);
+
     return () => clearTimeout(timer);
   }, [query]);
 
-  const clearQuery = () => { 
-    setQuery(""); 
-    setResults([]); 
-    setSearched(false); 
-    inputRef.current?.focus(); 
+  const clearQuery = () => {
+    setQuery("");
+    setResults([]);
+    setSearched(false);
+    setError(false);
+    inputRef.current?.focus();
   };
 
   return (
@@ -74,7 +76,9 @@ export default function BibleSearchPage() {
       {/* Header strip */}
       <div className="border-b border-border" style={{ background: "hsl(var(--secondary))" }}>
         <div className="container mx-auto px-4 py-10">
-          <Link href="/biblia" aria-label="Voltar para a Bíblia"
+          <Link
+            href="/biblia"
+            aria-label="Voltar para a Bíblia"
             className="inline-flex items-center gap-2 text-sm font-body font-semibold transition-colors mb-6 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
             style={{ color: "hsl(var(--muted-foreground))" }}
           >
@@ -97,16 +101,27 @@ export default function BibleSearchPage() {
                 : <Search size={17} className="text-muted-foreground group-focus-within:text-primary transition-colors" aria-hidden="true" />
               }
             </div>
-            <input ref={inputRef} type="search" value={query}
+            <input
+              ref={inputRef}
+              type="search"
+              value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder='Ex: "No princípio", amor, salvação…'
-              aria-label="Pesquisar versículos" aria-busy={loading}
+              aria-label="Pesquisar versículos"
+              aria-busy={loading}
               className="w-full rounded-xl pl-12 pr-12 py-4 font-body text-base outline-none transition-all duration-200 border focus-visible:ring-2 focus-visible:ring-primary"
-              style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--border))", color: "hsl(var(--foreground))" }}
+              style={{
+                background: "hsl(var(--card))",
+                borderColor: "hsl(var(--border))",
+                color: "hsl(var(--foreground))",
+              }}
             />
             {query && (
-              <button onClick={clearQuery} aria-label="Limpar pesquisa"
-                className="absolute inset-y-0 right-0 pr-4 flex items-center text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-r-xl">
+              <button
+                onClick={clearQuery}
+                aria-label="Limpar pesquisa"
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-r-xl"
+              >
                 <X size={17} aria-hidden="true" />
               </button>
             )}
@@ -121,25 +136,68 @@ export default function BibleSearchPage() {
       </div>
 
       <div className="container mx-auto px-4 py-10 max-w-3xl">
+
+        {/* Error state */}
+        <AnimatePresence>
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="flex items-center gap-3 rounded-xl border border-border p-4 mb-6"
+              style={{ background: "hsl(var(--card))" }}
+              role="alert"
+            >
+              <AlertCircle size={18} className="shrink-0" style={{ color: "hsl(var(--crimson-light))" }} aria-hidden="true" />
+              <p className="text-sm font-body text-muted-foreground">
+                Não foi possível realizar a pesquisa. Verifique sua conexão e tente novamente.
+              </p>
+              <button
+                onClick={() => setQuery((q) => q + " ")}
+                className="ml-auto text-xs font-bold font-body shrink-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                style={{ color: "hsl(var(--gold))" }}
+              >
+                Tentar novamente
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Quick terms */}
         <AnimatePresence>
-          {!searched && query.length === 0 && (
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
-              className="space-y-4">
+          {!searched && !error && query.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="space-y-4"
+            >
               <p className="text-xs font-bold font-body uppercase tracking-widest text-muted-foreground">
                 Temas populares
               </p>
               <div className="flex flex-wrap gap-2" role="list" aria-label="Temas populares">
                 {QUICK_TERMS.map((term) => (
-                  <button key={term} role="listitem" onClick={() => setQuery(term)} aria-label={`Pesquisar por ${term}`}
+                  <button
+                    key={term}
+                    role="listitem"
+                    onClick={() => setQuery(term)}
+                    aria-label={`Pesquisar por ${term}`}
                     className="px-4 py-2 rounded-full text-sm font-body font-semibold border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                    style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--border))", color: "hsl(var(--foreground)/0.7)" }}
-                  >{term}</button>
+                    style={{
+                      background: "hsl(var(--card))",
+                      borderColor: "hsl(var(--border))",
+                      color: "hsl(var(--foreground)/0.7)",
+                    }}
+                  >
+                    {term}
+                  </button>
                 ))}
               </div>
 
-              {/* Tip */}
-              <div className="mt-8 p-5 rounded-xl border" style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--gold)/0.15)" }}>
+              <div
+                className="mt-8 p-5 rounded-xl border"
+                style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--gold)/0.15)" }}
+              >
                 <div className="flex items-start gap-3">
                   <BookOpen size={17} className="mt-0.5 shrink-0" style={{ color: "hsl(var(--gold))" }} aria-hidden="true" />
                   <div>
@@ -156,9 +214,16 @@ export default function BibleSearchPage() {
 
         {/* Results */}
         <AnimatePresence mode="wait">
-          {searched && !loading && (
-            <motion.div key="results" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-              className="space-y-4" role="region" aria-label="Resultados da pesquisa" aria-live="polite">
+          {searched && !loading && !error && (
+            <motion.div
+              key="results"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="space-y-4"
+              role="region"
+              aria-label="Resultados da pesquisa"
+              aria-live="polite"
+            >
               <div className="flex items-center justify-between py-2">
                 <p className="text-sm font-body text-muted-foreground">
                   {results.length === 0
@@ -168,18 +233,26 @@ export default function BibleSearchPage() {
                       : `${results.length} resultado${results.length !== 1 ? "s" : ""} para "${query}"`}
                 </p>
                 {results.length > 0 && (
-                  <button onClick={clearQuery} aria-label="Limpar resultados"
-                    className="text-xs font-bold font-body text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded">
+                  <button
+                    onClick={clearQuery}
+                    aria-label="Limpar resultados"
+                    className="text-xs font-bold font-body text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                  >
                     Limpar
                   </button>
                 )}
               </div>
 
               {results.length === 0 && (
-                <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16 space-y-3">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto"
-                    style={{ background: "hsl(var(--secondary))" }}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-16 space-y-3"
+                >
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto"
+                    style={{ background: "hsl(var(--secondary))" }}
+                  >
                     <Search size={26} className="text-muted-foreground/40" aria-hidden="true" />
                   </div>
                   <p className="font-heading text-lg font-semibold text-foreground/40">Nenhum versículo encontrado</p>
@@ -190,20 +263,23 @@ export default function BibleSearchPage() {
               )}
 
               {results.map((result, idx) => (
-                <motion.div key={`${result.book}-${result.chapter}-${result.verse}`}
-                  initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: Math.min(idx * 0.04, 0.4) }}>
-                  {/* Link passes ?v= for verse highlight in BibleReader */}
+                <motion.div
+                  key={`${result.book}-${result.chapter}-${result.verse}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: Math.min(idx * 0.04, 0.4) }}
+                >
                   <Link
                     href={`/biblia/${encodeURIComponent(result.book)}/${result.chapter}?v=${result.verse}`}
                     aria-label={`Ir para ${result.book} ${result.chapter}:${result.verse}`}
                     className="group flex gap-4 rounded-xl p-5 transition-all duration-200 border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary hover:shadow-lg"
                     style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--border))" }}
                   >
-                    {/* Verse badge */}
-                    <div className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200"
+                    <div
+                      className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                       style={{ background: "hsl(var(--secondary))" }}
-                      aria-hidden="true">
+                      aria-hidden="true"
+                    >
                       <span className="text-xs font-bold font-mono" style={{ color: "hsl(var(--gold))" }}>
                         {result.verse}
                       </span>
@@ -211,16 +287,22 @@ export default function BibleSearchPage() {
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-bold font-body uppercase tracking-wider"
-                          style={{ color: "hsl(var(--gold))" }}>
+                        <span
+                          className="text-xs font-bold font-body uppercase tracking-wider"
+                          style={{ color: "hsl(var(--gold))" }}
+                        >
                           {result.book} {result.chapter}:{result.verse}
                         </span>
-                        <ChevronRight size={14}
+                        <ChevronRight
+                          size={14}
                           className="text-muted-foreground/30 group-hover:translate-x-0.5 transition-all shrink-0"
-                          aria-hidden="true" />
+                          aria-hidden="true"
+                        />
                       </div>
-                      <p className="text-sm text-foreground/70 leading-relaxed line-clamp-3"
-                        style={{ fontFamily: "var(--font-reading)", fontStyle: "italic" }}>
+                      <p
+                        className="text-sm text-foreground/70 leading-relaxed line-clamp-3"
+                        style={{ fontFamily: "var(--font-reading)", fontStyle: "italic" }}
+                      >
                         &quot;{highlight(result.text, query)}&quot;
                       </p>
                     </div>

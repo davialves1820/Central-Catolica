@@ -55,22 +55,15 @@ function SantoCard({ santo }: SantoCardProps) {
   return (
     <Link
       href={`/santos/${santo.slug}`}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="santo-card group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       style={{
         background: "hsl(var(--card))",
-        borderColor: "hsl(var(--border))",
         boxShadow: "0 2px 8px hsl(var(--ink)/0.06)",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.borderColor = s.border;
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 12px 32px hsl(var(--ink)/0.22), 0 0 0 1px ${s.border}`;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.borderColor = "hsl(var(--border))";
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 8px hsl(var(--ink)/0.06)";
-      }}
+        "--s-border": s.border,
+      } as React.CSSProperties}
       aria-label={santo.nome}
     >
+
       {/* Image */}
       <div className="relative aspect-[3/4] overflow-hidden" style={{ background: "hsl(var(--secondary))" }}>
         {santo.imagem_url ? (
@@ -88,21 +81,15 @@ function SantoCard({ santo }: SantoCardProps) {
           </div>
         )}
 
-        {/* Gradient overlay */}
         <div
           className="absolute inset-0 transition-opacity duration-300"
-          style={{
-            background: "linear-gradient(to top, hsl(var(--ink)/0.92) 0%, hsl(var(--ink)/0.35) 50%, transparent 100%)",
-          }}
+          style={{ background: "linear-gradient(to top, hsl(var(--ink)/0.92) 0%, hsl(var(--ink)/0.35) 50%, transparent 100%)" }}
           aria-hidden="true"
         />
 
-        {/* Shine on hover */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{
-            background: "linear-gradient(135deg, hsl(var(--gold)/0.12) 0%, transparent 60%)",
-          }}
+          style={{ background: "linear-gradient(135deg, hsl(var(--gold)/0.12) 0%, transparent 60%)" }}
           aria-hidden="true"
         />
 

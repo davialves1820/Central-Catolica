@@ -5,6 +5,7 @@ import { DateTime } from "luxon";
 import { Calendar as CalendarIcon, Info, Sparkles } from "lucide-react";
 import { type DaySidebarProps, type LiturgicalDayData, BADGE_BG, RANKS } from "@/types/calendar";
 import ColorDot from "./ColorDot";
+import Link from "next/link";
 
 export default function DaySidebar({ selectedDay, selectedData }: DaySidebarProps) {
   return (
@@ -79,7 +80,7 @@ export default function DaySidebar({ selectedDay, selectedData }: DaySidebarProp
 
                 {/* CTA */}
                 <div className="pt-6 border-t border-border/50">
-                  <a
+                  <Link
                     href={`/liturgia?dia=${DateTime.fromISO(selectedDay).day}&mes=${DateTime.fromISO(selectedDay).month}&ano=${DateTime.fromISO(selectedDay).year}`}
                     className="flex items-center justify-center w-full py-4 rounded-xl font-body font-bold text-sm transition-all hover:scale-[1.02] active:scale-100 shadow-xl shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     style={{
@@ -88,7 +89,7 @@ export default function DaySidebar({ selectedDay, selectedData }: DaySidebarProp
                     }}
                   >
                     Ver Leituras do Dia
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

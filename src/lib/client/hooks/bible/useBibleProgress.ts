@@ -18,7 +18,8 @@ export function useBibleProgress(): Progress | null {
         }
         try {
             const parsed = JSON.parse(saved);
-            setTimeout(() => setProgress(parsed), 0);
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setProgress(parsed);
         } catch {
             console.error("Falha ao analisar o progresso da bíblia");
         }

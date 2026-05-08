@@ -61,22 +61,6 @@
 
 @layer base {
 
-  /*
-   * ═══════════════════════════════════════════════════════
-   *  PALETA SÃO TOMÁS DE AQUINO
-   *
-   *  Background .... #1a1612  hsl(30 14%  9%)  — velino escuro
-   *  Card .......... #221e18  hsl(30 15% 12%)  — pergaminho
-   *  Pearl ......... #2c2720  hsl(30 16% 15%)  — couro antigo
-   *  Border ........ #3d3628  hsl(35 21% 20%)  — borda manuscrito
-   *  Foreground .... #f0ebe0  hsl(40 29% 91%)  — pergaminho claro
-   *  Muted ......... #9a9080  hsl(35 12% 55%)  — tinta desbotada
-   *  Primary ....... #c8960c  hsl(42 89% 42%)  — ouro folha medieval
-   *  Accent ........ #2b5fa8  hsl(214 58% 41%) — azul cobalto vitral
-   *  Crimson ....... #8b1a1a  hsl(0  68% 32%)  — rubrica litúrgica
-   *  Ink ........... #0f0d0a  hsl(30 20%  6%)  — nanquim
-   * ═══════════════════════════════════════════════════════
-   */
   :root {
     --background: 30 14% 9%;
     --foreground: 40 29% 91%;
@@ -223,6 +207,8 @@
 }
 
 @layer components {
+
+  /* Layout helpers */
   .section-pearl {
     background-color: var(--color-pearl);
   }
@@ -231,6 +217,7 @@
     font-family: var(--font-reading);
   }
 
+  /* Gold decorations */
   .gold-underline {
     position: relative;
     display: inline-block;
@@ -247,6 +234,26 @@
     background: linear-gradient(to right, transparent, hsl(var(--gold)), transparent);
   }
 
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, hsl(var(--gold) / 0.4), transparent);
+    position: relative;
+  }
+
+  .gold-divider::before {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    color: hsl(var(--gold));
+    background: hsl(var(--background));
+    padding: 0 6px;
+    line-height: 1;
+  }
+
+  /* Card hover effects */
   .hover-lift {
     transition: all 0.3s ease-out;
   }
@@ -271,25 +278,58 @@
     box-shadow: 0 8px 28px -6px hsl(var(--gold) / 0.15);
   }
 
-  .gold-divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, hsl(var(--gold) / 0.4), transparent);
-    position: relative;
+  /* NoticiaDestaque */
+  .noticia-destaque:hover {
+    border-color: var(--hover-border) !important;
+    box-shadow: 0 16px 48px hsl(var(--ink)/0.4) !important;
   }
 
-  .gold-divider::before {
-    content: "✦";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 10px;
-    color: hsl(var(--gold));
-    background: hsl(var(--background));
-    padding: 0 6px;
-    line-height: 1;
+  /* NoticiaCard — border + shadow tinted by source color */
+  .noticia-card:hover {
+    border-color: var(--hover-border) !important;
+    box-shadow: 0 8px 28px var(--hover-shadow) !important;
   }
 
+  /* SantosGrid card */
+  .santo-card:hover {
+    border-color: var(--s-border) !important;
+    box-shadow: 0 12px 32px hsl(var(--ink)/0.22), 0 0 0 1px var(--s-border) !important;
+  }
+
+  /* SantoExternalLink */
+  .santo-external-link:hover {
+    color: var(--hover-color) !important;
+    border-color: var(--hover-border) !important;
+  }
+
+  /* OracoesPage category card */
+  .oracao-cat-card:hover {
+    border-color: var(--c-border) !important;
+    box-shadow: 0 8px 32px var(--c-glow) !important;
+  }
+
+  /* UltimasNoticias item */
+  .ultimas-noticias-item:hover {
+    border-color: hsl(var(--gold)/0.3) !important;
+    background: hsl(var(--secondary)) !important;
+  }
+
+  /* SantoDoDia card */
+  .santo-do-dia:hover {
+    border-color: hsl(var(--gold)/0.35) !important;
+    background: hsl(var(--secondary)) !important;
+  }
+
+  /* ─── Scrollbar helpers ─── */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  /* ─── Animations ─── */
   @keyframes shimmer {
     0% {
       background-position: 200% center;
@@ -298,14 +338,6 @@
     100% {
       background-position: -200% center;
     }
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .no-scrollbar {
-    scrollbar-width: none;
   }
 
   @keyframes carousel {
@@ -319,17 +351,12 @@
   }
 
   .animate-carousel {
-    animation: carousel 15s linear infinite;
+    animation: carousel 30s linear infinite;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     .animate-carousel {
-      animation: carousel 30s linear infinite;
+      animation-duration: 20s;
     }
   }
-
-  .dark {
-    /* Cores já definidas no bloco :root/.dark principal */
-  }
-
 }

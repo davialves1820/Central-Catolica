@@ -5,13 +5,11 @@ import { Suspense } from "react";
 import NewsPreview from "@/components/noticias/NewsPreview";
 import "./globals.css";
 
-/* Versículo da página */
 const PAGE_VERSE = {
   text: "A verdade vos libertará.",
   ref: "João 8,32",
 };
 
-/* Feature cards */
 const FEATURES = [
   {
     href: "/biblia",
@@ -72,43 +70,33 @@ const FEATURES = [
 type Accent = "gold" | "cobalt" | "crimson" | "violet" | "emerald" | "saint";
 
 const ACCENT_STYLES: Record<Accent, { icon: string; badge: string; cta: string; border: string }> = {
-  gold: {
-    icon: "bg-primary/10 text-primary border border-primary/20",
-    badge: "text-primary",
-    cta: "bg-primary text-white hover:bg-gold-light",
-    border: "hover:border-primary/40",
-  },
-  cobalt: {
-    icon: "bg-cobalt/10 text-cobalt-light border border-cobalt/20",
-    badge: "text-cobalt-light",
-    cta: "bg-cobalt text-accent-foreground hover:bg-cobalt-light",
-    border: "hover:border-cobalt/40",
-  },
-  crimson: {
-    icon: "bg-crimson/10 text-crimson-light border border-crimson/20",
-    badge: "text-crimson-light",
-    cta: "bg-crimson text-foreground hover:bg-crimson-light",
-    border: "hover:border-crimson/30",
-  },
-  violet: {
-    icon: "bg-violet/10 text-violet-light border border-violet/20",
-    badge: "text-violet-light",
-    cta: "bg-violet text-accent-foreground hover:bg-violet-light",
-    border: "hover:border-violet/40",
-  },
-  emerald: {
-    icon: "bg-emerald/10 text-emerald-light border border-emerald/20",
-    badge: "text-emerald-light",
-    cta: "bg-emerald text-accent-foreground hover:bg-emerald-light",
-    border: "hover:border-emerald/40",
-  },
-  saint: {
-    icon: "bg-saint/15 text-saint-light border border-saint/30",
-    badge: "text-saint-light",
-    cta: "bg-saint text-white hover:bg-saint-light",
-    border: "hover:border-saint/40",
-  },
+  gold: { icon: "bg-primary/10 text-primary border border-primary/20", badge: "text-primary", cta: "bg-primary text-white hover:bg-gold-light", border: "hover:border-primary/40" },
+  cobalt: { icon: "bg-cobalt/10 text-cobalt-light border border-cobalt/20", badge: "text-cobalt-light", cta: "bg-cobalt text-accent-foreground hover:bg-cobalt-light", border: "hover:border-cobalt/40" },
+  crimson: { icon: "bg-crimson/10 text-crimson-light border border-crimson/20", badge: "text-crimson-light", cta: "bg-crimson text-foreground hover:bg-crimson-light", border: "hover:border-crimson/30" },
+  violet: { icon: "bg-violet/10 text-violet-light border border-violet/20", badge: "text-violet-light", cta: "bg-violet text-accent-foreground hover:bg-violet-light", border: "hover:border-violet/40" },
+  emerald: { icon: "bg-emerald/10 text-emerald-light border border-emerald/20", badge: "text-emerald-light", cta: "bg-emerald text-accent-foreground hover:bg-emerald-light", border: "hover:border-emerald/40" },
+  saint: { icon: "bg-saint/15 text-saint-light border border-saint/30", badge: "text-saint-light", cta: "bg-saint text-white hover:bg-saint-light", border: "hover:border-saint/40" },
 };
+
+/** Skeleton shown while NewsPreview streams in from the server */
+function NewsPreviewSkeleton() {
+  return (
+    <div className="flex gap-4 overflow-hidden" aria-hidden="true">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div
+          key={i}
+          className="min-w-[300px] rounded-xl border border-border p-5 space-y-3 animate-pulse"
+          style={{ background: "hsl(var(--card))" }}
+        >
+          <div className="h-3 rounded w-20" style={{ background: "hsl(var(--secondary))" }} />
+          <div className="h-5 rounded w-full" style={{ background: "hsl(var(--secondary))" }} />
+          <div className="h-4 rounded w-4/5" style={{ background: "hsl(var(--secondary))" }} />
+          <div className="h-4 rounded w-3/5" style={{ background: "hsl(var(--secondary))" }} />
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default async function Home() {
   return (
@@ -122,7 +110,6 @@ export default async function Home() {
           className="relative overflow-hidden border-b border-border"
           aria-labelledby="hero-heading"
         >
-          {/* Fundo: padrão de cruz em grade fina */}
           <div
             className="absolute inset-0 opacity-[0.025]"
             aria-hidden="true"
@@ -133,7 +120,6 @@ export default async function Home() {
               `,
             }}
           />
-          {/* Vinheta central */}
           <div
             className="absolute inset-0"
             aria-hidden="true"
@@ -144,12 +130,10 @@ export default async function Home() {
           />
 
           <div className="relative container mx-auto px-4 py-24 md:py-36 text-center max-w-3xl">
-
             <h1
               id="hero-heading"
               className="font-heading text-5xl md:text-7xl font-bold text-foreground leading-[1.05] mb-6"
             >
-
               <span
                 className="relative inline-block"
                 style={{ color: "hsl(var(--gold))" }}
@@ -170,11 +154,9 @@ export default async function Home() {
               Ensinamentos e Tradição Católica Apostólica Romana ao alcance de cada dia.
             </p>
 
-            {/* Versículo */}
             <div className="mt-8 mb-10 inline-block">
               <p
                 className="font-reading text-xl md:text-2xl italic text-foreground/80"
-                style={{ fontStyle: "italic" }}
               >
                 &ldquo;{PAGE_VERSE.text}&rdquo;
               </p>
@@ -183,7 +165,6 @@ export default async function Home() {
               </p>
             </div>
 
-            {/* CTAs */}
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
                 href="/biblia/search"
@@ -244,7 +225,6 @@ export default async function Home() {
                   key={f.href}
                   className={`group relative bg-card border border-border ${s.border} rounded-xl p-7 flex flex-col gap-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5`}
                 >
-                  {/* Icon */}
                   <div
                     className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all ${s.icon}`}
                     aria-hidden="true"
@@ -289,24 +269,12 @@ export default async function Home() {
             </h2>
           </div>
 
-          <Suspense
-            fallback={
-              <div className="grid md:grid-cols-3 gap-6">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="border border-border rounded-xl p-5 animate-pulse space-y-3">
-                    <div className="h-4 bg-secondary rounded w-24" />
-                    <div className="h-5 bg-secondary rounded w-full" />
-                    <div className="h-4 bg-secondary rounded w-3/4" />
-                  </div>
-                ))}
-              </div>
-            }
-          >
+          <Suspense fallback={<NewsPreviewSkeleton />}>
             <NewsPreview />
           </Suspense>
         </section>
 
-        {/* Frase de São Thomas de Aquino */}
+        {/* Citação */}
         <section
           className="border-t border-border bg-secondary/40"
           aria-label="Citação de São Tomás de Aquino"
@@ -314,7 +282,6 @@ export default async function Home() {
           <div className="container mx-auto px-4 py-16 max-w-3xl text-center">
             <p
               className="font-reading text-2xl md:text-3xl italic text-foreground/75 leading-relaxed mb-4"
-              style={{ fontStyle: "italic" }}
             >
               &ldquo;A fé é um hábito da mente, pelo qual começa em nós a vida eterna,
               fazendo o intelecto assentir ao que não aparece.&rdquo;

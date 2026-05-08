@@ -6,18 +6,19 @@ import { firstLetter } from "@/lib/client/hooks/utils/firstLetter";
 import { PrayerGroupsProps, Oracao } from "@/types/oracao";
 
 export default function PrayerGroups({ visible, setSelectedIdx, cfg }: PrayerGroupsProps) {
-    const groups: { letter: string; items: { prayer: Oracao; idx: number }[] }[] = [];
+    type Group = { letter: string; items: { prayer: Oracao; idx: number }[] };
 
-    visible.forEach((prayer: Oracao, idx: number) => {
+    const groups = visible.reduce<Group[]>((acc, prayer, idx) => {
         const l = firstLetter(prayer.titulo);
-        const last = groups[groups.length - 1];
+        const last = acc[acc.length - 1];
 
         if (!last || last.letter !== l) {
-            groups.push({ letter: l, items: [{ prayer, idx }] });
+            acc.push({ letter: l, items: [{ prayer, idx }] });
         } else {
             last.items.push({ prayer, idx });
         }
-    });
+        return acc;
+    }, []);
 
     return (
         <div className="space-y-8">

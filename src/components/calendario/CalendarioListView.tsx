@@ -6,9 +6,7 @@ import { ChevronRight } from "lucide-react";
 import { type CalendarioListViewProps, RANKS } from "@/types/calendar";
 import ColorDot from "./ColorDot";
 
-export default function CalendarioListView({
-  days, calendar, selectedDay, isMounted, monthLabel, onSelectDay,
-}: CalendarioListViewProps) {
+export default function CalendarioListView({ days, calendar, selectedDay, isMounted, monthLabel, onSelectDay, }: CalendarioListViewProps) {
   return (
     <div
       className="divide-y divide-border/30"
@@ -28,6 +26,7 @@ export default function CalendarioListView({
         return (
           <motion.button
             key={dateStr}
+            type="button"
             role="listitem"
             whileTap={{ scale: 0.98 }}
             onClick={() => { if (main) onSelectDay(dateStr); }}
@@ -59,14 +58,8 @@ export default function CalendarioListView({
                       boxShadow: "0 4px 12px hsl(var(--primary)/0.3)",
                     }
                     : isSunday
-                      ? {
-                        color: "hsl(0,60%,60%)",
-                        background: "hsl(0,60%,60%,0.05)",
-                      }
-                      : {
-                        color: "hsl(var(--foreground))",
-                        background: "hsl(var(--secondary)/0.3)",
-                      }
+                      ? { color: "hsl(0,60%,60%)", background: "hsl(0,60%,60%,0.05)" }
+                      : { color: "hsl(var(--foreground))", background: "hsl(var(--secondary)/0.3)" }
                 }
               >
                 {date.day}
@@ -88,7 +81,9 @@ export default function CalendarioListView({
                   </span>
                 </>
               ) : (
-                <span className="text-sm text-muted-foreground/50 italic font-body block">Féria</span>
+                <span className="text-sm text-muted-foreground/50 italic font-body block">
+                  Féria
+                </span>
               )}
             </span>
 

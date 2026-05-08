@@ -6,30 +6,22 @@ import { formatarData } from "@/lib/server/services/noticias";
 import { ExternalLink } from "lucide-react";
 
 export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
-  if (!noticia) {
-    return null;
-  }
+  if (!noticia) return null;
 
   const fonteStyle = FONTE_STYLE[noticia.fonte] ?? FONTE_STYLE.vaticannews;
+
   return (
     <a
       href={noticia.url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Ler notícia em destaque: ${noticia.titulo}`}
-      className="group relative flex min-h-[360px] md:min-h-[440px] overflow-hidden rounded-2xl border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      style={{ borderColor: "hsl(var(--border))" }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.borderColor = fonteStyle.border;
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow =
-          `0 16px 48px hsl(var(--ink)/0.4)`;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLAnchorElement).style.borderColor =
-          "hsl(var(--border))";
-        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
-      }}
+      className="noticia-destaque group relative flex min-h-[360px] md:min-h-[440px] overflow-hidden rounded-2xl border border-border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      style={{
+        "--hover-border": fonteStyle.border,
+      } as React.CSSProperties}
     >
+
       {/* Background image */}
       {noticia.imagem ? (
         <Image
@@ -58,7 +50,7 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
         aria-hidden="true"
       />
 
-      {/* Top - ornamental gold line */}
+      {/* Top ornamental line */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
@@ -69,11 +61,14 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
 
       {/* Content */}
       <div className="relative mt-auto p-7 md:p-10">
-        {/* Badges row */}
         <div className="mb-4 flex items-center gap-3 flex-wrap">
           <span
             className="rounded-full px-3 py-1 text-xs font-bold font-body uppercase tracking-wider border"
-            style={{ color: fonteStyle.color, borderColor: fonteStyle.border, background: fonteStyle.bg }}
+            style={{
+              color: fonteStyle.color,
+              borderColor: fonteStyle.border,
+              background: fonteStyle.bg,
+            }}
           >
             {noticia.fonteLabel}
           </span>
@@ -82,7 +77,6 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
           )}
         </div>
 
-        {/* Title */}
         <h2
           className="font-heading text-2xl md:text-3xl font-bold leading-snug text-white"
           style={{ textShadow: "0 2px 12px hsl(var(--ink)/0.6)" }}
@@ -90,17 +84,15 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
           {noticia.titulo}
         </h2>
 
-        {/* Summary */}
         {noticia.resumo && (
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/65 font-body">
             {noticia.resumo}
           </p>
         )}
 
-        {/* CTA & Date */}
         <div className="mt-6 flex items-center gap-3">
           <p
-            className="flex items-center gap-1.5 text-sm font-body font-bold transition-all"
+            className="flex items-center gap-1.5 text-sm font-body font-bold"
             style={{ color: fonteStyle.color }}
           >
             Ler na íntegra

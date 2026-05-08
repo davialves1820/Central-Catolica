@@ -6,9 +6,7 @@ import { type CalendarioGridViewProps, DOT } from "@/types/calendar";
 
 const WEEKDAYS = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 
-export default function CalendarioGridView({
-  days, calendar, selectedDay, isMounted, monthLabel, onSelectDay,
-}: CalendarioGridViewProps) {
+export default function CalendarioGridView({ days, calendar, selectedDay, isMounted, monthLabel, onSelectDay, }: CalendarioGridViewProps) {
   return (
     <>
       {/* Weekday headers */}
@@ -27,15 +25,16 @@ export default function CalendarioGridView({
       <div className="grid grid-cols-7" role="grid" aria-label={`Calendário de ${monthLabel}`}>
         {days.map(({ date, isCurrentMonth }, idx) => {
           const dateStr = date.toISODate()!;
-          const ld      = calendar[dateStr] || [];
-          const main    = ld[0];
+          const ld = calendar[dateStr] || [];
+          const main = ld[0];
           const isSelected = selectedDay === dateStr;
-          const isToday    = isMounted && date.hasSame(DateTime.now(), "day");
-          const color      = main?.colors?.[0] || "GOLD";
+          const isToday = isMounted && date.hasSame(DateTime.now(), "day");
+          const color = main?.colors?.[0] || "GOLD";
 
           return (
             <motion.button
               key={dateStr}
+              type="button"
               role="gridcell"
               whileTap={{ scale: 0.93 }}
               onClick={() => { if (isCurrentMonth) onSelectDay(dateStr); }}
@@ -47,14 +46,14 @@ export default function CalendarioGridView({
                 ${idx % 7 === 6 ? "border-r-0" : ""}`}
               style={{
                 borderColor: "hsl(var(--border)/0.4)",
-                background:  !isCurrentMonth
+                background: !isCurrentMonth
                   ? "hsl(var(--background))"
                   : isSelected
                     ? "hsl(var(--gold)/0.08)"
                     : undefined,
-                opacity:      !isCurrentMonth ? 0.15 : 1,
-                outline:      isSelected ? "3px solid hsl(var(--gold)/0.6)" : undefined,
-                outlineOffset:isSelected ? "-3px" : undefined,
+                opacity: !isCurrentMonth ? 0.15 : 1,
+                outline: isSelected ? "3px solid hsl(var(--gold)/0.6)" : undefined,
+                outlineOffset: isSelected ? "-3px" : undefined,
               }}
             >
               {/* Day number */}

@@ -7,7 +7,6 @@ import { CAT_CONFIG } from "@/types/oracao";
 
 const data = oracoesData as { total: number; oracoes: { categoria: string }[] };
 
-
 export default function OracoesPage() {
     const catCount: Record<string, number> = {};
     for (const o of data.oracoes) {
@@ -66,19 +65,14 @@ export default function OracoesPage() {
                                 key={cat}
                                 href={`/oracoes/${c.slug}`}
                                 aria-label={`Ver ${cat} — ${catCount[cat]} orações`}
-                                className="group relative flex items-center gap-5 p-6 rounded-2xl border text-left transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                                style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--border))" }}
-                                onMouseEnter={(e) => {
-                                    const el = e.currentTarget as HTMLAnchorElement;
-                                    el.style.borderColor = c.border;
-                                    el.style.boxShadow = `0 8px 32px ${c.glow}`;
-                                }}
-                                onMouseLeave={(e) => {
-                                    const el = e.currentTarget as HTMLAnchorElement;
-                                    el.style.borderColor = "hsl(var(--border))";
-                                    el.style.boxShadow = "none";
-                                }}
+                                className="oracao-cat-card group relative flex items-center gap-5 p-6 rounded-2xl border border-border text-left transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                style={{
+                                    background: "hsl(var(--card))",
+                                    "--c-border": c.border,
+                                    "--c-glow": c.glow,
+                                } as React.CSSProperties}
                             >
+
                                 {/* Emoji icon */}
                                 <div
                                     className="text-3xl w-16 h-16 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"

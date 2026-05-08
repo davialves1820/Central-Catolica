@@ -4,9 +4,7 @@ import { ChevronLeft, ChevronRight, LayoutGrid, List } from "lucide-react";
 
 import { CalendarioHeaderProps } from "@/types/calendar";
 
-export default function CalendarioHeader({
-  monthLabel, viewMode, onViewMode, onPrev, onNext, onToday,
-}: CalendarioHeaderProps) {
+export default function CalendarioHeader({ monthLabel, viewMode, onViewMode, onPrev, onNext, onToday, }: CalendarioHeaderProps) {
   return (
     <div
       className="px-4 py-4 sm:p-6 border-b border-border flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap"
@@ -32,12 +30,13 @@ export default function CalendarioHeader({
           aria-label="Modo de visualização"
         >
           {([
-            ["grid", <LayoutGrid key="g" size={15} aria-hidden="true" />, "Grade"],
-            ["list", <List       key="l" size={15} aria-hidden="true" />, "Lista"],
+            ["grid", <LayoutGrid key="grid" size={15} aria-hidden="true" />, "Grade"],
+            ["list", <List key="list" size={15} aria-hidden="true" />, "Lista"],
           ] as const).map(([mode, icon, label]) => (
             <button
               key={mode}
               onClick={() => onViewMode(mode)}
+              type="button"
               aria-label={label}
               aria-pressed={viewMode === mode}
               className="p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
