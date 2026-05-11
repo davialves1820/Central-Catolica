@@ -15,7 +15,7 @@ export interface Santo {
   categorias: string[];
 }
 
-export interface GetSantosOptions {
+export interface OpcoesBuscaSantos {
   tipo?: string;
   busca?: string;
   pagina?: number;
@@ -23,11 +23,11 @@ export interface GetSantosOptions {
   inicial?: string;
 }
 
-export interface SantosPageProps {
+export interface PropsPaginaSantos {
   searchParams: Promise<{ tipo?: string; busca?: string; pagina?: string; inicial?: string }>;
 }
 
-export interface PaginacaoProps {
+export interface PropsPaginacao {
   pagina: number;
   totalPaginas: number;
   tipo: string;
@@ -35,37 +35,37 @@ export interface PaginacaoProps {
   inicial: string;
 }
 
-export interface SantoSlugPageProps {
+export interface PropsPaginaDetalheSanto {
   params: Promise<{ slug: string }>;
 }
 
-export interface SantosGridProps {
+export interface PropsGradeSantos {
   santos: Santo[];
 }
 
-export interface SantoCardProps {
+export interface PropsCartaoSanto {
   santo: Santo;
 }
 
-export interface SantoExternalLinkProps {
+export interface PropsLinkExternoSanto {
   href: string;
-  color: string;
-  border: string;
+  cor: string;
+  borda: string;
 }
 
-export interface SantosAlfabetoProps {
+export interface PropsAlfabetoSantos {
   inicialAtiva: string;
   tipo: string;
   busca: string;
 }
 
-export interface SantosFiltrosProps {
+export interface PropsFiltrosSantos {
   tipos: string[];
   tipoAtivo: string;
   busca: string;
   inicial: string;
 }
 
-export interface SantosSearchProps {
+export interface PropsBuscaSantos {
   valorInicial: string;
 }

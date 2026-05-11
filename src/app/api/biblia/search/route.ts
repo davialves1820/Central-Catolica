@@ -1,4 +1,4 @@
-import { searchBible } from "@/lib/server/services/bible";
+import { pesquisarBiblia } from "@/lib/server/services/biblia";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -10,9 +10,9 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const results = await searchBible(query);
+    const results = await pesquisarBiblia(query);
     return NextResponse.json({ results });
   } catch {
-    return NextResponse.json({ error: "Failed to search Bible" }, { status: 500 });
+    return NextResponse.json({ error: "Falha ao pesquisar na Bíblia" }, { status: 500 });
   }
 }

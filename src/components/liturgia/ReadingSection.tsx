@@ -1,8 +1,8 @@
 "use client";
 
-import { ReadingSectionProps } from "../../types/liturgia";
+import { PropsSecaoLeitura } from "@/types/liturgia";
 
-const ReadingSection = ({ title, leitura, Icon, isGospel }: ReadingSectionProps) => {
+const ReadingSection = ({ titulo, leitura, Icon, ehEvangelho }: PropsSecaoLeitura) => {
   return (
     <section className="space-y-5">
       {/* Label */}
@@ -10,13 +10,13 @@ const ReadingSection = ({ title, leitura, Icon, isGospel }: ReadingSectionProps)
         <Icon
           size={20}
           aria-hidden="true"
-          style={{ color: isGospel ? "hsl(var(--crimson-light))" : "hsl(var(--gold))" }}
+          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--gold))" }}
         />
         <h2
           className="font-heading text-2xl font-semibold"
-          style={{ color: isGospel ? "hsl(var(--crimson-light))" : "hsl(var(--foreground))" }}
+          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--foreground))" }}
         >
-          {title}
+          {titulo}
         </h2>
       </div>
 
@@ -25,10 +25,10 @@ const ReadingSection = ({ title, leitura, Icon, isGospel }: ReadingSectionProps)
         className="rounded-2xl border p-7 shadow-xl"
         style={{
           background: "hsl(var(--card))",
-          borderColor: isGospel
+          borderColor: ehEvangelho
             ? "hsl(var(--crimson)/0.25)"
             : "hsl(var(--gold)/0.15)",
-          boxShadow: isGospel
+          boxShadow: ehEvangelho
             ? "0 8px 32px hsl(var(--crimson)/0.06)"
             : "0 8px 32px hsl(var(--gold)/0.06)",
         }}
@@ -36,7 +36,7 @@ const ReadingSection = ({ title, leitura, Icon, isGospel }: ReadingSectionProps)
         {/* Reference */}
         <p
           className="text-xs font-bold font-body uppercase tracking-widest mb-1"
-          style={{ color: isGospel ? "hsl(var(--crimson-light))" : "hsl(var(--gold))" }}
+          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--gold))" }}
         >
           {leitura.referencia}
         </p>
@@ -44,7 +44,7 @@ const ReadingSection = ({ title, leitura, Icon, isGospel }: ReadingSectionProps)
         {/* Title */}
         <h3
           className="font-heading text-xl md:text-2xl font-semibold mb-5"
-          style={{ color: isGospel ? "hsl(var(--crimson-light))" : "hsl(var(--foreground))" }}
+          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--foreground))" }}
         >
           {leitura.titulo}
         </h3>

@@ -2,16 +2,16 @@
 
 import { motion } from "framer-motion";
 import { DateTime } from "luxon";
-import { type CalendarioGridViewProps, DOT } from "@/types/calendar";
+import { type PropsVisualizacaoGradeCalendario, PONTO } from "@/types/calendario";
 
-const WEEKDAYS = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+const DIAS_SEMANA = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 
-export default function CalendarioGridView({ days, calendar, selectedDay, isMounted, monthLabel, onSelectDay, }: CalendarioGridViewProps) {
+export default function CalendarioGridView({ dias, calendario, diaSelecionado, estaMontado, rotuloMes, aoSelecionarDia, }: PropsVisualizacaoGradeCalendario) {
   return (
     <>
       {/* Weekday headers */}
       <div className="grid grid-cols-7 text-center border-b border-border/50">
-        {WEEKDAYS.map((d) => (
+        {DIAS_SEMANA.map((d) => (
           <div
             key={d}
             className="py-3 text-[10px] font-bold font-body uppercase tracking-widest text-muted-foreground"
@@ -22,14 +22,14 @@ export default function CalendarioGridView({ days, calendar, selectedDay, isMoun
       </div>
 
       {/* Day cells */}
-      <div className="grid grid-cols-7" role="grid" aria-label={`Calendário de ${monthLabel}`}>
-        {days.map(({ date, isCurrentMonth }, idx) => {
-          const dateStr = date.toISODate()!;
-          const ld = calendar[dateStr] || [];
+      <div className="grid grid-cols-7" role="grid" aria-label={`Calendário de ${rotuloMes}`}>
+        {dias.map(({ data, ehMesAtual }, idx) => {
+          const dateStr = data.toISODate()!;
+          const ld = calendario[dateStr] || [];
           const main = ld[0];
-          const isSelected = selectedDay === dateStr;
-          const isToday = isMounted && date.hasSame(DateTime.now(), "day");
-          const color = main?.colors?.[0] || "GOLD";
+          const isSelected = diaSelecionado === dateStr;
+          const isToday = estaMontado && data.hasSame(DateTime.now(), "day");
+          const cor = main?.cores?.[0] || "AMARELO";
 
           return (
             <motion.button
@@ -37,8 +37,8 @@ export default function CalendarioGridView({ days, calendar, selectedDay, isMoun
               type="button"
               role="gridcell"
               whileTap={{ scale: 0.93 }}
-              onClick={() => { if (isCurrentMonth) onSelectDay(dateStr); }}
-              aria-label={`${date.toFormat("dd 'de' MMMM", { locale: "pt-BR" })}${main ? ": " + main.name : ""}`}
+              onClick={() => { if (ehMesAtual) aoSelecionarDia(dateStr); }}
+              aria-label={`${data.toFormat("dd 'de' MMMM", { locale: "pt-BR" })}${main ? ": " + main.nome : ""}`}
               aria-selected={isSelected}
               aria-current={isToday ? "date" : undefined}
               className={`relative border-r border-b p-2 sm:p-4 text-left transition-all
@@ -46,12 +46,12 @@ export default function CalendarioGridView({ days, calendar, selectedDay, isMoun
                 ${idx % 7 === 6 ? "border-r-0" : ""}`}
               style={{
                 borderColor: "hsl(var(--border)/0.4)",
-                background: !isCurrentMonth
+                background: !ehMesAtual
                   ? "hsl(var(--background))"
                   : isSelected
                     ? "hsl(var(--gold)/0.08)"
                     : undefined,
-                opacity: !isCurrentMonth ? 0.15 : 1,
+                opacity: !ehMesAtual ? 0.15 : 1,
                 outline: isSelected ? "3px solid hsl(var(--gold)/0.6)" : undefined,
                 outlineOffset: isSelected ? "-3px" : undefined,
               }}
@@ -65,18 +65,18 @@ export default function CalendarioGridView({ days, calendar, selectedDay, isMoun
                     : { color: "hsl(var(--foreground))" }
                 }
               >
-                {date.day}
+                {data.day}
               </span>
 
               {/* Color bar + name */}
-              {main && isCurrentMonth && (
+              {main && ehMesAtual && (
                 <span className="mt-1 space-y-2 block">
                   <span
-                    className={`block h-1 w-full rounded-full ${DOT[color] || "bg-slate-400"}`}
+                    className={`block h-1 w-full rounded-full ${PONTO[cor] || "bg-slate-400"}`}
                     aria-hidden="true"
                   />
                   <span className="hidden md:block text-[10px] sm:text-xs leading-tight font-medium font-body text-muted-foreground line-clamp-3">
-                    {main.name}
+                    {main.nome}
                   </span>
                 </span>
               )}
@@ -86,4 +86,4 @@ export default function CalendarioGridView({ days, calendar, selectedDay, isMoun
       </div>
     </>
   );
-}
+}

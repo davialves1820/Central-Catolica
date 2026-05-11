@@ -1,11 +1,11 @@
 import santosData from "@/data/santos.json";
 
-import { Santo, GetSantosOptions } from "@/types/santos";
+import { Santo, OpcoesBuscaSantos } from "@/types/santos";
 
 const TODOS = (santosData as { santos: Santo[] }).santos;
 const POR_PAGINA_PADRAO = 24;
 
-export async function getSantos({ tipo = "Todos", busca = "", pagina = 1, porPagina = POR_PAGINA_PADRAO, inicial = "", }: GetSantosOptions = {}) {
+export async function getSantos({ tipo = "Todos", busca = "", pagina = 1, porPagina = POR_PAGINA_PADRAO, inicial = "", }: OpcoesBuscaSantos = {}) {
   let lista = [...TODOS];
 
   // Filtro por tipo
@@ -43,7 +43,7 @@ export async function getSantos({ tipo = "Todos", busca = "", pagina = 1, porPag
   return { santos, total, totalPaginas };
 }
 
-export async function getSantoBySlug(slug: string): Promise<Santo | null> {
+export async function getSantoPorSlug(slug: string): Promise<Santo | null> {
   return TODOS.find((s) => s.slug === slug) ?? null;
 }
 

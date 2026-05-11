@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Noticia, FONTE_STYLE } from "@/types";
+import { Noticia, ESTILO_FONTE } from "@/types";
 import { formatarData } from "@/lib/server/services/noticias";
 import { ExternalLink } from "lucide-react";
 
 export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
-  const fonteStyle = FONTE_STYLE[noticia.fonte] ?? FONTE_STYLE.vaticannews;
+  const estiloFonte = ESTILO_FONTE[noticia.fonte] ?? ESTILO_FONTE.vaticannews;
 
   return (
     <a
@@ -16,8 +16,8 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
       className="noticia-card group flex flex-col overflow-hidden rounded-xl border border-border transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       style={{
         background: "hsl(var(--card))",
-        "--hover-border": fonteStyle.border,
-        "--hover-shadow": fonteStyle.bg,
+        "--hover-border": estiloFonte.borda,
+        "--hover-shadow": estiloFonte.cor,
       } as React.CSSProperties}
     >
       {/* Image */}
@@ -47,9 +47,9 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
           <span
             className="rounded-full px-2.5 py-0.5 text-[10px] font-bold font-body uppercase tracking-wider border"
             style={{
-              color: fonteStyle.color,
-              borderColor: fonteStyle.border,
-              background: fonteStyle.bg,
+              color: estiloFonte.cor,
+              borderColor: estiloFonte.borda,
+              background: estiloFonte.cor,
             }}
           >
             {noticia.fonteLabel}
@@ -80,7 +80,7 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
           </p>
           <span
             className="flex items-center gap-1 text-xs font-body font-bold transition-colors opacity-0 group-hover:opacity-100"
-            style={{ color: fonteStyle.color }}
+            style={{ color: estiloFonte.cor }}
           >
             Ler íntegra
             <ExternalLink size={11} aria-hidden="true" />

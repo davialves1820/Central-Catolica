@@ -1,18 +1,17 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { SLUG_TO_CAT, CAT_CONFIG, type OracaoPageProps } from "@/types/oracao";
-import OracoesCategoryPage from "@/components/oracao/OracoesCategoryPage";
+import { SLUG_PARA_CAT, CONFIG_CAT, type PropsPaginaCategoriaOracoes } from "@/types/oracao";
+import OracoesCategoriaPage from "@/components/oracao/OracoesCategoriaPage";
 
 export async function generateStaticParams() {
-    return Object.values(CAT_CONFIG).map((c) => ({
+    return Object.values(CONFIG_CAT).map((c) => ({
         slug: c.slug,
     }));
 }
 
-export async function generateMetadata({ params }: OracaoPageProps): Promise<Metadata> {
-    const { slug } = await params;
+export async function generateMetadata({ slug }: PropsPaginaCategoriaOracoes): Promise<Metadata> {
 
-    const catName = SLUG_TO_CAT[slug];
+    const catName = SLUG_PARA_CAT[slug];
 
     if (!catName) {
         return { title: "Categoria não encontrada" };
@@ -20,16 +19,15 @@ export async function generateMetadata({ params }: OracaoPageProps): Promise<Met
 
     return {
         title: `${catName} | Livro de Orações`,
-        description: `${CAT_CONFIG[catName].desc} — ${catName}`,
+        description: `${CONFIG_CAT[catName].descricao} — ${catName}`,
     };
 }
 
-export default async function Page({ params }: OracaoPageProps) {
-    const { slug } = await params;
+export default async function Page({ slug }: PropsPaginaCategoriaOracoes) {
 
-    if (!SLUG_TO_CAT[slug]) {
+    if (!SLUG_PARA_CAT[slug]) {
         notFound();
     }
 
-    return <OracoesCategoryPage slug={slug} />;
+    return <OracoesCategoriaPage slug={slug} />;
 }

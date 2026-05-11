@@ -1,46 +1,46 @@
 // Bíblia
 export type {
-    Verse,
-    Chapter,
-    Book,
-    BibleData,
-    BibleReaderProps,
-    ChapterPageProps,
-    Theme,
-    FontSize,
-    ReadingMode,
-    ThemeTokens,
-    VerseItemProps,
-    ChapterContentProps,
-    ChapterHeadingProps,
-    NavFooterProps,
-    ReaderProgressBarProps,
-    ReaderToolbarProps,
-    SettingsPanelProps,
-    TableOfContentsProps,
-    ToolbarButtonProps,
-    GoldIconBadgeProps,
-    ContinueReadingLinkProps,
-    ProgressInfoProps,
-} from "./bible";
-export { THEMES, THEME_LABELS, FONT_SIZE_MIN, FONT_SIZE_MAX, FONT_SIZE_STEP } from "./bible";
+    Versiculo,
+    Capitulo,
+    Livro,
+    DadosBiblia,
+    PropsLeitorBiblia,
+    PropsPaginaCapitulo,
+    Tema,
+    TamanhoFonte,
+    ModoLeitura,
+    TokensTema,
+    PropsItemVersiculo,
+    PropsConteudoCapitulo,
+    PropsCabecalhoCapitulo,
+    PropsRodapeNavegacao,
+    PropsBarraProgressoLeitor,
+    PropsBarraFerramentasLeitor,
+    PropsPainelConfiguracoes,
+    PropsSumario,
+    PropsBotaoBarraFerramentas,
+    PropsBadgeIconeOuro,
+    PropsLinkContinuarLeitura,
+    PropsInfoProgresso,
+} from "./biblia";
+export { TEMAS, LABELS_TEMA, TAMANHO_FONTE_MIN, TAMANHO_FONTE_MAX, TAMANHO_FONTE_PASSO } from "./biblia";
 
 // Calendário Litúrgico
 export type {
-    LiturgicalDayData,
-    JsonDayEntry,
-    ViewMode,
-    CalendarioState,
-    DayCell,
-    DaySidebarProps,
-    DaySheetProps,
-    ColorDotProps,
-    CalendarioViewProps,
-    CalendarioListViewProps,
-    CalendarioHeaderProps,
-    CalendarioGridViewProps,
-} from "./calendar";
-export { DOT, BADGE_BG, RANKS, getDot } from "./calendar";
+    DadosDiaLiturgico,
+    EntradaDiaJson,
+    ModoVisualizacao,
+    EstadoCalendario,
+    CelulaDia,
+    PropsBarraLateralDia,
+    PropsDrawerDia,
+    PropsPontoCor,
+    PropsVisualizacaoCalendario,
+    PropsVisualizacaoListaCalendario,
+    PropsCabecalhoCalendario,
+    PropsVisualizacaoGradeCalendario,
+} from "./calendario";
+export { PONTO, BADGE_BG, GRAUS, obterPonto } from "./calendario";
 
 // Liturgia
 export type {
@@ -48,50 +48,50 @@ export type {
     Salmo,
     Antifonas,
     LiturgiaDiaria,
-    ReadingSectionProps,
-    PsalmSectionProps,
-    LiturgicalBackgroundProps,
-    LiturgiaSidebarProps,
-    DateSelectorProps,
-    LiturgiaPageProps,
+    PropsSecaoLeitura,
+    PropsSecaoSalmo,
+    PropsFundoLiturgico,
+    PropsBarraLateralLiturgia,
+    PropsSeletorData,
+    PropsPaginaLiturgia,
 } from "./liturgia";
 
 // Notícias
 export type {
     Noticia,
-    NoticiaCardProps,
-    NoticiaDestaqueProps,
-    CarouselNoticiasProps,
+    PropsCartaoNoticia,
+    PropsDestaqueNoticia,
+    PropsCarrosselNoticias,
 } from "./noticias";
-export { FONTE_STYLE } from "./noticias";
+export { ESTILO_FONTE } from "./noticias";
 
 // Orações
 export type {
     Oracao,
-    CategoryConfig,
-    OracoesCategoryPageProps,
-    CategoryHeroProps,
-    LetterFilterProps,
-    PrayerGroupsProps,
-    PrayerDetailProps,
-    OracaoPageProps,
+    ConfiguracaoCategoria,
+    PropsPaginaCategoriaOracoes,
+    PropsDestaqueCategoria,
+    PropsFiltroLetra,
+    PropsGruposOracoes,
+    PropsDetalheOracao,
+    PropsPaginaOracao,
 } from "./oracao";
-export { CAT_CONFIG, SLUG_TO_CAT } from "./oracao";
+export { CONFIG_CAT, SLUG_PARA_CAT } from "./oracao";
 
 // Santos
 export type {
     Santo,
-    GetSantosOptions,
-    SantosPageProps,
-    PaginacaoProps,
-    SantoSlugPageProps,
-    SantosGridProps,
-    SantoCardProps,
-    SantoExternalLinkProps,
-    SantosAlfabetoProps,
-    SantosFiltrosProps,
-    SantosSearchProps,
+    OpcoesBuscaSantos,
+    PropsPaginaSantos,
+    PropsPaginacao,
+    PropsPaginaDetalheSanto,
+    PropsGradeSantos,
+    PropsCartaoSanto,
+    PropsLinkExternoSanto,
+    PropsAlfabetoSantos,
+    PropsFiltrosSantos,
+    PropsBuscaSantos,
 } from "./santos";
 
 // Shared / UI
-export type { InfoCardProps, ScheduleRowProps } from "./shared";
+export type { PropsCardInfo, PropsLinhaHorario } from "./compartilhado";

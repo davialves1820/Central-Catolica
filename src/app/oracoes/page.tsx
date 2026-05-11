@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Header from "@/components/shared/Header";
 import oracoesData from "@/data/oracoes.json";
-import { CAT_CONFIG } from "@/types/oracao";
+import { CONFIG_CAT } from "@/types/oracao";
 
 const data = oracoesData as { total: number; oracoes: { categoria: string }[] };
 
@@ -60,7 +60,7 @@ export default function OracoesPage() {
                     </h2>
 
                     <div className="grid sm:grid-cols-2 gap-4">
-                        {Object.entries(CAT_CONFIG).map(([cat, c]) => (
+                        {Object.entries(CONFIG_CAT).map(([cat, c]) => (
                             <Link
                                 key={cat}
                                 href={`/oracoes/${c.slug}`}
@@ -68,15 +68,15 @@ export default function OracoesPage() {
                                 className="oracao-cat-card group relative flex items-center gap-5 p-6 rounded-2xl border border-border text-left transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                 style={{
                                     background: "hsl(var(--card))",
-                                    "--c-border": c.border,
-                                    "--c-glow": c.glow,
+                                    "--c-border": c.borda,
+                                    "--c-glow": c.cor,
                                 } as React.CSSProperties}
                             >
 
                                 {/* Emoji icon */}
                                 <div
                                     className="text-3xl w-16 h-16 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
-                                    style={{ background: c.glow, border: `1px solid ${c.border}` }}
+                                    style={{ background: c.cor, border: `1px solid ${c.borda}` }}
                                     aria-hidden="true"
                                 >
                                     {c.emoji}
@@ -84,25 +84,25 @@ export default function OracoesPage() {
 
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center justify-between mb-1 gap-2">
-                                        <h3 className="font-heading text-lg font-semibold" style={{ color: c.color }}>
+                                        <h3 className="font-heading text-lg font-semibold" style={{ color: c.cor }}>
                                             {cat}
                                         </h3>
                                         <span
                                             className="text-xs font-bold font-body px-2.5 py-0.5 rounded-full shrink-0"
-                                            style={{ background: c.glow, color: c.color, border: `1px solid ${c.border}` }}
+                                            style={{ background: c.cor, color: c.borda, border: `1px solid ${c.borda}` }}
                                         >
                                             {catCount[cat]} orações
                                         </span>
                                     </div>
                                     <p className="text-sm font-body text-muted-foreground leading-relaxed">
-                                        {c.desc}
+                                        {c.descricao}
                                     </p>
                                 </div>
 
                                 <ChevronRight
                                     size={18}
                                     className="shrink-0 opacity-30 group-hover:opacity-80 group-hover:translate-x-0.5 transition-all"
-                                    style={{ color: c.color }}
+                                    style={{ color: c.cor }}
                                     aria-hidden="true"
                                 />
                             </Link>

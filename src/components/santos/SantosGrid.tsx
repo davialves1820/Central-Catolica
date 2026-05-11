@@ -2,23 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { SantosGridProps, SantoCardProps } from "@/types/santos";
+import { PropsGradeSantos, PropsCartaoSanto } from "@/types/santos";
 import { Calendar } from "lucide-react";
 
-const TIPO_COLOR: Record<string, { color: string; border: string; bg: string }> = {
+const COR_TIPO: Record<string, { cor: string; borda: string; fundo: string }> = {
   "Santo Mártir": {
-    color: "hsl(var(--crimson-light))",
-    border: "hsl(var(--crimson)/0.35)",
-    bg: "hsl(var(--crimson)/0.12)",
+    cor: "hsl(var(--crimson-light))",
+    borda: "hsl(var(--crimson)/0.35)",
+    fundo: "hsl(var(--crimson)/0.12)",
   },
 };
-const DEFAULT_COLOR = {
-  color: "hsl(var(--gold))",
-  border: "hsl(var(--gold)/0.35)",
-  bg: "hsl(var(--gold)/0.12)",
+const COR_PADRAO = {
+  cor: "hsl(var(--gold))",
+  borda: "hsl(var(--gold)/0.35)",
+  fundo: "hsl(var(--gold)/0.12)",
 };
 
-export default function SantosGrid({ santos }: SantosGridProps) {
+export default function GradeSantos({ santos }: PropsGradeSantos) {
   if (santos.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-center">
@@ -44,13 +44,13 @@ export default function SantosGrid({ santos }: SantosGridProps) {
 
   return (
     <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      {santos.map((santo) => <SantoCard key={santo.slug} santo={santo} />)}
+      {santos.map((santo) => <CartaoSanto key={santo.slug} santo={santo} />)}
     </div>
   );
 }
 
-function SantoCard({ santo }: SantoCardProps) {
-  const s = TIPO_COLOR[santo.tipo] ?? DEFAULT_COLOR;
+function CartaoSanto({ santo }: PropsCartaoSanto) {
+  const s = COR_TIPO[santo.tipo] ?? COR_PADRAO;
 
   return (
     <Link
@@ -59,7 +59,7 @@ function SantoCard({ santo }: SantoCardProps) {
       style={{
         background: "hsl(var(--card))",
         boxShadow: "0 2px 8px hsl(var(--ink)/0.06)",
-        "--s-border": s.border,
+        "--s-border": s.borda,
       } as React.CSSProperties}
       aria-label={santo.nome}
     >
@@ -97,7 +97,7 @@ function SantoCard({ santo }: SantoCardProps) {
         <div className="absolute left-2.5 top-2.5">
           <span
             className="rounded-full px-2.5 py-0.5 text-[10px] font-bold font-body uppercase tracking-wider border backdrop-blur-sm"
-            style={{ color: s.color, borderColor: s.border, background: s.bg }}
+            style={{ color: s.cor, borderColor: s.borda, background: s.fundo }}
           >
             {santo.tipo}
           </span>

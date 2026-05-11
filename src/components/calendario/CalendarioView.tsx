@@ -1,18 +1,18 @@
 "use client";
 
-import { type CalendarioViewProps } from "@/types/calendar";
-import { useCalendario } from "../../lib/client/hooks/calendar/useCalendario";
+import { type PropsVisualizacaoCalendario } from "@/types/calendario";
+import { useCalendario } from "../../lib/client/hooks/calendario/useCalendario";
 import CalendarioHeader from "./CalendarioHeader";
 import CalendarioGridView from "./CalendarioGridView";
 import CalendarioListView from "./CalendarioListView";
 import DaySidebar from "./DaySidebar";
 import DaySheet from "./DaySheet";
 
-export default function CalendarioView({ initialCalendar }: CalendarioViewProps) {
-  const cal = useCalendario(initialCalendar);
+export default function CalendarioView({ calendarioInicial }: PropsVisualizacaoCalendario) {
+  const cal = useCalendario(calendarioInicial);
 
   /* Avoid hydration mismatch — render nothing until client mounts */
-  if (!cal.isMounted) return null;
+  if (!cal.estaMontado) return null;
 
   return (
     <>
@@ -26,31 +26,31 @@ export default function CalendarioView({ initialCalendar }: CalendarioViewProps)
               style={{ background: "hsl(var(--card))" }}
             >
               <CalendarioHeader
-                monthLabel={cal.monthLabel}
-                viewMode={cal.viewMode}
-                onViewMode={cal.setViewMode}
-                onPrev={cal.goToPrev}
-                onNext={cal.goToNext}
-                onToday={cal.goToToday}
+                rotuloMes={cal.rotuloMes}
+                modoVisualizacao={cal.modoVisualizacao}
+                aoMudarModo={cal.setModoVisualizacao}
+                aoAnterior={cal.irAnterior}
+                aoProximo={cal.irProximo}
+                aoHoje={cal.irHoje}
               />
 
-              {cal.viewMode === "grid" ? (
+              {cal.modoVisualizacao === "grade" ? (
                 <CalendarioGridView
-                  days={cal.daysInMonth}
-                  calendar={initialCalendar}
-                  selectedDay={cal.selectedDay}
-                  isMounted={cal.isMounted}
-                  monthLabel={cal.monthLabel}
-                  onSelectDay={cal.selectDay}
+                  dias={cal.diasNoMes}
+                  calendario={calendarioInicial}
+                  diaSelecionado={cal.diaSelecionado}
+                  estaMontado={cal.estaMontado}
+                  rotuloMes={cal.rotuloMes}
+                  aoSelecionarDia={cal.selecionarDia}
                 />
               ) : (
                 <CalendarioListView
-                  days={cal.listDays}
-                  calendar={initialCalendar}
-                  selectedDay={cal.selectedDay}
-                  isMounted={cal.isMounted}
-                  monthLabel={cal.monthLabel}
-                  onSelectDay={cal.selectDay}
+                  dias={cal.listaDias}
+                  calendario={calendarioInicial}
+                  diaSelecionado={cal.diaSelecionado}
+                  estaMontado={cal.estaMontado}
+                  rotuloMes={cal.rotuloMes}
+                  aoSelecionarDia={cal.selecionarDia}
                 />
               )}
             </div>
@@ -58,17 +58,17 @@ export default function CalendarioView({ initialCalendar }: CalendarioViewProps)
 
           {/* ── Desktop sidebar ── */}
           <DaySidebar
-            selectedDay={cal.selectedDay}
-            selectedData={cal.selectedData}
+            diaSelecionado={cal.diaSelecionado}
+            dadosSelecionados={cal.dadosSelecionados}
           />
         </div>
       </div>
 
       {/* ── Mobile bottom sheet ── */}
       <DaySheet
-        selectedDay={cal.selectedDay}
-        selectedData={cal.selectedData}
-        onClose={cal.clearDay}
+        diaSelecionado={cal.diaSelecionado}
+        dadosSelecionados={cal.dadosSelecionados}
+        aoFechar={cal.limparDia}
       />
     </>
   );

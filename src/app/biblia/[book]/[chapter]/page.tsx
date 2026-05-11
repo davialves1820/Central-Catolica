@@ -1,12 +1,12 @@
-import { getBook } from "@/lib/server/services/bible";
-import BibleReader from "@/components/bible/bible-reader/BibleReader";
+import { getLivro } from "@/lib/server/services/biblia";
+import LeitorBiblia from "@/components/biblia/leitor-biblia/LeitorBiblia";
 import { BibleChapterSkeleton } from "@/components/ui/skeletons";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { Suspense } from "react";
-import { type ChapterPageProps } from "@/types/bible";
+import { type PropsPaginaCapitulo } from "@/types/biblia";
 
-export async function generateMetadata({ params }: ChapterPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PropsPaginaCapitulo): Promise<Metadata> {
   const { book: bookSlug, chapter: chapterStr } = await params;
   const bookName = decodeURIComponent(bookSlug);
   return {
@@ -15,10 +15,10 @@ export async function generateMetadata({ params }: ChapterPageProps): Promise<Me
   };
 }
 
-async function ChapterContent({ bookSlug, chapterStr, highlightVerse, }: { bookSlug: string; chapterStr: string; highlightVerse?: number }) {
+async function ConteudoCapitulo({ bookSlug, chapterStr, highlightVerse, }: { bookSlug: string; chapterStr: string; highlightVerse?: number }) {
   const bookName = decodeURIComponent(bookSlug);
   const chapterNumber = parseInt(chapterStr, 10);
-  const bookData = await getBook(bookName);
+  const bookData = await getLivro(bookName);
 
   if (!bookData) {
     notFound();
@@ -30,15 +30,15 @@ async function ChapterContent({ bookSlug, chapterStr, highlightVerse, }: { bookS
   }
 
   return (
-    <BibleReader
-      book={bookData}
-      initialChapterIndex={chapterIndex}
-      highlightVerse={highlightVerse}
+    <LeitorBiblia
+      livro={bookData}
+      indexCapituloInicial={chapterIndex}
+      versiculoDestaque={highlightVerse}
     />
   );
 }
 
-export default async function ChapterPage({ params, searchParams }: ChapterPageProps) {
+export default async function PaginaCapitulo({ params, searchParams }: PropsPaginaCapitulo) {
   const { book: bookSlug, chapter: chapterStr } = await params;
   const { v } = await searchParams;
   const highlightVerse = v ? parseInt(v, 10) : undefined;
@@ -46,7 +46,7 @@ export default async function ChapterPage({ params, searchParams }: ChapterPageP
   return (
     <div className="space-y-6">
       <Suspense fallback={<BibleChapterSkeleton />}>
-        <ChapterContent
+        <ConteudoCapitulo
           bookSlug={bookSlug}
           chapterStr={chapterStr}
           highlightVerse={highlightVerse}

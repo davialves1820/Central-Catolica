@@ -1,9 +1,9 @@
 "use client";
 
-import { PsalmSectionProps } from "../../types/liturgia";
+import { PropsSecaoSalmo } from "../../types/liturgia";
 import { Music } from "lucide-react";
 
-const PsalmSection = ({ salmo }: PsalmSectionProps) => {
+const PsalmSection = ({ salmo }: PropsSecaoSalmo) => {
   return (
     <section
       className="space-y-6 rounded-2xl border p-7"

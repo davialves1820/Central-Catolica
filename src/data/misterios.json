@@ -1,0 +1,168 @@
+{
+  "grupos": [
+    {
+      "slug": "gozosos",
+      "nome": "Mistérios Gozosos",
+      "dias": ["Segunda-feira", "Sábado"],
+      "cor": "#D4AF37",
+      "bgCor": "#FFF9E6",
+      "emoji": "✨",
+      "descricao": "Contemplamos a Encarnação do Filho de Deus e a infância de Jesus.",
+      "misterios": [
+        {
+          "numero": 1,
+          "nome": "A Anunciação do Anjo a Maria",
+          "meditacao": "O Anjo Gabriel anuncia a Maria que ela será a Mãe do Filho de Deus. Maria, cheia de graça, responde com fé e humildade: \"Eis aqui a serva do Senhor; faça-se em mim segundo a tua palavra.\" (Lc 1,38)",
+          "fruto": "Humildade"
+        },
+        {
+          "numero": 2,
+          "nome": "A Visitação de Maria a Santa Isabel",
+          "meditacao": "Maria visita sua prima Isabel, que exclama: \"Bendita és tu entre as mulheres e bendito é o fruto do teu ventre!\" O Espírito Santo enche a ambas de alegria e João Batista tressalta no seio de sua mãe. (Lc 1,39-45)",
+          "fruto": "Amor ao próximo"
+        },
+        {
+          "numero": 3,
+          "nome": "O Nascimento de Jesus em Belém",
+          "meditacao": "Jesus nasce em Belém, numa manjedoura, pobre e humilde. Os anjos cantam: \"Glória a Deus nas alturas e paz na terra aos homens que ele ama.\" Os pastores correm para adorar o Salvador. (Lc 2,1-20)",
+          "fruto": "Pobreza e desapego"
+        },
+        {
+          "numero": 4,
+          "nome": "A Apresentação de Jesus no Templo",
+          "meditacao": "Maria e José apresentam Jesus no Templo, cumprindo a Lei. O ancião Simeão, movido pelo Espírito Santo, toma o menino nos braços e proclama: \"Meus olhos viram a tua salvação.\" (Lc 2,22-38)",
+          "fruto": "Obediência e pureza"
+        },
+        {
+          "numero": 5,
+          "nome": "A Perda e o Encontro de Jesus no Templo",
+          "meditacao": "Após três dias de busca angustiada, Maria e José encontram Jesus no Templo, no meio dos doutores. Jesus responde: \"Não sabíeis que devo ocupar-me das coisas de meu Pai?\" (Lc 2,41-52)",
+          "fruto": "Piedade e fidelidade"
+        }
+      ]
+    },
+    {
+      "slug": "dolorosos",
+      "nome": "Mistérios Dolorosos",
+      "dias": ["Terça-feira", "Sexta-feira"],
+      "cor": "#B22222",
+      "bgCor": "#FFF0F0",
+      "emoji": "✝️",
+      "descricao": "Meditamos na Paixão e morte de Nosso Senhor Jesus Cristo.",
+      "misterios": [
+        {
+          "numero": 1,
+          "nome": "A Agonia de Jesus no Horto",
+          "meditacao": "No Getsêmani, Jesus ora com tanta intensidade que seu suor se torna como gotas de sangue. Em sua humanidade, pede que o cálice se afaste, mas abandona-se à vontade do Pai: \"Não seja feita a minha vontade, mas a tua.\" (Lc 22,39-46)",
+          "fruto": "Contrição e arrependimento"
+        },
+        {
+          "numero": 2,
+          "nome": "A Flagelação de Jesus",
+          "meditacao": "Jesus é entregue aos soldados que o açoitam cruelmente. Carregando todas as nossas enfermidades, ele sofre em silêncio, cumprindo a profecia: \"Pelas suas chagas fomos curados.\" (Is 53,5)",
+          "fruto": "Mortificação dos sentidos"
+        },
+        {
+          "numero": 3,
+          "nome": "A Coroação de Espinhos",
+          "meditacao": "Os soldados trançam uma coroa de espinhos e a impõem sobre a cabeça de Jesus, zombando dele: \"Salve, rei dos judeus!\" Jesus, rei do universo, aceita essa humilhação por amor a nós. (Jo 19,2-3)",
+          "fruto": "Coragem moral"
+        },
+        {
+          "numero": 4,
+          "nome": "Jesus Carrega a Cruz",
+          "meditacao": "Jesus carrega a pesada cruz em direção ao Calvário. Caindo três vezes, encontra sua Mãe, Simão Cireneu e Verónica. Com cada passo, nos convida: \"Se alguém quiser vir após mim, renuncie a si mesmo, tome a sua cruz e siga-me.\" (Mt 16,24)",
+          "fruto": "Paciência"
+        },
+        {
+          "numero": 5,
+          "nome": "A Crucificação e Morte de Jesus",
+          "meditacao": "Jesus é crucificado entre dois ladrões. Do alto da cruz, perdoa seus algozes e entrega o Espírito ao Pai. \"Tudo está consumado.\" (Jo 19,30) Maria, ao pé da cruz, compartilha a dor do Filho e torna-se mãe de toda a humanidade.",
+          "fruto": "Salvação e perdão"
+        }
+      ]
+    },
+    {
+      "slug": "gloriosos",
+      "nome": "Mistérios Gloriosos",
+      "dias": ["Quarta-feira", "Domingo"],
+      "cor": "#0047AB",
+      "bgCor": "#F0F4FF",
+      "emoji": "👑",
+      "descricao": "Contemplamos a Ressurreição, Ascensão e a glória de Maria.",
+      "misterios": [
+        {
+          "numero": 1,
+          "nome": "A Ressurreição de Jesus",
+          "meditacao": "No terceiro dia, Jesus ressuscita glorioso. O túmulo está vazio. Maria Madalena o encontra no jardim e Ele lhe diz: \"Não me toques... Vai a meus irmãos e dize-lhes que subo para meu Pai.\" (Jo 20,17) A morte foi vencida!",
+          "fruto": "Fé"
+        },
+        {
+          "numero": 2,
+          "nome": "A Ascensão de Jesus ao Céu",
+          "meditacao": "Quarenta dias após a Ressurreição, Jesus sobe aos céus diante dos apóstolos e senta-se à direita do Pai. Antes de subir, promete: \"Estarei convosco todos os dias até o fim do mundo.\" (Mt 28,20)",
+          "fruto": "Esperança e desejo do céu"
+        },
+        {
+          "numero": 3,
+          "nome": "A Vinda do Espírito Santo",
+          "meditacao": "No Pentecostes, o Espírito Santo desce sobre Maria e os Apóstolos em forma de línguas de fogo. Transformados, saem para anunciar o Evangelho ao mundo inteiro. A Igreja nasce e cresce. (At 2,1-11)",
+          "fruto": "Santificação"
+        },
+        {
+          "numero": 4,
+          "nome": "A Assunção de Maria ao Céu",
+          "meditacao": "Maria, terminado o curso de sua vida terrestre, foi assumida em corpo e alma à glória celeste. Ela que disse \"Eis aqui a serva do Senhor\" é agora exaltada acima de todos os anjos e santos.",
+          "fruto": "Graça de uma boa morte"
+        },
+        {
+          "numero": 5,
+          "nome": "A Coroação de Maria Rainha do Céu",
+          "meditacao": "Maria é coroada Rainha do céu e da terra, dos anjos e dos santos. Ela reina como Mãe misericordiosa, intercedendo por todos os seus filhos. \"Uma grande sinal apareceu no céu: uma mulher vestida do sol.\" (Ap 12,1)",
+          "fruto": "Devoção a Maria"
+        }
+      ]
+    },
+    {
+      "slug": "luminosos",
+      "nome": "Mistérios Luminosos",
+      "dias": ["Quinta-feira"],
+      "cor": "#008080",
+      "bgCor": "#E6F7F7",
+      "emoji": "🕊️",
+      "descricao": "Meditamos nos mistérios da vida pública de Jesus, propostos por São João Paulo II.",
+      "misterios": [
+        {
+          "numero": 1,
+          "nome": "O Batismo de Jesus no Jordão",
+          "meditacao": "Jesus se faz batizar por João. O céu se abre, o Espírito desce em forma de pomba e o Pai proclama: \"Este é o meu Filho amado, em quem pus toda a minha afeição.\" (Mt 3,17) Jesus inaugura seu ministério público.",
+          "fruto": "Abertura à graça do Espírito Santo"
+        },
+        {
+          "numero": 2,
+          "nome": "As Bodas de Caná",
+          "meditacao": "A pedido de Maria, Jesus realiza seu primeiro milagre transformando água em vinho. Maria instrui os serventes — e a nós: \"Fazei tudo o que ele vos disser.\" (Jo 2,5) A fé de Maria intercede por toda a humanidade.",
+          "fruto": "Fidelidade ao chamado"
+        },
+        {
+          "numero": 3,
+          "nome": "O Anúncio do Reino de Deus",
+          "meditacao": "Jesus percorre a Galileia pregando: \"Convertei-vos, porque o Reino dos céus está próximo.\" (Mt 4,17) Chama os pescadores, cura os enfermos, perdoa os pecadores e revela o rosto misericordioso do Pai.",
+          "fruto": "Conversão e confiança em Deus"
+        },
+        {
+          "numero": 4,
+          "nome": "A Transfiguração de Jesus",
+          "meditacao": "No monte Tabor, Jesus se transfigura diante de Pedro, Tiago e João. Seu rosto brilha como o sol e suas vestes tornam-se brancas como a luz. O Pai diz: \"Este é o meu Filho amado; ouvi-o.\" (Mt 17,5)",
+          "fruto": "Desejo da santidade"
+        },
+        {
+          "numero": 5,
+          "nome": "A Instituição da Eucaristia",
+          "meditacao": "Na Última Ceia, Jesus toma o pão e o cálice dizendo: \"Isto é o meu corpo... Este é o cálice do meu sangue.\" (Lc 22,19-20) Institui o sacerdócio e nos deixa a si mesmo como alimento para a vida eterna.",
+          "fruto": "Adoração eucarística"
+        }
+      ]
+    }
+  ]
+}

@@ -31,30 +31,30 @@ export interface LiturgiaDiaria {
   antifonas: Antifonas;
 }
 
-export interface ReadingSectionProps {
-  title: string;
+export interface PropsSecaoLeitura {
+  titulo: string;
   leitura: Leitura;
   Icon: LucideIcon;
-  isGospel?: boolean;
+  ehEvangelho?: boolean;
 }
 
-export interface PsalmSectionProps {
+export interface PropsSecaoSalmo {
   salmo: Salmo;
 }
 
-export interface LiturgicalBackgroundProps {
+export interface PropsFundoLiturgico {
   cor: string;
 }
 
-export interface LiturgiaSidebarProps {
+export interface PropsBarraLateralLiturgia {
   liturgia: LiturgiaDiaria;
 }
 
-export interface DateSelectorProps {
-  currentParams: { dia?: string; mes?: string; ano?: string };
-  initialDate?: string;
+export interface PropsSeletorData {
+  parametrosAtuais: { dia?: string; mes?: string; ano?: string };
+  dataInicial?: string;
 }
 
-export interface LiturgiaPageProps {
+export interface PropsPaginaLiturgia {
   searchParams: Promise<{ dia?: string; mes?: string; ano?: string }>;
 }

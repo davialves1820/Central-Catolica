@@ -1,7 +1,7 @@
-import { getBibleData } from "@/lib/server/services/bible";
+import { getDadosBiblia } from "@/lib/server/services/biblia";
 import { BookOpen, Search, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import BibleProgress from "@/components/bible/BibleProgress";
+import ProgressoBiblia from "@/components/biblia/ProgressoBiblia";
 import { BibleIndexSkeleton } from "@/components/ui/skeletons";
 import { Metadata } from "next";
 import { Suspense } from "react";
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export const revalidate = 86400;
 
-async function BibleContent() {
-  const data = await getBibleData();
+async function ConteudoBiblia() {
+  const data = await getDadosBiblia();
 
   return (
     <div>
@@ -37,7 +37,7 @@ async function BibleContent() {
           <p className="font-body text-muted-foreground text-lg max-w-xl mx-auto mb-10">
             Explore as escrituras, acompanhe seu progresso e mergulhe na Palavra de Deus.
           </p>
-          <Link href="/biblia/search" aria-label="Pesquisar versículos"
+          <Link href="/biblia/pesquisa" aria-label="Pesquisar versículos"
             className="inline-flex items-center gap-3 px-6 py-3 rounded-lg font-body font-bold text-sm border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background hover:border-primary/40"
             style={{ background: "hsl(var(--card))", borderColor: "hsl(var(--gold)/0.3)", color: "hsl(var(--foreground))" }}>
             <Search size={15} aria-hidden="true" style={{ color: "hsl(var(--gold))" }} />
@@ -47,12 +47,12 @@ async function BibleContent() {
       </div>
 
       <div className="space-y-14">
-        <BibleProgress />
+        <ProgressoBiblia />
         {/* Testaments */}
         <div className="grid md:grid-cols-2 gap-8">
-          <TestamentSection title="Antigo Testamento" books={data.antigoTestamento}
+          <SecaoTestamento title="Antigo Testamento" books={data.antigoTestamento}
             accentColor="hsl(var(--gold)/0.06)" accentBorder="hsl(var(--gold)/0.18)" />
-          <TestamentSection title="Novo Testamento" books={data.novoTestamento}
+          <SecaoTestamento title="Novo Testamento" books={data.novoTestamento}
             accentColor="hsl(var(--cobalt)/0.06)" accentBorder="hsl(var(--cobalt)/0.18)" />
         </div>
       </div>
@@ -60,15 +60,15 @@ async function BibleContent() {
   );
 }
 
-export default function BiblePage() {
+export default function PaginaBiblia() {
   return (
     <Suspense fallback={<BibleIndexSkeleton />}>
-      <BibleContent />
+      <ConteudoBiblia />
     </Suspense>
   );
 }
 
-function TestamentSection({ title, books, accentColor, accentBorder }: {
+function SecaoTestamento({ title, books, accentColor, accentBorder }: {
   title: string; books: { nome: string; capitulos: unknown[] }[];
   accentColor: string; accentBorder: string;
 }) {

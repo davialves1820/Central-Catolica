@@ -1,6 +1,6 @@
 "use client";
 
-import { DateSelectorProps } from "../../types/liturgia";
+import { PropsSeletorData } from "@/types/liturgia";
 import { useRouter } from "next/navigation";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
@@ -13,15 +13,15 @@ const pushDate = (router: ReturnType<typeof useRouter>, date: Date) => {
   router.push(`/liturgia?dia=${d}&mes=${m}&ano=${y}`);
 };
 
-export default function DateSelector({ currentParams }: DateSelectorProps) {
+export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
   const router = useRouter();
 
   const buildDateFromParams = () => {
-    if (currentParams.dia && currentParams.mes && currentParams.ano) {
+    if (parametrosAtuais.dia && parametrosAtuais.mes && parametrosAtuais.ano) {
       return new Date(
-        parseInt(currentParams.ano),
-        parseInt(currentParams.mes) - 1,
-        parseInt(currentParams.dia),
+        parseInt(parametrosAtuais.ano),
+        parseInt(parametrosAtuais.mes) - 1,
+        parseInt(parametrosAtuais.dia),
       );
     }
     return new Date();
@@ -30,11 +30,11 @@ export default function DateSelector({ currentParams }: DateSelectorProps) {
   const currentDate = buildDateFromParams();
   const dateValue = currentDate.toISOString().split("T")[0];
 
-  const [prevParams, setPrevParams] = useState(currentParams);
+  const [prevParams, setPrevParams] = useState(parametrosAtuais);
   const [inputDate, setInputDate] = useState(dateValue);
 
-  if (currentParams !== prevParams) {
-    setPrevParams(currentParams);
+  if (parametrosAtuais !== prevParams) {
+    setPrevParams(parametrosAtuais);
     setInputDate(dateValue);
   }
 

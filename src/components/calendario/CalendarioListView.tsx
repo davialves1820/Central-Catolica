@@ -3,25 +3,25 @@
 import { motion } from "framer-motion";
 import { DateTime } from "luxon";
 import { ChevronRight } from "lucide-react";
-import { type CalendarioListViewProps, RANKS } from "@/types/calendar";
+import { type PropsVisualizacaoListaCalendario, GRAUS } from "@/types/calendario";
 import ColorDot from "./ColorDot";
 
-export default function CalendarioListView({ days, calendar, selectedDay, isMounted, monthLabel, onSelectDay, }: CalendarioListViewProps) {
+export default function CalendarioListView({ dias, calendario, diaSelecionado, estaMontado, rotuloMes, aoSelecionarDia, }: PropsVisualizacaoListaCalendario) {
   return (
     <div
       className="divide-y divide-border/30"
       role="list"
-      aria-label={`Dias de ${monthLabel}`}
+      aria-label={`Dias de ${rotuloMes}`}
     >
-      {days.map((date) => {
-        const dateStr = date.toISODate()!;
-        const ld = calendar[dateStr] || [];
+      {dias.map((data) => {
+        const dateStr = data.toISODate()!;
+        const ld = calendario[dateStr] || [];
         const main = ld[0];
-        const isSelected = selectedDay === dateStr;
-        const isToday = isMounted && date.hasSame(DateTime.now(), "day");
-        const isSunday = date.weekday === 7;
-        const color = main?.colors?.[0] || "GOLD";
-        const weekday = date.toFormat("EEE", { locale: "pt-BR" });
+        const isSelected = diaSelecionado === dateStr;
+        const isToday = estaMontado && data.hasSame(DateTime.now(), "day");
+        const isSunday = data.weekday === 7;
+        const cor = main?.cores?.[0] || "AMARELO";
+        const diaSemana = data.toFormat("EEE", { locale: "pt-BR" });
 
         return (
           <motion.button
@@ -29,8 +29,8 @@ export default function CalendarioListView({ days, calendar, selectedDay, isMoun
             type="button"
             role="listitem"
             whileTap={{ scale: 0.98 }}
-            onClick={() => { if (main) onSelectDay(dateStr); }}
-            aria-label={`${date.toFormat("EEEE, dd 'de' MMMM", { locale: "pt-BR" })}${main ? ": " + main.name : ""}`}
+            onClick={() => { if (main) aoSelecionarDia(dateStr); }}
+            aria-label={`${data.toFormat("EEEE, dd 'de' MMMM", { locale: "pt-BR" })}${main ? ": " + main.nome : ""}`}
             aria-current={isToday ? "date" : undefined}
             className="w-full flex items-center gap-3 px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
             style={{
@@ -46,12 +46,12 @@ export default function CalendarioListView({ days, calendar, selectedDay, isMoun
                 className={`text-[9px] font-bold font-body uppercase tracking-wider mb-0.5 ${isSunday ? "text-red-400" : "text-muted-foreground/60"
                   }`}
               >
-                {weekday}
+                {diaSemana}
               </span>
               <span
                 className="text-lg font-bold font-body rounded-2xl w-10 h-10 flex items-center justify-center transition-all"
                 style={
-                  isMounted && isToday
+                  estaMontado && isToday
                     ? {
                       background: "hsl(var(--primary))",
                       color: "hsl(var(--primary-foreground))",
@@ -62,22 +62,22 @@ export default function CalendarioListView({ days, calendar, selectedDay, isMoun
                       : { color: "hsl(var(--foreground))", background: "hsl(var(--secondary)/0.3)" }
                 }
               >
-                {date.day}
+                {data.day}
               </span>
             </span>
 
             {/* Color dot */}
-            {main ? <ColorDot color={color} /> : <span className="block w-1.5 shrink-0" />}
+            {main ? <ColorDot cor={cor} /> : <span className="block w-1.5 shrink-0" />}
 
             {/* Celebration info */}
             <span className="flex-1 min-w-0 flex flex-col justify-center">
               {main ? (
                 <>
                   <span className="text-sm font-semibold font-body text-foreground leading-snug line-clamp-2 block">
-                    {main.name}
+                    {main.nome}
                   </span>
                   <span className="text-[11px] text-muted-foreground font-body mt-0.5 leading-tight block">
-                    {RANKS[main.rank] || main.rankName}
+                    {GRAUS[main.rank] || main.nomeRank}
                   </span>
                 </>
               ) : (

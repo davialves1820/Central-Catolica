@@ -10,32 +10,32 @@ export interface Noticia {
     fonteLabel: string
 }
 
-export interface NoticiaCardProps {
+export interface PropsCartaoNoticia {
     noticia: Noticia;
 }
 
-export interface NoticiaDestaqueProps {
+export interface PropsDestaqueNoticia {
     noticia: Noticia;
 }
 
-export interface CarouselNoticiasProps {
+export interface PropsCarrosselNoticias {
     noticias: Noticia[];
 }
 
-export const FONTE_STYLE = {
+export const ESTILO_FONTE = {
     vaticannews: {
-        color: "hsl(var(--gold))",
-        border: "hsl(var(--gold)/0.35)",
-        bg: "hsl(var(--gold)/0.12)",
+        cor: "hsl(var(--gold))",
+        borda: "hsl(var(--gold)/0.35)",
+        fundo: "hsl(var(--gold)/0.12)",
     },
     cnbb: {
-        color: "hsl(var(--cobalt-light))",
-        border: "hsl(var(--cobalt)/0.35)",
-        bg: "hsl(var(--cobalt)/0.1)",
+        cor: "hsl(var(--cobalt-light))",
+        borda: "hsl(var(--cobalt)/0.35)",
+        fundo: "hsl(var(--cobalt)/0.1)",
     },
     fides: {
-        color: "hsl(var(--crimson-light))",
-        border: "hsl(var(--crimson)/0.35)",
-        bg: "hsl(var(--crimson)/0.1)",
+        cor: "hsl(var(--crimson-light))",
+        borda: "hsl(var(--crimson)/0.35)",
+        fundo: "hsl(var(--crimson)/0.1)",
     },
 };

@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { Noticia, FONTE_STYLE } from "@/types";
+import { Noticia, ESTILO_FONTE } from "@/types";
 import { formatarData } from "@/lib/server/services/noticias";
 import { ExternalLink } from "lucide-react";
 
 export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
   if (!noticia) return null;
 
-  const fonteStyle = FONTE_STYLE[noticia.fonte] ?? FONTE_STYLE.vaticannews;
+  const estiloFonte = ESTILO_FONTE[noticia.fonte] ?? ESTILO_FONTE.vaticannews;
 
   return (
     <a
@@ -18,7 +18,7 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
       aria-label={`Ler notícia em destaque: ${noticia.titulo}`}
       className="noticia-destaque group relative flex min-h-[360px] md:min-h-[440px] overflow-hidden rounded-2xl border border-border transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       style={{
-        "--hover-border": fonteStyle.border,
+        "--hover-border": estiloFonte.borda,
       } as React.CSSProperties}
     >
 
@@ -54,7 +54,7 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
-          background: `linear-gradient(to right, transparent, ${fonteStyle.color}60, transparent)`,
+          background: `linear-gradient(to right, transparent, ${estiloFonte.cor}60, transparent)`,
         }}
         aria-hidden="true"
       />
@@ -65,9 +65,9 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
           <span
             className="rounded-full px-3 py-1 text-xs font-bold font-body uppercase tracking-wider border"
             style={{
-              color: fonteStyle.color,
-              borderColor: fonteStyle.border,
-              background: fonteStyle.bg,
+              color: estiloFonte.cor,
+              borderColor: estiloFonte.borda,
+              background: estiloFonte.cor,
             }}
           >
             {noticia.fonteLabel}
@@ -93,7 +93,7 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
         <div className="mt-6 flex items-center gap-3">
           <p
             className="flex items-center gap-1.5 text-sm font-body font-bold"
-            style={{ color: fonteStyle.color }}
+            style={{ color: estiloFonte.cor }}
           >
             Ler na íntegra
             <ExternalLink

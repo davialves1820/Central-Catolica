@@ -1,22 +1,22 @@
 "use client";
 
-import { SantosFiltrosProps } from "@/types/santos";
+import { PropsFiltrosSantos } from "@/types/santos";
 import { useRouter } from "next/navigation";
 
-const TIPO_COLOR: Record<string, { color: string; border: string; bg: string }> = {
+const COR_TIPO: Record<string, { cor: string; borda: string; fundo: string }> = {
   "Santo Mártir": {
-    color:  "hsl(var(--crimson-light))",
-    border: "hsl(var(--crimson)/0.35)",
-    bg:     "hsl(var(--crimson)/0.08)",
+    cor:  "hsl(var(--crimson-light))",
+    borda: "hsl(var(--crimson)/0.35)",
+    fundo:     "hsl(var(--crimson)/0.08)",
   },
 };
-const DEFAULT_COLOR = {
-  color:  "hsl(var(--gold))",
-  border: "hsl(var(--gold)/0.35)",
-  bg:     "hsl(var(--gold)/0.08)",
+const COR_PADRAO = {
+  cor:  "hsl(var(--gold))",
+  borda: "hsl(var(--gold)/0.35)",
+  fundo:     "hsl(var(--gold)/0.08)",
 };
 
-export default function SantosFiltros({ tipos, tipoAtivo, busca, inicial }: SantosFiltrosProps) {
+export default function FiltrosSantos({ tipos, tipoAtivo, busca, inicial }: PropsFiltrosSantos) {
   const router = useRouter();
 
   function handleTipo(tipo: string) {
@@ -31,7 +31,7 @@ export default function SantosFiltros({ tipos, tipoAtivo, busca, inicial }: Sant
     <div className="flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Filtrar por tipo">
       {tipos.map((tipo) => {
         const isActive = tipoAtivo === tipo;
-        const s = TIPO_COLOR[tipo] ?? DEFAULT_COLOR;
+        const s = COR_TIPO[tipo] ?? COR_PADRAO;
         return (
           <button
             key={tipo}
@@ -41,7 +41,7 @@ export default function SantosFiltros({ tipos, tipoAtivo, busca, inicial }: Sant
             className="rounded-full px-4 py-1.5 text-sm font-body font-semibold border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary hover:-translate-y-px"
             style={
               isActive
-                ? { color: s.color, borderColor: s.border, background: s.bg }
+                ? { color: s.cor, borderColor: s.borda, background: s.fundo }
                 : { color: "hsl(var(--muted-foreground))", borderColor: "hsl(var(--border))", background: "hsl(var(--card))" }
             }
           >

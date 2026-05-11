@@ -2,9 +2,9 @@
 
 import { ChevronLeft, ChevronRight, LayoutGrid, List } from "lucide-react";
 
-import { CalendarioHeaderProps } from "@/types/calendar";
+import { PropsCabecalhoCalendario } from "@/types/calendario";
 
-export default function CalendarioHeader({ monthLabel, viewMode, onViewMode, onPrev, onNext, onToday, }: CalendarioHeaderProps) {
+export default function CalendarioHeader({ rotuloMes, modoVisualizacao, aoMudarModo, aoAnterior, aoProximo, aoHoje, }: PropsCabecalhoCalendario) {
   return (
     <div
       className="px-4 py-4 sm:p-6 border-b border-border flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap"
@@ -13,7 +13,7 @@ export default function CalendarioHeader({ monthLabel, viewMode, onViewMode, onP
       {/* Month title */}
       <div className="min-w-0 flex-1">
         <h2 className="font-heading text-lg sm:text-2xl font-bold text-foreground capitalize truncate leading-tight">
-          {monthLabel}
+          {rotuloMes}
         </h2>
         <p className="font-body text-[10px] text-muted-foreground mt-0.5 hidden sm:block uppercase tracking-widest font-bold">
           Calendário Litúrgico
@@ -30,18 +30,18 @@ export default function CalendarioHeader({ monthLabel, viewMode, onViewMode, onP
           aria-label="Modo de visualização"
         >
           {([
-            ["grid", <LayoutGrid key="grid" size={15} aria-hidden="true" />, "Grade"],
-            ["list", <List key="list" size={15} aria-hidden="true" />, "Lista"],
+            ["grade", <LayoutGrid key="grade" size={15} aria-hidden="true" />, "Grade"],
+            ["lista", <List key="lista" size={15} aria-hidden="true" />, "Lista"],
           ] as const).map(([mode, icon, label]) => (
             <button
               key={mode}
-              onClick={() => onViewMode(mode)}
+              onClick={() => aoMudarModo(mode)}
               type="button"
               aria-label={label}
-              aria-pressed={viewMode === mode}
+              aria-pressed={modoVisualizacao === mode}
               className="p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               style={
-                viewMode === mode
+                modoVisualizacao === mode
                   ? { background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }
                   : { background: "hsl(var(--card))", color: "hsl(var(--muted-foreground))" }
               }
@@ -53,7 +53,7 @@ export default function CalendarioHeader({ monthLabel, viewMode, onViewMode, onP
 
         {/* Today button */}
         <button
-          onClick={onToday}
+          onClick={aoHoje}
           aria-label="Ir para hoje"
           className="px-3 py-1.5 text-xs font-body font-bold rounded-xl border border-border/50 transition-all active:scale-95 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
           style={{ background: "hsl(var(--card))", color: "hsl(var(--foreground))" }}
@@ -64,7 +64,7 @@ export default function CalendarioHeader({ monthLabel, viewMode, onViewMode, onP
         {/* Prev / Next */}
         <div className="flex rounded-xl border border-border/50 overflow-hidden shadow-sm">
           <button
-            onClick={onPrev}
+            onClick={aoAnterior}
             aria-label="Mês anterior"
             className="p-2 transition-colors active:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary border-r border-border/50"
             style={{ background: "hsl(var(--card))", color: "hsl(var(--muted-foreground))" }}
@@ -72,7 +72,7 @@ export default function CalendarioHeader({ monthLabel, viewMode, onViewMode, onP
             <ChevronLeft size={18} aria-hidden="true" />
           </button>
           <button
-            onClick={onNext}
+            onClick={aoProximo}
             aria-label="Próximo mês"
             className="p-2 transition-colors active:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             style={{ background: "hsl(var(--card))", color: "hsl(var(--muted-foreground))" }}

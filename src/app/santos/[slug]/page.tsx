@@ -1,22 +1,22 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getSantoBySlug, getSantos } from "@/lib/server/services/santos";
+import { getSantoPorSlug, getSantos } from "@/lib/server/services/santos";
 import Header from "@/components/shared/Header";
 import { Metadata } from "next";
 import { ChevronLeft, Calendar, Crown, Star, Cross } from "lucide-react";
-import SantoExternalLink from "@/components/santos/SantoExternalLink";
+import LinkExternoSanto from "@/components/santos/LinkExternoSanto";
 
-import { SantoSlugPageProps } from "@/types/santos";
+import { PropsPaginaDetalheSanto } from "@/types/santos";
 
 export async function generateStaticParams() {
   const { santos } = await getSantos({ tipo: "Todos", busca: "", pagina: 1, porPagina: 9999 });
   return santos.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: SantoSlugPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PropsPaginaDetalheSanto): Promise<Metadata> {
   const { slug } = await params;
-  const santo = await getSantoBySlug(slug);
+  const santo = await getSantoPorSlug(slug);
   if (!santo) {
     return { title: "Santo não encontrado" };
   }
@@ -26,35 +26,35 @@ export async function generateMetadata({ params }: SantoSlugPageProps): Promise<
   };
 }
 
-const TIPO_COLOR: Record<string, { color: string; border: string; bg: string; glow: string }> = {
+const COR_TIPO: Record<string, { cor: string; borda: string; fundo: string; brilho: string }> = {
   "Santo Mártir": {
-    color: "hsl(var(--crimson-light))",
-    border: "hsl(var(--crimson)/0.35)",
-    bg: "hsl(var(--crimson)/0.07)",
-    glow: "hsl(var(--crimson)/0.15)",
+    cor: "hsl(var(--crimson-light))",
+    borda: "hsl(var(--crimson)/0.35)",
+    fundo: "hsl(var(--crimson)/0.07)",
+    brilho: "hsl(var(--crimson)/0.15)",
   },
 };
-const DEFAULT_COLOR = {
-  color: "hsl(var(--gold))",
-  border: "hsl(var(--gold)/0.35)",
-  bg: "hsl(var(--gold)/0.07)",
-  glow: "hsl(var(--gold)/0.15)",
+const COR_PADRAO = {
+  cor: "hsl(var(--gold))",
+  borda: "hsl(var(--gold)/0.35)",
+  fundo: "hsl(var(--gold)/0.07)",
+  brilho: "hsl(var(--gold)/0.15)",
 };
 
-const CAMPO_ICON: Record<string, React.ReactNode> = {
+const ICONE_CAMPO: Record<string, React.ReactNode> = {
   "Data de Festa": <Calendar size={12} aria-hidden="true" />,
   "Padroeiro de": <Star size={12} aria-hidden="true" />,
   "Canonizado por": <Crown size={12} aria-hidden="true" />,
 };
 
-export default async function SantoPage({ params }: SantoSlugPageProps) {
+export default async function PaginaDetalheSanto({ params }: PropsPaginaDetalheSanto) {
   const { slug } = await params;
-  const santo = await getSantoBySlug(slug);
+  const santo = await getSantoPorSlug(slug);
   if (!santo) {
     notFound();
   }
 
-  const styleColor = TIPO_COLOR[santo.tipo] ?? DEFAULT_COLOR;
+  const estiloCor = COR_TIPO[santo.tipo] ?? COR_PADRAO;
 
   const campos = [
     { label: "Data de Festa", valor: santo.data_festa },
@@ -79,7 +79,7 @@ export default async function SantoPage({ params }: SantoSlugPageProps) {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: `radial-gradient(ellipse 60% 80% at 80% 50%, ${styleColor.glow} 0%, transparent 70%)`,
+              background: `radial-gradient(ellipse 60% 80% at 80% 50%, ${estiloCor.brilho} 0%, transparent 70%)`,
             }}
             aria-hidden="true"
           />
@@ -103,7 +103,7 @@ export default async function SantoPage({ params }: SantoSlugPageProps) {
                 {/* Type badge */}
                 <span
                   className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold font-body uppercase tracking-wider border mb-4"
-                  style={{ color: styleColor.color, borderColor: styleColor.border, background: styleColor.bg }}
+                  style={{ color: estiloCor.cor, borderColor: estiloCor.borda, background: estiloCor.fundo }}
                 >
                   {santo.tipo}
                 </span>
@@ -114,9 +114,9 @@ export default async function SantoPage({ params }: SantoSlugPageProps) {
 
                 {/* Decorative divider */}
                 <div className="flex items-center gap-3">
-                  <div className="h-px w-12" style={{ background: `linear-gradient(to right, ${styleColor.color}, transparent)` }} aria-hidden="true" />
+                  <div className="h-px w-12" style={{ background: `linear-gradient(to right, ${estiloCor.cor}, transparent)` }} aria-hidden="true" />
                   {santo.data_festa && (
-                    <p className="text-sm font-body flex items-center gap-1.5" style={{ color: styleColor.color }}>
+                    <p className="text-sm font-body flex items-center gap-1.5" style={{ color: estiloCor.cor }}>
                       <Calendar size={13} aria-hidden="true" />
                       {santo.data_festa}
                     </p>
@@ -178,9 +178,9 @@ export default async function SantoPage({ params }: SantoSlugPageProps) {
                       <div key={c.label} className="px-4 py-3.5 flex gap-3">
                         <div
                           className="mt-0.5 shrink-0 flex items-center justify-center h-5 w-5 rounded"
-                          style={{ color: styleColor.color, background: styleColor.bg }}
+                          style={{ color: estiloCor.cor, background: estiloCor.fundo }}
                         >
-                          {CAMPO_ICON[c.label] ?? <Cross size={10} aria-hidden="true" />}
+                          {ICONE_CAMPO[c.label] ?? <Cross size={10} aria-hidden="true" />}
                         </div>
                         <div>
                           <p className="text-[10px] font-bold font-body uppercase tracking-widest text-muted-foreground mb-0.5">
@@ -195,7 +195,7 @@ export default async function SantoPage({ params }: SantoSlugPageProps) {
               )}
 
               {/* External link */}
-              <SantoExternalLink href={santo.url} color={styleColor.color} border={styleColor.border} />
+              <LinkExternoSanto href={santo.url} cor={estiloCor.cor} borda={estiloCor.borda} />
             </aside>
 
             {/* Right: content */}
@@ -213,7 +213,7 @@ export default async function SantoPage({ params }: SantoSlugPageProps) {
                   {/* Decorative quote mark */}
                   <p
                     className="font-heading text-5xl leading-none mb-4 select-none"
-                    style={{ color: styleColor.color, opacity: 0.3 }}
+                    style={{ color: estiloCor.cor, opacity: 0.3 }}
                     aria-hidden="true"
                   />
                   <p

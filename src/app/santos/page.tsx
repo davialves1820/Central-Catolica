@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { getSantos, getTipos } from "@/lib/server/services/santos";
-import SantosGrid from "@/components/santos/SantosGrid";
-import SantosFiltros from "@/components/santos/SantosFiltros";
-import SantosSearch from "@/components/santos/SantosSearch";
-import SantosAlfabeto from "@/components/santos/SantosAlfabeto";
+import GradeSantos from "@/components/santos/SantosGrid";
+import FiltrosSantos from "@/components/santos/SantosFiltros";
+import BuscaSantos from "@/components/santos/BuscaSantos";
+import AlfabetoSantos from "@/components/santos/SantosAlfabeto";
 import Header from "@/components/shared/Header";
 import { Metadata } from "next";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Conheça os santos canonizados pela Igreja Católica: biografias, datas de festa, padroeiros e muito mais.",
 };
 
-import { SantosPageProps, PaginacaoProps } from "@/types/santos";
+import { PropsPaginaSantos, PropsPaginacao } from "@/types/santos";
 
 /* Grid skeleton */
 function GridSkeleton() {
@@ -33,7 +33,7 @@ function GridSkeleton() {
 }
 
 /* Pagination */
-function Paginacao({ pagina, totalPaginas, tipo, busca, inicial }: PaginacaoProps) {
+function NavegacaoPaginacao({ pagina, totalPaginas, tipo, busca, inicial }: PropsPaginacao) {
   const href = (p: number) => {
     const q = new URLSearchParams();
     if (tipo && tipo !== "Todos") {
@@ -94,7 +94,7 @@ function Paginacao({ pagina, totalPaginas, tipo, busca, inicial }: PaginacaoProp
   );
 }
 
-export default async function SantosPage({ searchParams }: SantosPageProps) {
+export default async function PaginaSantos({ searchParams }: PropsPaginaSantos) {
   const params = await searchParams;
   const tipo = params.tipo ?? "Todos";
   const busca = params.busca ?? "";
@@ -164,18 +164,18 @@ export default async function SantosPage({ searchParams }: SantosPageProps) {
 
             {/* Search */}
             <div className="mx-auto max-w-lg mb-6">
-              <SantosSearch valorInicial={busca} />
+              <BuscaSantos valorInicial={busca} />
             </div>
 
             {/* Type filters */}
-            <SantosFiltros tipos={tipos} tipoAtivo={tipo} busca={busca} inicial={inicial} />
+            <FiltrosSantos tipos={tipos} tipoAtivo={tipo} busca={busca} inicial={inicial} />
           </div>
         </section>
 
         {/* Filtro Alfabético */}
         <div className="border-b border-border" style={{ background: "hsl(var(--card))" }}>
           <div className="container mx-auto max-w-7xl px-4">
-            <SantosAlfabeto inicialAtiva={inicial} tipo={tipo} busca={busca} />
+            <AlfabetoSantos inicialAtiva={inicial} tipo={tipo} busca={busca} />
           </div>
         </div>
 
@@ -207,13 +207,13 @@ export default async function SantosPage({ searchParams }: SantosPageProps) {
         {/* Grid */}
         <section className="container mx-auto max-w-7xl px-4 py-6" aria-label="Lista de santos">
           <Suspense fallback={<GridSkeleton />}>
-            <SantosGrid santos={santos} />
+            <GradeSantos santos={santos} />
           </Suspense>
         </section>
 
         {/* Pagination */}
         {totalPaginas > 1 && (
-          <Paginacao pagina={pagina} totalPaginas={totalPaginas} tipo={tipo} busca={busca} inicial={inicial} />
+          <NavegacaoPaginacao pagina={pagina} totalPaginas={totalPaginas} tipo={tipo} busca={busca} inicial={inicial} />
         )}
       </main>
     </div>

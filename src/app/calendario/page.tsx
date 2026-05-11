@@ -5,33 +5,33 @@ import { Suspense } from "react";
 import path from "path";
 import fs from "fs";
 
-import { type LiturgicalDayData, type JsonDayEntry } from "@/types/calendar";
+import { type DadosDiaLiturgico, type EntradaDiaJson } from "@/types/calendario";
 
 async function CalendarioContent() {
-  const initialCalendar: Record<string, LiturgicalDayData[]> = {};
+  const calendarioInicial: Record<string, DadosDiaLiturgico[]> = {};
 
   try {
     const jsonPath = path.join(process.cwd(), "data", "calendario2026.json");
     const raw = fs.readFileSync(jsonPath, "utf8");
-    const jsonData: Record<string, JsonDayEntry[]> = JSON.parse(raw);
+    const jsonData: Record<string, EntradaDiaJson[]> = JSON.parse(raw);
 
     for (const [dateStr, entries] of Object.entries(jsonData)) {
-      initialCalendar[dateStr] = entries.map((entry) => ({
-        key: entry.nome.toLowerCase().replace(/[^a-z0-9]/g, "_"),
-        name: entry.nome,
+      calendarioInicial[dateStr] = entries.map((entry) => ({
+        chave: entry.nome.toLowerCase().replace(/[^a-z0-9]/g, "_"),
+        nome: entry.nome,
         rank: entry.rank,
-        rankName: entry.rank,
-        colors: [entry.cor],
-        colorNames: [entry.cor],
-        seasons: [entry.temporada],
-        seasonNames: [entry.temporada],
+        nomeRank: entry.rank,
+        cores: [entry.cor],
+        nomesCores: [entry.cor],
+        temporadas: [entry.temporada],
+        nomesTemporadas: [entry.temporada],
       }));
     }
   } catch (error) {
     console.error("Error reading calendar JSON:", error);
   }
 
-  return <CalendarioView initialCalendar={initialCalendar} />;
+  return <CalendarioView calendarioInicial={calendarioInicial} />;
 }
 
 export default function CalendarioPage() {

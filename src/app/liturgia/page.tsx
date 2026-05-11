@@ -5,7 +5,7 @@ import { LiturgiaSkeleton } from "@/components/ui/skeletons";
 import { Metadata } from "next";
 import DateSelector from "../../components/liturgia/DateSelector";
 import { Suspense } from "react";
-import { type LiturgiaPageProps } from "@/types/liturgia";
+import { type PropsPaginaLiturgia } from "@/types/liturgia";
 
 export const metadata: Metadata = {
   title: "Liturgia Diária",
@@ -38,7 +38,7 @@ async function LiturgiaContent({ dia, mes, ano }: { dia?: string; mes?: string; 
   return <LiturgiaView liturgia={liturgia} />;
 }
 
-export default async function LiturgiaPage({ searchParams }: LiturgiaPageProps) {
+export default async function LiturgiaPage({ searchParams }: PropsPaginaLiturgia) {
   const { dia, mes, ano } = await searchParams;
 
   const dateForSelector =
@@ -67,8 +67,8 @@ export default async function LiturgiaPage({ searchParams }: LiturgiaPageProps) 
             </p>
           </div>
           <DateSelector
-            initialDate={dateForSelector}
-            currentParams={{ dia, mes, ano }}
+            dataInicial={dateForSelector}
+            parametrosAtuais={{ dia, mes, ano }}
           />
         </div>
 

@@ -1,9 +1,9 @@
 "use client";
 
-import { LiturgicalBackgroundProps } from "../../types/liturgia";
+import { PropsFundoLiturgico } from "@/types/liturgia";
 import { useState, useEffect, useRef } from "react";
 
-const LiturgicalBackground = ({ cor }: LiturgicalBackgroundProps) => {
+const LiturgicalBackground = ({ cor }: PropsFundoLiturgico) => {
   const [mounted, setMounted] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number | null>(null);

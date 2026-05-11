@@ -108,7 +108,7 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
             {/* Readings */}
             <div className="lg:col-span-2 space-y-12">
               <motion.div custom={1} variants={sectionVariants} initial="hidden" animate="visible">
-                <ReadingSection title="Primeira Leitura" leitura={liturgia.primeiraLeitura} Icon={BookOpen} />
+                <ReadingSection titulo="Primeira Leitura" leitura={liturgia.primeiraLeitura} Icon={BookOpen} />
               </motion.div>
 
               <motion.div custom={2} variants={sectionVariants} initial="hidden" animate="visible">
@@ -117,12 +117,12 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
 
               {liturgia.segundaLeitura?.texto && (
                 <motion.div custom={3} variants={sectionVariants} initial="hidden" animate="visible">
-                  <ReadingSection title="Segunda Leitura" leitura={liturgia.segundaLeitura} Icon={BookOpen} />
+                  <ReadingSection titulo="Segunda Leitura" leitura={liturgia.segundaLeitura} Icon={BookOpen} />
                 </motion.div>
               )}
 
               <motion.div custom={4} variants={sectionVariants} initial="hidden" animate="visible">
-                <ReadingSection title="Evangelho" leitura={liturgia.evangelho} Icon={Cross} isGospel />
+                <ReadingSection titulo="Evangelho" leitura={liturgia.evangelho} Icon={Cross} ehEvangelho />
               </motion.div>
             </div>
 

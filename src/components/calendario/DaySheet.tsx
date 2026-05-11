@@ -3,9 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { DateTime } from "luxon";
 import { Info, Sparkles, X } from "lucide-react";
-import { type DaySheetProps, type LiturgicalDayData, BADGE_BG, RANKS } from "@/types/calendar";
 import ColorDot from "./ColorDot";
 import Link from "next/link";
+import { type PropsDrawerDia, type DadosDiaLiturgico, BADGE_BG, GRAUS } from "@/types/calendario";
 
 function Backdrop({ onClick }: { onClick: () => void }) {
   return (
@@ -21,17 +21,17 @@ function Backdrop({ onClick }: { onClick: () => void }) {
 }
 
 function Sheet({
-  selectedDay,
-  selectedData,
-  onClose,
+  diaSelecionado,
+  dadosSelecionados,
+  aoFechar,
 }: {
-  selectedDay:  string;
-  selectedData: LiturgicalDayData[];
-  onClose:      () => void;
+  diaSelecionado: string;
+  dadosSelecionados: DadosDiaLiturgico[];
+  aoFechar: () => void;
 }) {
-  const main  = selectedData[0];
-  const color = main?.colors?.[0] || "GOLD";
-  const date  = DateTime.fromISO(selectedDay);
+  const main = dadosSelecionados[0];
+  const cor = main?.cores?.[0] || "AMARELO";
+  const data = DateTime.fromISO(diaSelecionado);
 
   return (
     <motion.div
@@ -56,19 +56,19 @@ function Sheet({
       {/* Colored header */}
       <div
         className="px-5 py-4"
-        style={{ background: BADGE_BG[color] || "hsl(var(--secondary))" }}
+        style={{ background: BADGE_BG[cor] || "hsl(var(--secondary))" }}
       >
         <div className="flex items-start justify-between">
           <div>
             <p className="text-xs font-bold font-body uppercase tracking-widest text-white/60 mb-1">
-              {date.toFormat("EEEE, dd 'de' MMMM", { locale: "pt-BR" })}
+              {data.toFormat("EEEE, dd 'de' MMMM", { locale: "pt-BR" })}
             </p>
             <h3 className="font-heading text-xl font-bold text-white leading-tight">
-              {main.name}
+              {main.nome}
             </h3>
           </div>
           <button
-            onClick={onClose}
+            onClick={aoFechar}
             aria-label="Fechar detalhes"
             className="p-1.5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
@@ -85,8 +85,8 @@ function Sheet({
         {/* Rank + season */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {[
-            { Icon: Info,     label: "Grau",  value: RANKS[main.rank] || main.rankName },
-            { Icon: Sparkles, label: "Tempo", value: main.seasonNames?.join(", ") },
+            { Icon: Info, label: "Grau", value: GRAUS[main.rank] || main.nomeRank },
+            { Icon: Sparkles, label: "Tempo", value: main.nomesTemporadas?.join(", ") },
           ].map(({ Icon, label, value }) => (
             <div
               key={label}
@@ -98,7 +98,7 @@ function Sheet({
                   className="w-6 h-6 rounded-lg flex items-center justify-center"
                   style={{
                     background: "hsl(var(--gold)/0.1)",
-                    color:      "hsl(var(--gold))",
+                    color: "hsl(var(--gold))",
                   }}
                 >
                   <Icon size={14} aria-hidden="true" />
@@ -115,19 +115,19 @@ function Sheet({
         </div>
 
         {/* Other memorials */}
-        {selectedData.length > 1 && (
+        {dadosSelecionados.length > 1 && (
           <div className="space-y-2">
             <p className="text-xs font-bold font-body uppercase tracking-widest text-muted-foreground">
               Outras Memórias
             </p>
-            {selectedData.slice(1).map((day, i) => (
+            {dadosSelecionados.slice(1).map((day, i) => (
               <div
                 key={i}
                 className="flex items-center gap-3 rounded-xl border border-border p-3"
                 style={{ background: "hsl(var(--secondary))" }}
               >
-                <ColorDot color={day.colors[0]} />
-                <p className="text-sm font-body text-foreground">{day.name}</p>
+                <ColorDot cor={day.cores[0]} />
+                <p className="text-sm font-body text-foreground">{day.nome}</p>
               </div>
             ))}
           </div>
@@ -135,11 +135,11 @@ function Sheet({
 
         {/* CTA */}
         <Link
-          href={`/liturgia?dia=${date.day}&mes=${date.month}&ano=${date.year}`}
+          href={`/liturgia?dia=${data.day}&mes=${data.month}&ano=${data.year}`}
           className="flex items-center justify-center w-full py-4 rounded-2xl font-body font-bold text-sm transition-all active:scale-[0.98] shadow-lg shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           style={{
             background: "hsl(var(--primary))",
-            color:      "hsl(var(--primary-foreground))",
+            color: "hsl(var(--primary-foreground))",
           }}
         >
           Ver Leituras do Dia
@@ -150,16 +150,16 @@ function Sheet({
 }
 
 /** Renders the mobile bottom sheet + backdrop when a day with data is selected. */
-export default function DaySheet({ selectedDay, selectedData, onClose }: DaySheetProps) {
+export default function DaySheet({ diaSelecionado, dadosSelecionados, aoFechar }: PropsDrawerDia) {
   return (
     <AnimatePresence>
-      {selectedData && selectedDay && (
+      {dadosSelecionados && diaSelecionado && (
         <>
-          <Backdrop onClick={onClose} />
+          <Backdrop onClick={aoFechar} />
           <Sheet
-            selectedDay={selectedDay}
-            selectedData={selectedData}
-            onClose={onClose}
+            diaSelecionado={diaSelecionado}
+            dadosSelecionados={dadosSelecionados}
+            aoFechar={aoFechar}
           />
         </>
       )}

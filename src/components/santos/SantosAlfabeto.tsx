@@ -1,11 +1,11 @@
 "use client";
 
-import { SantosAlfabetoProps } from "@/types/santos";
+import { PropsAlfabetoSantos } from "@/types/santos";
 import { useRouter } from "next/navigation";
 
 const LETRAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-export default function SantosAlfabeto({ inicialAtiva, tipo, busca }: SantosAlfabetoProps) {
+export default function AlfabetoSantos({ inicialAtiva, tipo, busca }: PropsAlfabetoSantos) {
   const router = useRouter();
 
   function handleInicial(letra: string) {

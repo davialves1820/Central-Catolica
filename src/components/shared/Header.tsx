@@ -52,8 +52,8 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-background/98 backdrop-blur-md shadow-sm border-b border-border"
-          : "bg-background/95 backdrop-blur-sm border-b border-border/60"
+        ? "bg-background/98 backdrop-blur-md shadow-sm border-b border-border"
+        : "bg-background/95 backdrop-blur-sm border-b border-border/60"
         }`}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
@@ -93,8 +93,8 @@ const Header = () => {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 className={`relative flex items-center gap-1.5 px-4 py-2 rounded-lg font-body text-sm font-bold transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${active
-                    ? "text-primary bg-primary/8"
-                    : "text-foreground/70 hover:text-foreground hover:bg-secondary/60"
+                  ? "text-primary bg-primary/8"
+                  : "text-foreground/70 hover:text-foreground hover:bg-secondary/60"
                   }`}
               >
                 <Icon
@@ -115,7 +115,7 @@ const Header = () => {
           })}
 
           <Link
-            href="/biblia/search"
+            href="/biblia/pesquisa"
             aria-label="Pesquisar na Bíblia"
             className="ml-1 p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
