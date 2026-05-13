@@ -9,6 +9,7 @@ const config = {
                 saint: "hsl(var(--saint) / <alpha-value>)",
                 "saint-light": "hsl(var(--saint-light) / <alpha-value>)",
             },
+            content: ["src/**/*.{js,ts,jsx,tsx,md,mdx}"],
         },
     },
 };

@@ -18,14 +18,17 @@
     "hono": "^4.12.7",
     "lucide-react": "^0.577.0",
     "luxon": "^3.7.2",
+    "marked": "^18.0.3",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "react-markdown": "^10.1.0",
     "romcal": "^3.0.0-alpha.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/bcryptjs": "^2.4.6",
     "@types/luxon": "^3.7.1",
     "@types/node": "^20",

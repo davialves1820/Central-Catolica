@@ -1,7 +1,7 @@
 {
-    "name": "Paróquia Menino Jesus de Praga",
-    "short_name": "MJP Paróquia",
-    "description": "Bíblia, Liturgia Diária, Calendário Litúrgico e Pastorais da Paróquia Santo Menino Jesus de Praga",
+    "name": "Central Católica",
+    "short_name": "Central Católica",
+    "description": "Bíblia, Liturgia Diária, Calendário Litúrgico e Catequese da Central Católica",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#0d1117",
