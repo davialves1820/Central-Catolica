@@ -76,7 +76,7 @@ export default function OracoesPage() {
                                 {/* Emoji icon */}
                                 <div
                                     className="text-3xl w-16 h-16 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
-                                    style={{ background: c.cor, border: `1px solid ${c.borda}` }}
+                                    style={{ border: `1px solid ${c.borda}` }}
                                     aria-hidden="true"
                                 >
                                     {c.emoji}
@@ -89,7 +89,7 @@ export default function OracoesPage() {
                                         </h3>
                                         <span
                                             className="text-xs font-bold font-body px-2.5 py-0.5 rounded-full shrink-0"
-                                            style={{ background: c.cor, color: c.borda, border: `1px solid ${c.borda}` }}
+                                            style={{ color: c.cor, border: `1px solid ${c.borda}` }}
                                         >
                                             {catCount[cat]} orações
                                         </span>
@@ -102,7 +102,7 @@ export default function OracoesPage() {
                                 <ChevronRight
                                     size={18}
                                     className="shrink-0 opacity-30 group-hover:opacity-80 group-hover:translate-x-0.5 transition-all"
-                                    style={{ color: c.cor }}
+                                    style={{ color: c.borda }}
                                     aria-hidden="true"
                                 />
                             </Link>

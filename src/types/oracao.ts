@@ -55,6 +55,12 @@ export const SLUG_PARA_CAT: Record<string, string> = Object.fromEntries(
 );
 
 export interface PropsPaginaCategoriaOracoes {
+    params: Promise<{
+        slug: string;
+    }>;
+}
+
+export interface OracoesCategoriaPageProps {
     slug: string;
 }
 
@@ -90,4 +96,4 @@ export interface PropsDetalheOracao {
 
 export interface PropsPaginaOracao {
     params: Promise<{ slug: string }>;
-}
+}

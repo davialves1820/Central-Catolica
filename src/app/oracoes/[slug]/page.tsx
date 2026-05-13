@@ -1,6 +1,11 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { SLUG_PARA_CAT, CONFIG_CAT, type PropsPaginaCategoriaOracoes } from "@/types/oracao";
+import {
+    SLUG_PARA_CAT,
+    CONFIG_CAT,
+    type PropsPaginaCategoriaOracoes,
+} from "@/types/oracao";
+
 import OracoesCategoriaPage from "@/components/oracao/OracoesCategoriaPage";
 
 export async function generateStaticParams() {
@@ -9,7 +14,11 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ slug }: PropsPaginaCategoriaOracoes): Promise<Metadata> {
+export async function generateMetadata({
+    params,
+}: PropsPaginaCategoriaOracoes): Promise<Metadata> {
+
+    const slug = (await params).slug;
 
     const catName = SLUG_PARA_CAT[slug];
 
@@ -23,7 +32,11 @@ export async function generateMetadata({ slug }: PropsPaginaCategoriaOracoes): P
     };
 }
 
-export default async function Page({ slug }: PropsPaginaCategoriaOracoes) {
+export default async function Page({
+    params,
+}: PropsPaginaCategoriaOracoes) {
+
+    const slug = (await params).slug;
 
     if (!SLUG_PARA_CAT[slug]) {
         notFound();

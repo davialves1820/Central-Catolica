@@ -67,7 +67,6 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
             style={{
               color: estiloFonte.cor,
               borderColor: estiloFonte.borda,
-              background: estiloFonte.cor,
             }}
           >
             {noticia.fonteLabel}

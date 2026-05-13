@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Header from "@/components/shared/Header";
-import { SLUG_PARA_CAT, CONFIG_CAT, PropsPaginaCategoriaOracoes } from "@/types/oracao";
+import { SLUG_PARA_CAT, CONFIG_CAT, OracoesCategoriaPageProps } from "@/types/oracao";
 
 import { useOracoes } from "@/lib/client/hooks/oracoes/useOracoes";
 import { obterPrimeiraLetra } from "@/lib/client/hooks/utils/primeiraLetra";
@@ -12,7 +12,7 @@ import FiltroLetra from "./FiltroLetra";
 import GruposOracoes from "./GrupoOracoes";
 import DetalheOracao from "./DetalheOracao";
 
-export default function OracoesCategoriaPage({ slug }: PropsPaginaCategoriaOracoes) {
+export default function OracoesCategoriaPage({ slug }: OracoesCategoriaPageProps) {
     const nomeCat = SLUG_PARA_CAT[slug];
     const config = nomeCat ? CONFIG_CAT[nomeCat] : null;
 
