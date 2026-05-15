@@ -1,56 +1,41 @@
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
-
 import { PropsDestaqueCategoria } from "@/types/oracao";
+import { Book, Sparkles, Droplets, List, ChevronLeft } from "lucide-react";
+
+
+const catIcons: Record<string, React.ReactNode> = {
+    "Orações comuns": <Book className="w-5 h-5" />,
+    "Orações diversas": <Sparkles className="w-5 h-5" />,
+    "Comunhão": <Droplets className="w-5 h-5" />,
+    "Jaculatórias": <List className="w-5 h-5" />,
+};
 
 export default function HeroCategoria({ nomeCat, config, quantidadeOracoes }: PropsDestaqueCategoria) {
     return (
-        <section
-            className="relative border-b border-border overflow-hidden"
-            style={{ background: "hsl(var(--secondary))" }}
-        >
-            <div
-                className="absolute inset-0 opacity-[0.025]"
-                aria-hidden="true"
-                style={{
-                    backgroundImage: `
-            repeating-linear-gradient(0deg,transparent,transparent 47px,hsl(var(--gold)) 47px,hsl(var(--gold)) 48px),
-            repeating-linear-gradient(90deg,transparent,transparent 47px,hsl(var(--gold)) 47px,hsl(var(--gold)) 48px)
-          `,
-                }}
-            />
+        <section className="mb-16 text-center max-w-3xl mx-auto">
+            <Link
+                href="/oracoes"
+                className="inline-flex items-center gap-2 font-label-sm text-on-surface-variant hover:text-primary transition-colors mb-10 group"
+            >
+                <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                Livro de Orações
+            </Link>
 
-            <div className="relative container mx-auto px-4 py-12 max-w-4xl">
-                <Link
-                    href="/oracoes"
-                    className="inline-flex items-center gap-2 text-sm font-body font-bold text-muted-foreground hover:text-foreground transition-colors mb-6 group"
-                >
-                    <ChevronLeft size={15} className="group-hover:-translate-x-0.5 transition-transform" />
-                    Todas as categorias
-                </Link>
-
-                <div className="flex items-center gap-4">
-                    <div
-                        className="text-3xl w-14 h-14 rounded-xl flex items-center justify-center shrink-0"
-                        style={{ background: config.brilho, border: `1px solid ${config.borda}` }}
-                    >
-                        {config.emoji}
-                    </div>
-
-                    <div>
-                        <h1
-                            className="font-heading text-3xl md:text-4xl font-bold"
-                            style={{ color: config.cor }}
-                        >
-                            {nomeCat}
-                        </h1>
-
-                        <p className="text-sm font-body text-muted-foreground mt-0.5">
-                            {quantidadeOracoes} orações
-                        </p>
-                    </div>
+            <h2 className="font-headline-xl text-primary mb-6">{nomeCat}</h2>
+            
+            <div className="flex items-center justify-center gap-6 mb-8">
+                <div className="h-[1px] w-16 bg-secondary/20"></div>
+                <div className="text-secondary">
+                    {catIcons[nomeCat] || <Sparkles className="w-5 h-5" />}
                 </div>
+                <div className="h-[1px] w-16 bg-secondary/20"></div>
             </div>
+
+            <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                {config.descricao} • {quantidadeOracoes} orações encontradas
+            </p>
         </section>
     );
-}
+}
+
+

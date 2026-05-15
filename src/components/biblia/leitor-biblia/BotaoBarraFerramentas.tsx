@@ -6,12 +6,11 @@ export default function BotaoBarraFerramentas({ onClick, active, label, children
             onClick={onClick}
             aria-label={label}
             aria-pressed={active}
-            className="p-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            style={
-                active
-                    ? { background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }
-                    : undefined
-            }
+            className={`p-2.5 rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                active 
+                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" 
+                : "hover:bg-primary/5 text-muted-foreground"
+            }`}
         >
             {children}
         </button>

@@ -11,11 +11,11 @@ export default function InfoProgresso({ dataHora }: PropsInfoProgresso) {
 
     return (
         <div>
-            <h3 className="font-heading text-base font-semibold text-foreground">
-                Continuar de onde parou
+            <h3 className="font-heading text-lg font-medium text-foreground">
+                Continuar Leitura
             </h3>
-            <p className="text-muted-foreground flex items-center gap-1.5 text-xs font-body mt-0.5">
-                <Clock className="w-3 h-3" aria-hidden="true" />
+            <p className="text-muted-foreground/60 flex items-center gap-1.5 text-[10px] font-body font-bold uppercase tracking-widest mt-1">
+                <Clock className="w-3 h-3 opacity-50" aria-hidden="true" />
                 Lido em {timeAgo}
             </p>
         </div>

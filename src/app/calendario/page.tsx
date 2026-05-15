@@ -1,5 +1,4 @@
 import CalendarioView from "@/components/calendario/CalendarioView";
-import Header from "@/components/shared/Header";
 import { CalendarioSkeleton } from "@/components/ui/skeletons";
 import { Suspense } from "react";
 import path from "path";
@@ -37,13 +36,10 @@ async function CalendarioContent() {
 export default function CalendarioPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Header />
-
       <main className="flex-1">
         {/* Hero */}
         <div
           className="relative border-b border-border py-10 sm:py-16 md:py-20 overflow-hidden"
-          style={{ background: "hsl(var(--secondary))" }}
         >
           {/* Grid ornamental */}
           <div
@@ -59,32 +55,23 @@ export default function CalendarioPage() {
           <div className="relative container mx-auto px-4 sm:px-6 text-center">
             {/* Anno Domini badge */}
             <div
-              className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-5"
+              className="flex items-center justify-center gap-4 mb-6"
               aria-hidden="true"
             >
-              <div
-                className="h-px w-6 sm:w-10"
-                style={{ background: "hsl(var(--gold)/0.4)" }}
-              />
-              <span
-                className="text-[10px] sm:text-xs font-body font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em]"
-                style={{ color: "hsl(var(--gold))" }}
-              >
+              <div className="h-px w-8 bg-secondary/30" />
+              <span className="font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em]">
                 Anno Domini
               </span>
-              <div
-                className="h-px w-6 sm:w-10"
-                style={{ background: "hsl(var(--gold)/0.4)" }}
-              />
+              <div className="h-px w-8 bg-secondary/30" />
             </div>
 
             {/* Title */}
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 leading-tight">
+            <h1 className="font-headline-xl text-primary mb-8 tracking-tighter">
               Calendário Litúrgico
             </h1>
 
             {/* Subtitle */}
-            <p className="font-body text-sm sm:text-base text-muted-foreground max-w-xs sm:max-w-xl mx-auto leading-relaxed">
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed opacity-80">
               Solenidades, festas, memórias e tempos que marcam o ritmo da fé
               ao longo do ano.
             </p>

@@ -12,66 +12,33 @@ export default function AlfabetoSantos({ inicialAtiva, tipo, busca }: PropsAlfab
     const q = new URLSearchParams();
     if (tipo && tipo !== "Todos") q.set("tipo", tipo);
     if (busca) q.set("busca", busca);
-    // Toggle: clicando na mesma letra, remove o filtro
     if (letra !== inicialAtiva) q.set("inicial", letra);
     router.push(`/santos?${q.toString()}`);
   }
 
   return (
-    <div
-      className="py-3 overflow-x-auto"
-      role="group"
-      aria-label="Filtrar por inicial do nome"
-    >
-      <div className="flex items-center gap-0.5 min-w-max mx-auto w-fit">
-        {/* Botão Todos */}
+    <div className="py-2 overflow-x-auto" role="group" aria-label="Filtrar por inicial do nome">
+      <div className="flex items-center gap-1 min-w-max mx-auto w-fit">
         <button
           onClick={() => handleInicial("")}
-          aria-pressed={!inicialAtiva}
-          aria-label="Mostrar todos"
-          className="h-8 px-3 rounded-lg text-xs font-body font-bold uppercase tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          style={
-            !inicialAtiva
-              ? {
-                  color: "hsl(var(--gold))",
-                  background: "hsl(var(--gold)/0.12)",
-                }
-              : {
-                  color: "hsl(var(--muted-foreground))",
-                  background: "transparent",
-                }
-          }
+          className={`h-8 px-4 text-[10px] font-bold uppercase tracking-widest transition-all ${
+            !inicialAtiva ? "bg-primary text-on-primary" : "text-on-surface-variant hover:text-primary"
+          }`}
         >
           Todos
         </button>
 
-        <div
-          className="mx-2 h-5 w-px"
-          style={{ background: "hsl(var(--border))" }}
-          aria-hidden="true"
-        />
+        <div className="mx-2 h-4 w-px bg-outline-variant/30" aria-hidden="true" />
 
-        {/* Letras */}
         {LETRAS.map((letra) => {
           const isActive = inicialAtiva === letra;
           return (
             <button
               key={letra}
               onClick={() => handleInicial(letra)}
-              aria-pressed={isActive}
-              aria-label={`Santos com inicial ${letra}`}
-              className="h-8 w-8 rounded-lg text-sm font-body font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary hover:scale-110"
-              style={
-                isActive
-                  ? {
-                      color: "hsl(var(--gold))",
-                      background: "hsl(var(--gold)/0.12)",
-                    }
-                  : {
-                      color: "hsl(var(--muted-foreground))",
-                      background: "transparent",
-                    }
-              }
+              className={`h-8 w-8 flex items-center justify-center text-xs font-bold transition-all ${
+                isActive ? "bg-primary text-on-primary" : "text-on-surface-variant hover:text-primary"
+              }`}
             >
               {letra}
             </button>

@@ -44,7 +44,7 @@ export default function LeitorBiblia({
 
   return (
     <div
-      className={`relative rounded-2xl overflow-hidden border shadow-2xl transition-colors duration-300 ${t.borda}`}
+      className={`relative rounded-3xl overflow-hidden border shadow-xl transition-colors duration-500 ${t.borda}`}
       style={{ background: t.bg }}
       {...manipuladoresToque}
     >
@@ -117,8 +117,8 @@ export default function LeitorBiblia({
       )}
 
       <p
-        className="md:hidden text-center py-2 text-xs font-body select-none"
-        style={{ color: "hsl(var(--gold)/0.3)" }}
+        className="md:hidden text-center py-4 text-[10px] font-body font-bold uppercase tracking-[0.2em] select-none"
+        style={{ color: "hsl(var(--primary)/0.3)" }}
         aria-hidden="true"
       >
         ← deslize para navegar →

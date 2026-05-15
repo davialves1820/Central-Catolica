@@ -3,38 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PropsGradeSantos, PropsCartaoSanto } from "@/types/santos";
-import { Calendar } from "lucide-react";
-
-const COR_TIPO: Record<string, { cor: string; borda: string; fundo: string }> = {
-  "Santo Mártir": {
-    cor: "hsl(var(--crimson-light))",
-    borda: "hsl(var(--crimson)/0.35)",
-    fundo: "hsl(var(--crimson)/0.12)",
-  },
-};
-const COR_PADRAO = {
-  cor: "hsl(var(--gold))",
-  borda: "hsl(var(--gold)/0.35)",
-  fundo: "hsl(var(--gold)/0.12)",
-};
 
 export default function GradeSantos({ santos }: PropsGradeSantos) {
   if (santos.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-center">
         <p
-          className="font-heading text-7xl mb-6"
-          style={{ color: "hsl(var(--gold)/0.12)" }}
+          className="font-headline-xl text-7xl mb-6 opacity-10"
           aria-hidden="true"
         >
           ✝
         </p>
-        <p className="text-muted-foreground font-body text-base mb-1">Nenhum santo encontrado.</p>
-        <p className="text-muted-foreground/60 font-body text-sm mb-6">Tente ajustar os filtros ou a busca.</p>
+        <p className="text-on-surface-variant font-body-md text-base mb-1">Nenhum santo encontrado.</p>
+        <p className="text-on-surface-variant/60 font-body-md text-sm mb-6">Tente ajustar os filtros ou a busca.</p>
         <Link
           href="/santos"
-          className="text-sm font-body font-bold rounded-xl px-5 py-2.5 border transition-all hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          style={{ color: "hsl(var(--gold))", borderColor: "hsl(var(--gold)/0.3)", background: "hsl(var(--gold)/0.06)" }}
+          className="text-label-sm font-label-sm rounded-none px-6 py-2 border border-primary transition-all hover:bg-primary hover:text-on-primary"
         >
           Limpar filtros
         </Link>
@@ -43,82 +27,44 @@ export default function GradeSantos({ santos }: PropsGradeSantos) {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {santos.map((santo) => <CartaoSanto key={santo.slug} santo={santo} />)}
     </div>
   );
 }
 
 function CartaoSanto({ santo }: PropsCartaoSanto) {
-  const s = COR_TIPO[santo.tipo] ?? COR_PADRAO;
-
   return (
     <Link
       href={`/santos/${santo.slug}`}
-      className="santo-card group relative flex flex-col overflow-hidden rounded-2xl border border-border transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      style={{
-        background: "hsl(var(--card))",
-        boxShadow: "0 2px 8px hsl(var(--ink)/0.06)",
-        "--s-border": s.borda,
-      } as React.CSSProperties}
+      className="group cursor-pointer block"
       aria-label={santo.nome}
     >
-
-      {/* Image */}
-      <div className="relative aspect-[3/4] overflow-hidden" style={{ background: "hsl(var(--secondary))" }}>
+      <div className="relative aspect-[3/4] overflow-hidden mb-4 border border-outline-variant/30 bg-surface-container">
         {santo.imagem_url ? (
           <Image
             src={santo.imagem_url}
             alt={santo.nome}
             fill
-            className="object-cover transition duration-500 group-hover:scale-[1.06]"
+            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
             unoptimized
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
           <div className="flex h-full items-center justify-center">
-            <span className="font-heading text-5xl" style={{ color: "hsl(var(--gold)/0.1)" }} aria-hidden="true">✝</span>
+            <span className="font-headline-xl text-5xl opacity-10" aria-hidden="true">✝</span>
           </div>
         )}
-
-        <div
-          className="absolute inset-0 transition-opacity duration-300"
-          style={{ background: "linear-gradient(to top, hsl(var(--ink)/0.92) 0%, hsl(var(--ink)/0.35) 50%, transparent 100%)" }}
-          aria-hidden="true"
-        />
-
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-          style={{ background: "linear-gradient(135deg, hsl(var(--gold)/0.12) 0%, transparent 60%)" }}
-          aria-hidden="true"
-        />
-
-        {/* Type badge */}
-        <div className="absolute left-2.5 top-2.5">
-          <span
-            className="rounded-full px-2.5 py-0.5 text-[10px] font-bold font-body uppercase tracking-wider border backdrop-blur-sm"
-            style={{ color: s.cor, borderColor: s.borda, background: s.fundo }}
-          >
-            {santo.tipo}
-          </span>
-        </div>
-
-        {/* Name + date overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-3.5">
-          <h2 className="font-heading text-sm font-semibold leading-snug text-white group-hover:text-white/90 transition-colors">
-            {santo.nome}
-          </h2>
-          {santo.data_festa && (
-            <p
-              className="mt-1 flex items-center gap-1 text-[11px] font-body"
-              style={{ color: "hsl(var(--gold)/0.7)" }}
-            >
-              <Calendar size={9} aria-hidden="true" />
-              {santo.data_festa}
-            </p>
-          )}
-        </div>
       </div>
+      <p className="font-label-sm text-label-sm text-secondary mb-1">
+        {santo.tipo}
+      </p>
+      <h5 className="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors line-clamp-1">
+        {santo.nome}
+      </h5>
+      <p className="text-xs text-on-surface-variant mt-2 line-clamp-2 font-body-md">
+        {santo.resumo}
+      </p>
     </Link>
   );
 }

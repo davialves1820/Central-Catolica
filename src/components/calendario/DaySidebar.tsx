@@ -3,133 +3,89 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { DateTime } from "luxon";
-import { Calendar as CalendarIcon, Info, Sparkles } from "lucide-react";
-import { type PropsBarraLateralDia, type DadosDiaLiturgico, BADGE_BG, GRAUS } from "@/types/calendario";
-import ColorDot from "./ColorDot";
+import { Book, Music, BookOpen, Calendar as CalendarIcon } from "lucide-react";
+import { type PropsBarraLateralDia } from "@/types/calendario";
 
 export default function DaySidebar({ diaSelecionado, dadosSelecionados }: PropsBarraLateralDia) {
+  const dataFormatada = diaSelecionado
+    ? DateTime.fromISO(diaSelecionado).setLocale("pt-BR").toFormat("d 'de' MMMM 'de' yyyy")
+    : "";
+
+  const dataUrl = diaSelecionado ? DateTime.fromISO(diaSelecionado) : null;
+
   return (
-    <div className="hidden md:block space-y-5">
+    <aside className="hidden lg:block lg:col-span-1 space-y-gutter">
       <AnimatePresence mode="wait">
         {dadosSelecionados && diaSelecionado ? (
           <motion.div
             key={diaSelecionado}
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -16 }}
-            className="space-y-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="sticky top-24 ghost-border bg-surface p-8 sacred-shadow space-y-8"
           >
-            {/* Main card */}
-            <div
-              className="border border-border rounded-2xl overflow-hidden shadow-lg"
-              style={{ background: "hsl(var(--card))" }}
-            >
-              {/* Colored top strip */}
-              <div
-                className="p-6"
-                style={{
-                  background:
-                    BADGE_BG[dadosSelecionados[0].cores[0]] || "hsl(var(--secondary))",
-                }}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <span className="text-xs font-bold font-body uppercase tracking-[0.2em] text-white/60">
-                    {DateTime.fromISO(diaSelecionado).toFormat("dd 'de' MMMM", {
-                      locale: "pt-BR",
-                    })}
-                  </span>
-                  <CalendarIcon size={16} className="text-white/40" aria-hidden="true" />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white leading-tight">
-                  {dadosSelecionados[0].nome}
-                </h3>
-              </div>
-
-              {/* Details */}
-              <div className="p-8 space-y-6">
-                {[
-                  {
-                    Icon: Info,
-                    label: "Grau Litúrgico",
-                    value: GRAUS[dadosSelecionados[0].rank] || dadosSelecionados[0].nomeRank,
-                  },
-                  {
-                    Icon: Sparkles,
-                    label: "Tempo Litúrgico",
-                    value: dadosSelecionados[0].nomesTemporadas?.join(", "),
-                  },
-                ].map(({ Icon, label, value }) => (
-                  <div key={label} className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center shadow-inner"
-                      style={{
-                        background: "hsl(var(--secondary))",
-                        color: "hsl(var(--gold))",
-                      }}
-                    >
-                      <Icon size={20} aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] text-muted-foreground uppercase font-bold tracking-widest font-body mb-0.5">
-                        {label}
-                      </p>
-                      <p className="font-bold text-foreground font-body text-base">{value}</p>
-                    </div>
-                  </div>
-                ))}
-
-                {/* CTA */}
-                <div className="pt-6 border-t border-border/50">
-                  <Link
-                    href={`/liturgia?dia=${DateTime.fromISO(diaSelecionado).day}&mes=${DateTime.fromISO(diaSelecionado).month}&ano=${DateTime.fromISO(diaSelecionado).year}`}
-                    className="flex items-center justify-center w-full py-4 rounded-xl font-body font-bold text-sm transition-all hover:scale-[1.02] active:scale-100 shadow-xl shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                    style={{
-                      background: "hsl(var(--primary))",
-                      color: "hsl(var(--primary-foreground))",
-                    }}
-                  >
-                    Ver Leituras do Dia
-                  </Link>
-                </div>
-              </div>
+            <div className="border-b border-outline-variant/30 pb-6 mb-6">
+              <h3 className="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-2">
+                {dataFormatada}
+              </h3>
+              <h2 className="font-headline-lg text-headline-lg text-on-surface">
+                {dadosSelecionados[0].nome}
+              </h2>
             </div>
 
-            {/* Other memorials */}
-            {dadosSelecionados.length > 1 && (
-              <div className="space-y-2">
-                <h4 className="text-xs font-bold font-body text-muted-foreground uppercase tracking-widest px-1">
-                  Outras Memórias
-                </h4>
-                {dadosSelecionados.slice(1).map((day: DadosDiaLiturgico, i: number) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-3 border border-border rounded-xl p-4"
-                    style={{ background: "hsl(var(--card))" }}
-                  >
-                    <ColorDot cor={day.cores[0]} />
-                    <p className="text-sm font-bold font-body text-foreground">{day.nome}</p>
-                  </div>
-                ))}
+            <div className="space-y-6">
+              <div>
+                <h4 className="font-label-md text-label-md mb-2 text-secondary uppercase tracking-widest">Detalhes Litúrgicos</h4>
+                <p className="font-body-md text-on-surface-variant leading-relaxed">
+                  {dadosSelecionados[0].nomeRank} do {dadosSelecionados[0].nomesTemporadas?.join(", ")}.
+                  Cor Litúrgica: {dadosSelecionados[0].nomesCores?.join(", ")}.
+                </p>
               </div>
-            )}
+
+              <div>
+                <h4 className="font-label-md text-label-md mb-3 text-secondary uppercase tracking-widest">Sugestão de Leituras</h4>
+                <ul className="space-y-3 text-on-surface-variant font-body-md">
+                  <li className="flex items-center gap-3 group cursor-default">
+                    <span className="p-1.5 rounded-full bg-surface-container-low text-secondary transition-colors group-hover:bg-secondary group-hover:text-background">
+                      <Book size={14} />
+                    </span>
+                    <span className="group-hover:text-primary transition-colors">Primeira Leitura</span>
+                  </li>
+                  <li className="flex items-center gap-3 group cursor-default">
+                    <span className="p-1.5 rounded-full bg-surface-container-low text-secondary transition-colors group-hover:bg-secondary group-hover:text-background">
+                      <Music size={14} />
+                    </span>
+                    <span className="group-hover:text-primary transition-colors">Salmo Responsorial</span>
+                  </li>
+                  <li className="flex items-center gap-3 group cursor-default">
+                    <span className="p-1.5 rounded-full bg-surface-container-low text-secondary transition-colors group-hover:bg-secondary group-hover:text-background">
+                      <BookOpen size={14} />
+                    </span>
+                    <span className="group-hover:text-primary transition-colors">Evangelho</span>
+                  </li>
+                </ul>
+              </div>
+
+              {dataUrl && (
+                <Link
+                  href={`/liturgia?dia=${dataUrl.day}&mes=${dataUrl.month}&ano=${dataUrl.year}`}
+                  className="block w-full py-4 bg-primary text-background text-center font-label-md uppercase tracking-widest transition-all active:scale-95 hover:opacity-90 shadow-lg shadow-primary/10"
+                >
+                  Ver Liturgia Completa
+                </Link>
+              )}
+            </div>
           </motion.div>
         ) : (
-          /* Empty state */
-          <div
-            className="flex flex-col items-center justify-center text-center p-12 rounded-2xl border-2 border-dashed border-border"
-            role="status"
-          >
-            <CalendarIcon
-              size={36}
-              className="text-muted-foreground/20 mb-3"
-              aria-hidden="true"
-            />
-            <p className="text-sm text-muted-foreground font-body">
-              Selecione um dia para ver os detalhes litúrgicos.
+          <div className="sticky top-24 ghost-border bg-surface p-12 sacred-shadow text-center space-y-4">
+            <CalendarIcon size={48} className="mx-auto text-outline-variant opacity-30" />
+            <p className="font-body-md text-on-surface-variant italic">
+              Selecione um dia no calendário para contemplar seus mistérios.
             </p>
           </div>
         )}
       </AnimatePresence>
-    </div>
+    </aside>
   );
 }
+

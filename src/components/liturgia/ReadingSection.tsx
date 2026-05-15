@@ -2,62 +2,52 @@
 
 import { PropsSecaoLeitura } from "@/types/liturgia";
 
-const ReadingSection = ({ titulo, leitura, Icon, ehEvangelho }: PropsSecaoLeitura) => {
+const ReadingSection = ({ titulo, leitura, Icon }: PropsSecaoLeitura) => {
   return (
-    <section className="space-y-5">
+    <section className="space-y-10">
       {/* Label */}
-      <div className="flex items-center gap-3 border-b border-border pb-3">
-        <Icon
-          size={20}
-          aria-hidden="true"
-          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--gold))" }}
-        />
-        <h2
-          className="font-heading text-2xl font-semibold"
-          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--foreground))" }}
-        >
-          {titulo}
-        </h2>
+      <div className="flex flex-col gap-6">
+        <div className="flex items-center gap-4">
+          <div
+            className="w-12 h-12 rounded-2xl flex items-center justify-center bg-primary/5 transition-colors group-hover:bg-primary/10"
+            aria-hidden="true"
+          >
+            <Icon size={20} className="text-primary" />
+          </div>
+          <h2 className="font-heading text-3xl md:text-4xl font-medium text-foreground">
+            {titulo}
+          </h2>
+        </div>
       </div>
 
-      {/* Card */}
-      <div
-        className="rounded-2xl border p-7 shadow-xl"
-        style={{
-          background: "hsl(var(--card))",
-          borderColor: ehEvangelho
-            ? "hsl(var(--crimson)/0.25)"
-            : "hsl(var(--gold)/0.15)",
-          boxShadow: ehEvangelho
-            ? "0 8px 32px hsl(var(--crimson)/0.06)"
-            : "0 8px 32px hsl(var(--gold)/0.06)",
-        }}
-      >
+      {/* Content */}
+      <div className="bg-card/40 backdrop-blur-sm p-10 md:p-14 border border-border/40 rounded-[2rem] shadow-2xl shadow-foreground/5 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+        
         {/* Reference */}
-        <p
-          className="text-xs font-bold font-body uppercase tracking-widest mb-1"
-          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--gold))" }}
-        >
-          {leitura.referencia}
-        </p>
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-16 h-[1px] bg-primary/30"></div>
+          <p className="text-xl md:text-2xl font-heading font-medium text-primary tracking-normal">
+            {leitura.referencia}
+          </p>
+        </div>
 
         {/* Title */}
-        <h3
-          className="font-heading text-xl md:text-2xl font-semibold mb-5"
-          style={{ color: ehEvangelho ? "hsl(var(--crimson-light))" : "hsl(var(--foreground))" }}
-        >
+        <h3 className="font-heading text-3xl md:text-5xl font-medium mb-12 text-foreground leading-[1.2] max-w-3xl">
           {leitura.titulo}
         </h3>
 
         {/* Text */}
-        <div
-          className="text-foreground/85 leading-[1.95] whitespace-pre-line"
-          style={{
-            fontFamily: "var(--font-reading)",
-            fontSize: "1.05rem",
-          }}
-        >
+        <div className="text-foreground/90 text-xl md:text-2xl leading-[1.7] whitespace-pre-line font-reading italic">
           {leitura.texto}
+        </div>
+
+        {/* Sacred Divider for end of reading */}
+        <div className="flex items-center justify-center gap-6 mt-16 opacity-30">
+          <div className="h-[1px] w-12 bg-primary"></div>
+          <div className="w-2 h-2 rounded-full border border-primary rotate-45"></div>
+          <div className="h-[1px] w-12 bg-primary"></div>
         </div>
       </div>
     </section>

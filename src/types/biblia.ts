@@ -64,9 +64,9 @@ export const TEMAS: Record<Tema, TokensTema> = {
 };
 
 export const LABELS_TEMA: Record<Tema, string> = {
-  pergaminho: "Pergaminho",
-  escuro: "Velino",
-  claro: "Branco",
+  pergaminho: "Sépia",
+  escuro: "Noite",
+  claro: "Dia",
 };
 
 export const TAMANHO_FONTE_MIN: TamanhoFonte = 14;
@@ -76,6 +76,25 @@ export const TAMANHO_FONTE_PASSO = 2;
 export interface DadosBiblia {
   antigoTestamento: Livro[];
   novoTestamento: Livro[];
+}
+
+export interface PropsBookCard {
+  name: string;
+  chapters: number;
+}
+
+export interface PropsBooksGrid {
+  title: string;
+  subtitle: string;
+  books: Livro[];
+}
+
+export interface PropsLeituraDoDia {
+  livro: string;
+  capitulo: string;
+  versiculos: string;
+  texto: string;
+  imageUrl?: string;
 }
 
 export interface PropsInfoProgresso {

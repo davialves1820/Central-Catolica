@@ -3,14 +3,10 @@ import { PropsBadgeIconeOuro } from "@/types/biblia";
 export default function BadgeIconeOuro({ icon: Icon, "aria-hidden": ariaHidden = true }: PropsBadgeIconeOuro) {
     return (
         <div
-            className="p-3 rounded-lg"
-            style={{
-                background: "hsl(var(--gold)/0.12)",
-                border: "1px solid hsl(var(--gold)/0.25)",
-            }}
+            className="w-12 h-12 rounded-full flex items-center justify-center bg-primary/5 border border-primary/10 transition-all hover:bg-primary/10"
             aria-hidden={ariaHidden}
         >
-            <Icon className="w-5 h-5" style={{ color: "hsl(var(--gold))" }} />
+            <Icon className="w-6 h-6 text-primary" />
         </div>
     );
 }

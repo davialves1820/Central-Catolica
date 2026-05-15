@@ -4,23 +4,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { PropsFiltroLetra } from "@/types/oracao";
 
-export default function FiltroLetra({ letras, letraAtiva, setLetraAtiva, config, visiveis }: PropsFiltroLetra) {
+export default function FiltroLetra({ letras, letraAtiva, setLetraAtiva, visiveis }: PropsFiltroLetra) {
     return (
-        <div className="mb-8">
-            <p className="text-xs font-body font-bold uppercase tracking-widest text-muted-foreground mb-3">
+        <div className="mb-10">
+            <p className="font-label-sm text-on-surface-variant uppercase tracking-widest mb-4">
                 Filtrar por inicial
             </p>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
                 <motion.button
-                    whileTap={{ scale: 0.92 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setLetraAtiva(null)}
-                    className="px-4 py-2 rounded-lg text-sm font-body font-bold border"
-                    style={
+                    className={`px-5 py-2.5 rounded-xl text-label-md font-bold transition-all border ${
                         letraAtiva === null
-                            ? { background: config.cor, color: "hsl(var(--primary-foreground))", borderColor: config.cor }
-                            : { background: "hsl(var(--card))", color: "hsl(var(--muted-foreground))", borderColor: "hsl(var(--border))" }
-                    }
+                            ? "bg-primary text-white border-primary shadow-md"
+                            : "bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-secondary/40"
+                    }`}
                 >
                     Todas
                 </motion.button>
@@ -31,23 +30,13 @@ export default function FiltroLetra({ letras, letraAtiva, setLetraAtiva, config,
                     return (
                         <motion.button
                             key={letra}
-                            whileTap={{ scale: 0.92 }}
+                            whileTap={{ scale: 0.95 }}
                             onClick={() => setLetraAtiva(isAtiva ? null : letra)}
-                            className="relative w-11 h-11 rounded-xl text-sm font-bold font-heading border"
-                            style={
+                            className={`w-11 h-11 rounded-xl font-headline-sm text-headline-sm transition-all border flex items-center justify-center ${
                                 isAtiva
-                                    ? {
-                                        background: config.cor,
-                                        color: "hsl(var(--primary-foreground))",
-                                        borderColor: config.cor,
-                                        boxShadow: `0 4px 16px ${config.borda}`,
-                                    }
-                                    : {
-                                        background: config.brilho,
-                                        color: config.cor,
-                                        borderColor: config.borda,
-                                    }
-                            }
+                                    ? "bg-secondary text-white border-secondary shadow-md"
+                                    : "bg-surface-container-low text-primary border-outline-variant/30 hover:border-secondary/40"
+                            }`}
                         >
                             {letra}
                         </motion.button>
@@ -58,21 +47,25 @@ export default function FiltroLetra({ letras, letraAtiva, setLetraAtiva, config,
             <AnimatePresence>
                 {letraAtiva && (
                     <motion.div
-                        initial={{ opacity: 0, y: -6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -6 }}
-                        className="mt-3 flex items-center gap-2"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        className="mt-6 flex items-center gap-3 text-secondary"
                     >
-                        <span className="text-sm font-body font-semibold" style={{ color: config.cor }}>
-                            {visiveis.length} orações com inicial “{letraAtiva}”
+                        <span className="font-body-md font-semibold">
+                            {visiveis.length} orações com a inicial “{letraAtiva}”
                         </span>
 
-                        <button onClick={() => setLetraAtiva(null)} className="text-xs flex items-center gap-1">
-                            <X size={12} /> limpar
+                        <button 
+                            onClick={() => setLetraAtiva(null)} 
+                            className="p-1 hover:bg-secondary/10 rounded-full transition-colors"
+                            title="Limpar filtro"
+                        >
+                            <X size={16} />
                         </button>
                     </motion.div>
                 )}
             </AnimatePresence>
         </div>
     );
-}
+}

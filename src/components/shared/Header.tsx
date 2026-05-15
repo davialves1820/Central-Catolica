@@ -3,16 +3,17 @@
 import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Sun, CalendarDays, Menu, X, Search, Heart, Newspaper, Leaf } from "lucide-react";
+import { Church, Menu, X } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const NAV = [
-  { label: "Bíblia", href: "/biblia", icon: BookOpen },
-  { label: "Liturgia", href: "/liturgia", icon: Sun },
-  { label: "Calendário", href: "/calendario", icon: CalendarDays },
-  { label: "Oração", href: "/oracoes", icon: Heart },
-  { label: "Notícias", href: "/noticias", icon: Newspaper },
-  { label: "Santos", href: "/santos", icon: Leaf },
+  { label: "Início", href: "/" },
+  { label: "Bíblia", href: "/biblia" },
+  { label: "Liturgia", href: "/liturgia" },
+  { label: "Orações", href: "/oracoes" },
+  { label: "Notícias", href: "/noticias" },
+  { label: "Calendário", href: "/calendario" },
+  { label: "Santos", href: "/santos" },
 ] as const;
 
 const subscribe = () => () => { };
@@ -36,7 +37,11 @@ const Header = () => {
   }, []);
 
   const isActive = useCallback(
-    (href: string) => mounted && (pathname === href || pathname.startsWith(href + "/")),
+    (href: string) => {
+      if (!mounted) return false;
+      if (href === "/") return pathname === "/";
+      return pathname.startsWith(href);
+    },
     [pathname, mounted],
   );
 
@@ -51,76 +56,42 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-background/98 backdrop-blur-md shadow-sm border-b border-border"
-        : "bg-background/95 backdrop-blur-sm border-b border-border/60"
+      className={`sticky top-0 z-50 transition-all duration-300 border-b ${scrolled
+        ? "bg-[#fbf9f4]/98 backdrop-blur-md shadow-sm border-[#755b00]/20"
+        : "bg-[#fbf9f4]/95 backdrop-blur-sm border-[#755b00]/10"
         }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-3 px-4">
+      <div className="container mx-auto flex items-center justify-between py-4 px-5 md:px-16">
 
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+          className="flex items-center gap-3 group focus-visible:outline-none rounded-lg"
           aria-label="Central Católica — Página Inicial"
         >
-          <div
-            className="relative w-9 h-9 flex items-center justify-center rounded-sm border transition-colors duration-300"
-            style={{ borderColor: "hsl(var(--gold)/0.4)", background: "hsl(var(--gold)/0.06)" }}
-            aria-hidden="true"
-          >
-            <div
-              className="absolute"
-              style={{ width: "1.5px", height: "22px", background: "hsl(var(--gold))", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}
-            />
-            <div
-              className="absolute"
-              style={{ width: "14px", height: "1.5px", background: "hsl(var(--gold))", top: "38%", left: "50%", transform: "translate(-50%,-50%)" }}
-            />
-          </div>
-          <p className="font-heading text-base font-semibold text-foreground leading-tight group-hover:text-primary transition-colors duration-200">
-            Central Católica
-          </p>
+          <Church size={24} className="text-[#000000]" />
+          <h1 className="font-sans text-[14px] leading-[20px] tracking-[0.2em] font-bold uppercase text-[#000000]">CENTRAL CATÓLICA</h1>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1" aria-label="Navegação principal">
-          {NAV.map(({ label, href, icon: Icon }) => {
+        <nav className="hidden md:flex items-center gap-10" aria-label="Navegação principal">
+          {NAV.map(({ label, href }) => {
             const active = isActive(href);
             return (
               <Link
                 key={href}
                 href={href}
                 aria-current={active ? "page" : undefined}
-                className={`relative flex items-center gap-1.5 px-4 py-2 rounded-lg font-body text-sm font-bold transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${active
-                  ? "text-primary bg-primary/8"
-                  : "text-foreground/70 hover:text-foreground hover:bg-secondary/60"
+                className={`relative py-1 text-[12px] uppercase tracking-widest font-bold transition-all duration-300 focus-visible:outline-none ${active
+                  ? "text-[#000000] border-b-2 border-[#755b00]"
+                  : "text-[#4d4540] font-medium hover:text-[#755b00]"
                   }`}
               >
-                <Icon
-                  size={15}
-                  aria-hidden="true"
-                  className={active ? "text-primary" : "text-muted-foreground group-hover:text-foreground transition-colors"}
-                />
                 {label}
-                {active && (
-                  <span
-                    className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
-                    aria-hidden="true"
-                    style={{ background: "hsl(var(--gold))" }}
-                  />
-                )}
               </Link>
             );
           })}
 
-          <Link
-            href="/biblia/pesquisa"
-            aria-label="Pesquisar na Bíblia"
-            className="ml-1 p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          >
-            <Search size={17} aria-hidden="true" />
-          </Link>
         </nav>
 
         {/* Mobile toggle */}
@@ -129,16 +100,16 @@ const Header = () => {
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
-          className="md:hidden p-2 rounded-lg text-foreground hover:bg-secondary/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="md:hidden p-2 rounded-lg text-[#1b1c19] hover:bg-[#f0eee9] transition-colors focus-visible:outline-none"
         >
           <AnimatePresence mode="wait" initial={false}>
             {menuOpen ? (
               <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                <X size={22} aria-hidden="true" />
+                <X size={24} aria-hidden="true" />
               </motion.div>
             ) : (
               <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                <Menu size={22} aria-hidden="true" />
+                <Menu size={24} aria-hidden="true" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -156,11 +127,11 @@ const Header = () => {
             animate="open"
             exit="closed"
             transition={{ duration: 0.22, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden border-t border-border bg-background"
+            className="md:hidden overflow-hidden border-t border-[#d0c4be] bg-[#fbf9f4]"
             aria-label="Menu mobile"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
-              {NAV.map(({ label, href, icon: Icon }, i) => {
+            <div className="container mx-auto px-5 py-6 flex flex-col gap-4">
+              {NAV.map(({ label, href }, i) => {
                 const active = isActive(href);
                 return (
                   <motion.div key={href} custom={i} variants={itemVariants} initial="closed" animate="open">
@@ -168,29 +139,14 @@ const Header = () => {
                       href={href}
                       onClick={() => setMenuOpen(false)}
                       aria-current={active ? "page" : undefined}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl font-body text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${active ? "bg-primary/10 text-primary" : "text-foreground hover:bg-secondary/60"
+                      className={`block py-3 text-[14px] uppercase tracking-widest font-bold transition-all ${active ? "text-[#755b00]" : "text-[#1b1c19] hover:text-[#755b00]"
                         }`}
                     >
-                      <Icon size={18} aria-hidden="true" className={active ? "text-primary" : "text-muted-foreground"} />
                       {label}
-                      {active && (
-                        <span className="ml-auto w-1.5 h-1.5 rounded-full" aria-hidden="true" style={{ background: "hsl(var(--gold))" }} />
-                      )}
                     </Link>
                   </motion.div>
                 );
               })}
-
-              <motion.div custom={NAV.length} variants={itemVariants} initial="closed" animate="open">
-                <Link
-                  href="/biblia/search"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl font-body text-sm font-bold text-muted-foreground hover:bg-secondary/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                  <Search size={18} aria-hidden="true" />
-                  Pesquisar na Bíblia
-                </Link>
-              </motion.div>
             </div>
           </motion.nav>
         )}

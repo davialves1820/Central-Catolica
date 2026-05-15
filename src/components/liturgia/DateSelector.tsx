@@ -4,7 +4,6 @@ import { PropsSeletorData } from "@/types/liturgia";
 import { useRouter } from "next/navigation";
 import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 const pushDate = (router: ReturnType<typeof useRouter>, date: Date) => {
   const d = date.getDate();
@@ -45,40 +44,30 @@ export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
     currentDate.getFullYear() === today.getFullYear();
 
   const formattedDate = currentDate.toLocaleDateString("pt-BR", {
-    weekday: "long", day: "numeric", month: "long", year: "numeric",
+    weekday: "long", day: "numeric", month: "long"
   });
 
   return (
-    <div
-      className="border-b border-border py-4"
-      style={{ background: "hsl(var(--secondary))" }}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <div className="border-b border-border/40 bg-card/30 backdrop-blur-md sticky top-0 z-50">
+      <div className="max-w-[1400px] mx-auto px-6 py-4">
+        <div className="flex items-center justify-between gap-4">
 
-          {/* Nav group */}
           <div className="flex items-center gap-2">
-            <motion.button whileTap={{ scale: 0.92 }}
+            <button
               onClick={() => { const p = new Date(currentDate); p.setDate(p.getDate() - 1); pushDate(router, p); }}
-              aria-label="Dia anterior"
-              className="w-9 h-9 rounded-lg border border-border flex items-center justify-center transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              style={{ background: "hsl(var(--card))" }}
+              className="w-10 h-10 rounded-xl border border-border/40 flex items-center justify-center hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
             >
-              <ChevronLeft size={17} className="text-muted-foreground" aria-hidden="true" />
-            </motion.button>
+              <ChevronLeft size={18} />
+            </button>
 
-            {/* Date picker trigger */}
             <label htmlFor="liturgia-date" className="relative group cursor-pointer">
-              <div
-                className="flex items-center gap-2.5 px-4 py-2 rounded-lg border border-border transition-all duration-200 group-focus-within:border-primary/50"
-                style={{ background: "hsl(var(--card))" }}
-              >
-                <Calendar size={15} aria-hidden="true" style={{ color: "hsl(var(--gold))" }} />
+              <div className="flex items-center gap-4 px-6 py-2 rounded-xl bg-card/50 border border-border/40 hover:border-primary/30 transition-all">
+                <Calendar size={16} className="text-primary opacity-70" />
                 <div className="flex flex-col">
-                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-body leading-none mb-0.5">
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-primary font-bold leading-none mb-1">
                     Liturgia do dia
                   </span>
-                  <span className="text-sm font-heading font-semibold text-foreground capitalize">
+                  <span className="text-sm font-heading font-medium text-foreground capitalize">
                     {formattedDate}
                   </span>
                 </div>
@@ -91,37 +80,25 @@ export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
                     router.push(`/liturgia?dia=${parseInt(d)}&mes=${parseInt(m)}&ano=${y}`);
                   }
                 }}
-                className="absolute inset-0 opacity-0 cursor-pointer w-full"
-                aria-label="Selecionar data da liturgia"
+                className="absolute inset-0 opacity-0 cursor-pointer"
               />
             </label>
 
-            <motion.button whileTap={{ scale: 0.92 }}
+            <button
               onClick={() => { const n = new Date(currentDate); n.setDate(n.getDate() + 1); pushDate(router, n); }}
-              aria-label="Próximo dia"
-              className="w-9 h-9 rounded-lg border border-border flex items-center justify-center transition-all hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              style={{ background: "hsl(var(--card))" }}
+              className="w-10 h-10 rounded-xl border border-border/40 flex items-center justify-center hover:bg-primary/5 transition-all text-muted-foreground hover:text-primary"
             >
-              <ChevronRight size={17} className="text-muted-foreground" aria-hidden="true" />
-            </motion.button>
+              <ChevronRight size={18} />
+            </button>
           </div>
 
-          {/* Today button */}
           {!isToday && (
-            <motion.button
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => pushDate(router, new Date())}
-              className="text-xs font-bold font-body px-4 py-2 rounded-full border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              style={{
-                color: "hsl(var(--gold))",
-                borderColor: "hsl(var(--gold)/0.3)",
-                background: "hsl(var(--gold)/0.06)",
-              }}
+              className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white text-[10px] font-bold uppercase tracking-widest hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
             >
-              Ir para hoje
-            </motion.button>
+              Voltar para hoje
+            </button>
           )}
         </div>
       </div>

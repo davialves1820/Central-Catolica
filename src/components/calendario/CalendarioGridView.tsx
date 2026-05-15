@@ -2,88 +2,88 @@
 
 import { motion } from "framer-motion";
 import { DateTime } from "luxon";
-import { type PropsVisualizacaoGradeCalendario, PONTO } from "@/types/calendario";
+import { type PropsVisualizacaoGradeCalendario } from "@/types/calendario";
+import { Star } from "lucide-react";
 
-const DIAS_SEMANA = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+const DIAS_SEMANA = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SAB"];
 
-export default function CalendarioGridView({ dias, calendario, diaSelecionado, estaMontado, rotuloMes, aoSelecionarDia, }: PropsVisualizacaoGradeCalendario) {
+export default function CalendarioGridView({
+  dias,
+  calendario,
+  diaSelecionado,
+  estaMontado,
+  aoSelecionarDia,
+}: PropsVisualizacaoGradeCalendario) {
   return (
-    <>
-      {/* Weekday headers */}
-      <div className="grid grid-cols-7 text-center border-b border-border/50">
-        {DIAS_SEMANA.map((d) => (
-          <div
-            key={d}
-            className="py-3 text-[10px] font-bold font-body uppercase tracking-widest text-muted-foreground"
+    <div className="calendar-grid ghost-border bg-surface shadow-sm overflow-hidden">
+      {/* Day Labels */}
+      {DIAS_SEMANA.map((d, idx) => (
+        <div
+          key={d}
+          className={`p-4 border-b border-outline-variant/20 bg-surface-container-lowest text-center font-label-sm text-label-sm text-on-surface-variant ${idx < 6 ? "border-r" : ""}`}
+        >
+          {d}
+        </div>
+      ))}
+
+      {/* Days */}
+      {dias.map(({ data, ehMesAtual }, idx) => {
+        const dateStr = data.toISODate()!;
+        const ld = calendario[dateStr] || [];
+        const main = ld[0];
+        const isSelected = diaSelecionado === dateStr;
+        const isToday = estaMontado && data.hasSame(DateTime.now(), "day");
+        const cor = main?.cores?.[0] || "BRANCO";
+
+        // Liturgical color mapping to Tailwind classes
+        const colorClasses: Record<string, string> = {
+          VERDE: "bg-green-700",
+          VERMELHO: "bg-red-700",
+          ROXO: "bg-purple-700",
+          BRANCO: "bg-white border border-outline-variant/30",
+          PRETO: "bg-black",
+          ROSA: "bg-pink-400",
+        };
+
+        return (
+          <motion.button
+            key={dateStr}
+            type="button"
+            whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              if (ehMesAtual) aoSelecionarDia(dateStr);
+            }}
+            className={`h-32 sm:h-40 p-3 border-outline-variant/20 flex flex-col justify-between transition-colors text-left
+              ${ehMesAtual ? "hover:bg-surface-container-low cursor-pointer" : "bg-surface-container-low/30 cursor-default opacity-40"}
+              ${idx % 7 !== 6 ? "border-r" : ""}
+              ${idx < dias.length - 7 ? "border-b" : ""}
+              ${isSelected ? "bg-surface-container-highest/40 ring-1 ring-inset ring-primary z-10" : ""}
+            `}
           >
-            {d}
-          </div>
-        ))}
-      </div>
-
-      {/* Day cells */}
-      <div className="grid grid-cols-7" role="grid" aria-label={`Calendário de ${rotuloMes}`}>
-        {dias.map(({ data, ehMesAtual }, idx) => {
-          const dateStr = data.toISODate()!;
-          const ld = calendario[dateStr] || [];
-          const main = ld[0];
-          const isSelected = diaSelecionado === dateStr;
-          const isToday = estaMontado && data.hasSame(DateTime.now(), "day");
-          const cor = main?.cores?.[0] || "AMARELO";
-
-          return (
-            <motion.button
-              key={dateStr}
-              type="button"
-              role="gridcell"
-              whileTap={{ scale: 0.93 }}
-              onClick={() => { if (ehMesAtual) aoSelecionarDia(dateStr); }}
-              aria-label={`${data.toFormat("dd 'de' MMMM", { locale: "pt-BR" })}${main ? ": " + main.nome : ""}`}
-              aria-selected={isSelected}
-              aria-current={isToday ? "date" : undefined}
-              className={`relative border-r border-b p-2 sm:p-4 text-left transition-all
-                min-h-[90px] sm:min-h-[140px] xl:min-h-[160px] focus-visible:outline-none
-                ${idx % 7 === 6 ? "border-r-0" : ""}`}
-              style={{
-                borderColor: "hsl(var(--border)/0.4)",
-                background: !ehMesAtual
-                  ? "hsl(var(--background))"
-                  : isSelected
-                    ? "hsl(var(--gold)/0.08)"
-                    : undefined,
-                opacity: !ehMesAtual ? 0.15 : 1,
-                outline: isSelected ? "3px solid hsl(var(--gold)/0.6)" : undefined,
-                outlineOffset: isSelected ? "-3px" : undefined,
-              }}
-            >
-              {/* Day number */}
-              <span
-                className="text-sm sm:text-lg font-bold rounded-2xl w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center font-body mb-2"
-                style={
-                  isToday
-                    ? { background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }
-                    : { color: "hsl(var(--foreground))" }
-                }
-              >
+            <div className="flex justify-between items-start w-full">
+              <span className={`font-body-md text-body-md ${isToday ? "font-bold text-primary" : "text-on-surface"}`}>
                 {data.day}
               </span>
-
-              {/* Color bar + name */}
-              {main && ehMesAtual && (
-                <span className="mt-1 space-y-2 block">
-                  <span
-                    className={`block h-1 w-full rounded-full ${PONTO[cor] || "bg-slate-400"}`}
-                    aria-hidden="true"
-                  />
-                  <span className="hidden md:block text-[10px] sm:text-xs leading-tight font-medium font-body text-muted-foreground line-clamp-3">
-                    {main.nome}
-                  </span>
-                </span>
+              {main?.rank === "SOLEMNITY" && (
+                <Star size={14} className="text-secondary fill-secondary" />
               )}
-            </motion.button>
-          );
-        })}
-      </div>
-    </>
+            </div>
+
+            {main && ehMesAtual && (
+              <div className="flex flex-col gap-1 w-full">
+                <div 
+                  className={`w-full h-1 ${colorClasses[cor] || "bg-outline-variant"}`}
+                  title={main.nome}
+                />
+                <span className="hidden md:block text-[10px] leading-tight font-body-md text-on-surface-variant line-clamp-1">
+                  {main.nome}
+                </span>
+              </div>
+            )}
+          </motion.button>
+        );
+      })}
+    </div>
   );
-}
+}
+

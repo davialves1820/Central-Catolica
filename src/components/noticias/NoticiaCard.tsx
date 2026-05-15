@@ -1,91 +1,55 @@
-"use client";
-
 import Image from "next/image";
-import { Noticia, ESTILO_FONTE } from "@/types";
+import Link from "next/link";
+import { Noticia } from "@/types";
 import { formatarData } from "@/lib/server/services/noticias";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
-  const estiloFonte = ESTILO_FONTE[noticia.fonte] ?? ESTILO_FONTE.vaticannews;
-
   return (
-    <a
-      href={noticia.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="noticia-card group flex flex-col overflow-hidden rounded-xl border border-border transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      style={{
-        background: "hsl(var(--card))",
-        "--hover-border": estiloFonte.borda,
-        "--hover-shadow": estiloFonte.cor,
-      } as React.CSSProperties}
-    >
-      {/* Image */}
-      {noticia.imagem && (
-        <div
-          className="relative h-44 overflow-hidden"
-          style={{ background: "hsl(var(--secondary))" }}
-        >
-          <Image
-            src={noticia.imagem}
-            alt={noticia.titulo}
-            fill
-            className="object-cover transition duration-500 group-hover:scale-105"
-            unoptimized
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-            aria-hidden="true"
-          />
+    <article className="group flex flex-col h-full bg-surface-container-lowest border border-secondary/5 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-secondary/5 transition-all duration-500">
+      <div className="relative overflow-hidden aspect-video bg-surface-container-low">
+        {noticia.imagem ? (
+            <Image 
+                src={noticia.imagem} 
+                alt={noticia.titulo} 
+                fill 
+                className="object-cover transition-all duration-1000 group-hover:scale-110"
+                unoptimized
+            />
+        ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+                <Sparkles className="text-secondary/20" size={32} />
+            </div>
+        )}
+        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
+      </div>
+      
+      <div className="flex flex-col flex-1 p-8">
+        <div className="flex items-center gap-3 mb-4">
+            <div className="h-[1px] w-4 bg-secondary/30" />
+            <p className="font-label-sm text-secondary">
+                {formatarData(noticia.publicadoEm)}
+            </p>
         </div>
-      )}
-
-      <div className="flex flex-1 flex-col gap-3 p-5">
-        {/* Source + category badges */}
-        <div className="flex items-center gap-2 flex-wrap">
-          <span
-            className="rounded-full px-2.5 py-0.5 text-[10px] font-bold font-body uppercase tracking-wider border"
-            style={{
-              color: estiloFonte.cor,
-              borderColor: estiloFonte.borda,
-            }}
-          >
-            {noticia.fonteLabel}
-          </span>
-          {noticia.categoria && (
-            <span className="text-[10px] text-muted-foreground font-body">
-              {noticia.categoria}
-            </span>
-          )}
-        </div>
-
-        {/* Title */}
-        <h3 className="font-heading text-base font-semibold leading-snug text-foreground/90 group-hover:text-foreground transition-colors">
+        
+        <h3 className="font-headline-md text-primary mb-4 group-hover:text-secondary transition-colors duration-300 line-clamp-2 leading-snug">
           {noticia.titulo}
         </h3>
-
-        {/* Summary */}
-        {noticia.resumo && (
-          <p className="line-clamp-3 text-sm leading-relaxed text-muted-foreground font-body">
-            {noticia.resumo}
-          </p>
-        )}
-
-        {/* Footer */}
-        <div className="mt-auto flex items-center justify-between pt-2 border-t border-border/40">
-          <p className="text-xs text-muted-foreground font-body">
-            {formatarData(noticia.publicadoEm)}
-          </p>
-          <span
-            className="flex items-center gap-1 text-xs font-body font-bold transition-colors opacity-0 group-hover:opacity-100"
-            style={{ color: estiloFonte.cor }}
-          >
-            Ler íntegra
-            <ExternalLink size={11} aria-hidden="true" />
-          </span>
-        </div>
+        
+        <p className="font-body-sm text-on-surface-variant line-clamp-3 mb-8 flex-1 opacity-80 leading-relaxed">
+          {noticia.resumo}
+        </p>
+        
+        <Link 
+          href={noticia.url} 
+          target="_blank" 
+          className="inline-flex items-center gap-2 font-label-md text-primary hover:text-secondary transition-all group/link"
+        >
+          LER NOTÍCIA 
+          <ArrowUpRight size={14} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+        </Link>
       </div>
-    </a>
+    </article>
   );
 }
+

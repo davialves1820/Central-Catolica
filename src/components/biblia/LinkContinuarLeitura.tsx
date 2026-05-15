@@ -7,17 +7,13 @@ export default function LinkContinuarLeitura({ nomeLivro, capitulo }: PropsLinkC
         <Link
             href={`/biblia/${encodeURIComponent(nomeLivro)}/${capitulo}`}
             aria-label={`Continuar lendo ${nomeLivro}, capítulo ${capitulo}`}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-lg font-body font-bold text-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            style={{
-                background: "hsl(var(--primary))",
-                color: "hsl(var(--primary-foreground))",
-            }}
+            className="flex items-center gap-3 px-8 py-4 rounded-xl font-body font-bold text-xs uppercase tracking-widest transition-all group bg-foreground text-background hover:bg-primary hover:text-white shadow-lg shadow-foreground/5"
         >
             <span>
-                {nomeLivro}, Cap. {capitulo}
+                {nomeLivro} · {capitulo}
             </span>
             <ChevronRight
-                className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                 aria-hidden="true"
             />
         </Link>

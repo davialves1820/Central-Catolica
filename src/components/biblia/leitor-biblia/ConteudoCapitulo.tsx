@@ -22,17 +22,17 @@ export default function ConteudoCapitulo({
 
   if (modoLeitura === "continuo") {
     return (
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <p
-          className="text-center text-xs font-body mb-10 uppercase tracking-widest"
-          style={{ color: "hsl(var(--gold)/0.45)" }}
+          className="text-center font-body text-[10px] font-bold uppercase tracking-[0.4em] mb-16 opacity-40"
+          style={{ color: "hsl(var(--primary))" }}
         >
           Leitura contínua
         </p>
         {livro.capitulos.map((cap) => (
-          <div key={cap.capitulo} className="mb-16">
+          <div key={cap.capitulo} className="mb-24">
             <CabecalhoCapitulo t={t} nomeLivro={livro.nome} numeroCapitulo={cap.capitulo} />
-            <div className="space-y-0.5">
+            <div className="space-y-1">
               {cap.versiculos.map((v, vi) => (
                 <ItemVersiculo
                   key={v.versiculo}

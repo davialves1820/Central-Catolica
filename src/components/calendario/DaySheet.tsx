@@ -2,10 +2,9 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { DateTime } from "luxon";
-import { Info, Sparkles, X } from "lucide-react";
-import ColorDot from "./ColorDot";
+import { Book, Music, BookOpen, X } from "lucide-react";
 import Link from "next/link";
-import { type PropsDrawerDia, type DadosDiaLiturgico, BADGE_BG, GRAUS } from "@/types/calendario";
+import { type PropsDrawerDia, type DadosDiaLiturgico } from "@/types/calendario";
 
 function Backdrop({ onClick }: { onClick: () => void }) {
   return (
@@ -13,7 +12,7 @@ function Backdrop({ onClick }: { onClick: () => void }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed md:hidden inset-0 z-40 bg-black/50 backdrop-blur-sm"
+      className="fixed lg:hidden inset-0 z-40 bg-black/40 backdrop-blur-sm"
       onClick={onClick}
       aria-hidden="true"
     />
@@ -30,8 +29,8 @@ function Sheet({
   aoFechar: () => void;
 }) {
   const main = dadosSelecionados[0];
-  const cor = main?.cores?.[0] || "AMARELO";
-  const data = DateTime.fromISO(diaSelecionado);
+  const data = DateTime.fromISO(diaSelecionado).setLocale("pt-BR");
+  const dataFormatada = data.toFormat("d 'de' MMMM 'de' yyyy");
 
   return (
     <motion.div
@@ -39,117 +38,71 @@ function Sheet({
       animate={{ y: 0 }}
       exit={{ y: "100%" }}
       transition={{ type: "spring", damping: 30, stiffness: 320 }}
-      className="fixed md:hidden inset-x-0 bottom-0 z-50 rounded-t-3xl border-t border-border overflow-hidden"
-      style={{ background: "hsl(var(--card))", maxHeight: "80vh" }}
+      className="fixed lg:hidden inset-x-0 bottom-0 z-50 rounded-t-3xl border-t border-outline-variant/30 bg-white shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.15)] overflow-hidden"
       role="dialog"
       aria-label="Detalhes litúrgicos do dia"
+      style={{ maxHeight: "90vh" }}
     >
       {/* Drag handle */}
       <div className="flex justify-center pt-3 pb-1">
-        <div
-          className="w-10 h-1 rounded-full"
-          style={{ background: "hsl(var(--border))" }}
-          aria-hidden="true"
-        />
+        <div className="w-12 h-1 bg-outline-variant/30 rounded-full" aria-hidden="true" />
       </div>
 
-      {/* Colored header */}
-      <div
-        className="px-5 py-4"
-        style={{ background: BADGE_BG[cor] || "hsl(var(--secondary))" }}
-      >
-        <div className="flex items-start justify-between">
-          <div>
-            <p className="text-xs font-bold font-body uppercase tracking-widest text-white/60 mb-1">
-              {data.toFormat("EEEE, dd 'de' MMMM", { locale: "pt-BR" })}
+      <div className="px-gutter pb-8 overflow-y-auto" style={{ maxHeight: "calc(90vh - 40px)" }}>
+        <div className="flex justify-between items-start mb-6 pt-4">
+          <div className="space-y-1">
+            <p className="font-label-sm text-label-sm text-secondary uppercase tracking-widest">
+              {dataFormatada}
             </p>
-            <h3 className="font-heading text-xl font-bold text-white leading-tight">
+            <h3 className="font-headline-md text-headline-md text-primary leading-tight">
               {main.nome}
             </h3>
           </div>
           <button
             onClick={aoFechar}
-            aria-label="Fechar detalhes"
-            className="p-1.5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+            className="p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant"
           >
-            <X size={18} aria-hidden="true" />
+            <X size={20} />
           </button>
         </div>
-      </div>
 
-      {/* Scrollable body */}
-      <div
-        className="overflow-y-auto px-5 py-5 space-y-4"
-        style={{ maxHeight: "calc(80vh - 120px)" }}
-      >
-        {/* Rank + season */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {[
-            { Icon: Info, label: "Grau", value: GRAUS[main.rank] || main.nomeRank },
-            { Icon: Sparkles, label: "Tempo", value: main.nomesTemporadas?.join(", ") },
-          ].map(({ Icon, label, value }) => (
-            <div
-              key={label}
-              className="rounded-2xl border border-border/50 p-4 shadow-sm"
-              style={{ background: "hsl(var(--secondary)/0.5)" }}
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <div
-                  className="w-6 h-6 rounded-lg flex items-center justify-center"
-                  style={{
-                    background: "hsl(var(--gold)/0.1)",
-                    color: "hsl(var(--gold))",
-                  }}
-                >
-                  <Icon size={14} aria-hidden="true" />
-                </div>
-                <p className="text-[10px] font-bold font-body uppercase tracking-wider text-muted-foreground">
-                  {label}
-                </p>
-              </div>
-              <p className="font-semibold text-sm font-body text-foreground leading-snug">
-                {value}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Other memorials */}
-        {dadosSelecionados.length > 1 && (
-          <div className="space-y-2">
-            <p className="text-xs font-bold font-body uppercase tracking-widest text-muted-foreground">
-              Outras Memórias
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <h4 className="font-label-md text-label-md text-primary">Detalhes Litúrgicos</h4>
+            <p className="font-body-md text-on-surface-variant leading-relaxed">
+              {main.nomeRank} do {main.nomesTemporadas?.join(", ")}.
+              Cor Litúrgica: {main.nomesCores?.join(", ")}.
             </p>
-            {dadosSelecionados.slice(1).map((day, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 rounded-xl border border-border p-3"
-                style={{ background: "hsl(var(--secondary))" }}
-              >
-                <ColorDot cor={day.cores[0]} />
-                <p className="text-sm font-body text-foreground">{day.nome}</p>
-              </div>
-            ))}
           </div>
-        )}
 
-        {/* CTA */}
-        <Link
-          href={`/liturgia?dia=${data.day}&mes=${data.month}&ano=${data.year}`}
-          className="flex items-center justify-center w-full py-4 rounded-2xl font-body font-bold text-sm transition-all active:scale-[0.98] shadow-lg shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          style={{
-            background: "hsl(var(--primary))",
-            color: "hsl(var(--primary-foreground))",
-          }}
-        >
-          Ver Leituras do Dia
-        </Link>
+          <div className="space-y-4">
+            <h4 className="font-label-md text-label-md text-primary uppercase tracking-widest">Leituras</h4>
+            <div className="grid grid-cols-1 gap-3">
+              {[
+                { Icon: Book, label: "Primeira Leitura" },
+                { Icon: Music, label: "Salmo Responsorial" },
+                { Icon: BookOpen, label: "Evangelho" },
+              ].map(({ Icon, label }) => (
+                <div key={label} className="flex items-center gap-3 p-4 ghost-border bg-surface-container-lowest rounded-lg">
+                  <Icon size={18} className="text-secondary" />
+                  <span className="font-body-md text-on-surface-variant">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Link
+            href={`/liturgia?dia=${data.day}&mes=${data.month}&ano=${data.year}`}
+            className="block w-full py-5 bg-primary text-background text-center font-label-md uppercase tracking-widest rounded-lg shadow-xl shadow-primary/10 transition-transform active:scale-[0.98]"
+          >
+            Ver Liturgia Completa
+          </Link>
+        </div>
       </div>
     </motion.div>
   );
 }
 
-/** Renders the mobile bottom sheet + backdrop when a day with data is selected. */
 export default function DaySheet({ diaSelecionado, dadosSelecionados, aoFechar }: PropsDrawerDia) {
   return (
     <AnimatePresence>
@@ -166,3 +119,4 @@ export default function DaySheet({ diaSelecionado, dadosSelecionados, aoFechar }
     </AnimatePresence>
   );
 }
+

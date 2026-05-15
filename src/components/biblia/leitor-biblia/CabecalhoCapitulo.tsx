@@ -1,22 +1,18 @@
 import { PropsCabecalhoCapitulo } from "@/types/biblia";
+import { Sparkles } from "lucide-react";
 
 export default function CabecalhoCapitulo({ t, nomeLivro, numeroCapitulo }: PropsCabecalhoCapitulo) {
   return (
-    <div className="text-center mb-10">
-      <p
-        className="text-xs font-bold font-body uppercase tracking-[0.3em] mb-2"
-        style={{ color: "hsl(var(--gold))" }}
-      >
+    <div className="text-center mb-16">
+      <p className="font-body text-[10px] font-bold uppercase tracking-[0.4em] mb-4 text-primary opacity-80">
         {nomeLivro}
       </p>
-      <h2 className={`font-heading text-3xl font-semibold ${t.texto}`}>
+      <h2 className={`font-heading text-5xl lg:text-7xl font-medium ${t.texto}`}>
         Capítulo {numeroCapitulo}
       </h2>
-      <div
-        className="mt-3 mx-auto w-14 h-px"
-        style={{ background: "hsl(var(--gold)/0.4)" }}
-        aria-hidden="true"
-      />
+      <div className="sacred-divider" aria-hidden="true">
+        <Sparkles size={16} />
+      </div>
     </div>
   );
 }

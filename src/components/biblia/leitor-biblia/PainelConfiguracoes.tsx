@@ -5,6 +5,7 @@ import {
   TAMANHO_FONTE_MIN, TAMANHO_FONTE_MAX, TAMANHO_FONTE_PASSO,
   PropsPainelConfiguracoes,
 } from "@/types/biblia";
+import { Minus, Plus } from "lucide-react";
 
 export default function PainelConfiguracoes({
   t,
@@ -22,27 +23,27 @@ export default function PainelConfiguracoes({
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.18 }}
-          className={`overflow-hidden border-b ${t.borda}`}
+          transition={{ duration: 0.25, ease: "easeInOut" }}
+          className={`overflow-hidden border-b shadow-inner ${t.borda}`}
         >
-          <div className="p-5 grid sm:grid-cols-2 gap-6" style={{ background: bg }}>
+          <div className="p-8 grid sm:grid-cols-2 gap-10" style={{ background: bg }}>
             {/* Font size */}
-            <div className="space-y-3">
-              <p className={`text-xs font-bold font-body uppercase tracking-wider ${t.muted}`}>
-                Tamanho
+            <div className="space-y-4">
+              <p className={`text-[10px] font-bold font-body uppercase tracking-[0.2em] opacity-60 ${t.muted}`}>
+                Tamanho da Fonte
               </p>
-              <div className="flex items-center gap-3" role="group" aria-label="Tamanho da fonte">
+              <div className="flex items-center gap-4" role="group" aria-label="Tamanho da fonte">
                 <button
                   onClick={() =>
                     aoMudarTamanhoFonte(Math.max(TAMANHO_FONTE_MIN, tamanhoFonte - TAMANHO_FONTE_PASSO) as TamanhoFonte)
                   }
                   aria-label="Diminuir fonte"
-                  className={`w-9 h-9 rounded-lg border flex items-center justify-center font-bold text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${t.muted} ${t.borda}`}
+                  className={`w-12 h-12 rounded-xl border flex items-center justify-center font-bold transition-all hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${t.muted} ${t.borda}`}
                 >
-                  A−
+                  <Minus size={16} />
                 </button>
                 <span
-                  className={`flex-1 text-center font-mono text-sm font-bold ${t.texto}`}
+                  className={`flex-1 text-center font-body text-lg font-bold ${t.texto}`}
                   aria-live="polite"
                 >
                   {tamanhoFonte}px
@@ -52,31 +53,31 @@ export default function PainelConfiguracoes({
                     aoMudarTamanhoFonte(Math.min(TAMANHO_FONTE_MAX, tamanhoFonte + TAMANHO_FONTE_PASSO) as TamanhoFonte)
                   }
                   aria-label="Aumentar fonte"
-                  className={`w-9 h-9 rounded-lg border flex items-center justify-center font-bold text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${t.muted} ${t.borda}`}
+                  className={`w-12 h-12 rounded-xl border flex items-center justify-center font-bold transition-all hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${t.muted} ${t.borda}`}
                 >
-                  A+
+                  <Plus size={16} />
                 </button>
               </div>
             </div>
 
             {/* Theme */}
-            <div className="space-y-3">
-              <p className={`text-xs font-bold font-body uppercase tracking-wider ${t.muted}`}>
-                Tema
+            <div className="space-y-4">
+              <p className={`text-[10px] font-bold font-body uppercase tracking-[0.2em] opacity-60 ${t.muted}`}>
+                Tema de Leitura
               </p>
-              <div className="flex gap-2" role="group" aria-label="Tema de leitura">
+              <div className="flex gap-3" role="group" aria-label="Tema de leitura">
                 {(["pergaminho", "escuro", "claro"] as Tema[]).map((th) => (
                   <button
                     key={th}
                     onClick={() => aoMudarTema(th)}
                     aria-label={`Tema ${LABELS_TEMA[th]}`}
                     aria-pressed={tema === th}
-                    className="flex-1 py-2 rounded-lg text-xs font-bold font-body border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    className={`flex-1 py-3 rounded-xl text-[10px] font-bold font-body uppercase tracking-widest border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                      tema === th ? "border-primary shadow-lg shadow-primary/10" : "border-transparent"
+                    }`}
                     style={{
                       background: TEMAS[th].bg,
-                      color: th === "escuro" ? "#f0ebe0" : "#2c1f0e",
-                      borderColor: tema === th ? "hsl(var(--gold))" : "transparent",
-                      boxShadow: tema === th ? "0 0 0 2px hsl(var(--gold)/0.4)" : "none",
+                      color: th === "escuro" ? "#fbf9f4" : "#1b1c19",
                     }}
                   >
                     {LABELS_TEMA[th]}

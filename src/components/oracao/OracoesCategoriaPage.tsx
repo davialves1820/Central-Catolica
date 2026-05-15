@@ -1,16 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Header from "@/components/shared/Header";
 import { SLUG_PARA_CAT, CONFIG_CAT, OracoesCategoriaPageProps } from "@/types/oracao";
-
 import { useOracoes } from "@/lib/client/hooks/oracoes/useOracoes";
 import { obterPrimeiraLetra } from "@/lib/client/hooks/utils/primeiraLetra";
-
+import OracoesSidebar from "./OracoesSidebar";
 import HeroCategoria from "./HeroCategoria";
 import FiltroLetra from "./FiltroLetra";
 import GruposOracoes from "./GrupoOracoes";
 import DetalheOracao from "./DetalheOracao";
+
+
 
 export default function OracoesCategoriaPage({ slug }: OracoesCategoriaPageProps) {
     const nomeCat = SLUG_PARA_CAT[slug];
@@ -42,27 +42,30 @@ export default function OracoesCategoriaPage({ slug }: OracoesCategoriaPageProps
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <Header />
-
-            <main className="flex-1">
+            <main className="flex-1 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-16">
                 <HeroCategoria nomeCat={nomeCat} config={config} quantidadeOracoes={oracoes.length} />
 
-                <div className="container mx-auto px-4 py-8 max-w-4xl">
-                    <FiltroLetra
-                        letras={letras}
-                        letraAtiva={letraAtiva}
-                        setLetraAtiva={setLetraAtiva}
-                        config={config}
-                        visiveis={visiveis}
-                    />
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+                    <OracoesSidebar currentCat={nomeCat} />
 
-                    <GruposOracoes
-                        visiveis={visiveis}
-                        setIndiceSelecionado={setIndiceSelecionado}
-                        config={config}
-                    />
+                    <div className="md:col-span-9 space-y-12">
+                        <FiltroLetra
+                            letras={letras}
+                            letraAtiva={letraAtiva}
+                            setLetraAtiva={setLetraAtiva}
+                            config={config}
+                            visiveis={visiveis}
+                        />
+
+                        <GruposOracoes
+                            visiveis={visiveis}
+                            setIndiceSelecionado={setIndiceSelecionado}
+                            config={config}
+                        />
+                    </div>
                 </div>
             </main>
+
 
             {oracaoSelecionada && indiceSelecionado !== null && (
                 <DetalheOracao

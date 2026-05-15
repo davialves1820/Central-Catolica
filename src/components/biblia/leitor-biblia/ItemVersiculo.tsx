@@ -12,25 +12,26 @@ export default function ItemVersiculo({
     <p
       id={`v-${versiculo.versiculo}`}
       ref={refVersiculo}
-      className={`group flex gap-4 rounded-lg px-3 py-2 transition-all duration-500 ${t.versiculo} ${estaDestacado ? t.destaque : ""
+      className={`group flex gap-6 rounded-xl px-4 py-3 transition-all duration-500 ${t.versiculo} ${estaDestacado ? t.destaque : "hover:bg-primary/5"
         }`}
-      style={{ fontFamily: "var(--font-reading)", lineHeight: 1.9 }}
+      style={{ fontFamily: "var(--font-reading)", lineHeight: 2.0 }}
       aria-label={`Versículo ${versiculo.versiculo}`}
     >
       <span
-        className={`mt-1 shrink-0 text-xs font-mono select-none w-6 text-right ${t.muted} opacity-50`}
+        className={`mt-2 shrink-0 text-[10px] font-body font-bold select-none w-6 text-right ${t.muted} opacity-40 group-hover:opacity-100 transition-opacity`}
       >
         {versiculo.versiculo}
       </span>
-      <span className={t.texto}>
+      <span className={`${t.texto} text-lg lg:text-xl`}>
         {ehPrimeiro ? (
           <>
             <span
-              className="float-left font-heading font-bold mr-2 leading-none"
+              className="float-left font-heading font-medium mr-3 leading-none select-none"
               style={{
-                fontSize: `${tamanhoFonte * 2.8}px`,
-                lineHeight: 0.85,
-                color: "hsl(var(--gold))",
+                fontSize: `${tamanhoFonte * 3.2}px`,
+                lineHeight: 0.8,
+                color: "hsl(var(--primary))",
+                marginTop: "0.1em"
               }}
             >
               {versiculo.texto.charAt(0)}

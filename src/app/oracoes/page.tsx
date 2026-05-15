@@ -1,11 +1,22 @@
 "use client";
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import Header from "@/components/shared/Header";
-import oracoesData from "@/data/oracoes.json";
-import { CONFIG_CAT } from "@/types/oracao";
 
-const data = oracoesData as { total: number; oracoes: { categoria: string }[] };
+import React from "react";
+import Link from "next/link";
+import oracoesData from "@/data/oracoes.json";
+import { CONFIG_CAT, Oracao } from "@/types/oracao";
+import OracoesHero from "@/components/oracao/OracoesHero";
+import OracoesSidebar from "@/components/oracao/OracoesSidebar";
+
+const data = oracoesData as { total: number; oracoes: Oracao[] };
+
+import { Book, Sparkles, Droplets, List, ArrowUpRight } from "lucide-react";
+
+const categoryIcons: Record<string, React.ReactNode> = {
+    "Orações comuns": <Book className="w-8 h-8" />,
+    "Orações diversas": <Sparkles className="w-8 h-8" />,
+    "Comunhão": <Droplets className="w-8 h-8" />,
+    "Jaculatórias": <List className="w-8 h-8" />,
+};
 
 export default function OracoesPage() {
     const catCount: Record<string, number> = {};
@@ -13,107 +24,108 @@ export default function OracoesPage() {
         catCount[o.categoria] = (catCount[o.categoria] || 0) + 1;
     }
 
+    // Featured prayers from 'Orações comuns'
+    const commonPrayers = data.oracoes.filter(o => o.categoria === "Orações comuns").slice(0, 2);
+
+    // Other categories for the grid
+    const otherCategories = Object.entries(CONFIG_CAT);
+
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <Header />
+            <main className="flex-1 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-16">
+                <OracoesHero />
 
-            <main className="flex-1">
-                {/* Hero */}
-                <section
-                    className="relative border-b border-border overflow-hidden"
-                    style={{ background: "hsl(var(--secondary))" }}
-                >
-                    <div
-                        className="absolute inset-0 opacity-[0.025]"
-                        aria-hidden="true"
-                        style={{
-                            backgroundImage: `
-                repeating-linear-gradient(0deg,transparent,transparent 47px,hsl(var(--gold)) 47px,hsl(var(--gold)) 48px),
-                repeating-linear-gradient(90deg,transparent,transparent 47px,hsl(var(--gold)) 47px,hsl(var(--gold)) 48px)
-              `,
-                        }}
-                    />
-                    <div className="relative container mx-auto px-4 py-16 md:py-20 text-center max-w-2xl">
-                        <div className="flex items-center justify-center gap-3 mb-5" aria-hidden="true">
-                            <div className="h-px w-10" style={{ background: "hsl(var(--gold)/0.4)" }} />
-                            <span
-                                className="text-xs font-body font-bold uppercase tracking-[0.25em]"
-                                style={{ color: "hsl(var(--gold))" }}
-                            >
-                                Orações Católicas
-                            </span>
-                            <div className="h-px w-10" style={{ background: "hsl(var(--gold)/0.4)" }} />
-                        </div>
-                        <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-3">
-                            Livro de Orações
-                        </h1>
-                        <p className="font-body text-muted-foreground max-w-md mx-auto">
-                            {data.total} orações organizadas por categoria, da tradição da Igreja Católica.
-                        </p>
-                    </div>
-                </section>
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+                    <OracoesSidebar />
 
-                {/* Category cards */}
-                <section className="container mx-auto px-4 py-12 max-w-4xl">
-                    <h2 className="font-heading text-2xl font-semibold text-foreground mb-8 text-center">
-                        Escolha uma categoria
-                    </h2>
-
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        {Object.entries(CONFIG_CAT).map(([cat, c]) => (
-                            <Link
-                                key={cat}
-                                href={`/oracoes/${c.slug}`}
-                                aria-label={`Ver ${cat} — ${catCount[cat]} orações`}
-                                className="oracao-cat-card group relative flex items-center gap-5 p-6 rounded-2xl border border-border text-left transition-all duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                                style={{
-                                    background: "hsl(var(--card))",
-                                    "--c-border": c.borda,
-                                    "--c-glow": c.cor,
-                                } as React.CSSProperties}
-                            >
-
-                                {/* Emoji icon */}
-                                <div
-                                    className="text-3xl w-16 h-16 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
-                                    style={{ border: `1px solid ${c.borda}` }}
-                                    aria-hidden="true"
+                    <div className="md:col-span-9 space-y-12 md:space-y-16">
+                        {/* Mobile Category Menu */}
+                        <div className="md:hidden overflow-x-auto no-scrollbar flex gap-4 pb-4 -mx-4 px-4">
+                            {Object.entries(CONFIG_CAT).map(([cat, config]) => (
+                                <Link
+                                    key={cat}
+                                    href={`/oracoes/${config.slug}`}
+                                    className="shrink-0 px-5 py-3 rounded-full bg-surface-container-low border border-secondary/10 text-label-sm text-primary flex items-center gap-2"
                                 >
-                                    {c.emoji}
-                                </div>
+                                    {categoryIcons[cat] || <Sparkles className="w-4 h-4" />}
+                                    {cat}
+                                </Link>
+                            ))}
+                        </div>
 
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-center justify-between mb-1 gap-2">
-                                        <h3 className="font-heading text-lg font-semibold" style={{ color: c.cor }}>
-                                            {cat}
-                                        </h3>
-                                        <span
-                                            className="text-xs font-bold font-body px-2.5 py-0.5 rounded-full shrink-0"
-                                            style={{ color: c.cor, border: `1px solid ${c.borda}` }}
-                                        >
-                                            {catCount[cat]} orações
-                                        </span>
+                        {/* Featured Section: Orações Comuns */}
+                        <section className="bg-surface-container-lowest border border-secondary/10 p-6 md:p-16 rounded-2xl md:rounded-3xl shadow-sm relative overflow-hidden">
+                            {/* Decoration - Hidden on very small screens to avoid overflow */}
+                            <div className="absolute top-12 right-12 text-secondary/5 rotate-12 hidden sm:block">
+                                <Book size={180} />
+                            </div>
+
+                            <div className="relative z-10 mb-10 md:mb-16">
+                                <span className="font-label-sm text-secondary mb-2 block">Tradição da Igreja</span>
+                                <h3 className="font-headline-lg text-primary text-3xl md:text-5xl">Orações Essenciais</h3>
+                            </div>
+
+                            <div className="relative z-10 space-y-12 md:space-y-16">
+                                {commonPrayers.map((oracao, idx) => (
+                                    <React.Fragment key={oracao.slug}>
+                                        <article className="max-w-2xl group cursor-default">
+                                            <div className="flex items-center gap-3 mb-6 md:mb-8">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+                                                <h4 className="font-label-md text-primary tracking-[0.2em] text-xs md:text-sm">{oracao.titulo}</h4>
+                                            </div>
+                                            <div className="space-y-6 md:space-y-8">
+                                                {oracao.texto.split("\n\n").map((para, pIdx) => (
+                                                    <p
+                                                        key={pIdx}
+                                                        className={pIdx === 0
+                                                            ? "font-headline-md italic text-on-surface leading-relaxed border-l-2 border-secondary/20 pl-4 md:pl-8 text-xl md:text-2xl"
+                                                            : "font-body-lg text-on-surface-variant leading-relaxed pl-4 md:pl-8 text-base md:text-lg"
+                                                        }
+                                                    >
+                                                        {para}
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        </article>
+                                        {idx < commonPrayers.length - 1 && <div className="h-[1px] w-full bg-secondary/5"></div>}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Grid of Other Categories */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-gutter">
+                            {otherCategories.map(([cat, config]) => (
+                                <Link
+                                    key={cat}
+                                    href={`/oracoes/${config.slug}`}
+                                    className="bg-surface-container-low border border-secondary/5 p-8 md:p-10 rounded-2xl hover:border-secondary/30 hover:bg-white transition-all group cursor-pointer shadow-sm relative overflow-hidden"
+                                >
+                                    <div className="relative z-10 flex justify-between items-start mb-8 md:mb-10">
+                                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
+                                            {categoryIcons[cat] || <Sparkles className="w-6 h-6 md:w-8 md:h-8" />}
+                                        </div>
+                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-secondary/10 flex items-center justify-center text-outline opacity-0 md:group-hover:opacity-100 group-hover:translate-x-0 translate-x-4 transition-all duration-300">
+                                            <ArrowUpRight size={16} />
+                                        </div>
                                     </div>
-                                    <p className="text-sm font-body text-muted-foreground leading-relaxed">
-                                        {c.descricao}
-                                    </p>
-                                </div>
+                                    <div className="relative z-10">
+                                        <h3 className="font-headline-md mb-2 md:mb-4 text-primary text-xl md:text-2xl">{cat}</h3>
+                                        <p className="font-body-md text-on-surface-variant leading-relaxed opacity-80 text-sm md:text-base">{config.descricao}</p>
+                                    </div>
 
-                                <ChevronRight
-                                    size={18}
-                                    className="shrink-0 opacity-30 group-hover:opacity-80 group-hover:translate-x-0.5 transition-all"
-                                    style={{ color: c.borda }}
-                                    aria-hidden="true"
-                                />
-                            </Link>
-                        ))}
+                                    {/* Subtle background icon */}
+                                    <div className="absolute -bottom-4 -right-4 text-primary/5 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
+                                        {categoryIcons[cat] || <Sparkles size={100} />}
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
-
-                    <p className="text-center text-xs text-muted-foreground font-body mt-10">
-                        ✦ {data.total} orações no total ✦
-                    </p>
-                </section>
+                </div>
             </main>
         </div>
     );
 }
+
+
