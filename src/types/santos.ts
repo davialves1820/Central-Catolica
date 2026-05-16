@@ -55,15 +55,11 @@ export interface PropsLinkExternoSanto {
 
 export interface PropsAlfabetoSantos {
   inicialAtiva: string;
-  tipo: string;
-  busca: string;
 }
 
 export interface PropsFiltrosSantos {
   tipos: string[];
   tipoAtivo: string;
-  busca: string;
-  inicial: string;
 }
 
 export interface PropsBuscaSantos {

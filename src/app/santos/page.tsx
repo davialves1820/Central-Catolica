@@ -101,9 +101,9 @@ export default async function PaginaSantos({ searchParams }: PropsPaginaSantos) 
         {/* Search & Simplified Filters */}
         <div className="mt-12 max-w-2xl mx-auto space-y-8">
           <BuscaSantos valorInicial={busca} />
-          <FiltrosSantos tipos={["Todos", "Doutor", "Apostolo"]} tipoAtivo={tipo} busca={busca} inicial={inicial} />
+          <FiltrosSantos tipos={["Todos", "Doutor", "Apostolo"]} tipoAtivo={tipo} />
           <div className="border-t border-outline-variant/30 pt-4">
-            <AlfabetoSantos inicialAtiva={inicial} tipo={tipo} busca={busca} />
+            <AlfabetoSantos inicialAtiva={inicial} />
           </div>
         </div>
       </section>

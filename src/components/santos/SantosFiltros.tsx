@@ -1,17 +1,21 @@
 "use client";
 
 import { PropsFiltrosSantos } from "@/types/santos";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function FiltrosSantos({ tipoAtivo, busca, inicial }: PropsFiltrosSantos) {
+export default function FiltrosSantos({ tipoAtivo }: PropsFiltrosSantos) {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const handleTipo = (tipo: string) => {
-    const q = new URLSearchParams();
+    const q = new URLSearchParams(searchParams.toString());
     if (tipo !== "Todos") q.set("tipo", tipo);
-    if (busca) q.set("busca", busca);
-    if (inicial) q.set("inicial", inicial);
-    router.push(`/santos?${q.toString()}`);
+    else q.delete("tipo");
+    
+    // Reset page when filter changes
+    q.delete("pagina");
+    
+    router.push(`/santos?${q.toString()}`, { scroll: false });
   };
 
   const options = [

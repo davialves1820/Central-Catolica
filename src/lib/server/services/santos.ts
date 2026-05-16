@@ -53,7 +53,7 @@ export async function getTipos(): Promise<string[]> {
 }
 
 export async function getSantoDoDia(): Promise<Santo | null> {
-  const hoje = new Date();
+  const hoje = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
   const diaDessaAno = Math.floor((hoje.getTime() - new Date(hoje.getFullYear(), 0, 0).getTime()) / 86400000);
   const idx = diaDessaAno % TODOS.length;
   return TODOS[idx] ?? null;

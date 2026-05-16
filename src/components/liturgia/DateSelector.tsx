@@ -15,6 +15,8 @@ const pushDate = (router: ReturnType<typeof useRouter>, date: Date) => {
 export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
   const router = useRouter();
 
+  const getBrasiliaNow = () => new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+
   const buildDateFromParams = () => {
     if (parametrosAtuais.dia && parametrosAtuais.mes && parametrosAtuais.ano) {
       return new Date(
@@ -23,11 +25,13 @@ export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
         parseInt(parametrosAtuais.dia),
       );
     }
-    return new Date();
+    return getBrasiliaNow();
   };
 
   const currentDate = buildDateFromParams();
-  const dateValue = currentDate.toISOString().split("T")[0];
+  
+  // Para o input type="date", precisamos de YYYY-MM-DD no fuso de Brasília
+  const dateValue = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
 
   const [prevParams, setPrevParams] = useState(parametrosAtuais);
   const [inputDate, setInputDate] = useState(dateValue);
@@ -37,7 +41,7 @@ export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
     setInputDate(dateValue);
   }
 
-  const today = new Date();
+  const today = getBrasiliaNow();
   const isToday =
     currentDate.getDate() === today.getDate() &&
     currentDate.getMonth() === today.getMonth() &&
@@ -94,7 +98,7 @@ export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
 
           {!isToday && (
             <button
-              onClick={() => pushDate(router, new Date())}
+              onClick={() => pushDate(router, getBrasiliaNow())}
               className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white text-[10px] font-bold uppercase tracking-widest hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
             >
               Voltar para hoje

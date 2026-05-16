@@ -6,14 +6,18 @@ import NoticiaCard from "@/components/noticias/NoticiaCard";
 import { Leaf, Sparkles, Users, BookOpenText, Book, ArrowRight, Newspaper, Calendar } from "lucide-react";
 
 export default async function Home() {
+  const now = new Date();
+  const brDate = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+  
+  const day = brDate.getDate();
+  const month = brDate.toLocaleString('pt-BR', { month: 'long' });
+  const monthNumeric = (brDate.getMonth() + 1).toString();
+  const year = brDate.getFullYear().toString();
+
   const [liturgia, noticias] = await Promise.all([
-    getLiturgiaDiaria(),
+    getLiturgiaDiaria(day.toString(), monthNumeric, year),
     buscarNoticias(["vaticannews"], 3)
   ]);
-
-  const today = new Date();
-  const day = today.getDate();
-  const month = today.toLocaleString('pt-BR', { month: 'long' });
 
   return (
     <div className="selection:bg-[#fed977]">

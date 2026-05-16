@@ -41,7 +41,7 @@ export default async function LiturgiaPage({ searchParams }: PropsPaginaLiturgia
 
   const dateForSelector =
     dia && mes && ano ? `${ano}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`
-      : new Date().toISOString().split("T")[0];
+      : new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" })).toISOString().split("T")[0];
 
   return (
     <div className="flex flex-col bg-background min-h-screen">

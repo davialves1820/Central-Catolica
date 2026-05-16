@@ -1,19 +1,27 @@
 "use client";
 
 import { PropsAlfabetoSantos } from "@/types/santos";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const LETRAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-export default function AlfabetoSantos({ inicialAtiva, tipo, busca }: PropsAlfabetoSantos) {
+export default function AlfabetoSantos({ inicialAtiva }: PropsAlfabetoSantos) {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   function handleInicial(letra: string) {
-    const q = new URLSearchParams();
-    if (tipo && tipo !== "Todos") q.set("tipo", tipo);
-    if (busca) q.set("busca", busca);
-    if (letra !== inicialAtiva) q.set("inicial", letra);
-    router.push(`/santos?${q.toString()}`);
+    const q = new URLSearchParams(searchParams.toString());
+    
+    if (letra !== inicialAtiva && letra !== "") {
+      q.set("inicial", letra);
+    } else {
+      q.delete("inicial");
+    }
+    
+    // Reset page when filter changes
+    q.delete("pagina");
+    
+    router.push(`/santos?${q.toString()}`, { scroll: false });
   }
 
   return (

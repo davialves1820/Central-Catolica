@@ -2,7 +2,7 @@
 
 import { PropsBuscaSantos } from "@/types/santos";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useTransition, useEffect, useState } from "react";
+import { useTransition, useEffect, useState } from "react";
 import { Search, Loader2 } from "lucide-react";
 
 export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
@@ -10,12 +10,13 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [value, setValue] = useState(valorInicial);
+  const [prevValorInicial, setPrevValorInicial] = useState(valorInicial);
 
-  // Sync internal state with URL when it changes externally
-  useEffect(() => {
+  // Sync internal state with URL when it changes externally (e.g., back button)
+  if (valorInicial !== prevValorInicial) {
+    setPrevValorInicial(valorInicial);
     setValue(valorInicial);
-  }, [valorInicial]);
-
+  }
   // Debounce the URL update
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,7 +30,7 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
       startTransition(() => {
         router.push(`/santos?${q.toString()}`, { scroll: false });
       });
-    }, 400); // 400ms delay
+    }, 300); // Reduced to 300ms for better responsiveness
 
     return () => clearTimeout(timer);
   }, [value, router, searchParams, valorInicial]);
