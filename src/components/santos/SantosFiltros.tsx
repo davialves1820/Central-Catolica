@@ -17,6 +17,7 @@ export default function FiltrosSantos({ tipoAtivo, busca, inicial }: PropsFiltro
   const options = [
     { label: "Todos", value: "Todos" },
     { label: "Doutores", value: "Doutor" },
+    { label: "Apóstolos", value: "Apostolo" },
   ];
 
   return (
@@ -27,11 +28,10 @@ export default function FiltrosSantos({ tipoAtivo, busca, inicial }: PropsFiltro
           <button
             key={opt.value}
             onClick={() => handleTipo(opt.value)}
-            className={`px-8 py-2 text-[10px] font-bold uppercase tracking-widest transition-all border ${
-              isActive
+            className={`px-8 py-2 text-[10px] font-bold uppercase tracking-widest transition-all border ${isActive
                 ? "bg-primary text-on-primary border-primary shadow-sm"
                 : "bg-transparent text-on-surface-variant border-outline-variant hover:border-primary hover:text-primary"
-            }`}
+              }`}
           >
             {opt.label}
           </button>

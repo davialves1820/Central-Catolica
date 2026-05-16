@@ -11,22 +11,32 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
   const [isPending, startTransition] = useTransition();
   const [value, setValue] = useState(valorInicial);
 
+  // Sync internal state with URL when it changes externally
   useEffect(() => {
     setValue(valorInicial);
   }, [valorInicial]);
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = e.target.value;
-      setValue(val);
+  // Debounce the URL update
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (value === valorInicial) return;
+      
       const q = new URLSearchParams(searchParams.toString());
-      if (val) q.set("busca", val);
+      if (value) q.set("busca", value);
       else q.delete("busca");
       q.delete("pagina");
-      startTransition(() => router.push(`/santos?${q.toString()}`));
-    },
-    [router, searchParams],
-  );
+      
+      startTransition(() => {
+        router.push(`/santos?${q.toString()}`, { scroll: false });
+      });
+    }, 400); // 400ms delay
+
+    return () => clearTimeout(timer);
+  }, [value, router, searchParams, valorInicial]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div className="relative group">

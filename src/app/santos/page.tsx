@@ -59,11 +59,10 @@ function NavegacaoPaginacao({ pagina, totalPaginas, tipo, busca, inicial }: Prop
         <Link
           key={p}
           href={href(p)}
-          className={`w-10 h-10 flex items-center justify-center font-label-sm text-label-sm transition-all border ${
-            p === pagina
-              ? "bg-primary text-on-primary border-primary"
-              : "border-outline-variant hover:border-primary text-on-surface"
-          }`}
+          className={`w-10 h-10 flex items-center justify-center font-label-sm text-label-sm transition-all border ${p === pagina
+            ? "bg-primary text-on-primary border-primary"
+            : "border-outline-variant hover:border-primary text-on-surface"
+            }`}
         >
           {String(p).padStart(2, "0")}
         </Link>
@@ -102,7 +101,7 @@ export default async function PaginaSantos({ searchParams }: PropsPaginaSantos) 
         {/* Search & Simplified Filters */}
         <div className="mt-12 max-w-2xl mx-auto space-y-8">
           <BuscaSantos valorInicial={busca} />
-          <FiltrosSantos tipos={["Todos", "Doutor"]} tipoAtivo={tipo} busca={busca} inicial={inicial} />
+          <FiltrosSantos tipos={["Todos", "Doutor", "Apostolo"]} tipoAtivo={tipo} busca={busca} inicial={inicial} />
           <div className="border-t border-outline-variant/30 pt-4">
             <AlfabetoSantos inicialAtiva={inicial} tipo={tipo} busca={busca} />
           </div>
