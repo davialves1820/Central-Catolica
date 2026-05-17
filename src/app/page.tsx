@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getLiturgiaDiaria } from "@/lib/server/services/liturgia";
 import { buscarNoticias } from "@/lib/server/services/noticias";
 import NoticiaCard from "@/components/noticias/NoticiaCard";
-import { Leaf, Sparkles, Users, BookOpenText, Book, ArrowRight, Newspaper, Calendar } from "lucide-react";
+import { Leaf, Sparkles, Users, BookOpenText, Book, ArrowRight, Newspaper, Calendar, Flame } from "lucide-react";
 
 export default async function Home() {
   const now = new Date();
@@ -47,7 +47,7 @@ export default async function Home() {
 
         {/* Main Categories Grid */}
         <section className="px-5 md:px-16 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6">
             <Link className="flex flex-col items-center p-8 bg-[#f5f3ee] hover:bg-[#f0eee9] transition-all group border border-primary/30 hover:-translate-y-1 duration-300" href="/biblia">
               <Book size={32} className="text-primary mb-4 group-hover:scale-110 transition-transform" />
               <span className="text-[11px] font-semibold uppercase tracking-widest text-[#1b1c19]">Bíblia</span>
@@ -71,6 +71,10 @@ export default async function Home() {
             <Link className="flex flex-col items-center p-8 bg-[#f5f3ee] hover:bg-[#f0eee9] transition-all group border border-primary/30 hover:-translate-y-1 duration-300" href="/calendario">
               <Calendar size={32} className="text-primary mb-4 group-hover:scale-110 transition-transform" />
               <span className="text-[11px] font-semibold uppercase tracking-widest text-[#1b1c19]">Calendário</span>
+            </Link>
+            <Link className="flex flex-col items-center p-8 bg-[#f5f3ee] hover:bg-[#f0eee9] transition-all group border border-primary/30 hover:-translate-y-1 duration-300" href="/catequese">
+              <Flame size={32} className="text-primary mb-4 group-hover:scale-110 transition-transform" />
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#1b1c19]">Catequese</span>
             </Link>
           </div>
         </section>

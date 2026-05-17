@@ -53,17 +53,6 @@ export default function CalendarioPage() {
             }}
           />
           <div className="relative container mx-auto px-4 sm:px-6 text-center">
-            {/* Anno Domini badge */}
-            <div
-              className="flex items-center justify-center gap-4 mb-6"
-              aria-hidden="true"
-            >
-              <div className="h-px w-8 bg-secondary/30" />
-              <span className="font-label-sm text-label-sm text-secondary uppercase tracking-[0.3em]">
-                Anno Domini
-              </span>
-              <div className="h-px w-8 bg-secondary/30" />
-            </div>
 
             {/* Title */}
             <h1 className="font-headline-xl text-primary mb-8 tracking-tighter">

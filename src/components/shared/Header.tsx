@@ -14,6 +14,7 @@ const NAV = [
   { label: "Notícias", href: "/noticias" },
   { label: "Calendário", href: "/calendario" },
   { label: "Santos", href: "/santos" },
+  { label: "Catequese", href: "/catequese" },
 ] as const;
 
 const subscribe = () => () => { };
