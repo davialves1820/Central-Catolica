@@ -42,14 +42,6 @@ export interface PropsSecaoSalmo {
   salmo: Salmo;
 }
 
-export interface PropsFundoLiturgico {
-  cor: string;
-}
-
-export interface PropsBarraLateralLiturgia {
-  liturgia: LiturgiaDiaria;
-}
-
 export interface PropsSeletorData {
   parametrosAtuais: { dia?: string; mes?: string; ano?: string };
   dataInicial?: string;

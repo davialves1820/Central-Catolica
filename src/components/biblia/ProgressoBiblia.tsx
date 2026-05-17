@@ -30,13 +30,13 @@ export default function ProgressoBiblia() {
       <div className="w-full h-2 bg-muted rounded-full mb-4 relative overflow-hidden">
         <motion.div 
           initial={{ width: 0 }}
-          animate={{ width: progresso ? "34%" : "0%" }} // This should ideally be calculated
+          animate={{ width: progresso ? `${progresso.percentual}%` : "0%" }}
           className="absolute inset-y-0 left-0 bg-primary" 
         />
       </div>
       
       <p className="font-body text-[10px] font-bold text-muted-foreground/60 mb-10 uppercase tracking-[0.2em]">
-        Progresso: {progresso ? "34%" : "0%"} concluído
+        Progresso: {progresso ? `${progresso.percentual}%` : "0%"} concluído
       </p>
       
       {progresso ? (

@@ -2,10 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import { MarkdownPage } from '@/components/catequese/MarkdownPage';
 import { notFound } from 'next/navigation';
+import { obterTituloPorSlug } from '@/lib/server/utils/utils';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const title = slug.charAt(0).toUpperCase() + slug.slice(1).replace('-', ' ');
+  const title = obterTituloPorSlug(slug);
   return {
     title: `${title} | Sacramentos`,
   };
@@ -19,7 +20,7 @@ export default async function SacramentoPage({ params }: { params: Promise<{ slu
   }
   
   const content = fs.readFileSync(filePath, 'utf8');
-  const title = slug.charAt(0).toUpperCase() + slug.slice(1).replace('-', ' ');
+  const title = obterTituloPorSlug(slug);
 
   return (
     <MarkdownPage 

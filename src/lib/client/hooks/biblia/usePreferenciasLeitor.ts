@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { type Tema, type TamanhoFonte, type ModoLeitura, TEMAS } from "@/types";
+import { type Tema, type TamanhoFonte, type ModoLeitura, TEMAS } from "@/types/biblia";
 
 interface PreferenciasLeitor {
   isMounted: boolean;

@@ -1,5 +1,3 @@
-import { type LucideIcon } from "lucide-react";
-
 export type Tema = "pergaminho" | "escuro" | "claro";
 export type TamanhoFonte = 14 | 16 | 18 | 20 | 22 | 24;
 export type ModoLeitura = "paginado" | "continuo";
@@ -87,28 +85,6 @@ export interface PropsBooksGrid {
   title: string;
   subtitle: string;
   books: Livro[];
-}
-
-export interface PropsLeituraDoDia {
-  livro: string;
-  capitulo: string;
-  versiculos: string;
-  texto: string;
-  imageUrl?: string;
-}
-
-export interface PropsInfoProgresso {
-  dataHora: number;
-}
-
-export interface PropsBadgeIconeOuro {
-  icon: LucideIcon;
-  "aria-hidden"?: boolean;
-}
-
-export interface PropsLinkContinuarLeitura {
-  nomeLivro: string;
-  capitulo: number;
 }
 
 export interface PropsItemVersiculo {
@@ -200,4 +176,4 @@ export interface PropsLeitorBiblia {
 export interface PropsPaginaCapitulo {
   params: Promise<{ book: string; chapter: string }>;
   searchParams: Promise<{ v?: string }>;
-}
+}

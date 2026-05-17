@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { Oracao } from "@/types";
+import { Oracao } from "@/types/oracao";
 import { obterPrimeiraLetra } from "@/lib/client/hooks/utils/primeiraLetra";
 import oracoesData from "@/data/oracoes.json";
 

@@ -1,6 +1,7 @@
 import { LiturgiaDiaria } from "@/types/liturgia";
+import { cache } from "react";
 
-export async function getLiturgiaDiaria(day?: string, month?: string, year?: string): Promise<LiturgiaDiaria | null> {
+export const getLiturgiaDiaria = cache(async (day?: string, month?: string, year?: string): Promise<LiturgiaDiaria | null> => {
   try {
     const url = new URL("https://liturgia.up.railway.app/");
     if (day) {
@@ -27,4 +28,4 @@ export async function getLiturgiaDiaria(day?: string, month?: string, year?: str
     console.error("Error fetching liturgy:", error);
     return null;
   }
-}
+});

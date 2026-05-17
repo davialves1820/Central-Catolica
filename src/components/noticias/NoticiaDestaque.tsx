@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Noticia } from "@/types";
+import { Noticia } from "@/types/noticias";
 import { formatarData } from "@/lib/server/services/noticias";
 import { ExternalLink, Sparkles } from "lucide-react";
 

@@ -93,7 +93,3 @@ export interface PropsDetalheOracao {
     temAnterior: boolean;
     temProximo: boolean;
 }
-
-export interface PropsPaginaOracao {
-    params: Promise<{ slug: string }>;
-}

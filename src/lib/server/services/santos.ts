@@ -46,15 +46,3 @@ export async function getSantos({ tipo = "Todos", busca = "", pagina = 1, porPag
 export async function getSantoPorSlug(slug: string): Promise<Santo | null> {
   return TODOS.find((s) => s.slug === slug) ?? null;
 }
-
-export async function getTipos(): Promise<string[]> {
-  const tipos = new Set(TODOS.map((s) => s.tipo));
-  return ["Todos", ...Array.from(tipos).sort()];
-}
-
-export async function getSantoDoDia(): Promise<Santo | null> {
-  const hoje = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
-  const diaDessaAno = Math.floor((hoje.getTime() - new Date(hoje.getFullYear(), 0, 0).getTime()) / 86400000);
-  const idx = diaDessaAno % TODOS.length;
-  return TODOS[idx] ?? null;
-}

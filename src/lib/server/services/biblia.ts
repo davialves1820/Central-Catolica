@@ -1,8 +1,9 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { cache } from 'react';
+import { unstable_cache } from 'next/cache';
 
-import { DadosBiblia, Livro, Capitulo } from "@/types";
+import { DadosBiblia, Livro } from "@/types/biblia";
 
 const NOME_ARQUIVO_BIBLIA = 'bibliaAveMaria.json';
 const CAMINHO_BIBLIA = process.cwd().endsWith('src') ? path.join(process.cwd(), 'data', NOME_ARQUIVO_BIBLIA) : path.join(process.cwd(), 'src', 'data', NOME_ARQUIVO_BIBLIA);
@@ -12,23 +13,10 @@ export const getDadosBiblia = cache(async (): Promise<DadosBiblia> => {
   return JSON.parse(content);
 });
 
-export async function getLivros() {
-  const data = await getDadosBiblia();
-  return [
-    ...data.antigoTestamento.map(b => ({ nome: b.nome, testament: 'AT' })),
-    ...data.novoTestamento.map(b => ({ nome: b.nome, testament: 'NT' })),
-  ];
-}
-
 export async function getLivro(bookName: string): Promise<Livro | undefined> {
   const data = await getDadosBiblia();
   const allBooks = [...data.antigoTestamento, ...data.novoTestamento];
   return allBooks.find(b => b.nome.toLowerCase() === decodeURIComponent(bookName).toLowerCase(),);
-}
-
-export async function getCapitulo(bookName: string, chapterNumber: number): Promise<Capitulo | undefined> {
-  const book = await getLivro(bookName);
-  return book?.capitulos.find(c => c.capitulo === chapterNumber);
 }
 
 function normalize(text: string): string {
@@ -44,43 +32,42 @@ interface VersiculoFlat {
   normalizedText: string;
 }
 
-const globalParaBiblia = globalThis as unknown as {
-  cacheIndexBiblia?: VersiculoFlat[];
-};
-
 /**
- * Builds the flat verse index once and caches it in memory.
- * We use globalThis so it survives hot-reloads during development.
+ * Builds the flat verse index once and caches it in memory using next/cache's unstable_cache.
+ * This is serverless-friendly, robust across multiple instances, and survives hot-reloads properly.
  */
-async function getIndexFlat(): Promise<VersiculoFlat[]> {
-  if (globalParaBiblia.cacheIndexBiblia) {
-    return globalParaBiblia.cacheIndexBiblia;
-  }
+const getIndexFlatCached = unstable_cache(
+  async () => {
+    const data = await getDadosBiblia();
+    const index: VersiculoFlat[] = [];
 
-  const data = await getDadosBiblia();
-  const index: VersiculoFlat[] = [];
-
-  const addBooks = (books: Livro[]) => {
-    for (const book of books) {
-      for (const chapter of book.capitulos) {
-        for (const verse of chapter.versiculos) {
-          index.push({
-            book: book.nome,
-            chapter: chapter.capitulo,
-            verse: verse.versiculo,
-            text: verse.texto,
-            normalizedText: normalize(verse.texto),
-          });
+    const addBooks = (books: Livro[]) => {
+      for (const book of books) {
+        for (const chapter of book.capitulos) {
+          for (const verse of chapter.versiculos) {
+            index.push({
+              book: book.nome,
+              chapter: chapter.capitulo,
+              verse: verse.versiculo,
+              text: verse.texto,
+              normalizedText: normalize(verse.texto),
+            });
+          }
         }
       }
-    }
-  };
+    };
 
-  addBooks(data.antigoTestamento);
-  addBooks(data.novoTestamento);
+    addBooks(data.antigoTestamento);
+    addBooks(data.novoTestamento);
 
-  globalParaBiblia.cacheIndexBiblia = index;
-  return index;
+    return index;
+  },
+  ['bible-index-flat'],
+  { tags: ['bible-index'] }
+);
+
+async function getIndexFlat(): Promise<VersiculoFlat[]> {
+  return getIndexFlatCached();
 }
 
 export async function pesquisarBiblia(query: string): Promise<{ book: string; chapter: number; verse: number; text: string }[]> {
