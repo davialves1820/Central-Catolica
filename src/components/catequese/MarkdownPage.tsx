@@ -91,10 +91,8 @@ export function MarkdownPage({ content, title, backHref, backLabel }: { content:
               <details className="lg:hidden mb-12 bg-[#f5f3ee] border border-[#d0c4be]/30 rounded-xl p-6 shadow-sm group">
                 <summary className="font-headline-md text-lg text-[#000000] cursor-pointer font-semibold list-none flex items-center justify-between">
                   <div className="flex items-center">
-                    <span className="material-symbols-outlined mr-2 text-[#755b00]">menu_book</span>
                     Nesta página
                   </div>
-                  <span className="material-symbols-outlined text-[#755b00] group-open:rotate-180 transition-transform">expand_more</span>
                 </summary>
                 <nav className="flex flex-col space-y-3 mt-4 pt-4 border-t border-[#d0c4be]/30">
                   {toc.map((heading, i) => (
