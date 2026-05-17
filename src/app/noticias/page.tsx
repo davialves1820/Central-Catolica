@@ -26,12 +26,12 @@ async function NoticiasContent() {
           <Newspaper size={28} className="text-secondary/40" />
         </div>
         <div className="space-y-2">
-            <p className="font-headline-md text-primary">
-                Não foi possível carregar as notícias
-            </p>
-            <p className="font-body-md text-on-surface-variant max-w-xs mx-auto">
-                Verifique sua conexão ou tente novamente em instantes.
-            </p>
+          <p className="font-headline-md text-primary">
+            Não foi possível carregar as notícias
+          </p>
+          <p className="font-body-md text-on-surface-variant max-w-xs mx-auto">
+            Verifique sua conexão ou tente novamente em instantes.
+          </p>
         </div>
       </div>
     );
@@ -64,9 +64,9 @@ async function NoticiasContent() {
       {/* Sources footer */}
       <div className="pt-16 border-t border-secondary/5 text-center space-y-4">
         <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-[1px] w-12 bg-secondary/20"></div>
-            <Sparkles className="text-secondary/30" size={20} />
-            <div className="h-[1px] w-12 bg-secondary/20"></div>
+          <div className="h-[1px] w-12 bg-secondary/20"></div>
+          <Sparkles className="text-secondary/30" size={20} />
+          <div className="h-[1px] w-12 bg-secondary/20"></div>
         </div>
         <p className="font-label-sm text-outline">
           Conteúdo via RSS do{" "}
@@ -106,14 +106,6 @@ export default function NoticiasPage() {
           />
 
           <div className="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
-            {/* Label */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-[1px] w-10 bg-secondary/30" />
-              <span className="font-label-sm text-secondary uppercase tracking-[0.3em]">
-                Ex Urbe Roma
-              </span>
-              <div className="h-[1px] w-10 bg-secondary/30" />
-            </div>
 
             <h1 className="font-headline-xl text-primary mb-6">
               Notícias do Vaticano

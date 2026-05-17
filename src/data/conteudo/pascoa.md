@@ -1,14 +1,6 @@
 # Páscoa: guia completo para católicos
 
-## Main Navigation
-
 Descubra o verdadeiro significado da Páscoa: a história, a liturgia, os símbolos e como viver a alegria da Ressurreição no dia a dia.
-
-O maior clube de livros católicos do Brasil.
-
-Descubra o verdadeiro significado da Páscoa: a história, a liturgia, os símbolos e como viver a alegria da Ressurreição no dia a dia.
-
-O maior clube de livros católicos do Brasil.
 
 A Páscoa é muito mais do que uma celebração anual: é o ápice da fé cristã, a fonte de toda esperança e o início da vida nova em Cristo. Ao contemplar a Ressurreição, somos chamados a renovar nossa confiança no amor de Deus que vence o pecado e a morte.
 
@@ -171,8 +163,6 @@ A vida nova em Cristo deve se traduzir em obras concretas de amor. Acaridadeé o
 ### Celebrar com sinais: flores, cruz enfeitada, luz, alegria
 
 A beleza faz parte da fé. Enfeitar a casa com flores, colocar uma cruz florida no centro, acender velas, cantar, preparar refeições especiais — são formas visíveis de manifestar a alegria da Ressurreição. Esses sinais tocam o coração, especialmente das crianças, e mantêm viva a fé nas pequenas expressões do dia a dia.
-
-Leia mais sobre aPáscoa na Igreja e na família.
 
 ### Prolongar a espiritualidade pascal até Pentecostes
 
