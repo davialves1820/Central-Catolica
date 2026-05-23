@@ -19,6 +19,7 @@ Para garantir a fidelidade e riqueza das informações, utilizei as seguintes fo
 - **Orações**: Coletadas do site [Padre Paulo Ricardo](https://padrepauloricardo.org/oracoes/) via Web Scraping.
 - **Liturgia Diária**: API de [Dancrf/liturgia-diaria](https://github.com/Dancrf/liturgia-diaria).
 - **Bíblia Sagrada**: Repositório JSON [fidalgobr/bibliaAveMariaJSON](https://github.com/fidalgobr/bibliaAveMariaJSON).
+- **Catequese**: Coletadas do site [Biblioteca Católica](https://bibliotecacatolica.com.br/).
 
 ## 🚀 Como começar
 
