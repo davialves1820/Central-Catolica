@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Noticia } from "@/types/noticias";
 import { formatarData } from "@/lib/server/services/noticias";
-import { ExternalLink, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
   if (!noticia) return null;
@@ -38,13 +38,11 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
         {/* Ornamental Top Line */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-secondary/20 to-transparent" />
 
-        <div className="mb-8 flex items-center gap-4">
-            <span className="px-4 py-1.5 rounded-full border border-secondary/20 bg-secondary/5 text-secondary font-label-sm">
-                {noticia.fonteLabel}
-            </span>
-            {noticia.categoria && (
-                <span className="font-label-sm text-outline-variant">{noticia.categoria}</span>
-            )}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="h-[1px] w-4 bg-secondary/30" />
+          <p className="font-label-sm text-secondary">
+            {formatarData(noticia.publicadoEm)}
+          </p>
         </div>
 
         <h2 className="font-headline-lg text-primary mb-6 leading-tight group-hover:text-secondary transition-colors duration-500">
@@ -52,26 +50,11 @@ export default function NoticiaDestaque({ noticia }: { noticia: Noticia }) {
         </h2>
 
         {noticia.resumo && (
-          <p className="font-body-md text-on-surface-variant mb-10 line-clamp-3 leading-relaxed opacity-80">
+          <p className="font-body-md text-on-surface-variant leading-relaxed opacity-80">
             {noticia.resumo}
           </p>
         )}
-
-        <div className="mt-auto flex items-center justify-between">
-            <div className="flex items-center gap-3">
-                <p className="font-label-md text-primary flex items-center gap-2 group/btn">
-                    LER NA ÍNTEGRA
-                    <ExternalLink
-                        size={14}
-                        className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    />
-                </p>
-            </div>
-            <span className="font-label-sm text-outline-variant">
-                {formatarData(noticia.publicadoEm)}
-            </span>
-        </div>
       </div>
     </a>
   );
-}
+}

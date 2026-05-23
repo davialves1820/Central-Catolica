@@ -1,7 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { cache } from 'react';
-import { unstable_cache } from 'next/cache';
 
 import { DadosBiblia, Livro } from "@/types/biblia";
 
@@ -32,42 +31,37 @@ interface VersiculoFlat {
   normalizedText: string;
 }
 
-/**
- * Builds the flat verse index once and caches it in memory using next/cache's unstable_cache.
- * This is serverless-friendly, robust across multiple instances, and survives hot-reloads properly.
- */
-const getIndexFlatCached = unstable_cache(
-  async () => {
-    const data = await getDadosBiblia();
-    const index: VersiculoFlat[] = [];
-
-    const addBooks = (books: Livro[]) => {
-      for (const book of books) {
-        for (const chapter of book.capitulos) {
-          for (const verse of chapter.versiculos) {
-            index.push({
-              book: book.nome,
-              chapter: chapter.capitulo,
-              verse: verse.versiculo,
-              text: verse.texto,
-              normalizedText: normalize(verse.texto),
-            });
-          }
-        }
-      }
-    };
-
-    addBooks(data.antigoTestamento);
-    addBooks(data.novoTestamento);
-
-    return index;
-  },
-  ['bible-index-flat'],
-  { tags: ['bible-index'] }
-);
+let cachedFlatIndex: VersiculoFlat[] | null = null;
 
 async function getIndexFlat(): Promise<VersiculoFlat[]> {
-  return getIndexFlatCached();
+  if (cachedFlatIndex) {
+    return cachedFlatIndex;
+  }
+
+  const data = await getDadosBiblia();
+  const index: VersiculoFlat[] = [];
+
+  const addBooks = (books: Livro[]) => {
+    for (const book of books) {
+      for (const chapter of book.capitulos) {
+        for (const verse of chapter.versiculos) {
+          index.push({
+            book: book.nome,
+            chapter: chapter.capitulo,
+            verse: verse.versiculo,
+            text: verse.texto,
+            normalizedText: normalize(verse.texto),
+          });
+        }
+      }
+    }
+  };
+
+  addBooks(data.antigoTestamento);
+  addBooks(data.novoTestamento);
+
+  cachedFlatIndex = index;
+  return index;
 }
 
 export async function pesquisarBiblia(query: string): Promise<{ book: string; chapter: number; verse: number; text: string }[]> {

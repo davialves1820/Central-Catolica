@@ -32,7 +32,7 @@ export default function NoticiaCard({ noticia }: { noticia: Noticia }) {
             </p>
         </div>
         
-        <h3 className="font-headline-md text-primary mb-4 group-hover:text-secondary transition-colors duration-300 line-clamp-2 leading-snug">
+        <h3 className="font-headline-md text-primary mb-4 group-hover:text-secondary transition-colors duration-300 leading-snug">
           {noticia.titulo}
         </h3>
         

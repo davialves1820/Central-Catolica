@@ -48,9 +48,9 @@ function Sheet({
         <div className="w-12 h-1 bg-outline-variant/30 rounded-full" aria-hidden="true" />
       </div>
 
-      <div className="px-gutter pb-8 overflow-y-auto" style={{ maxHeight: "calc(90vh - 40px)" }}>
-        <div className="flex justify-between items-start mb-6 pt-4">
-          <div className="space-y-1">
+      <div className="px-6 md:px-8 pb-10 overflow-y-auto" style={{ maxHeight: "calc(90vh - 40px)" }}>
+        <div className="flex justify-between items-start gap-6 mb-8 pt-4">
+          <div className="space-y-2">
             <p className="font-label-sm text-label-sm text-secondary uppercase tracking-widest">
               {dataFormatada}
             </p>
@@ -60,7 +60,7 @@ function Sheet({
           </div>
           <button
             onClick={aoFechar}
-            className="p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant"
+            className="p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant shrink-0"
           >
             <X size={20} />
           </button>
@@ -83,8 +83,8 @@ function Sheet({
                 { Icon: Music, label: "Salmo Responsorial" },
                 { Icon: BookOpen, label: "Evangelho" },
               ].map(({ Icon, label }) => (
-                <div key={label} className="flex items-center gap-3 p-4 ghost-border bg-surface-container-lowest rounded-lg">
-                  <Icon size={18} className="text-secondary" />
+                <div key={label} className="flex items-center gap-4 p-4 ghost-border bg-surface-container-lowest rounded-lg">
+                  <Icon size={18} className="text-secondary shrink-0" />
                   <span className="font-body-md text-on-surface-variant">{label}</span>
                 </div>
               ))}
@@ -93,7 +93,7 @@ function Sheet({
 
           <Link
             href={`/liturgia?dia=${data.day}&mes=${data.month}&ano=${data.year}`}
-            className="block w-full py-5 bg-primary text-background text-center font-label-md uppercase tracking-widest rounded-lg shadow-xl shadow-primary/10 transition-transform active:scale-[0.98]"
+            className="block w-full py-5 mt-4 bg-primary text-background text-center font-label-md uppercase tracking-widest rounded-lg shadow-xl shadow-primary/10 transition-transform active:scale-[0.98]"
           >
             Ver Liturgia Completa
           </Link>

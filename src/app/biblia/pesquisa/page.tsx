@@ -265,20 +265,20 @@ export default function PaginaBuscaBiblia() {
                     className="group flex gap-6 rounded-2xl p-6 transition-all duration-300 border border-border/40 bg-card hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     <div
-                      className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-secondary transition-colors group-hover:bg-primary/10"
+                      className="shrink-0 px-3 h-12 rounded-xl flex items-center justify-center bg-primary/10 transition-colors group-hover:bg-primary/20"
                       aria-hidden="true"
                     >
                       <span className="text-sm font-bold font-mono text-primary">
-                        {result.verse}
+                        {result.chapter}:{result.verse}
                       </span>
                     </div>
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between mb-3">
                         <span
-                          className="text-[10px] font-bold font-body uppercase tracking-[0.2em] text-primary"
+                          className="text-[10px] font-bold font-body uppercase tracking-[0.2em] text-primary/80"
                         >
-                          {result.book} {result.chapter}:{result.verse}
+                          {result.book}
                         </span>
                         <ChevronRight
                           size={16}

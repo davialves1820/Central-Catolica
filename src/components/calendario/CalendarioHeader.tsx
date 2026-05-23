@@ -27,7 +27,7 @@ export default function CalendarioHeader({
         </button>
 
         {/* View Mode Toggle */}
-        <div className="flex items-center ghost-border overflow-hidden">
+        <div className="hidden md:flex items-center ghost-border overflow-hidden">
           <button
             onClick={() => aoMudarModo("grade")}
             className={`p-2 transition-colors ${modoVisualizacao === "grade" ? "bg-primary text-background" : "hover:bg-surface-container-low text-on-surface-variant"}`}
