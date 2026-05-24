@@ -6,15 +6,51 @@ export function CategoryGrid() {
       <div className="grid grid-cols-12 gap-gutter">
         {/* Sacramentos */}
         <div className="col-span-12 md:col-span-6 group cursor-pointer block">
-          <div className="bg-[#f5f3ee] p-10 h-[400px] rounded-xl border border-[#c9a84c]/30 flex flex-col justify-between transition-colors hover:bg-[#f0eee9]">
+          <div className="bg-[#f5f3ee] p-10 min-h-[400px] rounded-xl border border-[#c9a84c]/30 flex flex-col justify-between transition-colors hover:bg-[#f0eee9]">
             <div>
               <h3 className="font-headline-lg text-headline-lg mb-4 text-[#755b00]">Sacramentos</h3>
-              <p className="font-body-md text-body-md text-[#4d4540]">
-                Canais de graça instituídos por Cristo para a nossa santificação e fortalecimento espiritual.
-              </p>
-            </div>
-            <div className="font-label-md text-label-md [font-variant:small-caps] text-[#755b00] flex items-center group-hover:translate-x-2 transition-transform opacity-50">
-              Em breve
+              <ul className="space-y-4 font-body-md text-body-md text-[#4d4540]">
+                <li>
+                  <Link href="/catequese/sacramentos/sacramentos" className="flex items-center hover:text-[#755b00] transition-colors">
+                    O que são os Sacramentos?
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/catequese/sacramentos/batismo" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Batismo
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/catequese/sacramentos/crisma" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Crisma
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/catequese/sacramentos/eucaristia" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Eucaristia
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/catequese/sacramentos/penitencia" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Penitência
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/catequese/sacramentos/uncao" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Unção dos Enfermos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/catequese/sacramentos/ordem" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Ordem
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/catequese/sacramentos/matrimonio" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Matrimônio
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
