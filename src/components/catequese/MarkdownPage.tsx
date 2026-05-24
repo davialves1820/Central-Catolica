@@ -132,6 +132,16 @@ export function MarkdownPage({ content, title, backHref, backLabel }: { content:
                   h3: ({ children, ...props }) => {
                     const text = extractText(children);
                     return <h3 id={generateId(text)} className="font-headline-md text-2xl text-[#755b00] mt-10 scroll-mt-[100px]" {...props}>{children}</h3>;
+                  },
+                  a: ({ children, ...props }) => {
+                    const isExternal = (props.href && (props.href.startsWith('http') || props.href.startsWith('//')));
+                    if (isExternal) {
+                      return <a {...props} target="_blank" rel="noopener noreferrer" className="text-[#755b00] underline font-semibold hover:no-underline transition-colors inline-flex items-center gap-1 group">
+                        {children}
+                        <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                      </a>;
+                    }
+                    return <a {...props} className="text-[#755b00] underline font-semibold hover:no-underline transition-colors">{children}</a>;
                   }
                 }}
               >
