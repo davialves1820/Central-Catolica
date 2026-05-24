@@ -31,8 +31,8 @@ export function CategoryGrid() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/catequese/sacramentos/penitencia" className="flex items-center hover:text-[#755b00] transition-colors">
-                    Penitência
+                  <Link href="/catequese/sacramentos/confissao" className="flex items-center hover:text-[#755b00] transition-colors">
+                    Confissão
                   </Link>
                 </li>
                 <li>
