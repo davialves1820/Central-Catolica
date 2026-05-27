@@ -1,23 +1,64 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Oracao } from "@/types/oracao";
 import { obterPrimeiraLetra } from "@/lib/client/hooks/utils/primeiraLetra";
-import oracoesData from "@/data/oracoes.json";
 
-const todasOracoes = (oracoesData as { oracoes: Oracao[] }).oracoes;
+interface UseOracoesReturn {
+    oracoes: Oracao[];
+    letras: string[];
+    loading: boolean;
+}
 
-export function useOracoes(nomeCategoria: string | undefined) {
-    const oracoes = useMemo(() => {
+// Cache local para evitar re-fetch ao navegar entre categorias na mesma sessão
+const fetchCache = new Map<string, Oracao[]>();
+
+export function useOracoes(nomeCategoria: string | undefined): UseOracoesReturn {
+    const [oracoes, setOracoes] = useState<Oracao[]>([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
         if (!nomeCategoria) {
-            return [];
+            queueMicrotask(() => setOracoes([]));
+            return;
         }
 
-        return todasOracoes
-            .filter((o) => o.categoria === nomeCategoria)
-            .sort((a, b) =>
-                a.titulo.localeCompare(b.titulo, "pt-BR", { sensitivity: "base" })
-            );
+        if (fetchCache.has(nomeCategoria)) {
+            queueMicrotask(() => setOracoes(fetchCache.get(nomeCategoria)!));
+            return;
+        }
+
+        let cancelled = false;
+        queueMicrotask(() => setLoading(true));
+
+        fetch(`/api/oracoes?categoria=${encodeURIComponent(nomeCategoria)}`)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}`);
+                }
+                return res.json();
+            })
+            .then(({ oracoes: data }: { oracoes: Oracao[] }) => {
+                if (cancelled) {
+                    return;
+                }
+                fetchCache.set(nomeCategoria, data);
+                setOracoes(data);
+            })
+            .catch((err) => {
+                if (!cancelled) {
+                    console.error("[useOracoes]", err);
+                }
+            })
+            .finally(() => {
+                if (!cancelled) {
+                    setLoading(false);
+                }
+            });
+
+        return () => {
+            cancelled = true;
+        };
     }, [nomeCategoria]);
 
     const letras = useMemo(() => {
@@ -25,5 +66,5 @@ export function useOracoes(nomeCategoria: string | undefined) {
         return Array.from(conjunto).sort((a, b) => a.localeCompare(b, "pt-BR"));
     }, [oracoes]);
 
-    return { oracoes, letras };
+    return { oracoes, letras, loading };
 }

@@ -1,39 +1,55 @@
 import { Noticia } from "@/types/noticias";
+import { FEEDS, FonteNoticia } from "@/config/feeds";
 import { XMLParser } from "fast-xml-parser";
 
-const FEEDS = {
-  vaticannews: {
-    url: 'https://www.vaticannews.va/pt.rss.xml',
-    label: 'Vatican News',
-  },
-  /*cnbb: {
-    url: 'https://www.cnbb.org.br/feed/',
-    label: 'CNBB',
-  },
-  fides: {
-    url: 'https://www.fides.org/pt/rss',
-    label: 'Agência Fides',
-  },*/
-} as const
+// Tipo interno que representa um item bruto do RSS antes de ser validado
+interface RssItem {
+  title?: unknown;
+  link?: unknown;
+  description?: unknown;
+  "content:encoded"?: unknown;
+  pubDate?: unknown;
+  "dc:date"?: unknown;
+  category?: unknown;
+  "media:content"?: RssMediaAttr | RssMediaAttr[];
+  "media:thumbnail"?: RssMediaAttr | RssMediaAttr[];
+  enclosure?: RssMediaAttr | RssMediaAttr[];
+}
 
-// Extrai texto simples de um campo XML (ignora CDATA e tags)
+interface RssMediaAttr {
+  "@_url"?: string;
+}
+
 function texto(valor: unknown): string {
-  if (valor === undefined || valor === null) return "";
+  if (valor === undefined || valor === null) {
+    return "";
+  }
   let str = "";
   if (typeof valor === "object") {
     const valObj = valor as Record<string, unknown>;
-    str = typeof valObj["#text"] === "string" ? valObj["#text"] : JSON.stringify(valor);
+    str =
+      typeof valObj["#text"] === "string"
+        ? valObj["#text"]
+        : JSON.stringify(valor);
   } else {
     str = String(valor);
   }
   return str
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
-    .replace(/<[^>]+>/g, '')
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
+    .replace(/<[^>]+>/g, "")
     .trim();
 }
 
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-function parsearItem(item: any, fonte: keyof typeof FEEDS): Noticia | null {
+function extrairUrlMidia(
+  campo: RssMediaAttr | RssMediaAttr[] | undefined
+): string | undefined {
+  if (!campo) {
+    return undefined;
+  }
+  return Array.isArray(campo) ? campo[0]?.["@_url"] : campo["@_url"];
+}
+
+function parsearItem(item: RssItem, fonte: FonteNoticia): Noticia | null {
   const titulo = item.title;
   const link = item.link;
   const desc = item.description ?? item["content:encoded"] ?? "";
@@ -44,61 +60,27 @@ function parsearItem(item: any, fonte: keyof typeof FEEDS): Noticia | null {
     return null;
   }
 
-  // Tenta extrair URL de imagem de vários campos comuns no parsed object
-  let imagemUrl: string | undefined = undefined;
+  const imagemUrl =
+    extrairUrlMidia(item["media:content"]) ??
+    extrairUrlMidia(item["media:thumbnail"]) ??
+    extrairUrlMidia(item.enclosure) ??
+    // fallback: extrai <img src="..."> da descrição
+    (typeof desc === "string" ? desc.match(/<img[^>]+src="([^"]+)"/)?.[1] : undefined);
 
-  // 1. media:content
-  const mediaContent = item["media:content"];
-  if (mediaContent) {
-    if (Array.isArray(mediaContent)) {
-      imagemUrl = mediaContent[0]?.["@_url"];
-    } else {
-      imagemUrl = mediaContent["@_url"];
-    }
-  }
-
-  // 2. media:thumbnail
-  if (!imagemUrl) {
-    const mediaThumbnail = item["media:thumbnail"];
-    if (mediaThumbnail) {
-      if (Array.isArray(mediaThumbnail)) {
-        imagemUrl = mediaThumbnail[0]?.["@_url"];
-      } else {
-        imagemUrl = mediaThumbnail["@_url"];
-      }
-    }
-  }
-
-  // 3. enclosure
-  if (!imagemUrl) {
-    const enclosure = item.enclosure;
-    if (enclosure) {
-      if (Array.isArray(enclosure)) {
-        imagemUrl = enclosure[0]?.["@_url"];
-      } else {
-        imagemUrl = enclosure["@_url"];
-      }
-    }
-  }
-
-  // 4. image inside description using regex if needed (as fallback)
-  if (!imagemUrl && typeof desc === "string") {
-    const match = desc.match(/<img[^>]+src="([^"]+)"/);
-    if (match) {
-      imagemUrl = match[1];
-    }
-  }
-
-  const resumoLimpo = texto(desc ?? '').slice(0, 240);
-  const resumo = resumoLimpo.length === 240 ? resumoLimpo.slice(0, resumoLimpo.lastIndexOf(' ')) + '…' : resumoLimpo;
+  const resumoLimpo = texto(desc ?? "").slice(0, 240);
+  const resumo = resumoLimpo.length === 240 ? resumoLimpo.slice(0, resumoLimpo.lastIndexOf(" ")) + "…" : resumoLimpo;
 
   return {
-    id: Buffer.from(texto(link)).toString('base64'),
+    id: Buffer.from(texto(link)).toString("base64"),
     titulo: texto(titulo),
     resumo,
     url: texto(link),
     imagem: imagemUrl ? texto(imagemUrl) : undefined,
-    categoria: categoria ? (typeof categoria === "string" ? texto(categoria) : texto(categoria["#text"] ?? "")) : undefined,
+    categoria: categoria
+      ? typeof categoria === "string"
+        ? texto(categoria)
+        : texto((categoria as Record<string, unknown>)["#text"] ?? "")
+      : undefined,
     publicadoEm: pubDate
       ? new Date(texto(pubDate)).toISOString()
       : new Date().toISOString(),
@@ -107,7 +89,7 @@ function parsearItem(item: any, fonte: keyof typeof FEEDS): Noticia | null {
   };
 }
 
-export async function buscarNoticias(fontes: (keyof typeof FEEDS)[] = ['vaticannews'], limite = 12): Promise<Noticia[]> {
+export async function buscarNoticias(fontes: FonteNoticia[] = ["vaticannews"], limite = 12): Promise<Noticia[]> {
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
@@ -117,20 +99,35 @@ export async function buscarNoticias(fontes: (keyof typeof FEEDS)[] = ['vaticann
   const resultados = await Promise.allSettled(
     fontes.map(async (fonte) => {
       const res = await fetch(FEEDS[fonte].url, {
-        next: { revalidate: 3600 }, // cache ISR: revalida a cada 1h
-        headers: { 'User-Agent': 'CentralCatolica/1.0' },
+        next: { revalidate: 3600 },
+        headers: { "User-Agent": "CentralCatolica/1.0" },
       });
+
       if (!res.ok) {
         throw new Error(`Feed ${fonte} retornou ${res.status}`);
       }
+
       const xml = await res.text();
 
-      const obj = parser.parse(xml);
+      // XML parse isolado em try/catch para não derrubar as outras fontes
+      let obj: ReturnType<XMLParser["parse"]>;
+      try {
+        obj = parser.parse(xml);
+      } catch (parseErr) {
+        throw new Error(`Feed ${fonte}: XML inválido — ${parseErr}`);
+      }
+
       const channel = obj.rss?.channel;
-      if (!channel) return [];
+      if (!channel) {
+        return [];
+      }
 
       const rawItems = channel.item;
-      const items = Array.isArray(rawItems) ? rawItems : rawItems ? [rawItems] : [];
+      const items: RssItem[] = Array.isArray(rawItems)
+        ? rawItems
+        : rawItems
+          ? [rawItems]
+          : [];
 
       return items
         .map((item) => parsearItem(item, fonte))
@@ -139,21 +136,19 @@ export async function buscarNoticias(fontes: (keyof typeof FEEDS)[] = ['vaticann
     })
   );
 
-  // Junta resultados de todas as fontes, ordena por data desc, desduplica e limita
   const todas = resultados
-    .flatMap((r) => (r.status === 'fulfilled' ? r.value : []))
+    .flatMap((r) => (r.status === "fulfilled" ? r.value : []))
     .sort((a, b) => b.publicadoEm.localeCompare(a.publicadoEm));
 
-  // Desduplicação por URL
   const unique = Array.from(new Map(todas.map((n) => [n.url, n])).values());
 
   return unique.slice(0, limite * fontes.length);
 }
 
 export function formatarData(iso: string): string {
-  return new Intl.DateTimeFormat('pt-BR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(new Date(iso))
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(iso));
 }

@@ -15,7 +15,9 @@ export const getDadosBiblia = cache(async (): Promise<DadosBiblia> => {
 export async function getLivro(bookName: string): Promise<Livro | undefined> {
   const data = await getDadosBiblia();
   const allBooks = [...data.antigoTestamento, ...data.novoTestamento];
-  return allBooks.find(b => b.nome.toLowerCase() === decodeURIComponent(bookName).toLowerCase(),);
+  return allBooks.find(
+    (b) => b.nome.toLowerCase() === decodeURIComponent(bookName).toLowerCase()
+  );
 }
 
 function normalize(text: string): string {
@@ -27,17 +29,10 @@ interface VersiculoFlat {
   chapter: number;
   verse: number;
   text: string;
-  /** Texto normalizado (sem acentos e minúsculo) para busca rápida. */
   normalizedText: string;
 }
 
-let cachedFlatIndex: VersiculoFlat[] | null = null;
-
-async function getIndexFlat(): Promise<VersiculoFlat[]> {
-  if (cachedFlatIndex) {
-    return cachedFlatIndex;
-  }
-
+const getIndexFlat = cache(async (): Promise<VersiculoFlat[]> => {
   const data = await getDadosBiblia();
   const index: VersiculoFlat[] = [];
 
@@ -60,9 +55,8 @@ async function getIndexFlat(): Promise<VersiculoFlat[]> {
   addBooks(data.antigoTestamento);
   addBooks(data.novoTestamento);
 
-  cachedFlatIndex = index;
   return index;
-}
+});
 
 export async function pesquisarBiblia(query: string): Promise<{ book: string; chapter: number; verse: number; text: string }[]> {
   const index = await getIndexFlat();

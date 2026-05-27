@@ -9,7 +9,7 @@ import OracoesSidebar from "@/components/oracao/OracoesSidebar";
 
 const data = oracoesData as { total: number; oracoes: Oracao[] };
 
-import { Book, Sparkles, Droplets, List, ArrowUpRight } from "lucide-react";
+import { Book, Sparkles, Droplets, List } from "lucide-react";
 
 const categoryIcons: Record<string, React.ReactNode> = {
     "Orações comuns": <Book className="w-8 h-8" />,
@@ -25,10 +25,7 @@ export default function OracoesPage() {
     }
 
     // Featured prayers from 'Orações comuns'
-    const commonPrayers = data.oracoes.filter(o => o.categoria === "Orações comuns").slice(0, 2);
-
-    // Other categories for the grid
-    const otherCategories = Object.entries(CONFIG_CAT);
+    const commonPrayers = data.oracoes.filter(o => o.categoria === "Orações comuns").slice(24, 25);
 
     return (
         <div className="min-h-screen bg-background flex flex-col">
@@ -92,35 +89,6 @@ export default function OracoesPage() {
                                 ))}
                             </div>
                         </section>
-
-                        {/* Grid of Other Categories */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-gutter">
-                            {otherCategories.map(([cat, config]) => (
-                                <Link
-                                    key={cat}
-                                    href={`/oracoes/${config.slug}`}
-                                    className="bg-surface-container-low border border-secondary/5 p-8 md:p-10 rounded-2xl hover:border-secondary/30 hover:bg-white transition-all group cursor-pointer shadow-sm relative overflow-hidden"
-                                >
-                                    <div className="relative z-10 flex justify-between items-start mb-8 md:mb-10">
-                                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
-                                            {categoryIcons[cat] || <Sparkles className="w-6 h-6 md:w-8 md:h-8" />}
-                                        </div>
-                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-secondary/10 flex items-center justify-center text-outline opacity-0 md:group-hover:opacity-100 group-hover:translate-x-0 translate-x-4 transition-all duration-300">
-                                            <ArrowUpRight size={16} />
-                                        </div>
-                                    </div>
-                                    <div className="relative z-10">
-                                        <h3 className="font-headline-md mb-2 md:mb-4 text-primary text-xl md:text-2xl">{cat}</h3>
-                                        <p className="font-body-md text-on-surface-variant leading-relaxed opacity-80 text-sm md:text-base">{config.descricao}</p>
-                                    </div>
-
-                                    {/* Subtle background icon */}
-                                    <div className="absolute -bottom-4 -right-4 text-primary/5 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
-                                        {categoryIcons[cat] || <Sparkles size={100} />}
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </main>

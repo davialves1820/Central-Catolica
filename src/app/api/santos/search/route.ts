@@ -1,18 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getSantos } from "@/lib/server/services/santos";
+import { validarQueryBusca } from "@/lib/server/utils/validarQueryBusca";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const q = searchParams.get("q") || "";
-
-  if (q.length < 2) {
-    return NextResponse.json({ results: [] });
-  }
+export async function GET(request: NextRequest) {
+  const { query, erro } = validarQueryBusca(request.nextUrl.searchParams, 2);
+  if (erro) return erro;
 
   try {
-    // Busca até 10 resultados para a query
-    const { santos } = await getSantos({ busca: q, pagina: 1 });
-    // Limita os resultados a 5 para o autocomplete
+    const { santos } = await getSantos({ busca: query, pagina: 1 });
     const results = santos.slice(0, 5);
     return NextResponse.json({ results });
   } catch (error) {
