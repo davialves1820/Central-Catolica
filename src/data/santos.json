@@ -7145,6 +7145,21 @@
       ]
     },
     {
+      "nome": "Joana d'Arc",
+      "slug": "joana_d_arc",
+      "url": "https://pt.wikipedia.org/wiki/Joana_d%27Arc",
+      "tipo": "Santa",
+      "resumo": "Joana d'Arc (c. 1412 – 30 de maio de 1431) foi una heroína francesa e chefe militar que desempenhou um papel crucial na Guerra dos Cien Anos. Capturada por facções rivais e entregue aos ingleses, foi julgada por heresia e queimada na fogueira. Foi reabilitada séculos mais tarde, canonizada pelo Papa Bento XV em 1920 e é uma das santas padroeiras da França.",
+      "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Albert_Lynch_-_Jeanne_d%27Arc.jpg",
+      "imagem_nome": "Joan_of_arc_miniature_graded.jpg",
+      "data_festa": "30 de maio",
+      "nascimento": "c. 1412",
+      "morte": "30 de maio de 1431",
+      "padroeiro_de": "França, soldados, prisioneiros, pessoas ridicularizadas pela sua fé, escoteiros",
+      "venerado_em": "Igreja Católica",
+      "canonizado_por": "Papa Bento XV"
+    },
+    {
       "nome": "São Jerônimo",
       "slug": "jeronimo",
       "url": "https://pt.wikipedia.org/wiki/Jer%C3%B4nimo_de_Estrid%C3%A3o",
