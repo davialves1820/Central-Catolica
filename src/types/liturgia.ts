@@ -35,7 +35,6 @@ export interface PropsSecaoLeitura {
   titulo: string;
   leitura: Leitura;
   Icon: LucideIcon;
-  ehEvangelho?: boolean;
 }
 
 export interface PropsSecaoSalmo {

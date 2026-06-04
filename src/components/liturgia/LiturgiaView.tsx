@@ -35,7 +35,7 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
               <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-primary">Liturgia Diária</span>
               <div className="w-12 h-[1px] bg-primary/30"></div>
             </div>
-            
+
             <h1 className="font-headline-xl text-primary leading-[1.1] max-w-4xl">
               {liturgia.liturgia}
             </h1>
@@ -63,7 +63,7 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
               )}
 
               <motion.div custom={4} variants={sectionVariants} initial="hidden" animate="visible">
-                <ReadingSection titulo="Evangelho" leitura={liturgia.evangelho} Icon={Cross} ehEvangelho />
+                <ReadingSection titulo="Evangelho" leitura={liturgia.evangelho} Icon={Cross} />
               </motion.div>
             </div>
 

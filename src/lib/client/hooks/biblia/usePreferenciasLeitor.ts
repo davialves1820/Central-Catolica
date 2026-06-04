@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { type Tema, type TamanhoFonte, type ModoLeitura, TEMAS } from "@/types/biblia";
 
 interface PreferenciasLeitor {
-  isMounted: boolean;
   tamanhoFonte: TamanhoFonte;
   tema: Tema;
   modoLeitura: ModoLeitura;
@@ -14,14 +13,12 @@ interface PreferenciasLeitor {
 }
 
 export function usePreferenciasLeitor(): PreferenciasLeitor {
-  const [isMounted, setIsMounted] = useState(false);
   const [tamanhoFonte, setTamanhoFonteState] = useState<TamanhoFonte>(18);
   const [tema, setTemaState] = useState<Tema>("pergaminho");
   const [modoLeitura, setModoLeituraState] = useState<ModoLeitura>("paginado");
 
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect */
-    setIsMounted(true);
     const sz = localStorage.getItem("biblia-tamanho-fonte");
     const th = localStorage.getItem("biblia-tema") as Tema;
     const md = localStorage.getItem("biblia-modo-leitura") as ModoLeitura;
@@ -52,5 +49,5 @@ export function usePreferenciasLeitor(): PreferenciasLeitor {
     localStorage.setItem("biblia-modo-leitura", m);
   };
 
-  return { isMounted, tamanhoFonte, tema, modoLeitura, setTamanhoFonte, setTema, setModoLeitura };
+  return { tamanhoFonte, tema, modoLeitura, setTamanhoFonte, setTema, setModoLeitura };
 }
