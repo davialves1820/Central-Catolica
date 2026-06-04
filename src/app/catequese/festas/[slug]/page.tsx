@@ -1,25 +1,31 @@
-import fs from 'fs';
-import path from 'path';
-import { MarkdownPage } from '@/components/catequese/MarkdownPage';
-import { notFound } from 'next/navigation';
-import { obterTituloPorSlug } from '@/lib/server/utils/utils';
+import fs from "fs/promises";
+import path from "path";
+import { MarkdownPage } from "@/components/catequese/MarkdownPage";
+import { notFound } from "next/navigation";
+import { obterTituloPorSlug, CATEQUESE } from "@/config/catequese";
+
+export async function generateStaticParams() {
+  const secao = CATEQUESE.find((s) => s.id === "festas");
+  return (secao?.itens ?? []).map(({ slug }) => ({ slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const title = obterTituloPorSlug(slug);
-  return {
-    title: `${title} | Festas Litúrgicas`,
-  };
+  return { title: `${title} | Festas Litúrgicas` };
 }
 
 export default async function FestaPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const filePath = path.join(process.cwd(), 'data/conteudo', `${slug}.md`);
-  if (!fs.existsSync(filePath)) {
+  const filePath = path.join(process.cwd(), "data/conteudo", `${slug}.md`);
+
+  try {
+    await fs.access(filePath);
+  } catch {
     notFound();
   }
 
-  const content = fs.readFileSync(filePath, 'utf8');
+  const content = await fs.readFile(filePath, "utf8");
   const title = obterTituloPorSlug(slug);
 
   return (

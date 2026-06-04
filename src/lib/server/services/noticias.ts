@@ -2,7 +2,8 @@ import { Noticia } from "@/types/noticias";
 import { FEEDS, FonteNoticia } from "@/config/feeds";
 import { XMLParser } from "fast-xml-parser";
 
-// Tipo interno que representa um item bruto do RSS antes de ser validado
+const TAMANHO_MAXIMO_BYTES = 5 * 1024 * 1024; // 5 MB
+
 interface RssItem {
   title?: unknown;
   link?: unknown;
@@ -24,6 +25,7 @@ function texto(valor: unknown): string {
   if (valor === undefined || valor === null) {
     return "";
   }
+
   let str = "";
   if (typeof valor === "object") {
     const valObj = valor as Record<string, unknown>;
@@ -64,11 +66,15 @@ function parsearItem(item: RssItem, fonte: FonteNoticia): Noticia | null {
     extrairUrlMidia(item["media:content"]) ??
     extrairUrlMidia(item["media:thumbnail"]) ??
     extrairUrlMidia(item.enclosure) ??
-    // fallback: extrai <img src="..."> da descrição
-    (typeof desc === "string" ? desc.match(/<img[^>]+src="([^"]+)"/)?.[1] : undefined);
+    (typeof desc === "string"
+      ? desc.match(/<img[^>]+src="([^"]+)"/)?.[1]
+      : undefined);
 
   const resumoLimpo = texto(desc ?? "").slice(0, 240);
-  const resumo = resumoLimpo.length === 240 ? resumoLimpo.slice(0, resumoLimpo.lastIndexOf(" ")) + "…" : resumoLimpo;
+  const resumo =
+    resumoLimpo.length === 240
+      ? resumoLimpo.slice(0, resumoLimpo.lastIndexOf(" ")) + "…"
+      : resumoLimpo;
 
   return {
     id: Buffer.from(texto(link)).toString("base64"),
@@ -89,7 +95,58 @@ function parsearItem(item: RssItem, fonte: FonteNoticia): Noticia | null {
   };
 }
 
-export async function buscarNoticias(fontes: FonteNoticia[] = ["vaticannews"], limite = 12): Promise<Noticia[]> {
+async function fetchRssFeed(fonte: FonteNoticia): Promise<string> {
+  const res = await fetch(FEEDS[fonte].url, {
+    next: { revalidate: 3600 },
+    headers: { "User-Agent": "CentralCatolica/1.0" },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Feed ${fonte} retornou ${res.status}`);
+  }
+
+  // Verifica Content-Length antes de ler o body
+  const contentLength = res.headers.get("content-length");
+  if (contentLength && parseInt(contentLength, 10) > TAMANHO_MAXIMO_BYTES) {
+    throw new Error(`Feed ${fonte} excede o limite de tamanho (${contentLength} bytes)`);
+  }
+
+  // Lê com limite aplicado via streaming manual
+  const reader = res.body?.getReader();
+  if (!reader) {
+    throw new Error(`Feed ${fonte}: body ilegível`);
+  }
+
+  let totalBytes = 0;
+  const chunks: Uint8Array[] = [];
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) {
+      break;
+    }
+    totalBytes += value.byteLength;
+    if (totalBytes > TAMANHO_MAXIMO_BYTES) {
+      reader.cancel();
+      throw new Error(`Feed ${fonte} excede ${TAMANHO_MAXIMO_BYTES / 1024 / 1024}MB durante leitura`);
+    }
+    chunks.push(value);
+  }
+
+  return new TextDecoder().decode(
+    chunks.reduce((acc, chunk) => {
+      const merged = new Uint8Array(acc.length + chunk.length);
+      merged.set(acc);
+      merged.set(chunk, acc.length);
+      return merged;
+    }, new Uint8Array(0))
+  );
+}
+
+export async function buscarNoticias(
+  fontes: FonteNoticia[] = ["vaticannews"],
+  limite = 12
+): Promise<Noticia[]> {
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
@@ -98,18 +155,8 @@ export async function buscarNoticias(fontes: FonteNoticia[] = ["vaticannews"], l
 
   const resultados = await Promise.allSettled(
     fontes.map(async (fonte) => {
-      const res = await fetch(FEEDS[fonte].url, {
-        next: { revalidate: 3600 },
-        headers: { "User-Agent": "CentralCatolica/1.0" },
-      });
+      const xml = await fetchRssFeed(fonte);
 
-      if (!res.ok) {
-        throw new Error(`Feed ${fonte} retornou ${res.status}`);
-      }
-
-      const xml = await res.text();
-
-      // XML parse isolado em try/catch para não derrubar as outras fontes
       let obj: ReturnType<XMLParser["parse"]>;
       try {
         obj = parser.parse(xml);
@@ -137,11 +184,16 @@ export async function buscarNoticias(fontes: FonteNoticia[] = ["vaticannews"], l
   );
 
   const todas = resultados
-    .flatMap((r) => (r.status === "fulfilled" ? r.value : []))
+    .flatMap((r) => {
+      if (r.status === "rejected") {
+        console.error("[buscarNoticias]", r.reason);
+        return [];
+      }
+      return r.value;
+    })
     .sort((a, b) => b.publicadoEm.localeCompare(a.publicadoEm));
 
   const unique = Array.from(new Map(todas.map((n) => [n.url, n])).values());
-
   return unique.slice(0, limite * fontes.length);
 }
 

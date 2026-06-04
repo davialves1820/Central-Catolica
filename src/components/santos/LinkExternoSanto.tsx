@@ -13,7 +13,9 @@ export default function LinkExternoSanto({ href }: PropsLinkExternoSanto) {
         <ExternalLink size={16} className="opacity-40 group-hover:opacity-100 transition-opacity" />
         Fonte: Wikipédia
       </span>
-      <span className="text-[10px] opacity-40 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">Acessar</span>
+      <span className="text-[10px] opacity-40 group-hover:opacity-100 transition-opacity uppercase tracking-tighter">
+        Acessar
+      </span>
     </a>
   );
 }

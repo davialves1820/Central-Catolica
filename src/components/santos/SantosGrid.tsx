@@ -8,12 +8,7 @@ export default function GradeSantos({ santos }: PropsGradeSantos) {
   if (santos.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-center">
-        <p
-          className="font-headline-xl text-7xl mb-6 opacity-10"
-          aria-hidden="true"
-        >
-          ✝
-        </p>
+        <p className="font-headline-xl text-7xl mb-6 opacity-10" aria-hidden="true">✝</p>
         <p className="text-on-surface-variant font-body-md text-base mb-1">Nenhum santo encontrado.</p>
         <p className="text-on-surface-variant/60 font-body-md text-sm mb-6">Tente ajustar os filtros ou a busca.</p>
         <Link
@@ -38,17 +33,17 @@ function CartaoSanto({ santo }: PropsCartaoSanto) {
     <Link
       href={`/santos/${santo.slug}`}
       className="group cursor-pointer block"
-      aria-label={santo.nome}
+      aria-label={`Ver perfil de ${santo.nome}`}
     >
       <div className="relative aspect-[3/4] overflow-hidden mb-4 border border-outline-variant/30 bg-surface-container">
         {santo.imagem_url ? (
           <Image
             src={santo.imagem_url}
-            alt={santo.nome}
+            alt={`Imagem de ${santo.nome}`}
             fill
             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-            unoptimized
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            unoptimized
           />
         ) : (
           <div className="flex h-full items-center justify-center">
@@ -56,9 +51,7 @@ function CartaoSanto({ santo }: PropsCartaoSanto) {
           </div>
         )}
       </div>
-      <p className="font-label-sm text-label-sm text-secondary mb-1">
-        {santo.tipo}
-      </p>
+      <p className="font-label-sm text-label-sm text-secondary mb-1">{santo.tipo}</p>
       <h5 className="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors line-clamp-1">
         {santo.nome}
       </h5>

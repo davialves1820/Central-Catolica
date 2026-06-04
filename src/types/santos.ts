@@ -49,8 +49,6 @@ export interface PropsCartaoSanto {
 
 export interface PropsLinkExternoSanto {
   href: string;
-  cor: string;
-  borda: string;
 }
 
 export interface PropsAlfabetoSantos {

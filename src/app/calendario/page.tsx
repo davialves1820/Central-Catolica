@@ -1,68 +1,52 @@
-import CalendarioView from "@/components/calendario/CalendarioView";
-import { CalendarioSkeleton } from "@/components/ui/skeletons";
-import { Suspense } from "react";
+import React from "react";
 import path from "path";
 import fs from "fs/promises";
+import CalendarioView from "@/components/calendario/CalendarioView";
+import { type EntradaDiaJson, type DadosDiaLiturgico } from "@/types/calendario";
+import { Metadata } from "next";
 
-import { type DadosDiaLiturgico, type EntradaDiaJson } from "@/types/calendario";
+export const metadata: Metadata = {
+  title: "Calendário Litúrgico",
+  description: "Acompanhe o calendário litúrgico da Igreja Católica",
+};
 
-async function CalendarioContent() {
-  const calendarioInicial: Record<string, DadosDiaLiturgico[]> = {};
+// Cache em memória do JSON completo para evitar leitura de disco a cada request
+let cachedJson: Record<string, EntradaDiaJson[]> | null = null;
 
-  try {
-    const jsonPath = path.join(process.cwd(), "data", "calendario2026.json");
-    const raw = await fs.readFile(jsonPath, "utf8");
-    const jsonData: Record<string, EntradaDiaJson[]> = JSON.parse(raw);
-
-    for (const [dateStr, entries] of Object.entries(jsonData)) {
-      calendarioInicial[dateStr] = entries.map((entry) => ({
-        chave: entry.nome.toLowerCase().replace(/[^a-z0-9]/g, "_"),
-        nome: entry.nome,
-        rank: entry.rank,
-        nomeRank: entry.rank,
-        cores: [entry.cor],
-        nomesCores: [entry.cor],
-        temporadas: [entry.temporada],
-        nomesTemporadas: [entry.temporada],
-      }));
-    }
-  } catch (error) {
-    console.error("[calendario] Erro ao ler JSON:", error);
+async function getCalendario(): Promise<Record<string, EntradaDiaJson[]>> {
+  if (cachedJson) {
+    return cachedJson;
   }
-
-  return <CalendarioView calendarioInicial={calendarioInicial} />;
+  const jsonPath = path.join(process.cwd(), "data", "calendario2026.json");
+  const raw = await fs.readFile(jsonPath, "utf8");
+  cachedJson = JSON.parse(raw);
+  return cachedJson!;
 }
 
-export default function CalendarioPage() {
-  return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <main className="flex-1">
-        <div className="relative border-b border-border py-10 sm:py-16 md:py-20 overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            aria-hidden="true"
-            style={{
-              backgroundImage: `
-                repeating-linear-gradient(0deg,  transparent, transparent 47px, hsl(var(--gold)) 47px, hsl(var(--gold)) 48px),
-                repeating-linear-gradient(90deg, transparent, transparent 47px, hsl(var(--gold)) 47px, hsl(var(--gold)) 48px)
-              `,
-            }}
-          />
-          <div className="relative container mx-auto px-4 sm:px-6 text-center">
-            <h1 className="font-headline-xl text-primary mb-8 tracking-tighter">
-              Calendário Litúrgico
-            </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed opacity-80">
-              Solenidades, festas, memórias e tempos que marcam o ritmo da fé
-              ao longo do ano.
-            </p>
-          </div>
-        </div>
+function mapearEntrada(entries: EntradaDiaJson[]): DadosDiaLiturgico[] {
+  return entries.map((entry) => ({
+    chave: entry.nome.toLowerCase().replace(/[^a-z0-9]/g, "_"),
+    nome: entry.nome,
+    rank: entry.rank,
+    nomeRank: entry.rank,
+    cores: [entry.cor],
+    nomesCores: [entry.cor],
+    temporadas: [entry.temporada],
+    nomesTemporadas: [entry.temporada],
+  }));
+}
 
-        <Suspense fallback={<CalendarioSkeleton />}>
-          <CalendarioContent />
-        </Suspense>
-      </main>
+export default async function CalendarioPage() {
+  const dados = await getCalendario();
+
+  const resultado: Record<string, DadosDiaLiturgico[]> = {};
+  for (const [dateStr, entries] of Object.entries(dados)) {
+    resultado[dateStr] = mapearEntrada(entries);
+  }
+
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      <CalendarioView calendarioInicial={resultado} />
     </div>
   );
 }
