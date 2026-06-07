@@ -132,7 +132,6 @@ export function CalendarioSkeleton() {
     );
 }
 
-/* Skeleton */
 export function NoticiasSkeleton() {
     return (
         <div className="space-y-12 animate-in fade-in duration-300">
@@ -160,5 +159,29 @@ export function NoticiasSkeleton() {
                 ))}
             </div>
         </div>
+    );
+}
+
+export function SantoDoDiaSkeleton() {
+    return (
+        <section className="px-5 md:px-16 py-12">
+            <div className="flex flex-col md:flex-row justify-between items-baseline mb-8 border-b border-[#d0c4be] pb-4">
+                <div className="space-y-2">
+                    <div className="h-3 w-28 bg-primary/10 rounded animate-pulse" />
+                    <div className="h-8 w-40 bg-primary/10 rounded animate-pulse" />
+                </div>
+            </div>
+            <div className="flex flex-col md:flex-row bg-white border border-primary/20 overflow-hidden animate-pulse">
+                <div className="w-full md:w-56 aspect-[3/2] md:aspect-auto bg-[#f0eee9]" />
+                <div className="flex-1 p-10 space-y-4">
+                    <div className="h-3 w-20 bg-primary/10 rounded" />
+                    <div className="h-8 w-64 bg-primary/10 rounded" />
+                    <div className="h-3 w-32 bg-primary/10 rounded" />
+                    <div className="h-4 w-full bg-primary/10 rounded" />
+                    <div className="h-4 w-5/6 bg-primary/10 rounded" />
+                    <div className="h-4 w-4/6 bg-primary/10 rounded" />
+                </div>
+            </div>
+        </section>
     );
 }
