@@ -314,13 +314,13 @@
   /* UltimasNoticias item */
   .ultimas-noticias-item:hover {
     border-color: hsl(var(--gold)/0.3) !important;
-    background: hsl(var(--secondary)) !important;
+    background: hsl(var(--pearl)) !important;
   }
 
   /* SantoDoDia card */
   .santo-do-dia:hover {
     border-color: hsl(var(--gold)/0.35) !important;
-    background: hsl(var(--secondary)) !important;
+    background: hsl(var(--pearl)) !important;
   }
 
   /* ─── Scrollbar helpers ─── */

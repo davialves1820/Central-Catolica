@@ -3,12 +3,15 @@ import Image from "next/image";
 import { getLiturgiaDiaria } from "@/lib/server/services/liturgia";
 import { buscarNoticias } from "@/lib/server/services/noticias";
 import NoticiaCard from "@/components/noticias/NoticiaCard";
+import SantoDoDia from "@/components/santos/SantoDoDia";
 import { Leaf, Sparkles, Users, BookOpenText, Book, ArrowRight, Newspaper, Calendar, Flame } from "lucide-react";
+import { Suspense } from "react";
+import { SantoDoDiaSkeleton } from "@/components/ui/skeletons";
 
 export default async function Home() {
   const now = new Date();
   const brDate = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
-  
+
   const day = brDate.getDate();
   const month = brDate.toLocaleString('pt-BR', { month: 'long' });
   const monthNumeric = (brDate.getMonth() + 1).toString();
@@ -25,9 +28,9 @@ export default async function Home() {
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center justify-center px-5 py-24 overflow-hidden">
           <div className="absolute inset-0 z-0 opacity-15">
-            <Image 
-              alt="Sacred interior" 
-              className="w-full h-full object-cover grayscale" 
+            <Image
+              alt="Sacred interior"
+              className="w-full h-full object-cover grayscale"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAOMN8HDrHX6N8F6U8sHi2M0SDf6hsW_PTmg47hpyyc4GWhWTroNGGlOvE2Z3BhXV8ZaqEuW-is42z2sXE8beMWN69fVwhnjwv5JcZQkLvOFVn0PrKC3H7biULzC3Kv3Is546DgfVlX4OGL4aPkrrZVz3_WZEk9a7rEubjYk5iAErLLeOEEfDo03F_xSLIGFeHk4SI4hxiHN6RnxI4uTO6IgHE73N1O28ptxGjKLigPD9eAVBQ3dNhDZRwlyD53lBgOb-L7oYkrYo0"
               fill
               priority
@@ -104,6 +107,16 @@ export default async function Home() {
             </div>
           </section>
         )}
+
+        {/* Santo do Dia */}
+        <Suspense fallback={<SantoDoDiaSkeleton />}>
+          <SantoDoDia />
+        </Suspense>
+
+        {/* Divider */}
+        <div className="px-5 md:px-16">
+          <div className="gold-divider" />
+        </div>
 
         {/* Vatican News Grid */}
         <section className="px-5 md:px-16 py-20">
