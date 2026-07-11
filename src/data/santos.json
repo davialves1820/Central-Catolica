@@ -1371,37 +1371,18 @@
     },
     {
       "nome": "Bento de Núrsia",
-      "slug": "bento_de_núrsia",
+      "slug": "bento_de_nursia",
       "url": "https://pt.wikipedia.org/wiki/Bento_de_N%C3%BArsia",
       "tipo": "Santo",
       "resumo": "Bento de Núrsia, mais conhecido como São Bento (em italiano: Benedetto da Norcia; em latim: Benedictus; Nórcia, Reino Ostrogótico, 2 de Março de 480 – Abadia de Monte Cassino, 21 de março de 547) foi um monge, ao qual é atribuída a organização das atividades da vida monástica. A Ordem de São Bento ou Ordem dos Beneditinos, uma das maiores ordens monásticas do mundo, recebe esse nome em homenagem a ele, bem como por seguir a regra proposta por ele. Embora não possa ser declarado fundador da Ordem dos Beneditinos, ele participou da fundação de mosteiros que adotaram essa denominação, posteriormente à sua morte. Foi o criador da Regra de São Bento, um dos mais importantes e utilizados regulamentos de vida monástica, inspiração de muitas outras comunidades religiosas.",
       "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Fra_Angelico_031.jpg/500px-Fra_Angelico_031.jpg",
       "imagem_nome": "Fra_Angelico_031.jpg",
-      "data_festa": "",
-      "nascimento": "{{dni",
-      "morte": "{{morte",
-      "padroeiro_de": "Europa, Alemanha, [[Diocese de Bragança-Miranda",
+      "data_festa": "11 de julho",
+      "nascimento": "2 de março de 480",
+      "morte": "21 de março de 547",
+      "padroeiro_de": "Europa, Alemanha, Bragança-Miranda, intercessores",
       "venerado_em": "Igreja Católica, Igreja Anglicana, Igreja Ortodoxa, Igreja Luterana",
       "canonizado_por": "Papa Honório III",
-      "categorias": [
-        "!Artigos que carecem de notas de rodapé desde abril de 2020",
-        "!Artigos que carecem de notas de rodapé sem indicação de tema",
-        "!CS1 latim-fontes em língua (la)",
-        "!Páginas que usam Timeline",
-        "!Páginas que usam hiperligações mágicas ISBN",
-        "Abades de Monte Cassino",
-        "Enfermagem",
-        "Fundadores de ordens religiosas",
-        "Mortos em 547",
-        "Nascidos em 480",
-        "Naturais do Reino Ostrogótico",
-        "Personagens citados em Divina Comédia (Paraíso)",
-        "Pessoas canonizadas pelo papa Honório III",
-        "Pessoas gêmeas",
-        "Santos beneditinos",
-        "Santos da Itália",
-        "Santos da Lenda Dourada"
-      ]
     },
     {
       "nome": "Bernardino Realino",
@@ -1663,7 +1644,7 @@
     },
     {
       "nome": "Bom ladrão",
-      "slug": "bom_ladrão",
+      "slug": "bom_ladrao",
       "url": "https://pt.wikipedia.org/wiki/Bom_ladr%C3%A3o",
       "tipo": "Santo",
       "resumo": "O Bom ladrão (falecido em Jerusalém por volta de 30–33 d.C.), venerado pela Igreja Católica como São Dimas e pela Igreja Ortodoxa como Rakh, foi um dos ladrões que foram crucificados com Jesus Cristo e que, ao reconhecer-se pecador e crer em Cristo, foi perdoado e recebido no Paraíso conforme o Evangelho de Lucas.",
@@ -1692,7 +1673,7 @@
     },
     {
       "nome": "Bonifácio Zurowski",
-      "slug": "bonifácio_zurowski",
+      "slug": "bonifacio_zurowski",
       "url": "https://pt.wikipedia.org/wiki/Bonif%C3%A1cio_Zurowski",
       "tipo": "Santo",
       "resumo": "Bonifácio Zukowski, foi um frei franciscano polonês que nasceu no ano de 1913 em  Baran-Rapa. Durante a Segunda Guerra Mundial ele foi morto pelos nazistas no campo de concentração de Auschwitz. O Papa João Paulo II em 1991, aprovou a sua beatificação, juntamente com os 108 mártires da Segunda Guerra Mundial.",
@@ -1717,7 +1698,7 @@
     },
     {
       "nome": "Brandão, o Navegador",
-      "slug": "brandão,_o_navegador",
+      "slug": "brandao,_o_navegador",
       "url": "https://pt.wikipedia.org/wiki/Brand%C3%A3o%2C_o_Navegador",
       "tipo": "Santo",
       "resumo": "São Brandão, o Navegador, ou Brandão de Ardfert e Clonfert (c. 484 – c. 577), também escrito Barandão ou Borondão, foi um monge irlandês.\nNascido em Ciarraighe Luachra, próximo da atual cidade de Tralee, condado de Kerry, Irlanda (a data de 486 também é apontada), foi batizado em Tubrid (Ardferd) e educado pelo célebre bispo Erc de Kerry e por Santa Ita (a Brígida de Munster, que o criou durante cinco anos).\nAbraçou a vida monacal e tornou-se abade. Terá sido ordenado pelo bispo Erc, em 512. Após a ordenação, iniciou um percurso que faria dele um dos mais conhecidos santos da Ordem Irlandesa. Faleceu no ano de 577 em Annaghdown (então Eunachdunne), condado de Galway, Irlanda, e foi enterrado na abadia de Clonfert, no mesmo condado.",
@@ -1741,7 +1722,7 @@
     },
     {
       "nome": "Breguíno",
-      "slug": "breguíno",
+      "slug": "breguino",
       "url": "https://pt.wikipedia.org/wiki/Bregu%C3%ADno",
       "tipo": "Santo",
       "resumo": "Breguíno (em latim: Breguinus; em inglês antigo: Bregwine ou Bregwin; ? — agosto de 764) foi um arcebispo medieval da Cantuária. Pouco se sabe sobre suas origens ou suas atividades como arcebispo, embora várias histórias tenham sido contadas sobre suas possíveis origens após a conquista normanda em 1066. Não há registros dele antes de se tornar arcebispo. Ele possivelmente deve sua nomeação de arcebispo ao monarca de Kent. Os registros após sua indicação ao cargo de arcebispo da Cantuária são principalmente sobre disputas por terra, mas é difícil saber exatamente o que houve no seu tempo como arcebispo pela destruição de muitos dos registros contemporâneos. Após sua morte, ele foi considerado santo e uma biografia sobre ele foi escrita no século XII.",
@@ -1799,7 +1780,7 @@
     },
     {
       "nome": "Bruno de Colônia",
-      "slug": "bruno_de_colônia",
+      "slug": "bruno_de_colonia",
       "url": "https://pt.wikipedia.org/wiki/Bruno_de_Col%C3%B4nia",
       "tipo": "Santo",
       "resumo": "Bruno de Colônia ou São Bruno (em alemão:  Bruno von Köln; Colônia, 1030 ou 1035 – Serra San Bruno, 6 de outubro de 1101) foi um monge alemão, fundador da Ordem da Cartuxa, proclamado santo pela Igreja Católica. A Ordem dos Cartuxos é considerada a mais rígida de todas as ordens religiosas da Igreja Católica, e atravessou a história sem quaisquer reformas e inspirou, ainda, a fundação da Família Monástica de Belém, da Assunção da Virgem e de São Bruno.\nNasceu na Alemanha, no seio de uma família nobre, em 1035. Foi sacerdote amigo e admirado pelo Arcebispo de Reims. Inteligente e piedoso, começou a dar aulas na escola da Catedral de Reims, até que já, cinquentenário e cônego, amadureceu a inspiração de servir a uma Ordem religiosa.",
@@ -1854,7 +1835,7 @@
     },
     {
       "nome": "Brígida da Irlanda",
-      "slug": "brígida_da_irlanda",
+      "slug": "brigida_da_irlanda",
       "url": "https://pt.wikipedia.org/wiki/Br%C3%ADgida_da_Irlanda",
       "tipo": "Santo",
       "resumo": "Brígida da Irlanda ou Brígida de Kildare (Brigit, Bridget, Bridgit, Bríd), conhecida na Irlanda como Naomh Bhríde (453 - 524) foi uma religiosa católica irlandesa, freira, abadessa, e fundadora de diversos conventos, que é venerada como santa. É considerada uma das santas padroeiras da Irlanda, juntamente com São Patrício e São Columba. A sua festa cai a 1 de Fevereiro, o primeiro dia de Primavera na tradição gaélica irlandesa, conhecido como Imbolc.",
@@ -7407,7 +7388,7 @@
     },
     {
       "nome": "Josemaría Escrivá de Balaguer",
-      "slug": "josemaría_escrivá_de_balaguer",
+      "slug": "josemaria_escriva_de_balaguer",
       "url": "https://pt.wikipedia.org/wiki/Josemar%C3%ADa_Escriv%C3%A1_de_Balaguer",
       "tipo": "Santo",
       "resumo": "São Josemaría Escrivá de Balaguer (Barbastro, Aragão, 9 de janeiro de 1902 – Roma, 26 de junho de 1975), foi um sacerdote católico espanhol e fundador do Opus Dei, uma Prelazia Pessoal da Igreja Católica. Foi canonizado em 2002 por São João Paulo II. Sua festa litúrgica é celebrada no dia 26 de junho.",
@@ -7442,7 +7423,7 @@
     },
     {
       "nome": "José Cafasso",
-      "slug": "josé_cafasso",
+      "slug": "jose_cafasso",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Cafasso",
       "tipo": "Santo",
       "resumo": "São José Cafasso (Castelnuovo Don Bosco, 15 de janeiro de 1811 — Turim, 23 de junho de 1860) foi um padre e sacerdote italiano. Desde criança sentiu-se chamado ao sacerdócio.\nFoi ordenado padre aos vinte e três anos de idade. Destacou-se pelo serviço aos pobres e o zelo pela salvação das almas. Depois de dedicado trabalho na igreja São Francisco de Assis, em Turim, foi nomeado reitor e formador de novos sacerdotes: estima-se que tenha formado mais de cem sacerdotes. Era curvado, devido a um problema na coluna.\nSão João Bosco foi um dos vocacionados por São José Cafasso, que o serviu como professor, conselheiro e director espiritual por  20 anos.\nÉ considerado co-fundador dos Salesianos.",
@@ -7470,7 +7451,7 @@
     },
     {
       "nome": "José Gregorio Hernández",
-      "slug": "josé_gregorio_hernández",
+      "slug": "jose_gregorio_hernandez",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Gregorio_Hern%C3%A1ndez",
       "tipo": "Santo",
       "resumo": "José Gregorio Hernández Cisneros, OFS (Isnotú, 26 de outubro de 1864 – Caracas, 29 de junho de 1919), foi um médico, cientista e religioso venezuelano. Conhecido como o \"médico dos pobres\", foi declarado beato em 2021. Foi beatificado no dia 30 de março de 2021, em Caracas. Em 25 de fevereiro de 2025, o Papa Francisco aprovou o decreto relativo à sua canonização. Foi canonizado em 19 de outubro de 2025.",
@@ -7507,7 +7488,7 @@
     },
     {
       "nome": "José Luís Sánchez Del Río",
-      "slug": "josé_luís_sánchez_del_río",
+      "slug": "jose_luis_sanchez_del_rio",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Lu%C3%ADs_S%C3%A1nchez_Del_R%C3%ADo",
       "tipo": "Santo Mártir",
       "resumo": "José Luís Sánchez del Río (28 de março de 1913 – 10 de fevereiro de 1928) conhecido também como \"Joselito\", foi um jovem de 14 anos de idade, executado por militares mexicanos após lutar na revolta religiosa cristera, contra as leis anticlericais do governo do presidente do México na época, Plutarco Elías Calles, que obrigaram a Igreja Católica a suspender o culto público no país.",
@@ -7536,7 +7517,7 @@
     },
     {
       "nome": "José María Díaz Sanjurjo",
-      "slug": "josé_maría_díaz_sanjurjo",
+      "slug": "jose_maria_diaz_sanjurjo",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Mar%C3%ADa_D%C3%ADaz_Sanjurjo",
       "tipo": "Santo Mártir",
       "resumo": "José María Díaz Sanjurjo (Santa Eulaliae de Suegos, Espanha, 26 de outubro de 1818 — Nam Dinh, Vietnã, 20 de julho de 1857) foi um missionário católico espanhol, bispo e mártir, reconhecido pelo seu trabalho de evangelização na Ásia.",
@@ -7563,7 +7544,7 @@
     },
     {
       "nome": "José María Rubio",
-      "slug": "josé_maría_rubio",
+      "slug": "jose_maria_rubio",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Mar%C3%ADa_Rubio",
       "tipo": "Santo",
       "resumo": "José María Rubio Peralta foi um jesuíta espanhol, qualificado como o Apóstolo de Madrid pelo bispo de Madrid, Leopoldo Eijo y Garay.",
@@ -7587,7 +7568,7 @@
     },
     {
       "nome": "José Pignatelli",
-      "slug": "josé_pignatelli",
+      "slug": "jose_pignatelli",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_Pignatelli",
       "tipo": "Santo",
       "resumo": "José Pignatelli – em italiano:  Giuseppe Pignatelli – (Zaragoza, 27 de dezembro de 1737 – Roma, 14  de novembro de 1811) foi um padre jesuíta e santo espanhol, reconhecido como um dos que mais contribuíram para a restauração da Companhia de Jesus.\nEntrou na Companhia antes de sua remoção da Espanha e, apoiado por muitos companheiros jesuítas quando foram expulsos e enviados para o exílio, preparou a sua restauração mundial que terá tido lugar três anos após a sua morte.\nFoi canonizado por Pio XII em 1954 e é liturgicamente comemorado no dia 14 de novembro.",
@@ -7611,7 +7592,7 @@
     },
     {
       "nome": "José de Calasanz",
-      "slug": "josé_de_calasanz",
+      "slug": "jose_de_calasanz",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_de_Calasanz",
       "tipo": "Santo",
       "resumo": "José de Calasanz Gastón (Peralta de la Sal, 11 de setembro de 1557 – Roma, 25 de agosto de 1648), também designado como São José Calasanz ou São José da Mãe de Deus, foi um religioso espanhol canonizado pela Igreja Católica e fundador da primeira escola pública cristã e da Ordem Religiosa das Escolas Pias. Estudou nas universidades de Lérida, Valência e Alcalá de Henares, onde se doutorou.",
@@ -7638,7 +7619,7 @@
     },
     {
       "nome": "José de Cupertino",
-      "slug": "josé_de_cupertino",
+      "slug": "jose_de_cupertino",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_de_Cupertino",
       "tipo": "Santo",
       "resumo": "José de Cupertino, nascido Giuseppe Desa (Copertino, 17 de junho de 1603 – Ósimo, 18 de setembro de 1663), foi um místico e frade da Ordem dos Frades Menores Conventuais, canonizado em 1767 pelo Papa Clemente XIII.\nAtribui-se a ele muitos milagres de levitação e êxtase, bem como visões e aparições sobrenaturais.\nAo longo de sua vida sofreu grande confusão mental e falta de inteligência, chegando ao ponto de chamar a si próprio “irmão burro” perante os frades menores. Apesar disso, é reportado de milagrosamente ter passado todos os estudantes de seu convento em conhecimento, e conseguia responder às questões mais complicadas.",
@@ -7667,7 +7648,7 @@
     },
     {
       "nome": "José de Leonissa",
-      "slug": "josé_de_leonissa",
+      "slug": "jose_de_leonissa",
       "url": "https://pt.wikipedia.org/wiki/Jos%C3%A9_de_Leonissa",
       "tipo": "Santo",
       "resumo": "São José de Leonissa, O.F.M. Cap., (em italiano:  Giuseppe da Leonessa) (1556 - 4 de fevereiro de 1612) é um santo da Igreja Católica.",
