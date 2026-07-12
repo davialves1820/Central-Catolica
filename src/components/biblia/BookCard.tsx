@@ -9,7 +9,7 @@ export function BookCard({ name, chapters }: PropsBookCard) {
       className="bg-card border border-primary/5 p-8 rounded-2xl transition-all hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 group relative overflow-hidden h-full flex flex-col justify-center min-h-[140px]"
     >
       <div className="relative z-10 pr-6">
-        <h4 className="font-heading text-xl md:text-2xl text-foreground mb-2 group-hover:text-primary transition-colors break-words leading-tight">
+        <h4 className="font-heading text-lg md:text-xl text-foreground mb-2 group-hover:text-primary transition-colors wrap-break-word leading-tight">
           {name}
         </h4>
         <p className="font-body text-[10px] font-bold text-muted-foreground/60 uppercase tracking-[0.2em]">
