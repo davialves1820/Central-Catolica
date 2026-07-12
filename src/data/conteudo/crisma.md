@@ -50,8 +50,6 @@ Em seguida, os Apóstolos, a fim de cumprir a vontade de Deus, transmitiram aos 
 
 E, logo, a unção com óleo perfumado, o crisma, foi acrescentada à imposição das mãos para simbolizar o dom do Espírito Santo. Essa unção reflete o nome “cristão”, que significa “ungido”, derivado do próprio nome de Cristo, que foi ungido com o Espírito Santo. O rito da unção permanece até hoje, tanto no Oriente, com o nome de crismação (unção do crisma); quanto no Ocidente, chamado aqui de Confirmação, uma vez que confirma e consolida a graça do Batismo.
 
-Já ouviu falar daladainha do Espírito Santo?
-
 ## Sinais e rito do sacramento do Crisma
 
 O sinal da unção com óleo é central neste sacramento, uma vez que o óleo sagrado chamado Santo Crisma é a matéria do sacramento da Confirmação. Tal unção é rica de significados, o óleo é símbolo de abundância, alegria, purificação, agilidade, cura e beleza. Além disso, na vida sacramental, essa unção tem diferentes propósitos: antes do Batismo, com o óleo dos catecúmenos, simboliza purificação e fortalecimento; na unção dos enfermos exprime cura e conforto. Já a unção com o santo crisma, que ocorre na Confirmação, é sinal de consagração.

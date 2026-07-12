@@ -8,25 +8,15 @@ Neste artigo, vamos desvendar as diversas partes da Missa. Desde os ritos inicia
 
 ## O que é a Santa Missa?
 
-A Santa Missa é a celebração central da fé católica, onde se atualiza o mistério da Paixão, Morte e Ressurreição de Jesus Cristo:
-
-E foi o próprio Cristo quem confiou à Sua Igreja o memorial da Sua Morte e Ressurreição:
-
-Outra belíssima explicação sobre o que acontece na Missa é o que São Justino escreveu, por volta do ano 155, ao imperador pagão Antonino Pio, a respeito do que fazem os cristãos:
-
-A Missa é composta por dois grandes momentos principais: a Liturgia da Palavra e a Liturgia Eucarística. Em primeiro lugar, na Liturgia da Palavra, ouvimos as leituras bíblicas, o salmo, a homilia e as preces da comunidade, alimentando-nos da Palavra de Deus. Em seguida, na Liturgia Eucarística, o pão e o vinho são consagrados, tornando-se o Corpo e Sangue de Cristo, que os fiéis comungam.
+A Santa Missa é a celebração central da fé católica, onde se atualiza o mistério da Paixão, Morte e Ressurreição de Jesus Cristo. A Missa é composta por dois grandes momentos principais: a Liturgia da Palavra e a Liturgia Eucarística. Em primeiro lugar, na Liturgia da Palavra, ouvimos as leituras bíblicas, o salmo, a homilia e as preces da comunidade, alimentando-nos da Palavra de Deus. Em seguida, na Liturgia Eucarística, o pão e o vinho são consagrados, tornando-se o Corpo e Sangue de Cristo, que os fiéis comungam.
 
 Sendo assim, participar da Santa Missa é um dever dos católicos, especialmente aos domingos edias de preceito, pois é a forma mais plena de encontro com Deus e com a comunidade de fé. Além disso, é através da Eucaristia que recebemos a graça necessária para viver a fé no dia a dia, fortalecendo nossa relação com Deus e com os irmãos.
 
-Conheça a relação que existe entreo Calvário e a Missapela obra de Fulton Sheen.
-
 ## Quais são as partes da Missa?
 
-A Santa Missa é estruturada em quatro partes principais, cada uma com sua importância e significado específicos:
+A Santa Missa é estruturada em quatro partes principais, cada uma com sua importância e significado específicos.
 
 Estas partes formam um todo harmonioso que leva os fiéis a uma profunda comunhão com Deus e entre si, renovando sua fé e compromisso cristão.
-
-Quer receber conteúdos sobre a verdadeira História da Igreja? Inscreva-seaqui.
 
 ## Todas as partes da Missa
 
@@ -45,8 +35,6 @@ Após o sinal da cruz, o sacerdote saúda a assembleia com uma saudação litúr
 O Ato Penitencial é um momento em que os fiéis reconhecem seus pecados e pedem perdão a Deus, preparando-se assim para celebrar dignamente os santos mistérios. Este rito pode incluir a recitação do “Confesso a Deus” ou outras fórmulas penitenciais, culminando com o “Senhor, tende piedade”.
 
 O “Glória” é um hino antigo que louva e adora a Santíssima Trindade. Ele é cantado aos domingos (exceto no Advento e da Quaresma) e nas solenidades e festas. O Glória expressa a alegria da salvação do povo de Deus. Durante o Advento e a Quaresma, o “Glória” é omitido como um sinal de expectativa e penitência, devido ao caráter penitencial destes tempos litúrgicos.
-
-Saibapor que não se canta o Glória no Advento.
 
 A Oração da Coleta, ou Oração do Dia, acontece com no “Oremos”, após o Glória. É uma prece que conclui os ritos iniciais. O sacerdote convida a assembleia a rezar, recolhe em oração as intenções dos fiéis e pede a Deus que os ajude a viver os mistérios celebrados. Esta oração muda conforme o tempo litúrgico, festas ou solenidades, ela sintetiza o tema da liturgia do dia e dirige a comunidade para a Liturgia da Palavra.
 
@@ -86,11 +74,9 @@ Preparação do altar: Na preparação do altar, coloca-se o corporal, o purific
 
 Procissão das oferendas: Durante a procissão das oferendas, os fiéis trazem pão e vinho ao altar, que serão consagrados. Este gesto simboliza a entrega de nossas vidas e trabalhos a Deus.
 
-A Oração Eucarística é o núcleo da Liturgia Eucarística. Ela inclui:
+A Oração Eucarística é o núcleo da Liturgia Eucarística.
 
-O Rito da Comunhão prepara os fiéis para receberem o Corpo e Sangue de Cristo, e inclui:
-
-Confiraneste artigoa doutrina da Igreja sobre a Presença Real de Cristo na Eucaristia.
+O Rito da Comunhão prepara os fiéis para receberem o Corpo e Sangue de Cristo.
 
 ### Partes da Missa IV: Ritos finais
 

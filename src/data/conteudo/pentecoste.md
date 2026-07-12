@@ -10,10 +10,6 @@ Vem conferir o que nos espera na vivência de tão grande festa, e entender sua 
 
 A palavra Pentecostes significa, literalmente, “quinquagésimo dia” (do grego,pentekoste). Era a Festa das Semanas, dos judeus, por ser celebrada sete semanas depois da Páscoa. No início, estava ligada à festa das colheitas, onde se oferecia ao Senhor a oferta dos primeiros frutos do trigo. Mas, com os anos, tal celebração da colheita, em Pentecostes, se uniu à recordação da aliança feita por Deus no Sinai.
 
-No Antigo Testamento se lê, nosmandamentos dados a Moisés, o seguinte:
-
-
-
 Pentecostes marcava, 50 dias depois da Páscoa, a festa em que os judeus festejavam o fato de terem recebido, de Deus, a Lei no Sinai. Tendo sido libertos da escravidão do Egito, na noite da Páscoa, e tendo passado pelo mar Vermelho, recebem de Deus, 50 dias depois, o decálogo.
 
 No livro dos Números, fica definido o mesmo:
@@ -26,11 +22,7 @@ Era uma festividade de grande alegria, com judeus vindos de todas as partes até
 
 Depois de todo mistério da paixão, morte e ressurreição, Nosso Senhor indica aos discípulos que a missão deles daria em breve, e envia, como prometido, o Prometido: o Espírito Santo de Deus, a fim de completar toda a obra da Redenção e fundar, de fato, a Igreja.
 
-
-
 Antes mesmo de subir aos céus, e no dia de sua gloriosaAscensão, Jesus havia prometido que não deixaria os discípulos desamparados. Era preciso que Ele fosse, para que o Espírito Santo viesse.
-
-
 
 Pentecostes, assim, se torna a verdadeira festa da colheita e da Aliança com Deus, operada, agora, no dom do Espírito Santo, derramado nos corações dos fiéis. A verdadeira colheita é a missão que se abre a partir de agora.
 

@@ -34,8 +34,6 @@ Em 2026, a Quaresma terá início no dia18 de fevereiro, com a celebração Quar
 
 A Quarta-feira de Cinzas é um dia de jejum e abstinência, quando os fiéis recebem a imposição das cinzas como sinal de arrependimento e conversão. Este dia marca o início deste tempo que a Igreja orienta os fiéis a se prepararem espiritualmente para viver plenamente o mistério da Paixão, Morte e Ressurreição do Senhor.
 
-Confira neste artigo tudo o que um católico precisa saber sobrejejum na Quarta-feira de Cinzas.
-
 ### Quando termina a Quaresma em 2026?
 
 Em 2026, a Quaresma vai até o dia02 de abril, antes a celebração da Quinta-feira Santa.
@@ -66,8 +64,6 @@ A Quarta-feira de Cinzas marca o início da Quaresma com um rito profundamente s
 
 Ao receber as cinzas, ouvimos as palavras:“Lembra-te que és pó e ao pó voltarás”(Gn 3,19) ou“Convertei-vos e crede no Evangelho”(Mc 1,15), recordando-nos da brevidade da vida e do chamado à conversão. Neste dia, entramos, mais profundamente, no espírito quaresmal, rumo a um caminho sincero de conversão e união a Nosso Senhor.
 
-Saiba mais sobre o significado e a celebração daQuarta-feira de Cinzas.
-
 ## Os três pilares da Quaresma: Oração, Jejum e Esmola
 
 A Igreja nos ensina que a Quaresma não é apenas um tempo de reflexão, mas um período de ação concreta na vida espiritual. Para isso, ela propõe três práticas fundamentais: oração, jejum e esmola. Esses 3 pilares da Quaresma são o caminho para uma conversão mais profunda, ajudando-nos a voltar o coração para Deus e para os irmãos.
@@ -84,23 +80,17 @@ Na Quaresma, somos chamados a intensificar nossa vida de oração, pois é nela 
 
 O tempo quaresmal muito é propício para irmos em busca dessa fonte que é Deus e aprofundarmos a nossa relação com Ele; não apenas pedindo graças, mas, especialmente, ouvindo sua voz e conformando nosso coração ao d’Ele. Para isso, o Santo Rosário, a Via-Sacra, a meditação da Palavra de Deus e a participação mais frequente na Eucaristia são meios concretos para crescer na oração durante a Quaresma. A oração sincera transforma a alma, iluminando as trevas do pecado e conduzindo-nos a uma verdadeira renovação interior.
 
-Que tal conhecer ostipos de oraçãoque podem auxiliar o seu crescimento na vida espiritual?
-
 ### Jejum: renúncia e disciplina espiritual
 
 O jejum quaresmal não é apenas uma privação alimentar, mas um exercício espiritual que nos ensina a renunciar a nós mesmos para dar espaço a Deus. No deserto, Jesus jejuou durante quarenta dias, mostrando quea disciplina do corpo fortalece a almana luta contra as tentações. Ao privar-nos de certos alimentos ou hábitos, não o fazemos por mero sacrifício, mas para lembrar que“nem só de pão vive o homem, mas de toda palavra que sai da boca de Deus”(Mt 4,4).
 
 O jejum nos ensina a ter domínio sobre nossos desejos e não sermos escravos das satisfações imediatas. Além da restrição alimentar, podemos também nos abster de distrações, de redes sociais ou qualquer hábito que possa nos afastar de uma vida equilibrada. Lembrando que o verdadeiro jejum não é um fim em si mesmo, mas uma via para purificar o coração, tornando-nos mais sensíveis às necessidades do próximo e fortalecendo nossa vida espiritual.
 
-Neste artigo, conheça outras formas demortificação.
-
 ### Esmola: caridade e partilha com os necessitados
 
 A esmola é uma manifestação concreta de conversão, pois nos faz sair de nós mesmos e enxergar a necessidade do outro. Durante a Quaresma, a Igreja nos convida a ser mais generosos com os pobres e com aqueles que sofrem, pois a verdadeira penitência não se limita a sacrifícios individuais, mas deve transbordar em amor ao próximo. Jesus nos ensina que tudo o que fazemos ao menor de nossos irmãos, é a Ele que fazemos (Mt 25,40).
 
 Sendo assim, a esmola não se resume a dar dinheiro, mas envolve tempo, atenção egestos de misericórdia. Visitar os doentes, ajudar um necessitado, praticar o perdão e ouvir com paciência também são formas de esmola que agradam a Deus. Quando compartilhamos o que temos – seja um recurso material, seja nossa atenção – de bom coração, estamos imitando Cristo, que se entrega por nós.
-
-Entenda aimportância de dar esmolae quais são as formas de fazer isso.
 
 ## A cor litúrgica e tradições da Quaresma
 

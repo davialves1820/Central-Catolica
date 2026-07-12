@@ -120,7 +120,7 @@ Efeitos: reconciliação com Deus e com a Igreja, perdão dos pecados, paz de co
 
 Ministro: somente o sacerdote.
 
-[Saiba mais sobre o Sacramento da Penitência](/catequese/sacramentos/penitencia)
+[Saiba mais sobre o Sacramento da Penitência](/catequese/sacramentos/confissao)
 
 ### Unção dos Enfermos: consolo na dor
 
@@ -136,7 +136,7 @@ A Unção dos Enfermos também está ligada ao perdão dos pecados: quando o fie
 
 Ministro: somente o sacerdote.
 
-[Saiba mais sobre o Sacramento da Unção dos Enfermos](/catequese/sacramentos/uncao-dos-enfermos)
+[Saiba mais sobre o Sacramento da Unção dos Enfermos](/catequese/sacramentos/uncao)
 
 ### Ordem: configuração ao Cristo sacerdote
 
@@ -169,8 +169,6 @@ Ministros: os próprios esposos; o sacerdote ou diácono atua como testemunha qu
 ## Como receber os sete sacramentos da Igreja Católica?
 
 Os sacramentos são dons de Deus confiados à Igreja e oferecidos aos fiéis dentro de um contexto de fé, preparação e intenção reta. Cada sacramento tem exigências e ritos próprios, e a Igreja orienta a preparação adequada conforme a idade e a situação dos fiéis.
-
-### Preparação para crianças e jovens
 
 ### Preparação para adultos
 
@@ -217,8 +215,6 @@ O Catecismo afirma que os fiéis devem receber o sacramento da Confirmação em 
 ### É possível confessar-se diretamente a Deus, sem um padre?
 
 Todo arrependimento sincero é importante, mas a Confissão sacramental com um sacerdote é o meio ordinário instituído por Cristo para o perdão dos pecados graves. O Catecismo ensina que somente Deus perdoa os pecados, mas o faz por meio do ministério da Igreja (cf. CIC, 1441-1442).
-
-Encontre respostas para asprincipais dúvidas sobre o Sacramento da Confissão.
 
 ### Como sei se estou preparado para receber um sacramento?
 

@@ -55,7 +55,3 @@ Assim como na vida corporal, quando alguém adoece e não encontra cura, pode pe
 O Sacramento da Penitência é uma grande graça de Deus, um meio pelo qual Ele nos acolhe novamente sem se lembrar dos nossos erros. Além disso,somos fortalecidos para seguir ou recomeçar a nossa vida de fé com retidão, coragem e perseverança. Dessa forma, os efeitos espirituais do sacramento da Penitência são:
 
 “[…] A confissão integral dos pecados educa o penitente para a humildade, o reconhecimento da sua fragilidade pessoal e, ao mesmo tempo, para a consciência da necessidade do perdão de Deus e a confiança de que a Graça divina pode transformar a sua vida.”
-
-## Manual para se confessar
-
-- [Manual de Confissão](https://nossasenhoradasaude.com.br/wp-content/uploads/2022/08/manual-de-confissao.pdf)

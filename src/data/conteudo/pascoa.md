@@ -20,25 +20,9 @@ Essa libertação não foi apenas um evento histórico, mas também um sinal pro
 
 São Paulo afirma: “Cristo, nossa Páscoa, foi imolado” (1Cor 5,7). Ele é o novo Cordeiro. A nova Aliança. O novo Êxodo. A Páscoa de Cristo é, portanto, o cumprimento da esperança de Israel — e a fonte da nossa.
 
-Leia mais sobrea Páscoa dos Judeus.
-
 ## A Ressurreição de Jesus
 
 A Ressurreição de Jesus é o ponto culminante da história da salvação. É a confirmação de tudo o que Ele disse e fez: Jesus ressuscitou verdadeiramente ao terceiro dia, com um corpo glorioso, vencendo a morte e inaugurando a nova criação. É a vitória definitiva sobre a morte. Ao terceiro dia, o túmulo está vazio, e Cristo ressuscitado se manifesta aos discípulos: glorioso, vivo, presente.
-
-Os Evangelhos narram com leveza e profundidade os acontecimentos do Domingo da Ressurreição:
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## O significado da Páscoa para a fé católica
 
@@ -47,8 +31,6 @@ Celebrar a Páscoa é afirmar que Jesus está vivo e que a morte foi vencida: �
 Na carta aos Romanos, São Paulo declara: “Fomos sepultados com Ele pelo batismo na morte, para que, assim como Cristo ressuscitou dos mortos, também nós vivamos uma vida nova”6. A Páscoa é, portanto, uma convocação: não basta crer que Jesus ressuscitou. É preciso viver como ressuscitados.
 
 Por isso, a liturgia pascal não é apenas uma celebração. É um envio. A alegria do Cristo ressuscitado não é para ser contida, mas para ser proclamada. O mundo precisa ver em nós o reflexo da vida nova: paz, coragem, fé, generosidade, testemunho.
-
-Saiba como é celebrada aExaltação da Santa Cruz.
 
 ## O Tríduo Pascal: um só mistério celebrado em três dias
 
@@ -62,23 +44,17 @@ A Quinta-feira Santa marca o início solene do Tríduo Pascal. É neste dia que 
 
 Ao lavar os pés dos discípulos, revela que o verdadeiro ministério éserviço. Essa noite também é marcada pela agonia no Horto das Oliveiras, onde Jesus ora em profunda angústia, mas submete-se inteiramente à vontade do Pai. A liturgia deste dia nos convida a adorar oSantíssimo Sacramentocom amor e gratidão, reconhecendo que a Eucaristia é o coração vivo da Igreja e que, sem o sacerdócio, não haveria o pão da vida.
 
-Saiba mais sobre o significado e os ensinamentos daQuinta-feira Santa.
-
 ### Sexta-feira Santa: a entrega total de Cristo na cruz
 
 Na Sexta-feira Santa, a Igreja mergulha no mistério do sofrimento redentor de Cristo. É o único dia do ano em que não se celebra a Missa, pois o Esposo foi tirado — e o altar permanece desnudado. A liturgia deste dia é composta pela solene celebração da Paixão do Senhor, a adoração da Santa Cruz e a comunhão com as hóstias consagradas na véspera. O Evangelho proclamado é o de São João8, que narra, com solenidade e profundidade, a prisão, condenação, crucifixão e morte de Jesus.
 
 No alto do Calvário, Cristo entrega sua vida em total obediência ao Pai: “Tudo está consumado” (Jo 19,30). Ali, Ele carrega sobre Si os pecados do mundo, reconciliando o céu e a terra. É odia do grande silêncio, do amor sem reservas, do sacrifício supremo. Os fiéis são convidados à oração, ao jejum e à contemplação do mistério da Cruz, onde o Cordeiro de Deus tira o pecado do mundo com seu sangue derramado por amor.
 
-Saiba mais sobre aSexta-feira Santae seu significado na liturgia.
-
 ### Sábado Santo e Vigília Pascal: o silêncio fecundo e a explosão da luz
 
 O Sábado Santo é o dia do grande silêncio da Igreja. Cristo, morto, repousa no sepulcro, e a humanidade inteira espera em recolhimento. É um tempo de luto, mas também de esperança. A Igreja permanece em vigília, contemplando o mistério da morte do Senhor e se preparando para a ressurreição gloriosa. Ao cair da noite, celebra-se a solene Vigília Pascal — a “mãe de todas as vigílias”, como diz Santo Agostinho.
 
 A liturgia é rica de símbolos: o Círio Pascal é aceso, rompendo a escuridão com a luz de Cristo ressuscitado; são proclamadas as leituras que percorrem toda a história da salvação, culminando no anúncio pascal: “Ele não está aqui, ressuscitou!” (Lc 24,6). A alegria explode em forma de canto, luz e glória. Nessa noite, muitos adultos recebem os sacramentos da iniciação cristã: Batismo, Crisma e Eucaristia. A Igreja inteirarenova suas promessas batismais, reafirmando sua fé no Deus da vida. O sepulcro vazio não é o fim — é o início de tudo. Cristo venceu a morte, e com Ele, renascemos para uma vida nova.
-
-Conheça mais sobre a liturgia daSolene Vigília Pascal.
 
 ## O Tempo Pascal e a Oitava da Páscoa
 
@@ -87,8 +63,6 @@ A alegria da Ressurreição não cabe em um único dia. Por isso, a Igreja celeb
 Durante essa Oitava, a liturgia mantém o tom festivo: canta-se o Glória, o Aleluia ressoa com força, as leituras recordam as aparições do Cristo ressuscitado e os feitos dos Apóstolos cheios do Espírito Santo. É tempo de exultar, de celebrar com intensidade, de deixar-se renovar pela luz que sai do túmulo.
 
 O Tempo Pascal é também o tempo do Círio aceso — sinal visível de Cristo ressuscitado, luz do mundo. Ele permanece iluminando o presbitério até o Domingo de Pentecostes, quando a Igreja celebra a descida do Espírito Santo e o nascimento visível da missão apostólica, por isso este também é um tempo marcado pelas leituras dos Atos dos Apóstolos.
-
-Você já conhece aNovena de Pentecostes?
 
 ## A Páscoa e os Sacramentos
 
@@ -141,8 +115,6 @@ Essa renovação nos lembra que fomos lavados em Cristo, que pertencemos a Ele e
 ### Recitar o Regina Caeli durante o Tempo Pascal
 
 O Regina Caeli substitui o Ângelus durante o Tempo Pascal. Essa oração mariana, cheia de alegria, é um hino à Ressurreição de Cristo. Ao recitá-la, nos unimos à Virgem Maria na exultação pascal, reconhecendo que Aquele que Ela gerou venceu a morte. É uma forma simples, cotidiana e bela de viver o tempo pascal com a Mãe da Igreja.
-
-Conheça a oração e saibacomo recitar o Regina Caeli.
 
 ### Ler e meditar os Evangelhos da Ressurreição
 
