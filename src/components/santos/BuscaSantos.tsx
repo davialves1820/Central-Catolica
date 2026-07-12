@@ -74,27 +74,31 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
 
   // Debounce: atualiza URL + busca autocomplete
   useEffect(() => {
-    const q = new URLSearchParams(searchParams.toString());
-    const currentBusca = q.get("busca") ?? "";
-
-    // Atualiza URL se o valor mudou
-    if (state.value !== currentBusca) {
-      if (state.value) {
-        q.set("busca", state.value);
-      } else {
-        q.delete("busca");
-      }
-      q.delete("pagina");
-      router.push(`/santos?${q.toString()}`, { scroll: false });
+    if (state.value.length >= 2) {
+      dispatch({ type: "SET_PENDING", payload: true });
     }
 
-    if (state.value.length < 2) {
-      dispatch({ type: "CLOSE" });
-      return;
-    }
-
-    dispatch({ type: "SET_PENDING", payload: true });
     const timer = setTimeout(async () => {
+      const q = new URLSearchParams(searchParams.toString());
+      const currentBusca = q.get("busca") ?? "";
+
+      // Atualiza URL se o valor mudou
+      if (state.value !== currentBusca) {
+        if (state.value) {
+          q.set("busca", state.value);
+        } else {
+          q.delete("busca");
+        }
+        q.delete("pagina");
+        router.push(`/santos?${q.toString()}`, { scroll: false });
+      }
+
+      if (state.value.length < 2) {
+        dispatch({ type: "CLOSE" });
+        dispatch({ type: "SET_PENDING", payload: false });
+        return;
+      }
+
       try {
         const res = await fetch(`/api/santos/search?q=${encodeURIComponent(state.value)}`);
         if (!res.ok) {
