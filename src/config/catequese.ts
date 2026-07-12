@@ -51,6 +51,11 @@ export const CATEQUESE: SecaoCatequese[] = [
         secao: "Períodos Litúrgicos",
         itens: [{ slug: "quaresma", titulo: "Quaresma" }],
     },
+    {
+        id: "dias-preceito",
+        secao: "Dias de Preceito",
+        itens: [{ slug: "dias-de-preceito", titulo: "Dias de Preceito" }],
+    },
 ];
 
 /** Lookup rápido de slug → título (substitui o map hardcoded em utils.ts) */
