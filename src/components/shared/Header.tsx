@@ -11,6 +11,7 @@ const NAV = [
   { label: "Bíblia", href: "/biblia" },
   { label: "Liturgia", href: "/liturgia" },
   { label: "Orações", href: "/oracoes" },
+  { label: "Rosário", href: "/rosario" },
   { label: "Notícias", href: "/noticias" },
   { label: "Calendário", href: "/calendario" },
   { label: "Santos", href: "/santos" },
