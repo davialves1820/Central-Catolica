@@ -19,6 +19,21 @@
       "canonizado_por": ""
     },
     {
+      "nome": "Santa Marcelina",
+      "slug": "santa_marcelina",
+      "url": "https://pt.wikipedia.org/wiki/Marcelina_de_Mil%C3%A3o",
+      "tipo": "Santa",
+      "resumo": "Santa Marcelina (c. 330 – c. 398) foi uma virgem consagrada da Igreja primitiva, nascida provavelmente em Tréveris, no Império Romano. Irmã de Santo Ambrósio e de São Sátiro, destacou-se pela vida de oração, penitência e dedicação a Deus. Recebeu o véu das virgens consagradas do Papa Libério, em Roma, no Natal de 353. É venerada como exemplo de santidade e virgindade cristã. Sua memória litúrgica é celebrada em 17 de julho.",
+      "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/St_Marcellina.jpg",
+      "imagem_nome": "St_Marcellina.jpg",
+      "data_festa": "17 de julho",
+      "nascimento": "c. 330",
+      "morte": "c. 398",
+      "padroeiro_de": "",
+      "venerado_em": "Igreja Católica",
+      "canonizado_por": ""
+    },
+    {
       "nome": "Nossa Senhora do Carmo",
       "slug": "nossa_senhora_do_carmo",
       "url": "https://pt.wikipedia.org/wiki/Nossa_Senhora_do_Carmo",
