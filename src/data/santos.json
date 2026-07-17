@@ -19,6 +19,21 @@
       "canonizado_por": ""
     },
     {
+      "nome": "Nossa Senhora do Carmo",
+      "slug": "nossa_senhora_do_carmo",
+      "url": "https://pt.wikipedia.org/wiki/Nossa_Senhora_do_Carmo",
+      "tipo": "Santa",
+      "resumo": "Nossa Senhora do Carmo é um dos mais antigos e difundidos títulos da Virgem Maria na Igreja Católica. Sua devoção está ligada à Ordem Carmelita, originada no Monte Carmelo, na Terra Santa. Segundo a tradição, em 16 de julho de 1251, Nossa Senhora apareceu a São Simão Stock e lhe entregou o escapulário do Carmo como sinal de proteção e compromisso com a vida cristã. Sua memória litúrgica é celebrada em 16 de julho.",
+      "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Pietro_Novelli_Our_Lady_of_Carmel_and_Saints.JPG",
+      "imagem_nome": "Our_Lady_of_Mount_Carmel.jpg",
+      "data_festa": "16 de julho",
+      "nascimento": "",
+      "morte": "",
+      "padroeiro_de": "Ordem Carmelita, marinheiros, pescadores, Chile e diversas cidades e dioceses dedicadas a Nossa Senhora do Carmo",
+      "venerado_em": "Igreja Católica",
+      "canonizado_por": ""
+    },
+    {
       "nome": "Adalberto de Magdeburgo",
       "slug": "adalberto_de_magdeburgo",
       "url": "https://pt.wikipedia.org/wiki/Adalberto_de_Magdeburgo",
