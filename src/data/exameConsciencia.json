@@ -1,0 +1,226 @@
+{
+  "estados": [
+    {
+      "slug": "jovem",
+      "nome": "Jovem",
+      "descricao": "Ainda morando com a família, estudando ou começando a vida adulta.",
+      "emoji": "🎒"
+    },
+    {
+      "slug": "solteiro",
+      "nome": "Solteiro(a)",
+      "descricao": "Vida adulta, namorando ou não, sem vínculo de casamento.",
+      "emoji": "🌱"
+    },
+    {
+      "slug": "casado",
+      "nome": "Casado(a)",
+      "descricao": "Vivendo o sacramento do matrimônio.",
+      "emoji": "💍"
+    },
+    {
+      "slug": "pais",
+      "nome": "Pai ou mãe",
+      "descricao": "Com filhos para cuidar e educar.",
+      "emoji": "👨‍👩‍👧"
+    },
+    {
+      "slug": "religioso",
+      "nome": "Religioso(a) ou Sacerdote",
+      "descricao": "Vida consagrada ou ministério ordenado.",
+      "emoji": "✝️"
+    }
+  ],
+  "mandamentos": [
+    {
+      "numero": 1,
+      "titulo": "Amar a Deus sobre todas as coisas",
+      "resumo": "Fé, esperança, caridade e o primeiro lugar de Deus na minha vida.",
+      "perguntas": [
+        "Coloquei outras coisas — dinheiro, trabalho, aparência, redes sociais, opinião alheia — acima de Deus na minha vida?",
+        "Rezei com frequência e atenção, ou minha oração virou pura rotina, sem coração?",
+        "Recorri a horóscopos, cartas, simpatias, videntes ou outras práticas contrárias à fé?",
+        "Duvidei de Deus ou de verdades da fé sem buscar esclarecimento, alimentando a dúvida por comodismo?",
+        "Tive vergonha de me mostrar católico diante dos outros?"
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Não usar o nome de Deus em vão",
+      "resumo": "Respeito pelo nome de Deus, promessas e coisas sagradas.",
+      "perguntas": [
+        "Usei o nome de Deus, de Jesus ou dos santos em xingamentos, piadas de mau gosto ou por hábito descuidado?",
+        "Fiz promessas a Deus e não as cumpri?",
+        "Faltei com respeito às coisas sagradas (imagens, igreja, celebrações)?",
+        "Jurei em falso ou usei o nome de Deus para dar falsa credibilidade a algo?"
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Guardar domingos e festas de guarda",
+      "resumo": "Santificar o Domingo como dia do Senhor.",
+      "perguntas": [
+        "Participei da Missa aos domingos e dias santos de guarda, podendo fazê-lo?",
+        "Vivi o Domingo como dia do Senhor, ou apenas como mais um dia comum?",
+        "Trabalhei sem necessidade real em dia que deveria descansar e dedicar a Deus e à família?"
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Honrar pai e mãe",
+      "resumo": "Respeito à família e às autoridades legítimas.",
+      "perguntas": [
+        "Tratei meus pais (ou responsáveis) com respeito, mesmo quando discordei deles?",
+        "Cuidei dos meus pais ou idosos da família na medida das minhas possibilidades?",
+        "Respeitei as autoridades legítimas (professores, chefes, governantes) dentro do que é justo?"
+      ],
+      "perguntasPorEstado": {
+        "jovem": [
+          "Respondi com grosseria ou desprezo aos meus pais ou professores?",
+          "Cumpri minhas obrigações escolares e de casa com responsabilidade?"
+        ],
+        "pais": [
+          "Dei bom exemplo de fé e de vida aos meus filhos?",
+          "Dediquei tempo de qualidade e educação religiosa aos meus filhos?",
+          "Perdi a paciência de forma agressiva ou humilhante com meus filhos?"
+        ],
+        "casado": [
+          "Honrei também a família do meu cônjuge?"
+        ],
+        "religioso": [
+          "Obedeci com espírito de fé aos meus superiores, dentro do que é justo?"
+        ]
+      }
+    },
+    {
+      "numero": 5,
+      "titulo": "Não matar",
+      "resumo": "Vida, saúde, ódio e violência.",
+      "perguntas": [
+        "Guardei ódio, rancor ou desejo de mal a alguém?",
+        "Feri alguém física ou moralmente, com palavras ou atitudes?",
+        "Cuidei da minha saúde física e mental, evitando excessos (álcool, comida, sedentarismo)?",
+        "Fui conivente ou favorável ao aborto, à eutanásia ou a outras formas de atentado contra a vida?",
+        "Coloquei minha vida ou a de outros em risco por imprudência?"
+      ]
+    },
+    {
+      "numero": 6,
+      "titulo": "Não pecar contra a castidade",
+      "resumo": "Pureza de pensamentos, palavras e atos, conforme o meu estado de vida.",
+      "perguntas": [
+        "Tive pensamentos, palavras ou atitudes contrárias à castidade?",
+        "Consumi pornografia ou conteúdo que degrada a dignidade da pessoa?"
+      ],
+      "perguntasPorEstado": {
+        "jovem": [
+          "Vivi a sexualidade fora do contexto do matrimônio?"
+        ],
+        "solteiro": [
+          "Vivi a sexualidade fora do contexto do matrimônio?"
+        ],
+        "casado": [
+          "Fui fiel ao meu cônjuge em pensamento e em atos?",
+          "Vivi a intimidade conjugal com respeito, amor e abertura à vida?"
+        ],
+        "religioso": [
+          "Vivi com fidelidade o meu voto ou compromisso de castidade?"
+        ]
+      }
+    },
+    {
+      "numero": 7,
+      "titulo": "Não roubar",
+      "resumo": "Honestidade, justiça no trabalho e respeito aos bens alheios.",
+      "perguntas": [
+        "Peguei ou usei algo que não me pertencia sem permissão?",
+        "Fui honesto no trabalho, nos estudos, nos impostos e nas contas?",
+        "Fui justo com quem trabalha para mim ou comigo (salários, combinados, prazos)?",
+        "Desperdicei ou destruí bens — meus, de outros ou públicos — sem necessidade?"
+      ]
+    },
+    {
+      "numero": 8,
+      "titulo": "Não levantar falso testemunho",
+      "resumo": "Verdade, fofoca, julgamento e respeito à fama do próximo.",
+      "perguntas": [
+        "Menti para conseguir vantagem ou para me livrar de problemas?",
+        "Falei mal de alguém — fofoca, calúnia, difamação — mesmo sendo verdade o que contei?",
+        "Julguei o coração ou as intenções de alguém sem conhecer toda a história?",
+        "Fui discreto com informações e segredos que me foram confiados?"
+      ]
+    },
+    {
+      "numero": 9,
+      "titulo": "Não desejar a mulher do próximo",
+      "resumo": "Pureza do coração e fidelidade nos relacionamentos.",
+      "perguntas": [
+        "Desejei ou fantasiei um relacionamento com pessoa comprometida ou casada?",
+        "Alimentei ciúmes doentios ou desconfiança excessiva no meu relacionamento?"
+      ],
+      "perguntasPorEstado": {
+        "casado": [
+          "Cultivei no coração afeto ou desejo por outra pessoa que não meu cônjuge?"
+        ]
+      }
+    },
+    {
+      "numero": 10,
+      "titulo": "Não cobiçar as coisas alheias",
+      "resumo": "Inveja, materialismo e gratidão pelo que tenho.",
+      "perguntas": [
+        "Senti inveja da vida, dos bens ou das conquistas de outras pessoas?",
+        "Fui grato pelo que tenho, ou vivo sempre insatisfeito, querendo mais?",
+        "Deixei o consumismo ocupar um espaço desproporcional na minha vida?"
+      ]
+    }
+  ],
+  "rito": [
+    {
+      "titulo": "1. Antes de entrar",
+      "texto": "Você já fez o mais importante: um bom exame de consciência. Peça ao Espírito Santo luz para se conhecer e coragem para se converter. Se quiser, tenha em mente (ou anotado à parte) os pontos que marcou nesta página — não é preciso decorar nada."
+    },
+    {
+      "titulo": "2. Ao começar",
+      "texto": "Faça o sinal da cruz e diga: \"Em nome do Pai, do Filho e do Espírito Santo. Amém.\" Em seguida: \"Abençoe-me, Padre, porque pequei.\" Se souber, diga há quanto tempo não se confessa — e se não souber ao certo, tudo bem, basta dizer isso mesmo ao padre."
+    },
+    {
+      "titulo": "3. Conte seus pecados",
+      "texto": "Fale com simplicidade e sinceridade, sem rodeios nem detalhes desnecessários. Diga o que pesa na sua consciência, confiando na misericórdia de Deus. Pode seguir o resumo que você organizou aqui."
+    },
+    {
+      "titulo": "4. Escute o padre",
+      "texto": "Ele pode fazer perguntas, dar uma orientação ou um conselho espiritual. Ouça com atenção e coração aberto — ele está ali para ajudar, não para julgar."
+    },
+    {
+      "titulo": "5. Receba a penitência",
+      "texto": "O padre vai propor uma penitência — geralmente uma oração ou um pequeno ato de caridade. Aceite-a de coração, como parte da reparação."
+    },
+    {
+      "titulo": "6. Reze o Ato de Contrição",
+      "texto": "Diga o Ato de Contrição (texto completo logo abaixo), expressando arrependimento sincero pelos pecados cometidos."
+    },
+    {
+      "titulo": "7. Receba a absolvição",
+      "texto": "O padre estende a mão sobre você e pronuncia as palavras de absolvição em nome da Santíssima Trindade. Nesse momento, Deus perdoa verdadeiramente todos os seus pecados."
+    },
+    {
+      "titulo": "8. Ao sair",
+      "texto": "Cumpra a penitência recebida o quanto antes. Agradeça a Deus pelo dom do perdão e siga em frente, em paz — sem culpa retroativa pelo que já foi perdoado."
+    }
+  ],
+  "atoDeContricao": {
+    "titulo": "Ato de Contrição",
+    "texto": "Meu Deus, eu me arrependo de todo o coração de todos os meus pecados, e os detesto, porque pecando, mereci as penas do inferno e, principalmente, porque ofendi a Vós, que sois infinitamente bom e mereceis ser amado sobre todas as coisas. Proponho firmemente, com a ajuda da vossa graça, não mais pecar e fugir das ocasiões próximas de pecar. Amém."
+  },
+  "faziaTempo": {
+    "titulo": "Faz muito tempo que não me confesso — e agora?",
+    "pontos": [
+      "Não existe \"tempo demais\" para a misericórdia de Deus. Quanto mais tempo passou, maior o motivo para dar esse passo agora.",
+      "Você não precisa lembrar a data exata da sua última confissão. Basta dizer algo como \"faz muitos anos\" ou \"não me lembro ao certo\".",
+      "Não tenha vergonha: o padre já ouviu de tudo, e o sigilo sacramental é absoluto e inviolável — ninguém jamais saberá o que você disser.",
+      "Se estiver inseguro sobre como começar, pode simplesmente dizer: \"Padre, faz muito tempo que não me confesso e preciso de ajuda para começar.\" Ele vai te acolher com carinho.",
+      "Use esta página com calma, sem pressa. Marque o que fizer sentido para você — o resumo existe só para te dar segurança na hora."
+    ]
+  }
+}

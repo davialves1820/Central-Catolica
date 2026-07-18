@@ -3,19 +3,17 @@
 import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Church, Menu, X } from "lucide-react";
+import { Church, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import { RECURSOS } from "@/config/recursos";
 
 const NAV = [
   { label: "Início", href: "/" },
+  { label: "Recursos", href: "/recursos" },
   { label: "Bíblia", href: "/biblia" },
   { label: "Liturgia", href: "/liturgia" },
   { label: "Orações", href: "/oracoes" },
-  { label: "Rosário", href: "/rosario" },
   { label: "Notícias", href: "/noticias" },
-  { label: "Calendário", href: "/calendario" },
-  { label: "Santos", href: "/santos" },
-  { label: "Catequese", href: "/catequese" },
 ] as const;
 
 const subscribe = () => () => { };
@@ -23,6 +21,7 @@ const subscribe = () => () => { };
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [recursosOpen, setRecursosOpen] = useState(false);
   const mounted = useSyncExternalStore(subscribe, () => true, () => false);
   const pathname = usePathname();
 
@@ -42,6 +41,7 @@ const Header = () => {
     (href: string) => {
       if (!mounted) return false;
       if (href === "/") return pathname === "/";
+      if (href === "/recursos") return RECURSOS.some((item) => pathname.startsWith(item.href)) || pathname.startsWith(href);
       return pathname.startsWith(href);
     },
     [pathname, mounted],
@@ -54,6 +54,10 @@ const Header = () => {
   const itemVariants: Variants = {
     closed: { x: -12, opacity: 0 },
     open: (i: number) => ({ x: 0, opacity: 1, transition: { delay: i * 0.06, duration: 0.22 } }),
+  };
+  const dropdownVariants: Variants = {
+    closed: { opacity: 0, y: -6, scale: 0.98 },
+    open: { opacity: 1, y: 0, scale: 1 },
   };
 
   return (
@@ -79,6 +83,88 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-10" aria-label="Navegação principal">
           {NAV.map(({ label, href }) => {
             const active = isActive(href);
+
+            if (href === "/recursos") {
+              return (
+                <div
+                  key={href}
+                  className="relative"
+                  onMouseEnter={() => setRecursosOpen(true)}
+                  onMouseLeave={() => setRecursosOpen(false)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setRecursosOpen((v) => !v)}
+                    aria-expanded={recursosOpen}
+                    aria-haspopup="true"
+                    aria-controls="recursos-menu"
+                    className={`flex items-center gap-1 relative py-1 text-[12px] uppercase tracking-widest font-bold transition-all duration-300 focus-visible:outline-none ${active
+                      ? "text-[#000000] border-b-2 border-[#755b00]"
+                      : "text-[#4d4540] font-medium hover:text-[#755b00]"
+                      }`}
+                  >
+                    {label}
+                    <ChevronDown
+                      size={13}
+                      className={`transition-transform duration-200 ${recursosOpen ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {recursosOpen && (
+                      <motion.div
+                        id="recursos-menu"
+                        key="recursos-menu"
+                        variants={dropdownVariants}
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        className="absolute left-1/2 top-full z-50 mt-3 w-[560px] -translate-x-1/2 rounded-2xl border border-[#c9a84c]/25 bg-white p-6 shadow-xl"
+                      >
+                        <p className="font-heading text-lg font-semibold text-primary">Recursos</p>
+                        <p className="mt-1 mb-5 font-body-sm text-on-surface-variant">
+                          Ferramentas devocionais para o seu dia a dia.
+                        </p>
+                        <div className="grid grid-cols-2 gap-1">
+                          {RECURSOS.map(({ href: itemHref, icone: Icone, titulo, descricao }) => (
+                            <Link
+                              key={itemHref}
+                              href={itemHref}
+                              onClick={() => setRecursosOpen(false)}
+                              className="flex items-start gap-3 rounded-lg p-2.5 text-left transition-colors hover:bg-secondary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cobalt"
+                            >
+                              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-cobalt/10 text-cobalt">
+                                <Icone size={18} aria-hidden="true" />
+                              </span>
+                              <span>
+                                <span className="block font-body-sm font-semibold normal-case tracking-normal text-on-surface">
+                                  {titulo}
+                                </span>
+                                <span className="block font-label-sm normal-case tracking-normal text-on-surface-variant">
+                                  {descricao}
+                                </span>
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                        <div className="mt-4 border-t border-secondary/10 pt-4">
+                          <Link
+                            href="/recursos"
+                            onClick={() => setRecursosOpen(false)}
+                            className="font-body-sm font-semibold normal-case tracking-normal text-primary hover:underline"
+                          >
+                            Ver todos os recursos
+                          </Link>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={href}
