@@ -44,17 +44,26 @@ export function RosarioApp() {
 
   return (
     <div className="min-h-screen bg-[#fbf9f4]">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
-        {!preferencias.modoFoco && (
-          <header className="text-center mb-8">
+      {!preferencias.modoFoco && (
+        <section className="relative overflow-hidden bg-surface-container-low py-16 md:py-24">
+          <div
+            className="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-primary) 1px, transparent 0)`,
+              backgroundSize: "40px 40px",
+            }}
+          />
+          <div className="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
             <p className="font-label-sm mb-2 text-secondary">Oração Interativa</p>
-            <h1 className="font-headline-xl text-primary">Santo Rosário</h1>
-            <p className="mt-3 font-body-md max-w-xl mx-auto text-on-surface-variant">
+            <h1 className="font-headline-xl text-primary mb-6">Santo Rosário</h1>
+            <p className="font-body-lg text-on-surface-variant max-w-xl mx-auto leading-relaxed">
               Acompanhe o terço oração por oração. Escolha os mistérios do dia e reze no seu ritmo.
             </p>
-          </header>
-        )}
+          </div>
+        </section>
+      )}
 
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
         {progresso.progressoSalvo && progresso.passoIndex === -1 && (
           <div className="mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-xl border border-[#c9a84c]/25 bg-white px-5 py-3">
             <p className="font-body-sm text-on-surface">
