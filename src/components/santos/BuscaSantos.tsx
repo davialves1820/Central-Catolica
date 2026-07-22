@@ -43,7 +43,7 @@ function reducer(state: Estado, action: Acao): Estado {
 export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLFormElement>(null);
   const [, startTransition] = useTransition();
 
   const [state, dispatch] = useReducer(reducer, {
@@ -73,30 +73,14 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Debounce: atualiza URL + busca autocomplete
+  // Debounce: só o autocomplete, exatamente como a busca da Bíblia — nunca
+  // navega enquanto o usuário digita, então o input nunca fica para trás.
   useEffect(() => {
     if (state.value.length >= 2 && !state.isPending) {
       dispatch({ type: "SET_PENDING", payload: true });
     }
 
     const timer = setTimeout(async () => {
-      const q = new URLSearchParams(searchParams.toString());
-      const currentBusca = q.get("busca") ?? "";
-
-      // Atualiza URL se o valor mudou. Em transição para não bloquear a
-      // digitação enquanto a página de santos (server component) recarrega.
-      if (state.value !== currentBusca) {
-        if (state.value) {
-          q.set("busca", state.value);
-        } else {
-          q.delete("busca");
-        }
-        q.delete("pagina");
-        startTransition(() => {
-          router.push(`/santos?${q.toString()}`, { scroll: false });
-        });
-      }
-
       if (state.value.length < 2) {
         dispatch({ type: "CLOSE" });
         dispatch({ type: "SET_PENDING", payload: false });
@@ -119,10 +103,45 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [state.value, router, searchParams]);
+  }, [state.value]);
+
+  // Só mexe na URL/grade numa ação explícita do usuário (enviar ou limpar),
+  // nunca durante a digitação em si.
+  const aplicarBusca = (valor: string) => {
+    const q = new URLSearchParams(searchParams.toString());
+    const atual = q.get("busca") ?? "";
+    if (valor === atual) return;
+
+    if (valor) {
+      q.set("busca", valor);
+    } else {
+      q.delete("busca");
+    }
+    q.delete("pagina");
+    startTransition(() => {
+      router.push(`/santos?${q.toString()}`, { scroll: false });
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch({ type: "CLOSE" });
+    aplicarBusca(state.value);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const valor = e.target.value;
+    dispatch({ type: "SET_VALUE", payload: valor });
+    if (!valor) aplicarBusca("");
+  };
 
   return (
-    <div className="relative group w-full" ref={wrapperRef}>
+    <form
+      role="search"
+      onSubmit={handleSubmit}
+      ref={wrapperRef}
+      className="relative group w-full"
+    >
       <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
         {state.isPending
           ? <Loader2 size={16} className="animate-spin text-outline" aria-hidden="true" />
@@ -133,7 +152,7 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
         type="search"
         role="combobox"
         value={state.value}
-        onChange={(e) => dispatch({ type: "SET_VALUE", payload: e.target.value })}
+        onChange={handleChange}
         onFocus={() => state.value.length >= 2 && dispatch({ type: "OPEN" })}
         placeholder="Buscar por nome..."
         aria-label="Buscar santos"
@@ -166,6 +185,6 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
           ))}
         </ul>
       )}
-    </div>
+    </form>
   );
 }
