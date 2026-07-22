@@ -2,7 +2,7 @@
 
 import { PropsBuscaSantos, Santo } from "@/types/santos";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useReducer, useRef } from "react";
+import { useEffect, useReducer, useRef, useTransition } from "react";
 import { Search, Loader2 } from "lucide-react";
 import Link from "next/link";
 
@@ -44,6 +44,7 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [, startTransition] = useTransition();
 
   const [state, dispatch] = useReducer(reducer, {
     value: valorInicial,
@@ -74,7 +75,7 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
 
   // Debounce: atualiza URL + busca autocomplete
   useEffect(() => {
-    if (state.value.length >= 2) {
+    if (state.value.length >= 2 && !state.isPending) {
       dispatch({ type: "SET_PENDING", payload: true });
     }
 
@@ -82,7 +83,8 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
       const q = new URLSearchParams(searchParams.toString());
       const currentBusca = q.get("busca") ?? "";
 
-      // Atualiza URL se o valor mudou
+      // Atualiza URL se o valor mudou. Em transição para não bloquear a
+      // digitação enquanto a página de santos (server component) recarrega.
       if (state.value !== currentBusca) {
         if (state.value) {
           q.set("busca", state.value);
@@ -90,7 +92,9 @@ export default function BuscaSantos({ valorInicial }: PropsBuscaSantos) {
           q.delete("busca");
         }
         q.delete("pagina");
-        router.push(`/santos?${q.toString()}`, { scroll: false });
+        startTransition(() => {
+          router.push(`/santos?${q.toString()}`, { scroll: false });
+        });
       }
 
       if (state.value.length < 2) {

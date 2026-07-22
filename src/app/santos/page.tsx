@@ -6,7 +6,7 @@ import FiltrosSantos from "@/components/santos/SantosFiltros";
 import BuscaSantos from "@/components/santos/BuscaSantos";
 import AlfabetoSantos from "@/components/santos/SantosAlfabeto";
 import { Metadata } from "next";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { CalendarDays, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { PropsPaginaSantos, PropsPaginacao } from "@/types/santos";
 
 export const revalidate = 86400;
@@ -94,6 +94,13 @@ export default async function PaginaSantos({ searchParams }: PropsPaginaSantos) 
         <p className="text-on-surface-variant max-w-2xl mx-auto font-body-md">
           Explore a vida daqueles que nos precederam na fé através dos séculos, biografias, datas de festa e padroeiros.
         </p>
+        <Link
+          href="/santos/calendario"
+          className="inline-flex items-center gap-2 mt-4 text-[11px] font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors"
+        >
+          <CalendarDays size={14} />
+          Ver calendário dos santos
+        </Link>
         <div className="mt-12 max-w-2xl mx-auto space-y-8">
           <BuscaSantos valorInicial={busca} />
           <FiltrosSantos tipos={["Todos", "Doutor", "Apostolo"]} tipoAtivo={tipo} />
