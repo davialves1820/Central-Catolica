@@ -63,3 +63,17 @@ export interface PropsFiltrosSantos {
 export interface PropsBuscaSantos {
   valorInicial: string;
 }
+
+export type SantoResumo = Pick<
+  Santo,
+  "nome" | "slug" | "tipo" | "imagem_url" | "data_festa" | "padroeiro_de"
+>;
+
+/** Índice "MM-DD" -> santos cuja festa cai nesse dia, cobrindo o ano todo. */
+export type CalendarioSantos = Record<string, SantoResumo[]>;
+
+export interface PropsCalendarioSantosView {
+  calendario: CalendarioSantos;
+  mesInicial: number;
+  diaInicial: number;
+}
