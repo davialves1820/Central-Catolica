@@ -1,20 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import path from "path";
-import fs from "fs/promises";
 import { type EntradaDiaJson, type DadosDiaLiturgico } from "@/types/calendario";
-
-// Cache em memória do JSON completo para evitar leitura de disco a cada request
-let cachedJson: Record<string, EntradaDiaJson[]> | null = null;
-
-async function getCalendario(): Promise<Record<string, EntradaDiaJson[]>> {
-  if (cachedJson) {
-    return cachedJson;
-  }
-  const jsonPath = path.join(process.cwd(), "data", "calendario2026.json");
-  const raw = await fs.readFile(jsonPath, "utf8");
-  cachedJson = JSON.parse(raw);
-  return cachedJson!;
-}
+import { getCalendarioLiturgico } from "@/lib/server/services/calendarioLiturgico";
 
 function mapearEntrada(entries: EntradaDiaJson[]): DadosDiaLiturgico[] {
   return entries.map((entry) => ({
@@ -35,7 +21,7 @@ export async function GET(request: NextRequest) {
   const mes = searchParams.get("mes");
 
   try {
-    const dados = await getCalendario();
+    const dados = await getCalendarioLiturgico();
 
     if (mes) {
       // Filtra apenas os dias do mês solicitado
@@ -52,7 +38,7 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Sem filtro: retorna o ano inteiro (para compatibilidade)
+    // Sem filtro: retorna todos os anos disponíveis (para compatibilidade)
     const resultado: Record<string, DadosDiaLiturgico[]> = {};
     for (const [dateStr, entries] of Object.entries(dados)) {
       resultado[dateStr] = mapearEntrada(entries);
