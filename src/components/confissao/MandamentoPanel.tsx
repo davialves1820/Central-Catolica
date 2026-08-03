@@ -7,9 +7,16 @@ import { PerguntaItem } from "./PerguntaItem";
 export function MandamentoPanel({ mandamento, perguntas, marcados, onAlternar }: PropsMandamentoPanel) {
   return (
     <div className="rounded-2xl border border-[#c9a84c]/25 bg-white p-5">
-      <p className="font-label-sm text-secondary">{mandamento.numero}º Mandamento</p>
+      <p className="font-label-sm text-secondary">{mandamento.rotulo}</p>
       <h3 className="font-heading text-xl font-semibold mt-1 text-primary">{mandamento.titulo}</h3>
       <p className="mt-0.5 mb-4 font-body-sm italic text-on-surface-variant">{mandamento.resumo}</p>
+
+      {mandamento.observacao && (
+        <div className="mb-4 rounded-lg border border-[#c9a84c]/30 bg-[#c9a84c]/10 px-3.5 py-2.5">
+          <p className="font-label-sm font-semibold text-secondary">Atenção</p>
+          <p className="mt-0.5 font-body-sm leading-relaxed text-on-surface-variant">{mandamento.observacao}</p>
+        </div>
+      )}
 
       <AnimatePresence mode="wait">
         <motion.div

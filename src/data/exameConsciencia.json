@@ -1,204 +1,273 @@
 {
-  "estados": [
-    {
-      "slug": "jovem",
-      "nome": "Jovem",
-      "descricao": "Ainda morando com a família, estudando ou começando a vida adulta.",
-      "emoji": "🎒"
+  "sacramento": {
+    "citacao": {
+      "texto": "Se formos deveras humildes, o nosso pecado há de nos desagradar infinitamente, porque com ele Deus é ofendido, mas a acusação do pecado será para nós doce e agradável, porque com ela Deus é honrado. É uma espécie de alívio dizer claramente ao médico a doença que nos atormenta.",
+      "autor": "São Francisco de Sales"
     },
-    {
-      "slug": "solteiro",
-      "nome": "Solteiro(a)",
-      "descricao": "Vida adulta, namorando ou não, sem vínculo de casamento.",
-      "emoji": "🌱"
+    "condicoesPecadoMortal": [
+      {
+        "titulo": "Matéria grave",
+        "texto": "Deus proibiu certas coisas e mandou outras, para nos afastar do Inferno e nos levar ao Céu — leis contidas nos Dez Mandamentos e nos Cinco Mandamentos da Igreja. Toda ação ou omissão deliberada que contraria gravemente essas leis é matéria de pecado mortal: contra o amor devido a Deus, contra o bem do próximo, contra a castidade ou contra os mandamentos da Igreja."
+      },
+      {
+        "titulo": "Plena advertência",
+        "texto": "É a percepção clara, antes de agir, de que aquele pensamento, palavra, ato ou omissão é gravemente contrário à lei de Deus. Perceber a gravidade ainda não é pecado — é a consciência acordando para o que está em jogo.",
+        "exemplo": "Ao olhar para uma pessoa e perceber que aquele olhar pode causar excitação sexual, já há plena advertência da malícia desse olhar."
+      },
+      {
+        "titulo": "Pleno consentimento",
+        "texto": "É a decisão livre da vontade de seguir em frente mesmo depois de perceber a gravidade da coisa. Só há pecado mortal quando, apesar de já saber que é grave, a pessoa escolhe fazê-la mesmo assim.",
+        "exemplo": "Um casal de namorados percebe que um abraço está causando excitação sexual: são livres para interrompê-lo. Se continuam por livre escolha, consentiram na ação má."
+      }
+    ],
+    "obsPecadoMortal": "Se, depois de examinar bem a consciência, você não tiver certeza se houve plena advertência e pleno consentimento em algum pecado, confesse-o mesmo assim, para que a consciência não fique atribulada.",
+    "requisitos": [
+      {
+        "titulo": "1. Exame de consciência",
+        "texto": "Antes de ir ao padre, lembre-se com cuidado dos pecados mortais cometidos desde a última confissão bem-feita, e de quantas vezes cometeu cada um. Se você é adulto e nunca se confessou, ou suas confissões passadas foram malfeitas, considere fazer uma Confissão Geral — um exame mais profundo, revendo a vida desde os 7 anos de idade até hoje."
+      },
+      {
+        "titulo": "2. Arrependimento (contrição)",
+        "texto": "Reconheça de coração — não só de boca — que esses pecados ofenderam a Deus e mereceram o Inferno. Arrependa-se de todos, sem deixar nenhum de fora, com grande esperança no perdão de Deus."
+      },
+      {
+        "titulo": "3. Propósito",
+        "texto": "É a decisão firme e definitiva de abandonar o pecado mortal, desde agora e para sempre, disposta a fazer o que for preciso para não cair de novo — principalmente fugindo das ocasiões próximas de pecado.",
+        "exemplo": "Quem se confessa de pornografia mas não sai do grupo de redes sociais onde ela circula ainda deseja continuar recebendo aquilo — e a confissão fica inválida por falta de firme propósito."
+      },
+      {
+        "titulo": "4. Confissão (acusação)",
+        "texto": "Diga ao padre, com clareza, humildade e sinceridade, qual foi o pecado, as circunstâncias que o agravam e quantas vezes foi cometido — ao menos um número aproximado. Não atribua a outros a culpa dos seus pecados, e não basta dizer algo genérico como \"pequei contra a castidade\".",
+        "exemplo": "\"Padre, sou solteiro e tive relação sexual com uma mulher casada, várias vezes, ao longo de dois anos.\""
+      },
+      {
+        "titulo": "5. Penitência (satisfação)",
+        "texto": "Aceite de coração a penitência dada pelo padre e cumpra-a o quanto antes. Em pecados que causaram dano a terceiros — calúnia, roubo, destruição de bens alheios — é preciso também reparar esse dano; se não aceitarmos a reparação proposta, a absolvição é nula."
+      }
+    ],
+    "sigilo": "A confissão é privada e protegida pelo sigilo sacramental: o padre nunca pode revelar a ninguém, de forma alguma, o que ouviu na confissão — sob pena de pecado mortal gravíssimo e excomunhão.",
+    "oracaoPreparatoria": {
+      "titulo": "Oração preparatória",
+      "texto": "Meu bom Deus e Salvador, Pai de misericórdia, eis-me aqui prostrado aos vossos pés, cheio de confusão e de remorsos, qual outro filho pródigo que volta arrependido à casa paterna. Não mereço perdão, porque desgostei demasiadamente a vossa bondade infinita. Mas sei que não olhais para os meus pecados senão para perdoá-los, como Pai misericordioso que sois. Pelos méritos inefáveis do vosso Filho, crucificado e morto por meu amor, pelos méritos do seu Preciosíssimo Sangue, pelas suas lágrimas e agonia, tende piedade de mim. Dai-me luz para conhecer os meus pecados; sincero arrependimento para os aborrecer; firme propósito para nunca mais os cometer; ânimo para os acusar e para cumprir com a devida penitência. Amém."
     },
-    {
-      "slug": "casado",
-      "nome": "Casado(a)",
-      "descricao": "Vivendo o sacramento do matrimônio.",
-      "emoji": "💍"
-    },
-    {
-      "slug": "pais",
-      "nome": "Pai ou mãe",
-      "descricao": "Com filhos para cuidar e educar.",
-      "emoji": "👨‍👩‍👧"
-    },
-    {
-      "slug": "religioso",
-      "nome": "Religioso(a) ou Sacerdote",
-      "descricao": "Vida consagrada ou ministério ordenado.",
-      "emoji": "✝️"
-    }
-  ],
+    "perguntasIniciais": [
+      "Há quanto tempo não me confesso?",
+      "Escondi, conscientemente, algum pecado grave em minhas confissões passadas?",
+      "Confessei, o melhor que me lembrava, o número de vezes que cometi cada pecado grave?",
+      "Confessei com clareza os meus pecados ou fui muito genérico?",
+      "Cumpri a penitência que o sacerdote me deu?",
+      "Reparei as injustiças que cometi?",
+      "Comunguei alguma vez em pecado mortal?",
+      "Estou verdadeiramente arrependido dos meus pecados e luto para não voltar a cometê-los?",
+      "Tenho o hábito de cometer um determinado pecado mortal?",
+      "Já me confessei deste pecado e mesmo assim continuo com o vício?"
+    ]
+  },
   "mandamentos": [
     {
       "numero": 1,
+      "rotulo": "1º Mandamento",
       "titulo": "Amar a Deus sobre todas as coisas",
       "resumo": "Fé, esperança, caridade e o primeiro lugar de Deus na minha vida.",
       "perguntas": [
-        "Coloquei outras coisas — dinheiro, trabalho, aparência, redes sociais, opinião alheia — acima de Deus na minha vida?",
-        "Rezei com frequência e atenção, ou minha oração virou pura rotina, sem coração?",
-        "Recorri a horóscopos, cartas, simpatias, videntes ou outras práticas contrárias à fé?",
-        "Duvidei de Deus ou de verdades da fé sem buscar esclarecimento, alimentando a dúvida por comodismo?",
-        "Tive vergonha de me mostrar católico diante dos outros?"
+        "Deixei, por culpa própria, de conhecer as principais verdades da fé católica — que há um só Deus em três Pessoas, que o Filho de Deus se fez Homem e ressuscitou para a nossa salvação, que Ele virá julgar os vivos e os mortos, o Pai Nosso e os sete sacramentos?",
+        "Neguei ou duvidei voluntariamente de algum ensinamento da Igreja, mesmo já tendo sido instruído sobre ele — por exemplo, recusando-me a acreditar que o Inferno e os demônios existem?",
+        "Acreditei, segui ou professei algum ensinamento que eu sabia ser incompatível com a fé católica?",
+        "Participei ativamente de alguma cerimônia ou culto não católico — por exemplo, tomando a \"ceia\" protestante ou ajudando num culto protestante?",
+        "Sou ou fui membro de alguma organização religiosa não católica, de grupo anticatólico ou de sociedade secreta como a Maçonaria?",
+        "Li, ouvi ou assisti a algo contra Deus, contra a Igreja ou contra a moral católica, sem uma justa causa que exigisse isso de mim?",
+        "Pratiquei ou colaborei em alguma superstição ou idolatria — previsão do futuro, jogo de búzios ou de cartas, tábua ouija, feitiçaria, magia branca ou negra, candomblé, umbanda, macumba, reiki, vodu, cabala, Nova Era, \"energias\", jogo do copo?",
+        "Participei de reuniões espíritas? Invoquei espíritos? Recebi passe? Acreditei em reencarnação?",
+        "Invoquei a Satanás, ou li, assisti ou ouvi algo que o invoca explicitamente?",
+        "Deixei de professar externamente a minha fé católica quando havia necessidade grave de fazê-lo?",
+        "Recebi algum sacramento sem respeito, sem fé ou em pecado mortal — Crisma, Eucaristia, Matrimônio, Ordem?",
+        "Desesperei da salvação, achando que os meus pecados eram maiores que a misericórdia de Deus?",
+        "Pequei por presunção, esperando alcançar a salvação sem fugir do pecado e guardar os Mandamentos?",
+        "Acreditei que Deus, por ser misericordioso, vai salvar todas as pessoas mesmo que elas não deixem o pecado?",
+        "Tive ódio a Deus ou me revoltei contra Ele — por exemplo, por ter nascido com esta aparência, este sexo, esta condição social, ou por ter perdido um parente?"
       ]
     },
     {
       "numero": 2,
-      "titulo": "Não usar o nome de Deus em vão",
+      "rotulo": "2º Mandamento",
+      "titulo": "Não tomar o Seu santo nome em vão",
       "resumo": "Respeito pelo nome de Deus, promessas e coisas sagradas.",
       "perguntas": [
-        "Usei o nome de Deus, de Jesus ou dos santos em xingamentos, piadas de mau gosto ou por hábito descuidado?",
-        "Fiz promessas a Deus e não as cumpri?",
-        "Faltei com respeito às coisas sagradas (imagens, igreja, celebrações)?",
-        "Jurei em falso ou usei o nome de Deus para dar falsa credibilidade a algo?"
+        "Pequei por blasfêmia — disse ou fiz alguma injúria contra Deus, contra os santos ou contra as coisas santas (por exemplo, \"Deus é injusto\", cuspir para o céu, quebrar imagens sagradas)? Escandalizei alguém com isso?",
+        "Irritei alguém de propósito para fazê-lo praguejar ou blasfemar contra Deus?",
+        "Jurei em assuntos falsos ou desonestos usando o nome de Deus, dos santos ou das coisas sagradas?",
+        "Fiz uma promessa a Deus e não a cumpri?",
+        "Zombei, por palavras, piadas ou atos, de Deus, de Nossa Senhora, dos santos e de suas imagens, da Igreja, dos sacramentos ou de qualquer coisa santa? Incentivei que outros zombassem, rissem ou desprezassem?"
       ]
     },
     {
       "numero": 3,
-      "titulo": "Guardar domingos e festas de guarda",
-      "resumo": "Santificar o Domingo como dia do Senhor.",
+      "rotulo": "3º Mandamento",
+      "titulo": "Guardar domingos e festas",
+      "resumo": "Santificar o domingo como dia do Senhor.",
       "perguntas": [
-        "Participei da Missa aos domingos e dias santos de guarda, podendo fazê-lo?",
-        "Vivi o Domingo como dia do Senhor, ou apenas como mais um dia comum?",
-        "Trabalhei sem necessidade real em dia que deveria descansar e dedicar a Deus e à família?"
+        "Faltei à Missa aos domingos ou nos dias santos de guarda, por culpa própria?",
+        "Nos domingos ou dias santos de guarda, cheguei atrasado à Missa ou saí antes do fim, por culpa própria?",
+        "Fiz, propositalmente, com que outra pessoa faltasse, chegasse atrasada ou saísse mais cedo da Missa dominical?",
+        "Fiquei mais de um mês sem fazer ao menos uma oração sincera a Deus?",
+        "Nos domingos ou dias santos de guarda, realizei trabalhos, atividades ou negócios que me impediram de participar da Santa Missa? Obriguei outras pessoas a fazer o mesmo?",
+        "Trabalhei aos domingos e dias santos de guarda sem necessidade real? Obriguei outras pessoas a trabalhar nesses dias?"
       ]
     },
     {
       "numero": 4,
+      "rotulo": "4º Mandamento",
       "titulo": "Honrar pai e mãe",
       "resumo": "Respeito à família e às autoridades legítimas.",
       "perguntas": [
-        "Tratei meus pais (ou responsáveis) com respeito, mesmo quando discordei deles?",
-        "Cuidei dos meus pais ou idosos da família na medida das minhas possibilidades?",
-        "Respeitei as autoridades legítimas (professores, chefes, governantes) dentro do que é justo?"
-      ],
-      "perguntasPorEstado": {
-        "jovem": [
-          "Respondi com grosseria ou desprezo aos meus pais ou professores?",
-          "Cumpri minhas obrigações escolares e de casa com responsabilidade?"
-        ],
-        "pais": [
-          "Dei bom exemplo de fé e de vida aos meus filhos?",
-          "Dediquei tempo de qualidade e educação religiosa aos meus filhos?",
-          "Perdi a paciência de forma agressiva ou humilhante com meus filhos?"
-        ],
-        "casado": [
-          "Honrei também a família do meu cônjuge?"
-        ],
-        "religioso": [
-          "Obedeci com espírito de fé aos meus superiores, dentro do que é justo?"
-        ]
-      }
+        "Zombei, xinguei, maltratei ou ameacei os meus pais? Alegrei-me com o mal deles, ou entristeci-me com o bem deles?",
+        "Desejei a desgraça ou a morte dos meus pais, ou desejei egoisticamente receber a herança?",
+        "Deixo de rezar pelos meus pais — vivos ou já falecidos?",
+        "Deixei de ajudar meus pais numa necessidade material grave (alimentação, vestes, moradia, remédios), podendo fazê-lo? Abandonei-os na doença ou na velhice?",
+        "Deixei de ajudar meus pais nas suas necessidades espirituais, podendo fazê-lo — por exemplo, chamar o padre numa doença grave ou providenciar o funeral?",
+        "Levantei a mão ou bati nos meus pais? (Isso é pecado mortal, mesmo que a lesão seja leve.)",
+        "Entristeci gravemente os meus pais com palavras, gestos ou ações?",
+        "Desobedeci aos meus pais em assuntos moralmente importantes, mesmo ainda morando com eles?",
+        "Roubei alguma coisa dos meus pais?",
+        "Sendo jovem e ainda morando com a família: descumpri, por preguiça ou desprezo, as obrigações escolares e de casa que meus pais me confiaram? Fui contra a vontade deles em algo moralmente importante — lembrando que, se me pedem algo pecaminoso, devo desobedecer, pois \"convém antes obedecer a Deus que aos homens\"?",
+        "Sendo casado(a): zombei, xinguei, maltratei ou ameacei o meu cônjuge, impedi que ele(a) cumprisse seus deveres religiosos, ou deixei de honrar também a família dele(a)?",
+        "Tendo filhos: por negligência, deixei de conduzir meus filhos ao Batismo o quanto antes, ou de cumprir a grave obrigação de educá-los na fé católica — doutrina, digna recepção dos sacramentos — para que perseverassem na graça?",
+        "Tendo filhos: deixei de sustentá-los, ou de garantir que fossem à Missa, rezassem e cumprissem seus deveres religiosos?",
+        "Tendo filhos: permiti que o(a) namorado(a) deles dormisse junto, que lessem, ouvissem ou assistissem a conteúdo imoral, sexual ou obsceno, ou que tivessem más companhias e frequentassem lugares suspeitos e festas indecentes?",
+        "Tendo filhos: deixei de corrigir seus vícios e pecados graves, castiguei-os com ódio no coração, ou fui mau exemplo para eles — embriaguez, palavras obscenas, roupas indecentes, faltar à Missa — dando-lhes ocasião de me imitarem ou de se escandalizarem?",
+        "Sendo religioso(a), consagrado(a) ou clérigo: obedeci com espírito de fé aos meus superiores, dentro do que é justo?"
+      ]
     },
     {
       "numero": 5,
+      "rotulo": "5º Mandamento",
       "titulo": "Não matar",
       "resumo": "Vida, saúde, ódio e violência.",
       "perguntas": [
-        "Guardei ódio, rancor ou desejo de mal a alguém?",
-        "Feri alguém física ou moralmente, com palavras ou atitudes?",
-        "Cuidei da minha saúde física e mental, evitando excessos (álcool, comida, sedentarismo)?",
-        "Fui conivente ou favorável ao aborto, à eutanásia ou a outras formas de atentado contra a vida?",
-        "Coloquei minha vida ou a de outros em risco por imprudência?"
-      ]
+        "Desejei o mal, a doença, a desgraça ou o Inferno a alguém?",
+        "Agredi injustamente alguma pessoa?",
+        "Ofendi alguém xingando, amaldiçoando ou zombando? Escandalizei outras pessoas com isso?",
+        "Alimentei pensamentos de vingança? (Não é pecado desejar que um criminoso receba sua justa pena, desde que sem ódio por ele.)",
+        "Matei, quis matar ou procurei matar alguém?",
+        "Fiz, tentei, aconselhei ou ajudei alguém a fazer aborto? Defendi que as pessoas têm direito ao aborto?",
+        "Usei métodos abortivos — anticoncepcionais, DIU, pílula do dia seguinte?",
+        "Apoiei, conscientemente, políticos ou causas que promovem o aborto, a eutanásia, o divórcio, a ideologia de gênero, o homossexualismo ou a legalização das drogas?",
+        "Pratiquei, aconselhei ou defendi a eutanásia, apressando a morte de uma pessoa idosa ou doente?",
+        "Fiz, obriguei, aconselhei ou defendi a fertilização in vitro ou outros métodos artificiais de concepção?",
+        "Retirei alguma parte significativa do meu corpo desnecessariamente, ou fiz esterilização — vasectomia, ligadura de trompas — fora de uma causa de saúde grave?",
+        "Tentei diretamente o suicídio, ou induzi, instiguei ou auxiliei alguém a se matar?",
+        "Usei bebida alcoólica até perder completamente o uso da razão, por mero prazer? Usei drogas ilícitas?",
+        "Cooperei com o pecado grave de outra pessoa?",
+        "Conheço alguém em pecado mortal, ou perto de cometê-lo, que eu poderia corrigir sem grande incômodo e com esperança de que mudasse — e não o corrigi?"
+      ],
+      "observacao": "Pecam gravemente por cooperação os que vendem, receitam, facilitam, aconselham ou fornecem coisas que só servem para o mal — anticoncepcionais, pornografia, material herético, drogas ilícitas — e os que emprestam espontaneamente seu espaço (hotel, casa, estabelecimento) para encontros ou festas claramente pecaminosos, ou colaboram em espetáculos claramente pecaminosos."
     },
     {
       "numero": 6,
-      "titulo": "Não pecar contra a castidade",
+      "rotulo": "6º e 9º Mandamentos",
+      "titulo": "Não pecar contra a castidade e não desejar a mulher do próximo",
       "resumo": "Pureza de pensamentos, palavras e atos, conforme o meu estado de vida.",
       "perguntas": [
-        "Tive pensamentos, palavras ou atitudes contrárias à castidade?",
-        "Consumi pornografia ou conteúdo que degrada a dignidade da pessoa?"
+        "Consenti em pensamentos, desejos ou olhares contra a castidade? (Ao perceber que um olhar ou pensamento pode levar ao desejo sexual, devo desviá-lo imediatamente, em vez de me deleitar nele.)",
+        "Pequei por pornografia — textos, fotos ou vídeos de conteúdo sexual explícito, ou conteúdo erótico em livros, filmes ou programas? Tenho o hábito desse pecado? Mantive as ocasiões de cair nele?",
+        "Divulguei conteúdo pornográfico, ou mantive o recebimento dele — por exemplo, permanecendo num grupo de rede social onde as pessoas enviam esse tipo de material?",
+        "Pequei por masturbação? Tenho o hábito desse pecado? Mantive as ocasiões de cair nele?",
+        "Toquei, abracei ou beijei alguém buscando prazer sexual fora do que é próprio do meu estado de vida?",
+        "Promovi ou consenti em conversas eróticas buscando prazer sexual? Ouvi músicas eróticas consentindo no prazer que me causaram?",
+        "Escandalizei alguém com conversas, piadas ou músicas eróticas — por exemplo, diante de crianças?",
+        "Cometi algum pecado sexual contra a natureza — homossexualismo, incesto (com parente de sangue), bestialidade (com animais)?",
+        "Toquei uma criança buscando satisfação sexual, ou tive relação sexual com uma criança?",
+        "Usei de violência física ou moral para levar alguém a pecado contra a castidade? Seduzi alguém valendo-me da minha autoridade ou influência sobre ela?",
+        "Defendi ou apoiei o sexo livre, a poligamia, o divórcio, o adultério, o homossexualismo, a mudança de sexo, o incesto, a pedofilia ou a ideologia de gênero, como se \"se amar\" desse a alguém o direito de fazer essas coisas?",
+        "Expus-me publicamente com roupas indecentes — coladas, decotadas, curtas, transparentes — para seduzir sexualmente quem me olhava, ou sabendo que eram excitantes ou escandalosas?",
+        "Induzi outra pessoa ao pecado contra a castidade, ou ensinei esse pecado a alguém — por exemplo, conversas eróticas em redes sociais, ou conduzir alguém a uma casa de prostituição?",
+        "Sendo solteiro(a), fiz sexo fora do casamento? (Diga ao padre que tipo de pessoa era — solteira, casada, virgem, do mesmo sexo, consagrada a Deus — pois isso muda a gravidade do pecado.)",
+        "Namorando ou noivo(a), busquei excitação sexual em toques, abraços \"calorosos\" ou beijos de língua, mesmo sem chegar à relação sexual — sabendo que, não podendo ter relação sexual, também não posso me preparar para ela?",
+        "Tendo sido batizado na Igreja Católica, vivi uma \"união estável\" ou um casamento meramente civil com alguém?",
+        "Sendo casado(a): neguei a relação sexual ao meu cônjuge sem causa grave? (Há causa grave quando ele(a) cometeu adultério sem arrependimento, está sem uso da razão, quer pervertê-la — anticoncepcionais, sexo oral, anal, com pornografia ou em grupo — ou a quer de forma imoderada; nesses casos de perversão, há até obrigação de negar e resistir.)",
+        "Sendo casado(a): usei métodos contraceptivos — pílula, DIU, camisinha — ou pratiquei o onanismo (coito interrompido)? Vi pornografia com meu cônjuge, ou o(a) obriguei a ver?",
+        "Sendo casado(a): cometi adultério e/ou causei a separação do meu casamento? Já separado(a), vivi um novo relacionamento — namoro, concubinato, novo casamento civil?",
+        "Sendo casado(a): pratiquei o ato sexual pensando voluntariamente em outra pessoa, ou corri, fora do ato conjugal, o perigo próximo de polução em beijos, abraços e carícias com meu cônjuge?",
+        "Sendo religioso(a), consagrado(a) ou sacerdote: vivi com fidelidade o meu voto ou compromisso de castidade?"
       ],
-      "perguntasPorEstado": {
-        "jovem": [
-          "Vivi a sexualidade fora do contexto do matrimônio?"
-        ],
-        "solteiro": [
-          "Vivi a sexualidade fora do contexto do matrimônio?"
-        ],
-        "casado": [
-          "Fui fiel ao meu cônjuge em pensamento e em atos?",
-          "Vivi a intimidade conjugal com respeito, amor e abertura à vida?"
-        ],
-        "religioso": [
-          "Vivi com fidelidade o meu voto ou compromisso de castidade?"
-        ]
-      }
+      "observacao": "Por caridade com o padre, diga apenas o pecado, os agravantes e quantas vezes o cometeu — sem entrar em detalhes. Em pecados fora do casamento, informe também que tipo de pessoa esteve envolvida (solteira, casada, do mesmo sexo, consagrada, menor de idade etc.), pois isso muda a gravidade do pecado."
     },
     {
       "numero": 7,
-      "titulo": "Não roubar",
+      "rotulo": "7º e 10º Mandamentos",
+      "titulo": "Não furtar e não cobiçar as coisas alheias",
       "resumo": "Honestidade, justiça no trabalho e respeito aos bens alheios.",
       "perguntas": [
-        "Peguei ou usei algo que não me pertencia sem permissão?",
-        "Fui honesto no trabalho, nos estudos, nos impostos e nas contas?",
-        "Fui justo com quem trabalha para mim ou comigo (salários, combinados, prazos)?",
-        "Desperdicei ou destruí bens — meus, de outros ou públicos — sem necessidade?"
-      ]
+        "Roubei alguma coisa? O quê, quanto e quantas vezes? Restitui os bens roubados, ou tenho o propósito de restituir?",
+        "Danifiquei injustamente a propriedade ou os bens de outra pessoa? Reparei os danos?",
+        "Obtive algum bem ou vantagem por meio de fraude ou enganação?",
+        "Perdi meus bens no jogo, causando prejuízo a mim ou aos meus dependentes?",
+        "Recusei-me a pagar alguma dívida, ou a devolver algo emprestado, podendo fazê-lo?",
+        "Adquiri alguma coisa que eu sabia ter sido roubada?",
+        "Lesei o meu patrão, não trabalhando honestamente como é dever de um funcionário?",
+        "Recusei-me a pagar o salário aos meus empregados, ou atrasei-o sem justa causa?",
+        "Forcei meus funcionários a trabalhar além da medida, impedindo-lhes o devido descanso e a presença na Missa aos domingos e dias santos de guarda?",
+        "Recusei-me a ajudar alguém que estava em extrema necessidade, embora fosse possível fazê-lo?",
+        "Fiquei triste ou com raiva por ver que uma pessoa tinha algum bem material que eu não possuía?",
+        "Fiquei triste ou com raiva por ver que uma pessoa tinha algum bem espiritual — capacidade, virtude, força de vontade — que eu não possuía?",
+        "Dei mais valor aos bens materiais do que à minha salvação eterna?"
+      ],
+      "observacao": "Sempre que um pecado causar dano a alguém — roubo, calúnia, dano a bens alheios —, é preciso ter o firme propósito de reparar o prejuízo. Pergunte ao padre como poderá fazer essa reparação."
     },
     {
       "numero": 8,
+      "rotulo": "8º Mandamento",
       "titulo": "Não levantar falso testemunho",
       "resumo": "Verdade, fofoca, julgamento e respeito à fama do próximo.",
       "perguntas": [
-        "Menti para conseguir vantagem ou para me livrar de problemas?",
-        "Falei mal de alguém — fofoca, calúnia, difamação — mesmo sendo verdade o que contei?",
-        "Julguei o coração ou as intenções de alguém sem conhecer toda a história?",
-        "Fui discreto com informações e segredos que me foram confiados?"
+        "Contei mentiras que causaram grave dano a uma pessoa ou aos seus bens? Tenho o hábito de mentir? (Toda mentira é pecado; só as que causam prejuízo grave à honra ou aos bens do próximo são pecado mortal.)",
+        "Caluniei alguém, dizendo que cometeu um crime ou pecado grave que eu sabia claramente que ela não tinha cometido? Colaborei com a divulgação de calúnias? Reparei a calúnia, ou estou disposto a repará-la?",
+        "Fiz julgamentos temerários a respeito de alguém — condenei-o interiormente sem ter evidências suficientes?",
+        "Falei dos pecados ou defeitos graves de uma pessoa sem necessidade? Tenho o hábito de falar mal dos outros?",
+        "Revelei algum segredo importante, sendo que a pessoa esperava que eu guardasse sigilo? Tenho o hábito de revelar segredos alheios?",
+        "Provoquei intrigas para criar inimizades entre as pessoas?",
+        "Jurei falso, ou assinei ou usei documentos falsos?"
       ]
     },
     {
       "numero": 9,
-      "titulo": "Não desejar a mulher do próximo",
-      "resumo": "Pureza do coração e fidelidade nos relacionamentos.",
+      "rotulo": "Mandamentos da Igreja",
+      "titulo": "Os Cinco Mandamentos da Igreja",
+      "resumo": "Os preceitos mínimos que sustentam a vida cristã em comunidade.",
       "perguntas": [
-        "Desejei ou fantasiei um relacionamento com pessoa comprometida ou casada?",
-        "Alimentei ciúmes doentios ou desconfiança excessiva no meu relacionamento?"
+        "Recebi a Sagrada Eucaristia ao menos uma vez ao ano, por ocasião do Tempo Pascal? (Não é preciso comungar em toda Missa, inclusive aos domingos, mas ao menos uma vez no ano, na Páscoa.)",
+        "Guardei o jejum eucarístico de uma hora antes da comunhão — sem comer nem beber nada além de água e remédios?",
+        "Cumpri o jejum (Quarta-feira de Cinzas e Sexta-feira Santa, dos 18 aos 60 anos, com apenas uma refeição completa e duas pequenas no dia) e a abstinência de carne (Quarta-feira de Cinzas e todas as sextas-feiras do ano, exceto solenidades, a partir dos 14 anos)?",
+        "Confessei-me pelo menos uma vez ao ano?",
+        "Tenho contribuído para as necessidades materiais da Igreja segundo as minhas possibilidades — dízimo, doações, ofertas?"
       ],
-      "perguntasPorEstado": {
-        "casado": [
-          "Cultivei no coração afeto ou desejo por outra pessoa que não meu cônjuge?"
-        ]
-      }
-    },
-    {
-      "numero": 10,
-      "titulo": "Não cobiçar as coisas alheias",
-      "resumo": "Inveja, materialismo e gratidão pelo que tenho.",
-      "perguntas": [
-        "Senti inveja da vida, dos bens ou das conquistas de outras pessoas?",
-        "Fui grato pelo que tenho, ou vivo sempre insatisfeito, querendo mais?",
-        "Deixei o consumismo ocupar um espaço desproporcional na minha vida?"
-      ]
+      "observacao": "Todos os fiéis, a partir dos sete anos de idade, já são obrigados à Confissão ao menos uma vez por ano."
     }
   ],
   "rito": [
     {
       "titulo": "1. Antes de entrar",
-      "texto": "Você já fez o mais importante: um bom exame de consciência. Peça ao Espírito Santo luz para se conhecer e coragem para se converter. Se quiser, tenha em mente (ou anotado à parte) os pontos que marcou nesta página — não é preciso decorar nada."
+      "texto": "Você já fez o mais importante: um bom exame de consciência. Peça ao Espírito Santo luz para se conhecer e coragem para se converter. Leve em mente (ou anotado à parte) os pontos que marcou nesta página — não é preciso decorar nada, e nada fica salvo aqui."
     },
     {
       "titulo": "2. Ao começar",
-      "texto": "Faça o sinal da cruz e diga: \"Em nome do Pai, do Filho e do Espírito Santo. Amém.\" Em seguida: \"Abençoe-me, Padre, porque pequei.\" Se souber, diga há quanto tempo não se confessa — e se não souber ao certo, tudo bem, basta dizer isso mesmo ao padre."
+      "texto": "Faça o sinal da cruz e diga: \"Em nome do Pai, do Filho e do Espírito Santo. Amém.\" Em seguida: \"Abençoe-me, Padre, porque pequei.\" Diga há quanto tempo não se confessa — e se não souber ao certo, basta dizer isso mesmo ao padre."
     },
     {
       "titulo": "3. Conte seus pecados",
-      "texto": "Fale com simplicidade e sinceridade, sem rodeios nem detalhes desnecessários. Diga o que pesa na sua consciência, confiando na misericórdia de Deus. Pode seguir o resumo que você organizou aqui."
+      "texto": "Fale com clareza, humildade e sinceridade, sem rodeios nem detalhes desnecessários, e sem atribuir a outros a culpa dos seus próprios pecados. Diga qual foi o pecado, as circunstâncias que o agravam e, ao menos aproximadamente, quantas vezes o cometeu — não basta dizer algo genérico como \"pequei contra a castidade\". Pode seguir o resumo que você organizou aqui."
     },
     {
       "titulo": "4. Escute o padre",
-      "texto": "Ele pode fazer perguntas, dar uma orientação ou um conselho espiritual. Ouça com atenção e coração aberto — ele está ali para ajudar, não para julgar."
+      "texto": "Ele pode fazer perguntas, dar uma orientação ou um conselho espiritual. Ouça com atenção e coração aberto — ele está ali para ajudar, não para julgar, e é obrigado ao sigilo sacramental absoluto sobre tudo o que você disser."
     },
     {
       "titulo": "5. Receba a penitência",
-      "texto": "O padre vai propor uma penitência — geralmente uma oração ou um pequeno ato de caridade. Aceite-a de coração, como parte da reparação."
+      "texto": "O padre vai propor uma penitência — geralmente uma oração, mas em pecados que causaram dano a alguém (roubo, calúnia, destruição de bens) ele pode pedir também uma reparação. Aceite-a de coração; recusar a reparação torna a absolvição nula."
     },
     {
       "titulo": "6. Reze o Ato de Contrição",
-      "texto": "Diga o Ato de Contrição (texto completo logo abaixo), expressando arrependimento sincero pelos pecados cometidos."
+      "texto": "Diga o Ato de Contrição (texto completo logo abaixo), expressando arrependimento sincero de todos os pecados cometidos, sem deixar nenhum de fora."
     },
     {
       "titulo": "7. Receba a absolvição",
@@ -206,18 +275,19 @@
     },
     {
       "titulo": "8. Ao sair",
-      "texto": "Cumpra a penitência recebida o quanto antes. Agradeça a Deus pelo dom do perdão e siga em frente, em paz — sem culpa retroativa pelo que já foi perdoado."
+      "texto": "Cumpra a penitência recebida o quanto antes. Se esquecer qual foi, a confissão continua válida — você já foi perdoado — e pode rezar outra oração em seu lugar. Agradeça a Deus pelo dom do perdão e siga em frente, em paz, sem culpa retroativa pelo que já foi perdoado."
     }
   ],
   "atoDeContricao": {
     "titulo": "Ato de Contrição",
-    "texto": "Meu Deus, eu me arrependo de todo o coração de todos os meus pecados, e os detesto, porque pecando, mereci as penas do inferno e, principalmente, porque ofendi a Vós, que sois infinitamente bom e mereceis ser amado sobre todas as coisas. Proponho firmemente, com a ajuda da vossa graça, não mais pecar e fugir das ocasiões próximas de pecar. Amém."
+    "texto": "Senhor meu Jesus Cristo, Deus e Homem verdadeiro, Criador e Redentor meu, por serdes Vós quem sois, sumamente bom e digno de ser amado sobre todas as coisas, e porque vos amo e estimo: pesa-me, Senhor, de todo o meu coração, vos ter ofendido e merecido o Inferno. E proponho firmemente, ajudado com os auxílios de vossa divina graça, emendar-me e nunca mais vos tornar a ofender. E espero alcançar o perdão de minhas culpas, pela vossa infinita misericórdia. Amém."
   },
   "faziaTempo": {
     "titulo": "Faz muito tempo que não me confesso — e agora?",
     "pontos": [
       "Não existe \"tempo demais\" para a misericórdia de Deus. Quanto mais tempo passou, maior o motivo para dar esse passo agora.",
       "Você não precisa lembrar a data exata da sua última confissão. Basta dizer algo como \"faz muitos anos\" ou \"não me lembro ao certo\".",
+      "Se você já é adulto e nunca se confessou, ou suas confissões passadas foram malfeitas, considere pedir ao padre uma Confissão Geral: um exame mais profundo, revendo a vida desde os 7 anos de idade até hoje, anotando os pecados graves cometidos e, se possível, quantas vezes cada um.",
       "Não tenha vergonha: o padre já ouviu de tudo, e o sigilo sacramental é absoluto e inviolável — ninguém jamais saberá o que você disser.",
       "Se estiver inseguro sobre como começar, pode simplesmente dizer: \"Padre, faz muito tempo que não me confesso e preciso de ajuda para começar.\" Ele vai te acolher com carinho.",
       "Use esta página com calma, sem pressa. Marque o que fizer sentido para você — o resumo existe só para te dar segurança na hora."

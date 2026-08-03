@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { AbaConfissao, EstadoVida, IdPergunta } from "@/types/confissao";
+import type { AbaConfissao, IdPergunta } from "@/types/confissao";
 
 /**
  * Estado do exame de consciência interativo — inteiramente em memória.
@@ -10,13 +10,13 @@ import type { AbaConfissao, EstadoVida, IdPergunta } from "@/types/confissao";
  * bloqueio de tela), para não deixar rastro em aparelhos compartilhados.
  */
 export function useExameConsciencia() {
-  const [estadoVida, setEstadoVida] = useState<EstadoVida | null>(null);
+  const [iniciado, setIniciado] = useState(false);
   const [mandamentoIndex, setMandamentoIndex] = useState(0);
   const [marcados, setMarcados] = useState<Set<IdPergunta>>(new Set());
   const [abaAtiva, setAbaAtiva] = useState<AbaConfissao>("exame");
 
   const limparTudo = useCallback(() => {
-    setEstadoVida(null);
+    setIniciado(false);
     setMandamentoIndex(0);
     setMarcados(new Set());
     setAbaAtiva("exame");
@@ -35,8 +35,8 @@ export function useExameConsciencia() {
     };
   }, [limparTudo]);
 
-  const selecionarEstado = useCallback((estado: EstadoVida) => {
-    setEstadoVida(estado);
+  const iniciarExame = useCallback(() => {
+    setIniciado(true);
     setMandamentoIndex(0);
   }, []);
 
@@ -66,11 +66,11 @@ export function useExameConsciencia() {
   }, []);
 
   return {
-    estadoVida,
+    iniciado,
     mandamentoIndex,
     marcados,
     abaAtiva,
-    selecionarEstado,
+    iniciarExame,
     irParaMandamento,
     avancarMandamento,
     voltarMandamento,

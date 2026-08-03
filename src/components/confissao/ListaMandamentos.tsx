@@ -11,7 +11,7 @@ export function ListaMandamentos({
   onSelecionar,
 }: PropsListaMandamentos) {
   return (
-    <nav aria-label="Sequência dos Dez Mandamentos" className="max-h-[32rem] space-y-0.5 overflow-y-auto pr-1">
+    <nav aria-label="Sequência do exame de consciência" className="max-h-[32rem] space-y-0.5 overflow-y-auto pr-1">
       {mandamentos.map((mandamento, indice) => {
         const ativo = indice === mandamentoIndex;
         const count = marcadosPorMandamento(mandamento);

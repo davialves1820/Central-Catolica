@@ -37,7 +37,7 @@ export function Resumo({ mandamentos, perguntasPorMandamento, marcados }: PropsR
           {itens.map(({ mandamento, marcadas }) => (
             <div key={mandamento.numero}>
               <p className="font-label-sm text-secondary">
-                {mandamento.numero}º Mandamento — {mandamento.titulo}
+                {mandamento.rotulo} — {mandamento.titulo}
               </p>
               <ul className="mt-1.5 space-y-1 list-disc pl-5">
                 {marcadas.map((texto) => (

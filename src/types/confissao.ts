@@ -8,22 +8,15 @@
  * ver src/lib/client/hooks/confissao/useExameConsciencia.ts.
  */
 
-export type EstadoVida = "jovem" | "solteiro" | "casado" | "pais" | "religioso";
-
-export interface OpcaoEstadoVida {
-  slug: EstadoVida;
-  nome: string;
-  descricao: string;
-  emoji: string;
-}
-
 export interface Mandamento {
   numero: number;
+  /** Rótulo de exibição, ex.: "1º Mandamento" ou "6º e 9º Mandamentos". */
+  rotulo: string;
   titulo: string;
   resumo: string;
   perguntas: string[];
-  /** Perguntas adicionais, específicas do estado de vida escolhido. */
-  perguntasPorEstado?: Partial<Record<EstadoVida, string[]>>;
+  /** Nota de atenção do Manual de Confissão, exibida em destaque abaixo do resumo. */
+  observacao?: string;
 }
 
 export interface PassoRito {
@@ -36,7 +29,24 @@ export interface Oracao {
   texto: string;
 }
 
-export type AbaConfissao = "exame" | "resumo" | "rito" | "contricao" | "ajuda";
+/** Um item explicativo com título, texto e um exemplo opcional (usado na aba "Sobre a Confissão"). */
+export interface PassoExplicativo {
+  titulo: string;
+  texto: string;
+  exemplo?: string;
+}
+
+export interface SacramentoConfissao {
+  citacao: { texto: string; autor: string };
+  condicoesPecadoMortal: PassoExplicativo[];
+  obsPecadoMortal: string;
+  requisitos: PassoExplicativo[];
+  sigilo: string;
+  oracaoPreparatoria: Oracao;
+  perguntasIniciais: string[];
+}
+
+export type AbaConfissao = "sacramento" | "exame" | "resumo" | "rito" | "contricao" | "ajuda";
 
 /** Identificador único de uma pergunta marcada: `${numeroMandamento}:${indicePergunta}`. */
 export type IdPergunta = string;
@@ -44,12 +54,6 @@ export type IdPergunta = string;
 export interface ItemResumoMandamento {
   mandamento: Mandamento;
   perguntasMarcadas: string[];
-}
-
-export interface PropsSeletorEstadoVida {
-  opcoes: OpcaoEstadoVida[];
-  estadoSelecionado: EstadoVida | null;
-  onSelecionar: (estado: EstadoVida) => void;
 }
 
 export interface PropsListaMandamentos {

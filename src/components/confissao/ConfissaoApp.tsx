@@ -1,12 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Trash2 } from "lucide-react";
 import type { AbaConfissao } from "@/types/confissao";
-import { ESTADOS_VIDA, MANDAMENTOS, RITO_CONFISSAO, ATO_DE_CONTRICAO, FAZIA_TEMPO, obterPerguntas } from "@/config/confissao";
+import { MANDAMENTOS, RITO_CONFISSAO, ATO_DE_CONTRICAO, FAZIA_TEMPO, SACRAMENTO } from "@/config/confissao";
 import { useExameConsciencia } from "@/lib/client/hooks/confissao/useExameConsciencia";
 import { AvisoPrivacidade } from "./AvisoPrivacidade";
-import { SeletorEstadoVida } from "./SeletorEstadoVida";
 import { ListaMandamentos } from "./ListaMandamentos";
 import { MandamentoPanel } from "./MandamentoPanel";
 import { ProgressBar } from "./ProgressBar";
@@ -15,8 +14,10 @@ import { Resumo } from "./Resumo";
 import { RitoConfissao } from "./RitoConfissao";
 import { AtoDeContricao } from "./AtoDeContricao";
 import { FazTempoQueNaoConfesso } from "./FazTempoQueNaoConfesso";
+import { SacramentoInfo } from "./SacramentoInfo";
 
 const ABAS: { slug: AbaConfissao; rotulo: string }[] = [
+  { slug: "sacramento", rotulo: "Sobre a Confissão" },
   { slug: "exame", rotulo: "Exame" },
   { slug: "resumo", rotulo: "Resumo" },
   { slug: "rito", rotulo: "Como se confessar" },
@@ -66,18 +67,48 @@ function BotaoLimparTudo({ onConfirmar }: { onConfirmar: () => void }) {
 
 export function ConfissaoApp() {
   const exame = useExameConsciencia();
+  const topoRef = useRef<HTMLDivElement>(null);
+
+  // Em telas pequenas, o painel do mandamento fica abaixo da lista e dos controles:
+  // ao trocar de mandamento ou de aba, rolamos até o topo do conteúdo para o usuário
+  // não precisar arrastar a tela para cima manualmente.
+  const rolarParaTopo = useCallback(() => {
+    topoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  const irParaAbaComScroll = useCallback(
+    (aba: AbaConfissao) => {
+      exame.irParaAba(aba);
+      rolarParaTopo();
+    },
+    [exame, rolarParaTopo]
+  );
+
+  const avancarComScroll = useCallback(() => {
+    exame.avancarMandamento(MANDAMENTOS.length);
+    rolarParaTopo();
+  }, [exame, rolarParaTopo]);
+
+  const voltarComScroll = useCallback(() => {
+    exame.voltarMandamento();
+    rolarParaTopo();
+  }, [exame, rolarParaTopo]);
+
+  const selecionarMandamentoComScroll = useCallback(
+    (indice: number) => {
+      exame.irParaMandamento(indice);
+      rolarParaTopo();
+    },
+    [exame, rolarParaTopo]
+  );
+
+  const verResumoComScroll = useCallback(() => {
+    exame.irParaAba("resumo");
+    rolarParaTopo();
+  }, [exame, rolarParaTopo]);
 
   const mandamentoAtual = MANDAMENTOS[exame.mandamentoIndex];
-  const perguntasAtuais = useMemo(
-    () => (exame.estadoVida ? obterPerguntas(mandamentoAtual, exame.estadoVida) : []),
-    [mandamentoAtual, exame.estadoVida]
-  );
-
-  const perguntasPorMandamento = useMemo(
-    () => (mandamento: (typeof MANDAMENTOS)[number]) =>
-      exame.estadoVida ? obterPerguntas(mandamento, exame.estadoVida) : [],
-    [exame.estadoVida]
-  );
+  const perguntasPorMandamento = (mandamento: (typeof MANDAMENTOS)[number]) => mandamento.perguntas;
 
   const marcadosPorMandamento = (mandamento: (typeof MANDAMENTOS)[number]) => {
     const perguntas = perguntasPorMandamento(mandamento);
@@ -110,7 +141,7 @@ export function ConfissaoApp() {
           <AvisoPrivacidade />
         </div>
 
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <div ref={topoRef} className="mb-6 flex flex-wrap items-center justify-between gap-3 scroll-mt-4">
           <nav className="flex flex-wrap gap-2" aria-label="Seções da preparação">
             {ABAS.map((aba) => {
               const ativo = aba.slug === exame.abaAtiva;
@@ -118,7 +149,7 @@ export function ConfissaoApp() {
                 <button
                   key={aba.slug}
                   type="button"
-                  onClick={() => exame.irParaAba(aba.slug)}
+                  onClick={() => irParaAbaComScroll(aba.slug)}
                   aria-current={ativo ? "page" : undefined}
                   className={`rounded-lg px-3 py-1.5 font-body-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt ${
                     ativo ? "bg-primary text-white" : "border border-secondary/20 text-on-surface hover:bg-secondary/5"
@@ -132,19 +163,23 @@ export function ConfissaoApp() {
           <BotaoLimparTudo onConfirmar={exame.limparTudo} />
         </div>
 
+        {exame.abaAtiva === "sacramento" && <SacramentoInfo sacramento={SACRAMENTO} />}
+
         {exame.abaAtiva === "exame" && (
           <>
-            {!exame.estadoVida ? (
-              <div className="rounded-2xl border border-[#c9a84c]/25 bg-white p-6 md:p-8">
-                <h2 className="font-heading text-xl font-semibold mb-1 text-primary">Qual é o seu estado de vida?</h2>
-                <p className="mb-5 font-body-sm text-on-surface-variant">
-                  Isso ajuda a personalizar algumas perguntas de reflexão.
+            {!exame.iniciado ? (
+              <div className="rounded-2xl border border-[#c9a84c]/25 bg-white p-8 md:p-10 text-center">
+                <h2 className="font-heading text-xl font-semibold mb-2 text-primary">Pronto para começar?</h2>
+                <p className="mb-6 font-body-md text-on-surface-variant max-w-md mx-auto">
+                  Vamos percorrer os Dez Mandamentos e os Cinco Mandamentos da Igreja, um de cada vez, no seu ritmo.
                 </p>
-                <SeletorEstadoVida
-                  opcoes={ESTADOS_VIDA}
-                  estadoSelecionado={exame.estadoVida}
-                  onSelecionar={exame.selecionarEstado}
-                />
+                <button
+                  type="button"
+                  onClick={exame.iniciarExame}
+                  className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-2.5 font-body-md font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt"
+                >
+                  Começar o exame
+                </button>
               </div>
             ) : (
               <>
@@ -152,7 +187,7 @@ export function ConfissaoApp() {
                   <ProgressBar
                     atualCount={exame.mandamentoIndex + 1}
                     total={MANDAMENTOS.length}
-                    rotulo={`Mandamento ${exame.mandamentoIndex + 1} de ${MANDAMENTOS.length}`}
+                    rotulo={`Passo ${exame.mandamentoIndex + 1} de ${MANDAMENTOS.length}`}
                   />
                 </div>
 
@@ -162,14 +197,14 @@ export function ConfissaoApp() {
                       mandamentos={MANDAMENTOS}
                       mandamentoIndex={exame.mandamentoIndex}
                       marcadosPorMandamento={marcadosPorMandamento}
-                      onSelecionar={exame.irParaMandamento}
+                      onSelecionar={selecionarMandamentoComScroll}
                     />
                   </div>
 
                   <div className="lg:sticky lg:top-8">
                     <MandamentoPanel
                       mandamento={mandamentoAtual}
-                      perguntas={perguntasAtuais}
+                      perguntas={mandamentoAtual.perguntas}
                       marcados={exame.marcados}
                       onAlternar={exame.alternarPergunta}
                     />
@@ -180,9 +215,9 @@ export function ConfissaoApp() {
                   <Controls
                     temAnterior={exame.mandamentoIndex > 0}
                     temProxima={exame.mandamentoIndex < MANDAMENTOS.length - 1}
-                    onAnterior={exame.voltarMandamento}
-                    onProxima={() => exame.avancarMandamento(MANDAMENTOS.length)}
-                    onVerResumo={() => exame.irParaAba("resumo")}
+                    onAnterior={voltarComScroll}
+                    onProxima={avancarComScroll}
+                    onVerResumo={verResumoComScroll}
                   />
                   {totalMarcados > 0 && (
                     <p className="font-body-sm text-on-surface-variant">
