@@ -143,7 +143,7 @@ export function ConfissaoApp() {
 
         <div ref={topoRef} className="mb-6 flex flex-wrap items-center justify-between gap-3 scroll-mt-4">
           <nav className="flex flex-wrap gap-2" aria-label="Seções da preparação">
-            {ABAS.map((aba) => {
+            {ABAS.filter((aba) => aba.slug !== "resumo" || exame.iniciado).map((aba) => {
               const ativo = aba.slug === exame.abaAtiva;
               return (
                 <button
@@ -160,7 +160,7 @@ export function ConfissaoApp() {
               );
             })}
           </nav>
-          <BotaoLimparTudo onConfirmar={exame.limparTudo} />
+          {exame.iniciado && <BotaoLimparTudo onConfirmar={exame.limparTudo} />}
         </div>
 
         {exame.abaAtiva === "sacramento" && <SacramentoInfo sacramento={SACRAMENTO} />}
