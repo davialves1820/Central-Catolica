@@ -22,7 +22,7 @@ export default function ItemVersiculo({
       >
         {versiculo.versiculo}
       </span>
-      <span className={`${t.texto} text-lg lg:text-xl`}>
+      <span className={t.texto} style={{ fontSize: `${tamanhoFonte}px` }}>
         {ehPrimeiro ? (
           <>
             <span
