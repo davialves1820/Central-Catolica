@@ -10,7 +10,7 @@ async function getCalendario(): Promise<Record<string, EntradaDiaJson[]>> {
   if (cachedJson) {
     return cachedJson;
   }
-  const jsonPath = path.join(process.cwd(), "data", "calendario2026.json");
+  const jsonPath = path.join(process.cwd(), "data", "Calendario", "calendario-2026.json");
   const raw = await fs.readFile(jsonPath, "utf8");
   cachedJson = JSON.parse(raw);
   return cachedJson!;

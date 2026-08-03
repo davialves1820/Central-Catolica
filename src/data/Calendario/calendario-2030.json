@@ -1,0 +1,2922 @@
+{
+  "2030-01-01": [
+    {
+      "nome": "Santa Maria, Mãe de Deus",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-02": [
+    {
+      "nome": "Santos Basílio Magno e Gregório de Nazianzo, bispos e doutores da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-03": [
+    {
+      "nome": "Santíssimo Nome de Jesus",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-04": [
+    {
+      "nome": "Santa Isabel Ana Seton, religiosa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-05": [
+    {
+      "nome": "São João Neumann, bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-06": [
+    {
+      "nome": "Epifania do Senhor",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-07": [
+    {
+      "nome": "São Raimundo de Peñafort, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-08": [
+    {
+      "nome": "Terça-feira depois da Epifania",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-09": [
+    {
+      "nome": "Quarta-feira depois da Epifania",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-10": [
+    {
+      "nome": "Quinta-feira depois da Epifania",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-11": [
+    {
+      "nome": "Sexta-feira depois da Epifania",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-12": [
+    {
+      "nome": "Sábado depois da Epifania",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-13": [
+    {
+      "nome": "Batismo do Senhor",
+      "cor": "BRANCO",
+      "rank": "FESTA DO SENHOR",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-01-14": [
+    {
+      "nome": "Segunda-feira da 1ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-15": [
+    {
+      "nome": "Terça-feira da 1ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-16": [
+    {
+      "nome": "Quarta-feira da 1ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-17": [
+    {
+      "nome": "Santo Antão, abade",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-18": [
+    {
+      "nome": "Sexta-feira da 1ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-19": [
+    {
+      "nome": "Sábado da 1ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-20": [
+    {
+      "nome": "2º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-21": [
+    {
+      "nome": "Santa Inês, virgem e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-22": [
+    {
+      "nome": "São Vicente, diácono e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-23": [
+    {
+      "nome": "Santa Mariana Cope, virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-24": [
+    {
+      "nome": "São Francisco de Sales, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-25": [
+    {
+      "nome": "Conversão de São Paulo, apóstolo",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-26": [
+    {
+      "nome": "Santos Timóteo e Tito, bispos",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-27": [
+    {
+      "nome": "3º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-28": [
+    {
+      "nome": "São Tomás de Aquino, presbítero e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-29": [
+    {
+      "nome": "Terça-feira da 3ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-30": [
+    {
+      "nome": "Quarta-feira da 3ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-01-31": [
+    {
+      "nome": "São João Bosco, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-01": [
+    {
+      "nome": "Sexta-feira da 3ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-02": [
+    {
+      "nome": "Apresentação do Senhor",
+      "cor": "BRANCO",
+      "rank": "FESTA DO SENHOR",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-03": [
+    {
+      "nome": "4º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-04": [
+    {
+      "nome": "Segunda-feira da 4ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-05": [
+    {
+      "nome": "Santa Águeda, virgem e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-06": [
+    {
+      "nome": "São Paulo Miki e companheiros, mártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-07": [
+    {
+      "nome": "Quinta-feira da 4ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-08": [
+    {
+      "nome": "São Jerônimo Emiliani; Santa Josefina Bakhita, virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-09": [
+    {
+      "nome": "Sábado da 4ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-10": [
+    {
+      "nome": "5º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-11": [
+    {
+      "nome": "Nossa Senhora de Lourdes",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-12": [
+    {
+      "nome": "Terça-feira da 5ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-13": [
+    {
+      "nome": "Quarta-feira da 5ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-14": [
+    {
+      "nome": "São Cirilo, monge, e São Metódio, bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-15": [
+    {
+      "nome": "Sexta-feira da 5ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-16": [
+    {
+      "nome": "Sábado da 5ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-17": [
+    {
+      "nome": "6º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-18": [
+    {
+      "nome": "Segunda-feira da 6ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-19": [
+    {
+      "nome": "Terça-feira da 6ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-20": [
+    {
+      "nome": "Quarta-feira da 6ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-21": [
+    {
+      "nome": "São Pedro Damião, bispo e doutor da Igreja",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-22": [
+    {
+      "nome": "Cátedra de São Pedro, apóstolo",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-23": [
+    {
+      "nome": "São Policarpo, bispo e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-24": [
+    {
+      "nome": "7º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-25": [
+    {
+      "nome": "Segunda-feira da 7ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-26": [
+    {
+      "nome": "Terça-feira da 7ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-27": [
+    {
+      "nome": "Quarta-feira da 7ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-02-28": [
+    {
+      "nome": "Quinta-feira da 7ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-03-01": [
+    {
+      "nome": "Sexta-feira da 7ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-03-02": [
+    {
+      "nome": "Sábado da 7ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-03-03": [
+    {
+      "nome": "8º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-03-04": [
+    {
+      "nome": "São Casimiro",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-03-05": [
+    {
+      "nome": "Terça-feira da 8ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-03-06": [
+    {
+      "nome": "Quarta-feira de Cinzas",
+      "cor": "ROXO",
+      "rank": "QUARTA-FEIRA DE CINZAS",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-07": [
+    {
+      "nome": "Santas Perpétua e Felicidade, mártires",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-08": [
+    {
+      "nome": "São João de Deus, religioso",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-09": [
+    {
+      "nome": "Santa Francisca Romana, religiosa",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-10": [
+    {
+      "nome": "1º Domingo da Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-11": [
+    {
+      "nome": "Segunda-feira da 1ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-12": [
+    {
+      "nome": "Terça-feira da 1ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-13": [
+    {
+      "nome": "Quarta-feira da 1ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-14": [
+    {
+      "nome": "Quinta-feira da 1ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-15": [
+    {
+      "nome": "Sexta-feira da 1ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-16": [
+    {
+      "nome": "Sábado da 1ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-17": [
+    {
+      "nome": "2º Domingo da Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-18": [
+    {
+      "nome": "São Cirilo de Jerusalém, bispo e doutor da Igreja",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-19": [
+    {
+      "nome": "São José, esposo de Maria",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-20": [
+    {
+      "nome": "Quarta-feira da 2ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-21": [
+    {
+      "nome": "Quinta-feira da 2ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-22": [
+    {
+      "nome": "Sexta-feira da 2ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-23": [
+    {
+      "nome": "São Toríbio de Mogrovejo, bispo",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-24": [
+    {
+      "nome": "3º Domingo da Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-25": [
+    {
+      "nome": "Anunciação do Senhor",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-26": [
+    {
+      "nome": "Terça-feira da 3ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-27": [
+    {
+      "nome": "Quarta-feira da 3ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-28": [
+    {
+      "nome": "Quinta-feira da 3ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-29": [
+    {
+      "nome": "Sexta-feira da 3ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-30": [
+    {
+      "nome": "Sábado da 3ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-03-31": [
+    {
+      "nome": "4º Domingo da Quaresma",
+      "cor": "ROSA",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-01": [
+    {
+      "nome": "Segunda-feira da 4ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-02": [
+    {
+      "nome": "São Francisco de Paula, eremita",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-03": [
+    {
+      "nome": "Quarta-feira da 4ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-04": [
+    {
+      "nome": "Santo Isidoro, bispo e doutor da Igreja",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-05": [
+    {
+      "nome": "São Vicente Ferrer, presbítero",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-06": [
+    {
+      "nome": "Sábado da 4ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-07": [
+    {
+      "nome": "5º Domingo da Quaresma",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-08": [
+    {
+      "nome": "Segunda-feira da 5ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-09": [
+    {
+      "nome": "Terça-feira da 5ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-10": [
+    {
+      "nome": "Quarta-feira da 5ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-11": [
+    {
+      "nome": "São Estanislau, bispo e mártir",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-12": [
+    {
+      "nome": "Sexta-feira da 5ª Semana da Quaresma",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-13": [
+    {
+      "nome": "São Martinho I, papa e mártir",
+      "cor": "ROXO",
+      "rank": "COMEMORAÇÃO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-14": [
+    {
+      "nome": "Domingo de Ramos",
+      "cor": "VERMELHO",
+      "rank": "DOMINGO",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-15": [
+    {
+      "nome": "Segunda-feira da Semana Santa",
+      "cor": "ROXO",
+      "rank": "SEMANA SANTA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-16": [
+    {
+      "nome": "Terça-feira da Semana Santa",
+      "cor": "ROXO",
+      "rank": "SEMANA SANTA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-17": [
+    {
+      "nome": "Quarta-feira da Semana Santa",
+      "cor": "ROXO",
+      "rank": "SEMANA SANTA",
+      "temporada": "Quaresma"
+    }
+  ],
+  "2030-04-18": [
+    {
+      "nome": "Quinta-feira Santa",
+      "cor": "BRANCO",
+      "rank": "TRÍDUO PASCAL",
+      "temporada": "Tríduo Pascal"
+    }
+  ],
+  "2030-04-19": [
+    {
+      "nome": "Sexta-feira Santa",
+      "cor": "VERMELHO",
+      "rank": "TRÍDUO PASCAL",
+      "temporada": "Tríduo Pascal"
+    }
+  ],
+  "2030-04-20": [
+    {
+      "nome": "Vigília Pascal",
+      "cor": "BRANCO",
+      "rank": "TRÍDUO PASCAL",
+      "temporada": "Tríduo Pascal"
+    }
+  ],
+  "2030-04-21": [
+    {
+      "nome": "Domingo de Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-22": [
+    {
+      "nome": "Segunda-feira da Oitava da Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-23": [
+    {
+      "nome": "Terça-feira da Oitava da Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-24": [
+    {
+      "nome": "Quarta-feira da Oitava da Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-25": [
+    {
+      "nome": "Quinta-feira da Oitava da Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-26": [
+    {
+      "nome": "Sexta-feira da Oitava da Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-27": [
+    {
+      "nome": "Sábado da Oitava da Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-28": [
+    {
+      "nome": "2º Domingo da Páscoa",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-29": [
+    {
+      "nome": "Santa Catarina de Sena, virgem e doutora da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-04-30": [
+    {
+      "nome": "São Pio V, papa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-01": [
+    {
+      "nome": "São José Operário",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-02": [
+    {
+      "nome": "Santo Atanásio, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-03": [
+    {
+      "nome": "Santos Filipe e Tiago, apóstolos",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-04": [
+    {
+      "nome": "Sábado da 2ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-05": [
+    {
+      "nome": "3º Domingo da Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-06": [
+    {
+      "nome": "Segunda-feira da 3ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-07": [
+    {
+      "nome": "Terça-feira da 3ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-08": [
+    {
+      "nome": "Quarta-feira da 3ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-09": [
+    {
+      "nome": "Quinta-feira da 3ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-10": [
+    {
+      "nome": "São Damião de Veuster, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-11": [
+    {
+      "nome": "Sábado da 3ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-12": [
+    {
+      "nome": "4º Domingo da Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-13": [
+    {
+      "nome": "Nossa Senhora de Fátima",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-14": [
+    {
+      "nome": "São Matias, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-15": [
+    {
+      "nome": "Santo Isidoro Lavrador",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-16": [
+    {
+      "nome": "Quinta-feira da 4ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-17": [
+    {
+      "nome": "Sexta-feira da 4ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-18": [
+    {
+      "nome": "São João I, papa e mártir",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-19": [
+    {
+      "nome": "5º Domingo da Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-20": [
+    {
+      "nome": "São Bernardino de Sena, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-21": [
+    {
+      "nome": "São Cristóvão Magallanes, presbítero e mártir, e companheiros, mártires",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-22": [
+    {
+      "nome": "Santa Rita de Cássia, religiosa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-23": [
+    {
+      "nome": "Quinta-feira da 5ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-24": [
+    {
+      "nome": "Sexta-feira da 5ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-25": [
+    {
+      "nome": "São Beda, o Venerável, presbítero e doutor da Igreja; São Gregório VII, papa; Santa Maria Madalena de Pazzi, virgem",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-26": [
+    {
+      "nome": "6º Domingo da Páscoa",
+      "cor": "BRANCO",
+      "rank": "DOMINGO",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-27": [
+    {
+      "nome": "Santo Agostinho de Cantuária, bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-28": [
+    {
+      "nome": "Terça-feira da 6ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-29": [
+    {
+      "nome": "Quarta-feira da 6ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-30": [
+    {
+      "nome": "Quinta-feira da 6ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-05-31": [
+    {
+      "nome": "Visitação de Nossa Senhora",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-01": [
+    {
+      "nome": "São Justino, mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-02": [
+    {
+      "nome": "Ascensão do Senhor",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-03": [
+    {
+      "nome": "São Carlos Lwanga e companheiros, mártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-04": [
+    {
+      "nome": "Terça-feira da 7ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-05": [
+    {
+      "nome": "São Bonifácio, bispo e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-06": [
+    {
+      "nome": "São Norberto, bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-07": [
+    {
+      "nome": "Sexta-feira da 7ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-08": [
+    {
+      "nome": "Sábado da 7ª Semana da Páscoa",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-09": [
+    {
+      "nome": "Domingo de Pentecostes",
+      "cor": "VERMELHO",
+      "rank": "SOLENIDADE",
+      "temporada": "Páscoa"
+    }
+  ],
+  "2030-06-10": [
+    {
+      "nome": "Bem-aventurada Virgem Maria, Mãe da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-11": [
+    {
+      "nome": "São Barnabé, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-12": [
+    {
+      "nome": "Quarta-feira da 10ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-13": [
+    {
+      "nome": "Santo Antônio de Pádua, presbítero e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-14": [
+    {
+      "nome": "Sexta-feira da 10ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-15": [
+    {
+      "nome": "Sábado da 10ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-16": [
+    {
+      "nome": "Santíssima Trindade",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-17": [
+    {
+      "nome": "Segunda-feira da 11ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-18": [
+    {
+      "nome": "Terça-feira da 11ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-19": [
+    {
+      "nome": "São Romualdo, abade",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-20": [
+    {
+      "nome": "Quinta-feira da 11ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-21": [
+    {
+      "nome": "São Luís Gonzaga, religioso",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-22": [
+    {
+      "nome": "São Paulino de Nola, bispo; São João Fisher, bispo e mártir, e São Tomás More, mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-23": [
+    {
+      "nome": "Santíssimo Corpo e Sangue de Cristo",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-24": [
+    {
+      "nome": "Natividade de São João Batista",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-25": [
+    {
+      "nome": "Terça-feira da 12ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-26": [
+    {
+      "nome": "Quarta-feira da 12ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-27": [
+    {
+      "nome": "São Cirilo de Alexandria, bispo e doutor da Igreja",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-28": [
+    {
+      "nome": "Sagrado Coração de Jesus",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-29": [
+    {
+      "nome": "Santos Pedro e Paulo, apóstolos",
+      "cor": "VERMELHO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-06-30": [
+    {
+      "nome": "13º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-01": [
+    {
+      "nome": "São Junípero Serra, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-02": [
+    {
+      "nome": "Terça-feira da 13ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-03": [
+    {
+      "nome": "São Tomé, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-04": [
+    {
+      "nome": "Santa Isabel de Portugal",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-05": [
+    {
+      "nome": "Santo Antônio Maria Zaccaria, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-06": [
+    {
+      "nome": "Santa Maria Goretti, virgem e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-07": [
+    {
+      "nome": "14º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-08": [
+    {
+      "nome": "Segunda-feira da 14ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-09": [
+    {
+      "nome": "Santo Agostinho Zhao Rong, presbítero e mártir, e companheiros, mártires",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-10": [
+    {
+      "nome": "Quarta-feira da 14ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-11": [
+    {
+      "nome": "São Bento, abade",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-12": [
+    {
+      "nome": "Sexta-feira da 14ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-13": [
+    {
+      "nome": "São Henrique",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-14": [
+    {
+      "nome": "15º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-15": [
+    {
+      "nome": "São Boaventura, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-16": [
+    {
+      "nome": "Nossa Senhora do Carmo",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-17": [
+    {
+      "nome": "Quarta-feira da 15ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-18": [
+    {
+      "nome": "São Camilo de Lellis, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-19": [
+    {
+      "nome": "Sexta-feira da 15ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-20": [
+    {
+      "nome": "Santo Apolinário, bispo e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-21": [
+    {
+      "nome": "16º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-22": [
+    {
+      "nome": "Santa Maria Madalena",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-23": [
+    {
+      "nome": "Santa Brígida, religiosa",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-24": [
+    {
+      "nome": "São Charbel Makhluf, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-25": [
+    {
+      "nome": "São Tiago, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-26": [
+    {
+      "nome": "Santos Joaquim e Ana, pais de Maria",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-27": [
+    {
+      "nome": "Sábado da 16ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-28": [
+    {
+      "nome": "17º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-29": [
+    {
+      "nome": "Santa Marta, Maria e Lázaro",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-30": [
+    {
+      "nome": "São Pedro Crisólogo, bispo e doutor da Igreja",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-07-31": [
+    {
+      "nome": "Santo Inácio de Loyola, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-01": [
+    {
+      "nome": "Santo Afonso Maria de Ligório, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-02": [
+    {
+      "nome": "Santo Eusébio de Vercelli, bispo; São Pedro Julião Eymard, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-03": [
+    {
+      "nome": "Sábado da 17ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-04": [
+    {
+      "nome": "18º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-05": [
+    {
+      "nome": "Dedicação da Basílica de Santa Maria Maior",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-06": [
+    {
+      "nome": "Transfiguração do Senhor",
+      "cor": "BRANCO",
+      "rank": "FESTA DO SENHOR",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-07": [
+    {
+      "nome": "São Sisto II, papa e mártir, e companheiros, mártires; São Caetano, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-08": [
+    {
+      "nome": "São Domingos, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-09": [
+    {
+      "nome": "Santa Teresa Benedita da Cruz, virgem e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-10": [
+    {
+      "nome": "São Lourenço, diácono e mártir",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-11": [
+    {
+      "nome": "19º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-12": [
+    {
+      "nome": "Santa Joana Francisca de Chantal, religiosa",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-13": [
+    {
+      "nome": "São Ponciano, papa e mártir, e Santo Hipólito, presbítero e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-14": [
+    {
+      "nome": "São Maximiliano Maria Kolbe, presbítero e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-15": [
+    {
+      "nome": "Assunção de Nossa Senhora",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-16": [
+    {
+      "nome": "Santo Estêvão da Hungria",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-17": [
+    {
+      "nome": "Sábado da 19ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-18": [
+    {
+      "nome": "20º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-19": [
+    {
+      "nome": "São João Eudes, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-20": [
+    {
+      "nome": "São Bernardo, abade e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-21": [
+    {
+      "nome": "São Pio X, papa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-22": [
+    {
+      "nome": "Nossa Senhora Rainha",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-23": [
+    {
+      "nome": "Santa Rosa de Lima, virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-24": [
+    {
+      "nome": "São Bartolomeu, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-25": [
+    {
+      "nome": "21º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-26": [
+    {
+      "nome": "Segunda-feira da 21ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-27": [
+    {
+      "nome": "Santa Mônica",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-28": [
+    {
+      "nome": "Santo Agostinho, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-29": [
+    {
+      "nome": "Martírio de São João Batista",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-30": [
+    {
+      "nome": "Sexta-feira da 21ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-08-31": [
+    {
+      "nome": "Sábado da 21ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-01": [
+    {
+      "nome": "22º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-02": [
+    {
+      "nome": "Segunda-feira da 22ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-03": [
+    {
+      "nome": "São Gregório Magno, papa e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-04": [
+    {
+      "nome": "Quarta-feira da 22ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-05": [
+    {
+      "nome": "Quinta-feira da 22ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-06": [
+    {
+      "nome": "Sexta-feira da 22ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-07": [
+    {
+      "nome": "Sábado da 22ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-08": [
+    {
+      "nome": "23º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-09": [
+    {
+      "nome": "São Pedro Claver, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-10": [
+    {
+      "nome": "Terça-feira da 23ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-11": [
+    {
+      "nome": "Quarta-feira da 23ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-12": [
+    {
+      "nome": "Santíssimo Nome de Maria",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-13": [
+    {
+      "nome": "São João Crisóstomo, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-14": [
+    {
+      "nome": "Exaltação da Santa Cruz",
+      "cor": "VERMELHO",
+      "rank": "FESTA DO SENHOR",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-15": [
+    {
+      "nome": "24º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-16": [
+    {
+      "nome": "São Cornélio, papa e mártir, e São Cipriano, bispo e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-17": [
+    {
+      "nome": "São Roberto Belarmino, bispo e doutor da Igreja",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-18": [
+    {
+      "nome": "Quarta-feira da 24ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-19": [
+    {
+      "nome": "São Januário, bispo e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-20": [
+    {
+      "nome": "São André Kim Taegon, presbítero e mártir, São Paulo Chong Hasang, mártir, e companheiros, mártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-21": [
+    {
+      "nome": "São Mateus, apóstolo e evangelista",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-22": [
+    {
+      "nome": "25º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-23": [
+    {
+      "nome": "São Pio de Pietrelcina, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-24": [
+    {
+      "nome": "Terça-feira da 25ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-25": [
+    {
+      "nome": "Quarta-feira da 25ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-26": [
+    {
+      "nome": "Santos Cosme e Damião, mártires",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-27": [
+    {
+      "nome": "São Vicente de Paulo, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-28": [
+    {
+      "nome": "São Venceslau, mártir; São Lourenço Ruiz e companheiros, mártires",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-29": [
+    {
+      "nome": "26º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-09-30": [
+    {
+      "nome": "São Jerônimo, presbítero e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-01": [
+    {
+      "nome": "Santa Teresinha do Menino Jesus, virgem e doutora da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-02": [
+    {
+      "nome": "Santos Anjos da Guarda",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-03": [
+    {
+      "nome": "Quinta-feira da 26ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-04": [
+    {
+      "nome": "São Francisco de Assis",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-05": [
+    {
+      "nome": "Beato Francisco Xavier Seelos, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-06": [
+    {
+      "nome": "27º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-07": [
+    {
+      "nome": "Nossa Senhora do Rosário",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-08": [
+    {
+      "nome": "Terça-feira da 27ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-09": [
+    {
+      "nome": "São Dionísio, bispo e mártir, e companheiros, mártires; São João Leonardi, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-10": [
+    {
+      "nome": "Quinta-feira da 27ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-11": [
+    {
+      "nome": "São João XXIII, papa",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-12": [
+    {
+      "nome": "Sábado da 27ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-13": [
+    {
+      "nome": "28º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-14": [
+    {
+      "nome": "São Calisto I, papa e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-15": [
+    {
+      "nome": "Santa Teresa de Ávila, virgem e doutora da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-16": [
+    {
+      "nome": "Santa Edwiges, religiosa; Santa Margarida Maria Alacoque, virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-17": [
+    {
+      "nome": "Santo Inácio de Antioquia, bispo e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-18": [
+    {
+      "nome": "São Lucas, evangelista",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-19": [
+    {
+      "nome": "São João de Brébeuf e Santo Isaac Jogues, presbíteros e mártires, e companheiros, mártires",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-20": [
+    {
+      "nome": "29º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-21": [
+    {
+      "nome": "Segunda-feira da 29ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-22": [
+    {
+      "nome": "São João Paulo II, papa",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-23": [
+    {
+      "nome": "São João de Capistrano, presbítero",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-24": [
+    {
+      "nome": "Santo Antônio Maria Claret, bispo",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-25": [
+    {
+      "nome": "Sexta-feira da 29ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-26": [
+    {
+      "nome": "Sábado da 29ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-27": [
+    {
+      "nome": "30º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-28": [
+    {
+      "nome": "Santos Simão e Judas Tadeu, apóstolos",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-29": [
+    {
+      "nome": "Terça-feira da 30ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-30": [
+    {
+      "nome": "Quarta-feira da 30ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-10-31": [
+    {
+      "nome": "Quinta-feira da 30ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-01": [
+    {
+      "nome": "Todos os Santos",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-02": [
+    {
+      "nome": "Comemoração de Todos os Fiéis Defuntos",
+      "cor": "BRANCO",
+      "rank": "FESTA DO SENHOR",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-03": [
+    {
+      "nome": "31º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-04": [
+    {
+      "nome": "São Carlos Borromeu, bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-05": [
+    {
+      "nome": "Terça-feira da 31ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-06": [
+    {
+      "nome": "Quarta-feira da 31ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-07": [
+    {
+      "nome": "Quinta-feira da 31ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-08": [
+    {
+      "nome": "Sexta-feira da 31ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-09": [
+    {
+      "nome": "Dedicação da Basílica de Latrão",
+      "cor": "BRANCO",
+      "rank": "FESTA DO SENHOR",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-10": [
+    {
+      "nome": "32º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-11": [
+    {
+      "nome": "São Martinho de Tours, bispo",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-12": [
+    {
+      "nome": "São Josafá, bispo e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-13": [
+    {
+      "nome": "Santa Francisca Xavier Cabrini, virgem",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-14": [
+    {
+      "nome": "Quinta-feira da 32ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-15": [
+    {
+      "nome": "Santo Alberto Magno, bispo e doutor da Igreja",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-16": [
+    {
+      "nome": "Santa Margarida da Escócia; Santa Gertrudes, virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-17": [
+    {
+      "nome": "33º Domingo do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "DOMINGO",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-18": [
+    {
+      "nome": "Dedicação das Basílicas de São Pedro e São Paulo; Santa Rosa Filipina Duchesne, virgem",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-19": [
+    {
+      "nome": "Terça-feira da 33ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-20": [
+    {
+      "nome": "Quarta-feira da 33ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-21": [
+    {
+      "nome": "Apresentação de Nossa Senhora",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-22": [
+    {
+      "nome": "Santa Cecília, virgem e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-23": [
+    {
+      "nome": "São Clemente I, papa e mártir; São Columbano, abade; Beato Miguel Pro, presbítero e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-24": [
+    {
+      "nome": "Nosso Senhor Jesus Cristo, Rei do Universo",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-25": [
+    {
+      "nome": "Santa Catarina de Alexandria, virgem e mártir",
+      "cor": "VERDE",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-26": [
+    {
+      "nome": "Terça-feira da 34ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-27": [
+    {
+      "nome": "Quarta-feira da 34ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-28": [
+    {
+      "nome": "Quinta-feira da 34ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-29": [
+    {
+      "nome": "Sexta-feira da 34ª Semana do Tempo Comum",
+      "cor": "VERDE",
+      "rank": "FÉRIA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-11-30": [
+    {
+      "nome": "Santo André, apóstolo",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Tempo Comum"
+    }
+  ],
+  "2030-12-01": [
+    {
+      "nome": "1º Domingo do Advento",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-02": [
+    {
+      "nome": "Segunda-feira da 1ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-03": [
+    {
+      "nome": "São Francisco Xavier, presbítero",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-04": [
+    {
+      "nome": "São João Damasceno, presbítero e doutor da Igreja",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-05": [
+    {
+      "nome": "Quinta-feira da 1ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-06": [
+    {
+      "nome": "São Nicolau, bispo",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-07": [
+    {
+      "nome": "Santo Ambrósio, bispo e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-08": [
+    {
+      "nome": "2º Domingo do Advento",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-09": [
+    {
+      "nome": "Imaculada Conceição de Nossa Senhora",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-10": [
+    {
+      "nome": "Terça-feira da 2ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-11": [
+    {
+      "nome": "São Dâmaso I, papa",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-12": [
+    {
+      "nome": "Nossa Senhora de Guadalupe",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-13": [
+    {
+      "nome": "Santa Luzia, virgem e mártir",
+      "cor": "VERMELHO",
+      "rank": "MEMÓRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-14": [
+    {
+      "nome": "São João da Cruz, presbítero e doutor da Igreja",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-15": [
+    {
+      "nome": "3º Domingo do Advento",
+      "cor": "ROSA",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-16": [
+    {
+      "nome": "Segunda-feira da 3ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-17": [
+    {
+      "nome": "Terça-feira da 3ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-18": [
+    {
+      "nome": "Quarta-feira da 3ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-19": [
+    {
+      "nome": "Quinta-feira da 3ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-20": [
+    {
+      "nome": "Sexta-feira da 3ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-21": [
+    {
+      "nome": "São Pedro Canísio, presbítero e doutor da Igreja",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-22": [
+    {
+      "nome": "4º Domingo do Advento",
+      "cor": "ROXO",
+      "rank": "DOMINGO",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-23": [
+    {
+      "nome": "São João de Kęty, presbítero",
+      "cor": "ROXO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-24": [
+    {
+      "nome": "Terça-feira da 4ª Semana do Advento",
+      "cor": "ROXO",
+      "rank": "FÉRIA",
+      "temporada": "Advento"
+    }
+  ],
+  "2030-12-25": [
+    {
+      "nome": "Natal do Senhor",
+      "cor": "BRANCO",
+      "rank": "SOLENIDADE",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-12-26": [
+    {
+      "nome": "Santo Estêvão, protomártir",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-12-27": [
+    {
+      "nome": "São João, apóstolo e evangelista",
+      "cor": "BRANCO",
+      "rank": "FESTA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-12-28": [
+    {
+      "nome": "Santos Inocentes, mártires",
+      "cor": "VERMELHO",
+      "rank": "FESTA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-12-29": [
+    {
+      "nome": "Sagrada Família de Jesus, Maria e José",
+      "cor": "BRANCO",
+      "rank": "FESTA DO SENHOR",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-12-30": [
+    {
+      "nome": "Sexto dia da Oitava do Natal",
+      "cor": "BRANCO",
+      "rank": "FÉRIA",
+      "temporada": "Natal"
+    }
+  ],
+  "2030-12-31": [
+    {
+      "nome": "São Silvestre I, papa",
+      "cor": "BRANCO",
+      "rank": "MEMÓRIA FACULTATIVA",
+      "temporada": "Natal"
+    }
+  ]
+}
