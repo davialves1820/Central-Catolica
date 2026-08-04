@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 
 interface RetornoDestaqueVersiculo {
   versiculoDestaque: number | undefined;
+  destacarVersiculo: (versiculo: number) => void;
   limparDestaque: () => void;
   refsVersiculo: React.MutableRefObject<Map<number, HTMLElement>>;
 }
@@ -35,6 +36,7 @@ export function useDestaqueVersiculo(versiculoParaDestacar: number | undefined, 
 
   return {
     versiculoDestaque,
+    destacarVersiculo: (versiculo: number) => setVersiculoDestaque(versiculo),
     limparDestaque: () => setVersiculoDestaque(undefined),
     refsVersiculo,
   };
