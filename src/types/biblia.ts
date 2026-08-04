@@ -130,9 +130,20 @@ export interface PropsBarraFerramentasLeitor {
   modoLeitura: ModoLeitura;
   exibirSumario: boolean;
   exibirConfiguracoes: boolean;
+  exibirBusca: boolean;
   aoAlternarSumario: () => void;
   aoAlternarConfiguracoes: () => void;
   aoAlternarModoLeitura: () => void;
+  aoAlternarBusca: () => void;
+}
+
+export interface PropsBuscaVersiculo {
+  t: TokensTema;
+  livro: Livro;
+  indexCapituloAtual: number;
+  estaAberto: boolean;
+  aoFechar: () => void;
+  aoIrPara: (indexCapitulo: number, versiculo?: number) => void;
 }
 
 export interface PropsBarraProgressoLeitor {

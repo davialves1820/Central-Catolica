@@ -9,6 +9,7 @@ import { useProgressoLeitura } from "@/lib/client/hooks/biblia/useProgressoLeitu
 import BarraProgressoLeitor from "@/components/biblia/leitor-biblia/BarraProgressoLeitor";
 import BarraFerramentasLeitor from "@/components/biblia/leitor-biblia/BarraFerramentasLeitor";
 import Sumario from "@/components/biblia/leitor-biblia/Sumario";
+import BuscaVersiculo from "@/components/biblia/leitor-biblia/BuscaVersiculo";
 import PainelConfiguracoes from "@/components/biblia/leitor-biblia/PainelConfiguracoes";
 import ConteudoCapitulo from "@/components/biblia/leitor-biblia/ConteudoCapitulo";
 import RodapeNavegacao from "@/components/biblia/leitor-biblia/RodapeNavegacao";
@@ -20,6 +21,7 @@ export default function LeitorBiblia({
 }: PropsLeitorBiblia) {
   const [exibirConfiguracoes, setExibirConfiguracoes] = useState(false);
   const [exibirSumario, setExibirSumario] = useState(false);
+  const [exibirBusca, setExibirBusca] = useState(false);
 
   const { tamanhoFonte, tema, modoLeitura, setTamanhoFonte, setTema, setModoLeitura } =
     usePreferenciasLeitor();
@@ -30,7 +32,18 @@ export default function LeitorBiblia({
       total: livro.capitulos.length,
     });
 
-  const { versiculoDestaque, limparDestaque, refsVersiculo } = useDestaqueVersiculo(versiculoDestaqueInicial, indexCapitulo);
+  const { versiculoDestaque, destacarVersiculo, limparDestaque, refsVersiculo } =
+    useDestaqueVersiculo(versiculoDestaqueInicial, indexCapitulo);
+
+  const irParaVersiculo = (indexCap: number, versiculo?: number) => {
+    irPara(indexCap);
+    if (versiculo !== undefined) {
+      destacarVersiculo(versiculo);
+    } else {
+      limparDestaque();
+    }
+    setExibirBusca(false);
+  };
 
   const capituloAtual = livro.capitulos[indexCapitulo];
 
@@ -58,11 +71,22 @@ export default function LeitorBiblia({
         modoLeitura={modoLeitura}
         exibirSumario={exibirSumario}
         exibirConfiguracoes={exibirConfiguracoes}
+        exibirBusca={exibirBusca}
         aoAlternarSumario={() => setExibirSumario((v) => !v)}
         aoAlternarConfiguracoes={() => setExibirConfiguracoes((v) => !v)}
         aoAlternarModoLeitura={() =>
           setModoLeitura(modoLeitura === "paginado" ? "continuo" : "paginado")
         }
+        aoAlternarBusca={() => setExibirBusca((v) => !v)}
+      />
+
+      <BuscaVersiculo
+        t={t}
+        livro={livro}
+        indexCapituloAtual={indexCapitulo}
+        estaAberto={exibirBusca}
+        aoFechar={() => setExibirBusca(false)}
+        aoIrPara={irParaVersiculo}
       />
 
       <Sumario

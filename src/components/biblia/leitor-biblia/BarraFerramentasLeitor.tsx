@@ -1,4 +1,4 @@
-import { Settings, List, ScrollText, BookMarked, Home } from "lucide-react";
+import { Settings, List, ScrollText, BookMarked, Home, Search } from "lucide-react";
 import Link from "next/link";
 import { type PropsBarraFerramentasLeitor } from "@/types/biblia";
 import BotaoBarraFerramentas from "./BotaoBarraFerramentas";
@@ -11,9 +11,11 @@ export default function BarraFerramentasLeitor({
   modoLeitura,
   exibirSumario,
   exibirConfiguracoes,
+  exibirBusca,
   aoAlternarSumario,
   aoAlternarConfiguracoes,
   aoAlternarModoLeitura,
+  aoAlternarBusca,
 }: PropsBarraFerramentasLeitor) {
   return (
     <div
@@ -49,6 +51,14 @@ export default function BarraFerramentasLeitor({
       </div>
 
       <div className="flex items-center gap-2">
+        <BotaoBarraFerramentas
+          onClick={aoAlternarBusca}
+          active={exibirBusca}
+          label={exibirBusca ? "Fechar busca de versículo" : "Buscar versículo"}
+        >
+          <Search size={18} aria-hidden="true" />
+        </BotaoBarraFerramentas>
+
         <BotaoBarraFerramentas
           onClick={aoAlternarModoLeitura}
           active={modoLeitura === "continuo"}
