@@ -9,7 +9,7 @@ import NoticiasInfiniteGrid from "@/components/noticias/NoticiasInfiniteGrid";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Notícias do Vaticano | Central Católica",
+  title: "Notícias do Vaticano | Meu Canto Católico",
   description: "As últimas notícias do Papa e da Igreja Católica direto do Vatican News.",
 };
 

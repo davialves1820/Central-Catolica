@@ -73,10 +73,10 @@ const Header = () => {
         <Link
           href="/"
           className="flex items-center gap-3 group focus-visible:outline-none rounded-lg"
-          aria-label="Central Católica — Página Inicial"
+          aria-label="Meu Canto Católico — Página Inicial"
         >
           <Church size={24} className="text-[#000000]" />
-          <h1 className="font-sans text-[14px] leading-[20px] tracking-[0.2em] font-bold uppercase text-[#000000]">CENTRAL CATÓLICA</h1>
+          <h1 className="font-sans text-[14px] leading-[20px] tracking-[0.2em] font-bold uppercase text-[#000000]">MEU CANTO CATÓLICO</h1>
         </Link>
 
         {/* Desktop nav */}

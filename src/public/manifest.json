@@ -1,7 +1,7 @@
 {
-    "name": "Central Católica",
-    "short_name": "Central Católica",
-    "description": "Bíblia, Liturgia Diária, Calendário Litúrgico e Catequese da Central Católica",
+    "name": "Meu Canto Católico",
+    "short_name": "Meu Canto Católico",
+    "description": "Bíblia, Liturgia Diária, Calendário Litúrgico e Catequese do Meu Canto Católico",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#0d1117",

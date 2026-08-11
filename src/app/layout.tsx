@@ -28,8 +28,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "Central Católica",
-    template: "%s | Central Católica",
+    default: "Meu Canto Católico",
+    template: "%s | Meu Canto Católico",
   },
   description:
     "Bíblia Sagrada, Liturgia Diária, Calendário Litúrgico e muito mais.",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Central Católica",
+    title: "Meu Canto Católico",
   },
   icons: {
     icon: "/images/menino-jesus-logo.png",

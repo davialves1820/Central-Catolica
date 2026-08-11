@@ -98,7 +98,7 @@ function parsearItem(item: RssItem, fonte: FonteNoticia): Noticia | null {
 async function fetchRssFeed(fonte: FonteNoticia): Promise<string> {
   const res = await fetch(FEEDS[fonte].url, {
     next: { revalidate: 3600 },
-    headers: { "User-Agent": "CentralCatolica/1.0" },
+    headers: { "User-Agent": "MeuCantoCatolico/1.0" },
   });
 
   if (!res.ok) {

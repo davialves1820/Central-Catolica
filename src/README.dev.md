@@ -1,4 +1,4 @@
-# Central Católica - Guia do Desenvolvedor
+# Meu Canto Católico - Guia do Desenvolvedor
 
 Este é o sistema fullstack, construído com **Next.js**, **React 19**, **TypeScript** e **Tailwind CSS 4**.
 

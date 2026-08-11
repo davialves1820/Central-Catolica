@@ -6,7 +6,7 @@ import { RECURSOS } from "@/config/recursos";
 export const metadata: Metadata = {
   title: "Recursos",
   description:
-    "Ferramentas devocionais e páginas de referência da Central Católica: Rosário interativo, preparação para a Confissão, Catequese, Calendário litúrgico e Santoral.",
+    "Ferramentas devocionais e páginas de referência do Meu Canto Católico: Rosário interativo, preparação para a Confissão, Catequese, Calendário litúrgico e Santoral.",
 };
 
 export default function RecursosPage() {
@@ -21,7 +21,7 @@ export default function RecursosPage() {
           }}
         />
         <div className="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
-          <p className="font-label-sm mb-2 text-secondary">Central Católica</p>
+          <p className="font-label-sm mb-2 text-secondary">Meu Canto Católico</p>
           <h1 className="font-headline-xl text-primary mb-6">Recursos</h1>
           <p className="font-body-lg text-on-surface-variant max-w-xl mx-auto leading-relaxed">
             Ferramentas devocionais e páginas de referência para acompanhar a sua vida de fé no dia a dia.
