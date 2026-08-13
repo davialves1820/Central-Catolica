@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "fast-xml-parser": "^5.8.0",
     "framer-motion": "^12.36.0",
     "lucide-react": "^0.577.0",
