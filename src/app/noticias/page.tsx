@@ -5,13 +5,17 @@ import { NoticiasSkeleton } from "@/components/ui/skeletons";
 import { Metadata } from "next";
 import { Newspaper, Sparkles } from "lucide-react";
 import NoticiasInfiniteGrid from "@/components/noticias/NoticiasInfiniteGrid";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: "Notícias do Vaticano | Meu Canto Católico",
-  description: "As últimas notícias do Papa e da Igreja Católica direto do Vatican News.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Notícias do Vaticano",
+  description: "As últimas notícias do Papa Francisco e da Igreja Católica direto do Vatican News, atualizadas continuamente.",
+  path: "/noticias",
+  keywords: ["notícias do vaticano", "notícias católicas", "papa", "vatican news"],
+});
 
 async function NoticiasContent() {
   const noticias = await buscarNoticias(["vaticannews"], 20);
@@ -84,6 +88,7 @@ export default function NoticiasPage() {
             }}
           />
           <div className="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+            <Breadcrumb items={[{ label: "Notícias" }]} className="mb-6 justify-center" />
             <h1 className="font-headline-xl text-primary mb-6">Notícias do Vaticano</h1>
             <p className="font-body-lg text-on-surface-variant max-w-xl mx-auto leading-relaxed">
               Mensagens do Papa, acontecimentos da Igreja e notícias da Santa Sé para alimentar sua fé e conhecimento.

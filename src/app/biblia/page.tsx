@@ -4,11 +4,15 @@ import { Metadata } from "next";
 import { Suspense } from "react";
 import { BibleSearchBar } from "@/components/biblia/BibleSearchBar";
 import { BooksGrid } from "@/components/biblia/BooksGrid";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Bíblia Sagrada - REVELATIO",
-  description: "Leia a Bíblia Sagrada na tradução Ave Maria, acompanhe seu progresso e pesquise versículos.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Bíblia Sagrada",
+  description: "Leia a Bíblia Sagrada completa na tradução Ave Maria, acompanhe seu progresso de leitura e pesquise versículos por palavra ou referência.",
+  path: "/biblia",
+  keywords: ["bíblia sagrada", "bíblia católica", "bíblia ave maria", "ler a bíblia online"],
+});
 
 export const revalidate = 86400;
 
@@ -17,6 +21,7 @@ async function ConteudoBiblia() {
 
   return (
     <main className="max-w-[1400px] mx-auto px-6 lg:px-16 py-12 lg:py-20">
+      <Breadcrumb items={[{ label: "Bíblia" }]} className="mb-8" />
       {/* Hero & Search Section */}
       <section className="flex flex-col items-center text-center mb-24">
         <h1 className="font-headline-xl text-primary mb-6">

@@ -5,11 +5,15 @@ import { Metadata } from "next";
 import DateSelector from "../../components/liturgia/DateSelector";
 import { Suspense } from "react";
 import { type PropsPaginaLiturgia } from "@/types/liturgia";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Liturgia Diária",
-  description: "Acompanhe a liturgia diária da Igreja Católica.",
-};
+  description: "Acompanhe a liturgia diária da Igreja Católica: leituras, salmo responsorial e Evangelho do dia, com calendário para consultar outras datas.",
+  path: "/liturgia",
+  keywords: ["liturgia diária", "liturgia diária católica", "evangelho de hoje", "leituras do dia"],
+});
 
 export const revalidate = 3600;
 
@@ -46,6 +50,9 @@ export default async function LiturgiaPage({ searchParams }: PropsPaginaLiturgia
   return (
     <div className="flex flex-col bg-background min-h-screen">
       <main className="flex-1">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-6">
+          <Breadcrumb items={[{ label: "Liturgia Diária" }]} />
+        </div>
         <DateSelector
           dataInicial={dateForSelector}
           parametrosAtuais={{ dia, mes, ano }}

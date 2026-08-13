@@ -2,6 +2,9 @@ import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 import React, { useMemo } from 'react';
 import { ChevronLeft } from 'lucide-react';
+import { Breadcrumb, type BreadcrumbItem } from '@/components/shared/Breadcrumb';
+import { JsonLd } from '@/components/shared/JsonLd';
+import { siteConfig, absoluteUrl } from '@/config/site';
 
 // Extract text from React node to generate IDs
 const extractText = (children: React.ReactNode): string => {
@@ -23,7 +26,17 @@ const generateId = (text: string) => {
     .replace(/(^-|-$)/g, '');
 };
 
-export function MarkdownPage({ content, title, backHref, backLabel }: { content: string, title: string, backHref: string, backLabel: string }) {
+interface MarkdownPageProps {
+  content: string;
+  title: string;
+  backHref: string;
+  backLabel: string;
+  description?: string;
+  path?: string;
+  breadcrumbItems?: BreadcrumbItem[];
+}
+
+export function MarkdownPage({ content, title, backHref, backLabel, description, path, breadcrumbItems }: MarkdownPageProps) {
   // Extract headings for Table of Contents
   const toc = useMemo(() => {
     const headings: { level: number; text: string; id: string }[] = [];
@@ -42,10 +55,28 @@ export function MarkdownPage({ content, title, backHref, backLabel }: { content:
     return headings;
   }, [content]);
 
+  const articleJsonLd = path
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description: description ?? content.slice(0, 200),
+        author: { "@type": "Organization", name: siteConfig.name },
+        publisher: {
+          "@type": "Organization",
+          name: siteConfig.name,
+          logo: { "@type": "ImageObject", url: absoluteUrl("/images/icon-512.png") },
+        },
+        mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(path) },
+      }
+    : null;
+
   return (
     <div className="bg-[#fbf9f4] text-[#1b1c19] min-h-screen">
+      {articleJsonLd && <JsonLd data={articleJsonLd} />}
       <div className="w-full bg-[#f5f3ee] border-b border-[#d0c4be]/20 pt-8 pb-12">
         <div className="max-w-container-max mx-auto px-margin-desktop w-full">
+          {breadcrumbItems && <Breadcrumb items={breadcrumbItems} className="mb-6" />}
           <Link
             href={backHref}
             className="inline-flex items-center gap-2 font-label-sm text-on-surface-variant hover:text-primary transition-colors mb-6 group"
@@ -122,16 +153,18 @@ export function MarkdownPage({ content, title, backHref, backLabel }: { content:
             ">
               <ReactMarkdown
                 components={{
+                  // Demovido para h2: o h1 da página já é exibido no cabeçalho (título curto),
+                  // evitar dois <h1> mantém a hierarquia de headings correta para SEO/acessibilidade.
                   h1: ({ children, ...props }) => (
-                    <h1 className="font-headline-xl text-4xl text-center mb-12 text-[#000000]" {...props}>{children}</h1>
+                    <h2 className="font-headline-xl text-4xl text-center mb-12 text-[#000000]" {...props}>{children}</h2>
                   ),
                   h2: ({ children, ...props }) => {
                     const text = extractText(children);
-                    return <h2 id={generateId(text)} className="font-headline-lg text-3xl mt-16 mb-6 border-b border-[#d0c4be]/30 pb-4 text-[#000000] scroll-mt-[100px]" {...props}>{children}</h2>;
+                    return <h3 id={generateId(text)} className="font-headline-lg text-3xl mt-16 mb-6 border-b border-[#d0c4be]/30 pb-4 text-[#000000] scroll-mt-[100px]" {...props}>{children}</h3>;
                   },
                   h3: ({ children, ...props }) => {
                     const text = extractText(children);
-                    return <h3 id={generateId(text)} className="font-headline-md text-2xl text-[#755b00] mt-10 scroll-mt-[100px]" {...props}>{children}</h3>;
+                    return <h4 id={generateId(text)} className="font-headline-md text-2xl text-[#755b00] mt-10 scroll-mt-[100px]" {...props}>{children}</h4>;
                   },
                   a: ({ children, ...props }) => {
                     const isExternal = (props.href && (props.href.startsWith('http') || props.href.startsWith('//')));

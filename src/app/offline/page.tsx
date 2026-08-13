@@ -36,7 +36,7 @@ export default function OfflinePage() {
             </div>
 
             <p className="mt-16 text-xs text-muted-foreground/40 font-heading tracking-widest uppercase">
-                Paróquia Menino Jesus de Praga
+                Meu Canto Católico
             </p>
         </div>
     );

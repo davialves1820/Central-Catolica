@@ -3,6 +3,7 @@ import path from "path";
 import { MarkdownPage } from "@/components/catequese/MarkdownPage";
 import { notFound } from "next/navigation";
 import { obterTituloPorSlug, CATEQUESE } from "@/config/catequese";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
 export async function generateStaticParams() {
   const secao = CATEQUESE.find((s) => s.id === "periodos");
@@ -12,7 +13,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const title = obterTituloPorSlug(slug);
-  return { title: `${title} | Períodos Litúrgicos` };
+  return pageMetadata({
+    title: `${title} | Períodos Litúrgicos`,
+    description: `Saiba o que é o período litúrgico de ${title} e como vivê-lo na fé católica.`,
+    path: `/catequese/periodos/${slug}`,
+    type: "article",
+    keywords: [title, "períodos litúrgicos", "catequese católica"],
+  });
 }
 
 export default async function PeriodoPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -34,6 +41,9 @@ export default async function PeriodoPage({ params }: { params: Promise<{ slug: 
       title={title}
       backHref="/catequese"
       backLabel="Voltar para Catequese"
+      description={`Saiba o que é o período litúrgico de ${title} e como vivê-lo na fé católica.`}
+      path={`/catequese/periodos/${slug}`}
+      breadcrumbItems={[{ label: "Catequese", href: "/catequese" }, { label: title }]}
     />
   );
 }

@@ -8,14 +8,18 @@ import AlfabetoSantos from "@/components/santos/SantosAlfabeto";
 import { Metadata } from "next";
 import { CalendarDays, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { PropsPaginaSantos, PropsPaginacao } from "@/types/santos";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
 export const revalidate = 86400;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Santoral e Hagiografia",
   description:
-    "Explore a vida daqueles que nos precederam na fé através dos séculos, biografias, datas de festa e padroeiros.",
-};
+    "Explore a vida dos Santos Católicos através dos séculos: biografias, datas de festa, padroeiros e curiosidades do Santoral da Igreja.",
+  path: "/santos",
+  keywords: ["santoral", "santos católicos", "hagiografia", "santo do dia", "vida dos santos"],
+});
 
 function GridSkeleton() {
   return (
@@ -89,8 +93,9 @@ export default async function PaginaSantos({ searchParams }: PropsPaginaSantos) 
 
   return (
     <div className="max-w-4xl mx-auto px-margin-mobile md:px-6 py-12 md:py-24">
+      <Breadcrumb items={[{ label: "Santoral" }]} className="mb-8" />
       <section className="text-center mb-16">
-        <h2 className="font-headline-xl text-headline-xl text-primary mb-4">Santoral e Hagiografia</h2>
+        <h1 className="font-headline-xl text-headline-xl text-primary mb-4">Santoral e Hagiografia</h1>
         <p className="text-on-surface-variant max-w-2xl mx-auto font-body-md">
           Explore a vida daqueles que nos precederam na fé através dos séculos, biografias, datas de festa e padroeiros.
         </p>
