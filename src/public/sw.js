@@ -1,8 +1,8 @@
 // sw.js — Service Worker for Paróquia MJP PWA
 // Estratégia: Cache First para assets estáticos, Network First para páginas
 
-const CACHE_NAME = "mjp-paroquia-v1";
-const STATIC_CACHE = "mjp-static-v1";
+const CACHE_NAME = "mjp-paroquia-v3";
+const STATIC_CACHE = "mjp-static-v3";
 
 // Assets que sempre queremos em cache
 const PRECACHE_URLS = [
@@ -10,9 +10,15 @@ const PRECACHE_URLS = [
     "/liturgia",
     "/biblia",
     "/calendario",
+    "/rosario",
+    "/oracoes",
+    "/santos",
+    "/confissao",
+    "/catequese",
+    "/recursos",
     "/offline",
-    "/images/menino-jesus-logo.png",
-    "/images/church.jpg",
+    "/images/icon-192.png",
+    "/images/icon-512.png",
 ];
 
 // ── Install ────────────────────────────────────────────────────
