@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, EB_Garamond, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { PWARegister } from "@/components/shared/PWARegister";
 import Header from "@/components/shared/Header";
@@ -69,6 +70,7 @@ export default function RootLayout({
         </main>
         <PWARegister />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
