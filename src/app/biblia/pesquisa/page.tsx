@@ -6,6 +6,7 @@ import { Search, ChevronRight, Loader2, ArrowLeft, BookOpen, X, AlertCircle, Boo
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { parsearReferencia, urlDaReferencia } from "@/lib/server/utils/parsearReferencia";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
 
 interface ResultadoBusca { book: string; chapter: number; verse: number; text: string; }
 
@@ -94,6 +95,7 @@ export default function PaginaBuscaBiblia() {
     <div className="min-h-screen bg-background">
       <div className="border-b border-border/40 bg-card/30 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto px-6 py-12 md:py-20">
+          <Breadcrumb items={[{ label: "Bíblia", href: "/biblia" }, { label: "Pesquisar" }]} className="mb-6" />
           <Link
             href="/biblia"
             className="inline-flex items-center gap-2 text-[10px] font-body font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors mb-8 group"

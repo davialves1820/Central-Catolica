@@ -3,6 +3,7 @@ import path from "path";
 import { MarkdownPage } from "@/components/catequese/MarkdownPage";
 import { notFound } from "next/navigation";
 import { obterTituloPorSlug, CATEQUESE } from "@/config/catequese";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
 export async function generateStaticParams() {
   const secao = CATEQUESE.find((s) => s.id === "festas");
@@ -12,7 +13,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const title = obterTituloPorSlug(slug);
-  return { title: `${title} | Festas Litúrgicas` };
+  return pageMetadata({
+    title: `${title} | Festas Litúrgicas`,
+    description: `Entenda o significado litúrgico e espiritual de ${title} na tradição da Igreja Católica.`,
+    path: `/catequese/festas/${slug}`,
+    type: "article",
+    keywords: [title, "festas litúrgicas", "catequese católica"],
+  });
 }
 
 export default async function FestaPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -34,6 +41,9 @@ export default async function FestaPage({ params }: { params: Promise<{ slug: st
       title={title}
       backHref="/catequese"
       backLabel="Voltar para Catequese"
+      description={`Entenda o significado litúrgico e espiritual de ${title} na tradição da Igreja Católica.`}
+      path={`/catequese/festas/${slug}`}
+      breadcrumbItems={[{ label: "Catequese", href: "/catequese" }, { label: title }]}
     />
   );
 }

@@ -3,6 +3,7 @@ import path from "path";
 import { MarkdownPage } from "@/components/catequese/MarkdownPage";
 import { notFound } from "next/navigation";
 import { obterTituloPorSlug, CATEQUESE } from "@/config/catequese";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
 export async function generateStaticParams() {
   const secao = CATEQUESE.find((s) => s.id === "sacramentos");
@@ -12,7 +13,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const title = obterTituloPorSlug(slug);
-  return { title: `${title} | Sacramentos` };
+  return pageMetadata({
+    title: `${title} | Sacramentos`,
+    description: `Conheça o sacramento de ${title}: significado, história e vivência na Igreja Católica.`,
+    path: `/catequese/sacramentos/${slug}`,
+    type: "article",
+    keywords: [title, "sacramentos", "catequese católica"],
+  });
 }
 
 export default async function SacramentoPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -34,6 +41,9 @@ export default async function SacramentoPage({ params }: { params: Promise<{ slu
       title={title}
       backHref="/catequese"
       backLabel="Voltar para Catequese"
+      description={`Conheça o sacramento de ${title}: significado, história e vivência na Igreja Católica.`}
+      path={`/catequese/sacramentos/${slug}`}
+      breadcrumbItems={[{ label: "Catequese", href: "/catequese" }, { label: title }]}
     />
   );
 }

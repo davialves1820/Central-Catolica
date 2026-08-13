@@ -7,9 +7,9 @@ export default function CabecalhoCapitulo({ t, nomeLivro, numeroCapitulo }: Prop
       <p className="font-body text-[10px] font-bold uppercase tracking-[0.4em] mb-4 text-primary opacity-80">
         {nomeLivro}
       </p>
-      <h2 className={`font-heading text-5xl lg:text-7xl font-medium ${t.texto}`}>
-        Capítulo {numeroCapitulo}
-      </h2>
+      <h1 className={`font-heading text-5xl lg:text-7xl font-medium ${t.texto}`}>
+        {nomeLivro}, Capítulo {numeroCapitulo}
+      </h1>
       <div className="sacred-divider" aria-hidden="true">
         <Sparkles size={16} />
       </div>

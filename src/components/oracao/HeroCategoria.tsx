@@ -21,7 +21,7 @@ export default function HeroCategoria({ nomeCat, config, quantidadeOracoes }: Pr
                 Livro de Orações
             </Link>
 
-            <h2 className="font-headline-xl text-primary mb-6">{nomeCat}</h2>
+            <h1 className="font-headline-xl text-primary mb-6">{nomeCat}</h1>
             
             <div className="flex items-center justify-center gap-6 mb-8">
                 <div className="h-[1px] w-16 bg-secondary/20"></div>

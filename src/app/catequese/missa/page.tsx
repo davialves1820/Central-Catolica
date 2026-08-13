@@ -1,11 +1,17 @@
 import fs from 'fs';
 import path from 'path';
 import { MarkdownPage } from '@/components/catequese/MarkdownPage';
+import { pageMetadata } from '@/lib/shared/pageMetadata';
 
-export const metadata = {
+const DESCRICAO = 'O sacrifício eucarístico, fonte e ápice de toda a vida cristã: entenda cada parte da Santa Missa.';
+
+export const metadata = pageMetadata({
   title: 'Santa Missa | Catequese',
-  description: 'O sacrifício eucarístico, fonte e ápice de toda a vida cristã e espiritualidade.',
-};
+  description: DESCRICAO,
+  path: '/catequese/missa',
+  type: 'article',
+  keywords: ['santa missa', 'partes da missa', 'catequese católica'],
+});
 
 export default async function MissaPage() {
   const filePath = path.join(process.cwd(), 'data/conteudo', 'missa.md');
@@ -23,6 +29,9 @@ export default async function MissaPage() {
       title="Santa Missa"
       backHref="/catequese"
       backLabel="Voltar para Catequese"
+      description={DESCRICAO}
+      path="/catequese/missa"
+      breadcrumbItems={[{ label: "Catequese", href: "/catequese" }, { label: "Santa Missa" }]}
     />
   );
 }

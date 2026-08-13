@@ -6,6 +6,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { PWARegister } from "@/components/shared/PWARegister";
 import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { siteConfig, absoluteUrl } from "@/config/site";
 
 
 const geistSans = Geist({
@@ -29,17 +32,58 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Meu Canto Católico",
-    template: "%s | Meu Canto Católico",
+    default: `${siteConfig.name} — Liturgia Diária, Bíblia, Santos e Orações`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Bíblia Sagrada, Liturgia Diária, Calendário Litúrgico e muito mais.",
-  manifest: "/manifest.json",
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  applicationName: siteConfig.name,
+  category: "religion",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} — Liturgia Diária, Bíblia, Santos e Orações`,
+    description: siteConfig.description,
+    images: [
+      {
+        url: absoluteUrl("/opengraph-image"),
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — Liturgia Diária, Bíblia, Santos e Orações`,
+    description: siteConfig.description,
+    images: [absoluteUrl("/opengraph-image")],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Meu Canto Católico",
+    title: siteConfig.name,
   },
   icons: {
     icon: [
@@ -48,6 +92,35 @@ export const metadata: Metadata = {
       { url: "/images/favicon-48.png", sizes: "48x48", type: "image/png" },
     ],
     apple: "/images/icon-180.png",
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  alternateName: "Meu Canto Catolico",
+  url: siteConfig.url,
+  logo: absoluteUrl("/images/icon-512.png"),
+  description: siteConfig.description,
+  sameAs: [],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  alternateName: "Meu Canto Catolico",
+  url: siteConfig.url,
+  inLanguage: "pt-BR",
+  description: siteConfig.description,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${siteConfig.url}/santos?busca={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 
@@ -64,10 +137,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${geistSans.variable} ${geistMono.variable} ${ebGaramond.variable} ${montserrat.variable} antialiased bg-[#fbf9f4] text-[#1b1c19] min-h-screen flex flex-col`}>
+        <JsonLd data={organizationJsonLd} />
+        <JsonLd data={websiteJsonLd} />
         <Header />
         <main className="flex-1">
           {children}
         </main>
+        <Footer />
         <PWARegister />
         <Analytics />
         <SpeedInsights />

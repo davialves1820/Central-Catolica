@@ -3,14 +3,18 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { getCalendarioSantos } from "@/lib/server/services/calendarioSantos";
 import CalendarioSantosView from "@/components/santos/calendario/CalendarioSantosView";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
 export const revalidate = 86400;
 
-export const metadata: Metadata = {
-  title: "Calendário dos Santos | Santoral",
+export const metadata: Metadata = pageMetadata({
+  title: "Calendário dos Santos",
   description:
-    "Descubra qual santo a Igreja celebra em cada dia do ano. Navegue pelos meses ou pesquise uma data diretamente.",
-};
+    "Descubra qual santo a Igreja celebra em cada dia do ano. Navegue pelos meses ou pesquise uma data diretamente no Santoral.",
+  path: "/santos/calendario",
+  keywords: ["calendário dos santos", "santo do dia", "santoral"],
+});
 
 export default async function CalendarioSantosPage() {
   const calendario = await getCalendarioSantos();
@@ -21,6 +25,7 @@ export default async function CalendarioSantosPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-margin-mobile md:px-6 py-12 md:py-24">
+      <Breadcrumb items={[{ label: "Santoral", href: "/santos" }, { label: "Calendário dos Santos" }]} className="mb-6" />
       <Link
         href="/santos"
         className="inline-flex items-center gap-2 font-label-sm text-on-surface-variant hover:text-primary transition-colors mb-8 group"

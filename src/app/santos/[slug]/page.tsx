@@ -6,6 +6,10 @@ import { Metadata } from "next";
 import { ChevronLeft, Calendar, Crown, Star, Cross, Sparkles } from "lucide-react";
 import LinkExternoSanto from "@/components/santos/LinkExternoSanto";
 import { PropsPaginaDetalheSanto } from "@/types/santos";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
+import { siteConfig, absoluteUrl } from "@/config/site";
 
 export const revalidate = 86400;
 
@@ -18,10 +22,20 @@ export async function generateMetadata({ params }: PropsPaginaDetalheSanto): Pro
   const { slug } = await params;
   const santo = await getSantoPorSlug(slug);
   if (!santo) return { title: "Santo não encontrado" };
-  return {
-    title: `${santo.nome} | Santoral`,
-    description: santo.resumo?.slice(0, 160),
-  };
+
+  const descricao =
+    santo.resumo?.slice(0, 155).trim() ??
+    `Conheça a vida, a data de festa e a hagiografia de ${santo.nome}.`;
+
+  return pageMetadata({
+    title: santo.nome,
+    description: descricao,
+    path: `/santos/${santo.slug}`,
+    image: santo.imagem_url || undefined,
+    imageAlt: `Imagem de ${santo.nome}`,
+    type: "article",
+    keywords: [santo.nome, "santoral", santo.tipo, santo.padroeiro_de].filter(Boolean),
+  });
 }
 
 const ICONE_CAMPO: Record<string, React.ReactNode> = {
@@ -45,8 +59,25 @@ export default async function PaginaDetalheSanto({ params }: PropsPaginaDetalheS
     { label: "Canonizado por", valor: santo.canonizado_por },
   ].filter((c) => c.valor);
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: santo.nome,
+    description: santo.resumo?.slice(0, 300),
+    image: santo.imagem_url ? [santo.imagem_url] : undefined,
+    author: { "@type": "Organization", name: siteConfig.name },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: { "@type": "ImageObject", url: absoluteUrl("/images/icon-512.png") },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(`/santos/${santo.slug}`) },
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-margin-mobile md:px-6 py-12 md:py-24">
+      <JsonLd data={articleJsonLd} />
+      <Breadcrumb items={[{ label: "Santoral", href: "/santos" }, { label: santo.nome }]} className="mb-8" />
       <Link
         href="/santos"
         className="inline-flex items-center gap-2 font-label-sm text-on-surface-variant hover:text-primary transition-colors mb-12 group"

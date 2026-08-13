@@ -5,14 +5,18 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { Suspense } from "react";
 import { type PropsPaginaCapitulo } from "@/types/biblia";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
 export async function generateMetadata({ params }: PropsPaginaCapitulo): Promise<Metadata> {
   const { book: bookSlug, chapter: chapterStr } = await params;
   const bookName = decodeURIComponent(bookSlug);
-  return {
-    title: `${bookName}, Capítulo ${chapterStr} | Bíblia Sagrada`,
-    description: `Leia o capítulo ${chapterStr} do livro de ${bookName} na tradução Ave Maria.`,
-  };
+  return pageMetadata({
+    title: `${bookName} ${chapterStr} | Bíblia Sagrada`,
+    description: `Leia o capítulo ${chapterStr} do livro de ${bookName} na tradução Ave Maria, com navegação por versículos.`,
+    path: `/biblia/${encodeURIComponent(bookName)}/${chapterStr}`,
+    keywords: [bookName, `${bookName} ${chapterStr}`, "bíblia sagrada", "bíblia ave maria"],
+  });
 }
 
 async function ConteudoCapitulo({ bookSlug, chapterStr, highlightVerse, }: { bookSlug: string; chapterStr: string; highlightVerse?: number }) {
@@ -45,6 +49,13 @@ export default async function PaginaCapitulo({ params, searchParams }: PropsPagi
 
   return (
     <div className="space-y-6">
+      <Breadcrumb
+        items={[
+          { label: "Bíblia", href: "/biblia" },
+          { label: decodeURIComponent(bookSlug), href: `/biblia/${bookSlug}/1` },
+          { label: `Capítulo ${chapterStr}` },
+        ]}
+      />
       <Suspense fallback={<BibleChapterSkeleton />}>
         <ConteudoCapitulo
           bookSlug={bookSlug}

@@ -3,11 +3,15 @@ import CalendarioView from "@/components/calendario/CalendarioView";
 import { type EntradaDiaJson, type DadosDiaLiturgico } from "@/types/calendario";
 import { getCalendarioLiturgico } from "@/lib/server/services/calendarioLiturgico";
 import { Metadata } from "next";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
+import { pageMetadata } from "@/lib/shared/pageMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Calendário Litúrgico",
-  description: "Acompanhe o calendário litúrgico da Igreja Católica",
-};
+  description: "Acompanhe o calendário litúrgico da Igreja Católica: tempos, festas, solenidades e cores litúrgicas de cada dia do ano.",
+  path: "/calendario",
+  keywords: ["calendário litúrgico", "tempo litúrgico", "cores litúrgicas", "ano litúrgico"],
+});
 
 function mapearEntrada(entries: EntradaDiaJson[]): DadosDiaLiturgico[] {
   return entries.map((entry) => ({
@@ -32,6 +36,10 @@ export default async function CalendarioPage() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <h1 className="sr-only">Calendário Litúrgico</h1>
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-6">
+        <Breadcrumb items={[{ label: "Calendário Litúrgico" }]} />
+      </div>
       <CalendarioView calendarioInicial={resultado} />
     </div>
   );

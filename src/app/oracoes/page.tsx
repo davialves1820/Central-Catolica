@@ -6,6 +6,7 @@ import oracoesData from "@/data/oracoes.json";
 import { CONFIG_CAT, Oracao } from "@/types/oracao";
 import OracoesHero from "@/components/oracao/OracoesHero";
 import OracoesSidebar from "@/components/oracao/OracoesSidebar";
+import { Breadcrumb } from "@/components/shared/Breadcrumb";
 
 const data = oracoesData as { total: number; oracoes: Oracao[] };
 
@@ -30,6 +31,7 @@ export default function OracoesPage() {
     return (
         <div className="min-h-screen bg-background flex flex-col">
             <main className="flex-1 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-16">
+                <Breadcrumb items={[{ label: "Orações" }]} className="mb-8" />
                 <OracoesHero />
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
