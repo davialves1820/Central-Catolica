@@ -181,6 +181,19 @@ export function MarkdownPage({ content, title, backHref, backLabel, description,
                 {content}
               </ReactMarkdown>
             </article>
+
+            <p className="mt-16 pt-8 border-t border-[#d0c4be]/30 text-sm text-[#736a65]">
+              Conteúdo baseado em material da{" "}
+              <a
+                href="https://bibliotecacatolica.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#755b00] underline font-semibold hover:no-underline transition-colors"
+              >
+                Biblioteca Católica
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>
