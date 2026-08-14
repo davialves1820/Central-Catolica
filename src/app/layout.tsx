@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { PWARegister } from "@/components/shared/PWARegister";
+import { InstallAppBanner } from "@/components/shared/InstallAppBanner";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import { JsonLd } from "@/components/shared/JsonLd";
@@ -145,6 +146,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <PWARegister />
+        <InstallAppBanner />
         <Analytics />
         <SpeedInsights />
       </body>
