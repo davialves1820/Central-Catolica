@@ -7,7 +7,7 @@ export const siteConfig = {
   shortName: "Meu Canto Católico",
   url: "https://www.meucantocatolico.com.br",
   description:
-    "Portal católico com Liturgia Diária, Bíblia, Santos, Orações, Novenas, Calendário Litúrgico e conteúdos da Igreja Católica.",
+    "Portal católico com Liturgia Diária, Bíblia, Santos, Orações, Calendário Litúrgico e conteúdos da Igreja Católica.",
   locale: "pt_BR",
   themeColor: "#c9a84c",
   backgroundColor: "#fbf9f4",
@@ -20,7 +20,6 @@ export const siteConfig = {
     "santo do dia",
     "santoral católico",
     "orações católicas",
-    "novenas",
     "calendário litúrgico",
     "catequese católica",
     "igreja católica",

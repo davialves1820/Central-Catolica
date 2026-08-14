@@ -40,7 +40,7 @@ export default async function Home() {
           <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(180deg, rgba(251, 249, 244, 0) 0%, rgba(251, 249, 244, 1) 100%)" }}></div>
           <div className="relative z-20 text-center max-w-4xl px-4">
             <h1 className="sr-only">
-              Meu Canto Católico — Liturgia Diária, Bíblia, Santos, Orações e Novenas
+              Meu Canto Católico — Liturgia Diária, Bíblia, Santos e Orações
             </h1>
             <span className="text-[12px] font-semibold text-[#755b00] uppercase tracking-[0.4em] mb-8 block">Sacer Quotidianus</span>
             <h2 className="font-heading text-4xl md:text-6xl text-primary mb-10 italic leading-tight">&quot;A caridade é o centro que une todas as virtudes.&quot;</h2>

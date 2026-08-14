@@ -1,7 +1,7 @@
 import { siteConfig } from "@/config/site";
 
 /** Elemento JSX compartilhado pelos geradores nativos de opengraph-image e twitter-image. */
-export function brandOgImageElement(subtitle = "Liturgia Diária, Bíblia, Santos, Orações e Novenas") {
+export function brandOgImageElement(subtitle = "Liturgia Diária, Bíblia, Santos e Orações") {
   return (
     <div
       style={{
