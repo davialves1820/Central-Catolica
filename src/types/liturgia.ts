@@ -49,3 +49,20 @@ export interface PropsSeletorData {
 export interface PropsPaginaLiturgia {
   searchParams: Promise<{ dia?: string; mes?: string; ano?: string }>;
 }
+
+export interface EcoPatristicoItem {
+  autor: string;
+  obraReferencia?: string;
+  citacaoOuResumo: string;
+}
+
+export interface LiturgiaInsights {
+  contextoHistoricoCultural: string;
+  conexoesTeologicas: string;
+  ecoPatristico: EcoPatristicoItem[];
+  aplicacaoPratica: string[];
+}
+
+export interface PropsInsightsLiturgicos {
+  insights: LiturgiaInsights | null;
+}

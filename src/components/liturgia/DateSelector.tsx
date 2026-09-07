@@ -52,7 +52,7 @@ export default function DateSelector({ parametrosAtuais }: PropsSeletorData) {
   });
 
   return (
-    <div className="border-b border-border/40 bg-card/30 backdrop-blur-md sticky top-0 z-50">
+    <div className="border-b border-border/40 bg-card/60 backdrop-blur-md">
       <div className="max-w-[1400px] mx-auto px-6 py-4">
         <div className="flex items-center justify-between gap-4">
 

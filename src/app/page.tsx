@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getLiturgiaDiaria } from "@/lib/server/services/liturgia";
+import { getLiturgiaInsights } from "@/lib/server/services/liturgiaInsights";
 import { buscarNoticias } from "@/lib/server/services/noticias";
 import NoticiaCard from "@/components/noticias/NoticiaCard";
 import SantoDoDia from "@/components/santos/SantoDoDia";
@@ -21,6 +22,8 @@ export default async function Home() {
     getLiturgiaDiaria(day.toString(), monthNumeric, year),
     buscarNoticias(["vaticannews"], 3)
   ]);
+
+  const insights = liturgia ? await getLiturgiaInsights(liturgia) : null;
 
   return (
     <div className="selection:bg-[#fed977]">
@@ -95,9 +98,21 @@ export default async function Home() {
                 <p className="font-sans text-[20px] text-[#4d4540] italic mb-10 leading-relaxed max-w-2xl mx-auto">
                   &quot;{liturgia.evangelho.texto}&quot;
                 </p>
-                <Link href="/liturgia" className="inline-block bg-[#000000] text-[#ffffff] px-12 py-4 text-[14px] font-bold uppercase tracking-[0.2em] hover:bg-primary transition-all active:scale-95 shadow-lg">
-                  Ler Liturgia Completa
-                </Link>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                  <Link href="/liturgia" className="inline-block bg-[#000000] text-[#ffffff] px-12 py-4 text-[14px] font-bold uppercase tracking-[0.2em] hover:bg-primary transition-all active:scale-95 shadow-lg">
+                    Ler Liturgia Completa
+                  </Link>
+
+                  {insights && (
+                    <Link
+                      href="/liturgia#exegese-meditacao"
+                      className="inline-flex items-center gap-2 border border-primary/40 text-primary px-12 py-4 text-[14px] font-bold uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all active:scale-95"
+                    >
+                      <Sparkles size={16} aria-hidden="true" />
+                      Ver Exegese &amp; Meditação
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </section>
