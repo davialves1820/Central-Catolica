@@ -1,10 +1,11 @@
 "use client";
 
-import { LiturgiaDiaria } from "../../types/liturgia";
-import { BookOpen, Cross, Quote } from "lucide-react";
+import { LiturgiaDiaria, LiturgiaInsights } from "../../types/liturgia";
+import { BookOpen, Cross, Quote, Sparkles } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import ReadingSection from "./ReadingSection";
 import PsalmSection from "./PsalmSection";
+import LiturgiaInsightsCard from "./LiturgiaInsightsCard";
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -14,7 +15,7 @@ const sectionVariants: Variants = {
   }),
 };
 
-export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria }) {
+export default function LiturgiaView({ liturgia, insights }: { liturgia: LiturgiaDiaria; insights: LiturgiaInsights | null }) {
   return (
     <div className="relative min-h-screen">
       <AnimatePresence mode="wait">
@@ -41,6 +42,16 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
             </h1>
 
             <p className="font-body text-[10px] font-bold text-muted-foreground/60 uppercase tracking-[0.3em]">{liturgia.data}</p>
+
+            {insights && (
+              <a
+                href="#exegese-meditacao"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-primary/30 bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all"
+              >
+                <Sparkles size={14} aria-hidden="true" />
+                Ver Exegese &amp; Meditação
+              </a>
+            )}
           </motion.div>
 
           {/* Main grid */}
@@ -117,6 +128,12 @@ export default function LiturgiaView({ liturgia }: { liturgia: LiturgiaDiaria })
               </div>
             </motion.div>
           </div>
+
+          {insights && (
+            <motion.div custom={5} variants={sectionVariants} initial="hidden" animate="visible">
+              <LiturgiaInsightsCard insights={insights} />
+            </motion.div>
+          )}
         </motion.div>
       </AnimatePresence>
     </div>

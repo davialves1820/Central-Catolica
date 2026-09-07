@@ -1,4 +1,5 @@
 import { getLiturgiaDiaria } from "../../lib/server/services/liturgia";
+import { getLiturgiaInsights } from "../../lib/server/services/liturgiaInsights";
 import LiturgiaView from "../../components/liturgia/LiturgiaView";
 import { LiturgiaSkeleton } from "@/components/ui/skeletons";
 import { Metadata } from "next";
@@ -37,7 +38,9 @@ async function LiturgiaContent({ dia, mes, ano }: { dia?: string; mes?: string; 
     );
   }
 
-  return <LiturgiaView liturgia={liturgia} />;
+  const insights = await getLiturgiaInsights(liturgia);
+
+  return <LiturgiaView liturgia={liturgia} insights={insights} />;
 }
 
 export default async function LiturgiaPage({ searchParams }: PropsPaginaLiturgia) {
